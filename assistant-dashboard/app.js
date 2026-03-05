@@ -13,6 +13,24 @@ const weeklyKpi = {
   revenueByDay: [1800, 2400, 2100, 2900, 3300, 4100, 5200]
 };
 
+const defaultWeeklyTargets = {
+  leads: 40,
+  qualified: 24,
+  inspections: 15,
+  offers: 9,
+  closed: 6,
+  revenue: 22000
+};
+
+const weeklyTargetRows = [
+  { key: "leads", label: "Leads", actual: () => weeklyKpi.leads },
+  { key: "qualified", label: "Qualified", actual: () => weeklyKpi.qualified },
+  { key: "inspections", label: "Inspections", actual: () => weeklyKpi.inspections },
+  { key: "offers", label: "Offers", actual: () => weeklyKpi.offers },
+  { key: "closed", label: "Closed Deals", actual: () => weeklyKpi.closed },
+  { key: "revenue", label: "Revenue", actual: () => weeklyKpi.revenueByDay.reduce((sum, value) => sum + value, 0), money: true }
+];
+
 const teamWorkflow = [
   { name: "Natalie", role: "Listings & Content", workflow: "Brief → Buyer page → Listing copy → CTA polish", kpi: "Inquiry-to-inspection target: 35%+" },
   { name: "Pierre", role: "Ops & CRM", workflow: "Intake → Route → Follow-up cadence → Stage hygiene", kpi: "Speed-to-lead < 10 min" },
@@ -65,7 +83,8 @@ const defaultData = {
     monthSpent: 0,
     todaySpent: 0,
     updatedAt: ""
-  }
+  },
+  weeklyTargets: clone(defaultWeeklyTargets)
 };
 
 const dom = {
@@ -78,6 +97,7 @@ const dom = {
   saveAiUsageBtn: document.getElementById("saveAiUsageBtn"),
   aiUsageSummary: document.getElementById("aiUsageSummary"),
   kpiScorecard: document.getElementById("kpiScorecard"),
+  targetsTable: document.getElementById("targetsTable"),
   revenueTrendChart: document.getElementById("revenueTrendChart"),
   board: document.getElementById("board"),
   updates: document.getElementById("updates"),
@@ -112,6 +132,9 @@ function load() {
     parsed.updates = Array.isArray(parsed.updates) ? parsed.updates : [];
     parsed.history = Array.isArray(parsed.history) ? parsed.history : [];
     parsed.aiUsage = parsed.aiUsage && typeof parsed.aiUsage === "object" ? parsed.aiUsage : clone(defaultData.aiUsage);
+    parsed.weeklyTargets = parsed.weeklyTargets && typeof parsed.weeklyTargets === "object"
+      ? { ...clone(defaultWeeklyTargets), ...parsed.weeklyTargets }
+      : clone(defaultWeeklyTargets);
     return parsed;
   } catch {
     return clone(defaultData);
@@ -337,6 +360,53 @@ function renderWeeklyKpi() {
     .join("");
 }
 
+function formatValue(value, money = false) {
+  const numeric = Number(value) || 0;
+  return money ? `$${numeric.toLocaleString()}` : numeric.toLocaleString();
+}
+
+function renderWeeklyTargets() {
+  const rows = weeklyTargetRows.map(row => {
+    const target = Number(data.weeklyTargets[row.key] || 0);
+    const actual = Number(row.actual());
+    const variance = actual - target;
+    const varianceClass = variance > 0 ? "positive" : variance < 0 ? "negative" : "neutral";
+    const varianceLabel = `${variance > 0 ? "+" : ""}${formatValue(variance, !!row.money)}`;
+
+    return `
+      <div class="target-row" data-key="${row.key}">
+        <strong>${row.label}</strong>
+        <input type="number" min="0" step="${row.money ? "100" : "1"}" value="${target}" data-target-input="${row.key}" />
+        <span>${formatValue(actual, !!row.money)}</span>
+        <span class="variance ${varianceClass}">${varianceLabel}</span>
+        <small class="variance-note">${variance >= 0 ? "Ahead of target" : "Behind target"} by ${formatValue(Math.abs(variance), !!row.money)}</small>
+      </div>
+    `;
+  }).join("");
+
+  dom.targetsTable.innerHTML = `
+    <div class="target-row header">
+      <span>Metric</span>
+      <span>Target</span>
+      <span>Actual</span>
+      <span>Variance</span>
+      <span>Status</span>
+    </div>
+    ${rows}
+  `;
+
+  dom.targetsTable.querySelectorAll("[data-target-input]").forEach(input => {
+    input.addEventListener("change", e => {
+      const key = e.target.getAttribute("data-target-input");
+      const value = Math.max(0, Number(e.target.value || 0));
+      data.weeklyTargets[key] = value;
+      addUpdate(`Weekly target updated: ${key} set to ${value}.`);
+      save();
+      renderWeeklyTargets();
+    });
+  });
+}
+
 function drawRevenueTrend() {
   const canvas = dom.revenueTrendChart;
   if (!canvas) return;
@@ -503,6 +573,10 @@ function importJson(file) {
       const parsed = JSON.parse(reader.result);
       if (!Array.isArray(parsed.tasks) || !Array.isArray(parsed.updates)) throw new Error("Invalid structure");
       parsed.history = Array.isArray(parsed.history) ? parsed.history : [];
+      parsed.aiUsage = parsed.aiUsage && typeof parsed.aiUsage === "object" ? parsed.aiUsage : clone(defaultData.aiUsage);
+      parsed.weeklyTargets = parsed.weeklyTargets && typeof parsed.weeklyTargets === "object"
+        ? { ...clone(defaultWeeklyTargets), ...parsed.weeklyTargets }
+        : clone(defaultWeeklyTargets);
       data = parsed;
       addUpdate("Imported dashboard data from JSON file.");
       save();
@@ -536,6 +610,7 @@ function render() {
   renderDeliverySummary();
   renderAiUsage();
   renderWeeklyKpi();
+  renderWeeklyTargets();
   renderBoard(filteredTasks);
   renderUpdates();
   drawRevenueTrend();
