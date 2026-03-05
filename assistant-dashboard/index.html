@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assistant Performance Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Live Workspace</p>
+        <h1>Assistant Performance Dashboard</h1>
+        <p class="muted">Track current tasks, completion rate, and latest updates.</p>
+      </div>
+      <div class="status">
+        <span class="dot"></span>
+        Active
+      </div>
+    </header>
+
+    <section class="cards" id="metrics"></section>
+
+    <section class="layout">
+      <article class="panel">
+        <div class="panel-head">
+          <h2>Task Board</h2>
+          <button id="addTaskBtn">+ Add Task</button>
+        </div>
+        <div class="columns" id="board"></div>
+      </article>
+
+      <article class="panel">
+        <div class="panel-head">
+          <h2>Updates</h2>
+          <button id="addUpdateBtn">+ Add Update</button>
+        </div>
+        <ul id="updates" class="updates"></ul>
+      </article>
+    </section>
+  </div>
+
+  <template id="taskTemplate">
+    <div class="task">
+      <h4></h4>
+      <p></p>
+      <div class="meta"></div>
+      <div class="actions">
+        <button class="move">Move</button>
+        <button class="delete danger">Delete</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
