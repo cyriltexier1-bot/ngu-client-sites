@@ -7,7 +7,7 @@ const defaultData = {
   tasks: [
     {
       id: crypto.randomUUID(),
-      title: "Luxury landing page for Mr & Ms PauleauZ",
+      title: "Luxury landing page for Mr & Ms Pauleau",
       details: "Built and delivered with all extracted property listings.",
       status: "done",
       priority: "high",
