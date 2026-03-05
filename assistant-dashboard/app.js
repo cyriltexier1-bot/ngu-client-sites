@@ -3,6 +3,16 @@ const STORAGE_KEY = "assistant_dashboard_v2";
 const statuses = ["todo", "doing", "done"];
 const labels = { todo: "To Do", doing: "In Progress", done: "Done" };
 
+const weeklyKpi = {
+  week: "Mar 1 - Mar 7",
+  leads: 36,
+  qualified: 22,
+  inspections: 14,
+  offers: 8,
+  closed: 5,
+  revenueByDay: [1800, 2400, 2100, 2900, 3300, 4100, 5200]
+};
+
 const defaultData = {
   tasks: [
     {
@@ -40,6 +50,8 @@ const defaultData = {
 
 const dom = {
   metrics: document.getElementById("metrics"),
+  kpiScorecard: document.getElementById("kpiScorecard"),
+  revenueTrendChart: document.getElementById("revenueTrendChart"),
   board: document.getElementById("board"),
   updates: document.getElementById("updates"),
   taskCounter: document.getElementById("taskCounter"),
@@ -235,6 +247,63 @@ function renderUpdates() {
   dom.updates.innerHTML = html || "<li><p>No updates yet.</p></li>";
 }
 
+function renderWeeklyKpi() {
+  const closeRate = weeklyKpi.offers ? Math.round((weeklyKpi.closed / weeklyKpi.offers) * 100) : 0;
+  const cards = [
+    ["Leads", weeklyKpi.leads, weeklyKpi.week],
+    ["Qualified", weeklyKpi.qualified, `${Math.round((weeklyKpi.qualified / weeklyKpi.leads) * 100)}% of leads`],
+    ["Inspections", weeklyKpi.inspections, `${Math.round((weeklyKpi.inspections / weeklyKpi.qualified) * 100)}% of qualified`],
+    ["Offers", weeklyKpi.offers, `${Math.round((weeklyKpi.offers / weeklyKpi.inspections) * 100)}% of inspections`],
+    ["Close Rate", `${closeRate}%`, `${weeklyKpi.closed} closed`],
+    ["Revenue", `$${weeklyKpi.revenueByDay.reduce((sum, value) => sum + value, 0).toLocaleString()}`, "7-day total"]
+  ];
+
+  dom.kpiScorecard.innerHTML = cards
+    .map(([name, value, sub]) => `<article class="kpi-item"><h3>${name}</h3><strong>${value}</strong><small>${sub}</small></article>`)
+    .join("");
+}
+
+function drawRevenueTrend() {
+  const canvas = dom.revenueTrendChart;
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const points = weeklyKpi.revenueByDay;
+  const width = canvas.clientWidth;
+  const height = canvas.height;
+  canvas.width = width;
+
+  ctx.clearRect(0, 0, width, height);
+  ctx.strokeStyle = "#2b3766";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(24, height - 20);
+  ctx.lineTo(width - 14, height - 20);
+  ctx.stroke();
+
+  const max = Math.max(1, ...points);
+  const stepX = (width - 48) / (points.length - 1);
+
+  const gradient = ctx.createLinearGradient(0, 0, 0, height);
+  gradient.addColorStop(0, "#70a8ff");
+  gradient.addColorStop(1, "#37d39d");
+
+  ctx.strokeStyle = gradient;
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  points.forEach((value, i) => {
+    const x = 24 + i * stepX;
+    const y = (height - 26) - ((height - 44) * (value / max));
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  ctx.fillStyle = "#aab6da";
+  ctx.font = "11px Inter";
+  ctx.fillText("Revenue trend (Mon-Sun)", 10, 14);
+  ctx.fillText(`Peak: $${max.toLocaleString()}`, width - 90, 14);
+}
+
 function drawTrend() {
   const canvas = dom.trendChart;
   if (!canvas) return;
@@ -388,12 +457,17 @@ function bind() {
 function render() {
   const filteredTasks = getFilteredTasks();
   renderMetrics(filteredTasks);
+  renderWeeklyKpi();
   renderBoard(filteredTasks);
   renderUpdates();
+  drawRevenueTrend();
   drawTrend();
 }
 
 let data = load();
 bind();
-window.addEventListener("resize", drawTrend);
+window.addEventListener("resize", () => {
+  drawRevenueTrend();
+  drawTrend();
+});
 render();

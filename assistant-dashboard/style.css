@@ -45,8 +45,38 @@ h1 { margin: .2rem 0 .4rem; font-size: clamp(1.6rem, 3vw, 2.3rem); }
 .card h3 { margin: 0; font-size: .82rem; color: var(--muted); }
 .card strong { display: block; margin-top: 6px; font-size: 1.3rem; }
 
+.kpi-panel { margin-bottom: 12px; }
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.kpi-item {
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+}
+.kpi-item h3 {
+  margin: 0;
+  font-size: .78rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.kpi-item strong {
+  margin-top: 4px;
+  display: block;
+  font-size: 1.2rem;
+}
+.kpi-item small {
+  color: var(--muted);
+  font-size: .74rem;
+}
+
 .trend-panel { margin-bottom: 12px; }
-#trendChart {
+#trendChart,
+#revenueTrendChart {
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -116,8 +146,8 @@ button.danger { background: var(--danger); color: #29090a; }
 
 @media (max-width: 1024px) {
   .layout { grid-template-columns: 1fr; }
-  .cards { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .cards, .kpi-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
 }
 @media (max-width: 760px) {
-  .columns, .cards { grid-template-columns: 1fr; }
+  .columns, .cards, .kpi-grid { grid-template-columns: 1fr; }
 }
