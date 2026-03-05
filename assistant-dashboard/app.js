@@ -34,7 +34,8 @@ const defaultData = {
       text: "Dashboard initialized and ready for live tracking.",
       at: new Date().toISOString()
     }
-  ]
+  ],
+  history: []
 };
 
 const dom = {
@@ -52,7 +53,8 @@ const dom = {
   clearDoneBtn: document.getElementById("clearDoneBtn"),
   exportBtn: document.getElementById("exportBtn"),
   importFile: document.getElementById("importFile"),
-  taskTemplate: document.getElementById("taskTemplate")
+  taskTemplate: document.getElementById("taskTemplate"),
+  trendChart: document.getElementById("trendChart")
 };
 
 function clone(obj) {
@@ -69,6 +71,7 @@ function load() {
     const parsed = JSON.parse(raw);
     parsed.tasks = Array.isArray(parsed.tasks) ? parsed.tasks : [];
     parsed.updates = Array.isArray(parsed.updates) ? parsed.updates : [];
+    parsed.history = Array.isArray(parsed.history) ? parsed.history : [];
     return parsed;
   } catch {
     return clone(defaultData);
@@ -86,6 +89,28 @@ function now() {
 function addUpdate(text) {
   data.updates.push({ id: crypto.randomUUID(), text, at: now() });
   if (data.updates.length > 200) data.updates = data.updates.slice(-200);
+}
+
+function logDoneToday() {
+  const date = new Date().toISOString().slice(0, 10);
+  const row = data.history.find(h => h.date === date);
+  if (row) row.done += 1;
+  else data.history.push({ date, done: 1 });
+}
+
+function getTrend7Days() {
+  const out = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    const key = d.toISOString().slice(0, 10);
+    const hit = data.history.find(h => h.date === key);
+    out.push({
+      label: key.slice(5),
+      value: hit ? hit.done : 0
+    });
+  }
+  return out;
 }
 
 function normalized(text) {
@@ -173,8 +198,10 @@ function renderBoard(filteredTasks) {
         node.querySelector(".meta").textContent = formatTaskMeta(task);
 
         node.querySelector(".move").addEventListener("click", () => {
+          const previous = task.status;
           task.status = nextStatus(task.status);
           task.updatedAt = now();
+          if (previous !== "done" && task.status === "done") logDoneToday();
           addUpdate(`Task moved to ${labels[task.status]}: ${task.title}`);
           save();
           render();
@@ -206,6 +233,52 @@ function renderUpdates() {
     .join("");
 
   dom.updates.innerHTML = html || "<li><p>No updates yet.</p></li>";
+}
+
+function drawTrend() {
+  const canvas = dom.trendChart;
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const points = getTrend7Days();
+  const width = canvas.clientWidth;
+  const height = canvas.height;
+  canvas.width = width;
+
+  ctx.clearRect(0, 0, width, height);
+  ctx.strokeStyle = "#2b3766";
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(32, height - 26);
+  ctx.lineTo(width - 14, height - 26);
+  ctx.stroke();
+
+  const max = Math.max(1, ...points.map(p => p.value));
+  const stepX = (width - 56) / 6;
+
+  ctx.strokeStyle = "#70a8ff";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  points.forEach((p, i) => {
+    const x = 32 + i * stepX;
+    const y = (height - 36) - ((height - 56) * (p.value / max));
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  points.forEach((p, i) => {
+    const x = 32 + i * stepX;
+    const y = (height - 36) - ((height - 56) * (p.value / max));
+    ctx.fillStyle = "#37d39d";
+    ctx.beginPath();
+    ctx.arc(x, y, 3, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.fillStyle = "#aab6da";
+    ctx.font = "11px Inter";
+    ctx.fillText(p.label, x - 12, height - 10);
+    ctx.fillText(String(p.value), x - 3, y - 8);
+  });
 }
 
 function promptTask(initial = {}) {
@@ -286,6 +359,7 @@ function importJson(file) {
     try {
       const parsed = JSON.parse(reader.result);
       if (!Array.isArray(parsed.tasks) || !Array.isArray(parsed.updates)) throw new Error("Invalid structure");
+      parsed.history = Array.isArray(parsed.history) ? parsed.history : [];
       data = parsed;
       addUpdate("Imported dashboard data from JSON file.");
       save();
@@ -316,8 +390,10 @@ function render() {
   renderMetrics(filteredTasks);
   renderBoard(filteredTasks);
   renderUpdates();
+  drawTrend();
 }
 
 let data = load();
 bind();
+window.addEventListener("resize", drawTrend);
 render();

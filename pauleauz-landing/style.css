@@ -137,6 +137,17 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.45rem); }
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 1rem;
+  transform: translateY(0);
+  transition: transform .2s ease, border-color .2s ease;
+}
+.card:hover { transform: translateY(-4px); border-color: rgba(201,168,106,.45); }
+.card img {
+  width: 100%;
+  height: 165px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: .7rem;
+  border: 1px solid var(--line);
 }
 .card.featured { border-color: rgba(201,168,106,.45); box-shadow: inset 0 0 0 1px rgba(201,168,106,.2); }
 .card h3 { font-size: 1.15rem; }
@@ -144,6 +155,23 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.45rem); }
 .price { color: var(--gold); margin: 0 0 .6rem; font-weight: 700; }
 .card ul { list-style: none; margin: 0; padding: 0; display: flex; gap: .45rem; flex-wrap: wrap; }
 .card li { border: 1px solid var(--line); border-radius: 999px; padding: .2rem .58rem; color: var(--muted); font-size: .82rem; }
+
+.consultation-form {
+  display: grid;
+  gap: .7rem;
+  max-width: 760px;
+}
+.consultation-form input,
+.consultation-form textarea {
+  width: 100%;
+  background: #121824;
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 10px;
+  padding: .72rem .8rem;
+  font: inherit;
+}
+.consultation-form button { justify-self: start; border: 0; cursor: pointer; }
 
 .footer {
   border-top: 1px solid var(--line);
