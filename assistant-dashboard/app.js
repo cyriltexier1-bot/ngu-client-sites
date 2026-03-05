@@ -13,6 +13,13 @@ const weeklyKpi = {
   revenueByDay: [1800, 2400, 2100, 2900, 3300, 4100, 5200]
 };
 
+const teamWorkflow = [
+  { name: "Natalie", role: "Listings & Content", workflow: "Brief → Buyer page → Listing copy → CTA polish", kpi: "Inquiry-to-inspection target: 35%+" },
+  { name: "Pierre", role: "Ops & CRM", workflow: "Intake → Route → Follow-up cadence → Stage hygiene", kpi: "Speed-to-lead < 10 min" },
+  { name: "Remi", role: "Analytics & KPI", workflow: "Weekly snapshot → Validate → KPI report → Actions", kpi: "Weekly KPI report every Monday" },
+  { name: "Mamadou", role: "Automation & Tech", workflow: "Integrate → QA matrix → Deploy → Monitor", kpi: "QA pass rate 100% before release" }
+];
+
 const defaultData = {
   tasks: [
     {
@@ -45,11 +52,23 @@ const defaultData = {
       at: new Date().toISOString()
     }
   ],
-  history: []
+  history: [],
+  aiUsage: {
+    monthlyBudget: 500,
+    monthSpent: 0,
+    todaySpent: 0,
+    updatedAt: ""
+  }
 };
 
 const dom = {
   metrics: document.getElementById("metrics"),
+  workflowGrid: document.getElementById("workflowGrid"),
+  aiBudgetInput: document.getElementById("aiBudgetInput"),
+  aiSpentInput: document.getElementById("aiSpentInput"),
+  aiTodayInput: document.getElementById("aiTodayInput"),
+  saveAiUsageBtn: document.getElementById("saveAiUsageBtn"),
+  aiUsageSummary: document.getElementById("aiUsageSummary"),
   kpiScorecard: document.getElementById("kpiScorecard"),
   revenueTrendChart: document.getElementById("revenueTrendChart"),
   board: document.getElementById("board"),
@@ -84,6 +103,7 @@ function load() {
     parsed.tasks = Array.isArray(parsed.tasks) ? parsed.tasks : [];
     parsed.updates = Array.isArray(parsed.updates) ? parsed.updates : [];
     parsed.history = Array.isArray(parsed.history) ? parsed.history : [];
+    parsed.aiUsage = parsed.aiUsage && typeof parsed.aiUsage === "object" ? parsed.aiUsage : clone(defaultData.aiUsage);
     return parsed;
   } catch {
     return clone(defaultData);
@@ -170,6 +190,48 @@ function renderMetrics(filteredTasks) {
   dom.progressText.textContent = `${completion}%`;
   dom.progressFill.style.width = `${completion}%`;
   dom.taskCounter.textContent = `${filteredTasks.length} tasks`;
+}
+
+function renderWorkflow() {
+  dom.workflowGrid.innerHTML = teamWorkflow.map(item => `
+    <article class="workflow-card">
+      <h3>${item.name}</h3>
+      <p><strong>${item.role}</strong></p>
+      <p>${item.workflow}</p>
+      <p class="target">KPI: ${item.kpi}</p>
+    </article>
+  `).join("");
+}
+
+function renderAiUsage() {
+  const usage = data.aiUsage;
+  dom.aiBudgetInput.value = usage.monthlyBudget;
+  dom.aiSpentInput.value = usage.monthSpent;
+  dom.aiTodayInput.value = usage.todaySpent;
+
+  const nowDate = new Date();
+  const daysInMonth = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, 0).getDate();
+  const day = nowDate.getDate();
+  const projected = day ? (usage.monthSpent / day) * daysInMonth : 0;
+  const remaining = usage.monthlyBudget - usage.monthSpent;
+  const status = projected > usage.monthlyBudget ? "⚠️ Over budget risk" : "✅ On track";
+
+  dom.aiUsageSummary.innerHTML = `
+    <div><strong>This month spent:</strong> $${Number(usage.monthSpent).toFixed(2)} / $${Number(usage.monthlyBudget).toFixed(2)}</div>
+    <div><strong>Today:</strong> $${Number(usage.todaySpent).toFixed(2)} · <strong>Projected month-end:</strong> $${projected.toFixed(2)}</div>
+    <div><strong>Remaining budget:</strong> $${remaining.toFixed(2)} · <strong>Status:</strong> ${status}</div>
+    <div><small>Last update: ${usage.updatedAt ? new Date(usage.updatedAt).toLocaleString() : "-"}</small></div>
+  `;
+}
+
+function saveAiUsage() {
+  const monthlyBudget = Number(dom.aiBudgetInput.value || 0);
+  const monthSpent = Number(dom.aiSpentInput.value || 0);
+  const todaySpent = Number(dom.aiTodayInput.value || 0);
+  data.aiUsage = { monthlyBudget, monthSpent, todaySpent, updatedAt: now() };
+  addUpdate(`OpenAI usage updated: $${monthSpent.toFixed(2)} spent this month.`);
+  save();
+  renderAiUsage();
 }
 
 function priorityRank(priority) {
@@ -446,6 +508,7 @@ function bind() {
   dom.addTaskBtn.addEventListener("click", addTask);
   dom.addUpdateBtn.addEventListener("click", addManualUpdate);
   dom.clearDoneBtn.addEventListener("click", clearDone);
+  dom.saveAiUsageBtn.addEventListener("click", saveAiUsage);
   dom.exportBtn.addEventListener("click", exportJson);
   dom.importFile.addEventListener("change", e => {
     const file = e.target.files?.[0];
@@ -457,6 +520,8 @@ function bind() {
 function render() {
   const filteredTasks = getFilteredTasks();
   renderMetrics(filteredTasks);
+  renderWorkflow();
+  renderAiUsage();
   renderWeeklyKpi();
   renderBoard(filteredTasks);
   renderUpdates();

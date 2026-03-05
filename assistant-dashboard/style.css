@@ -45,7 +45,52 @@ h1 { margin: .2rem 0 .4rem; font-size: clamp(1.6rem, 3vw, 2.3rem); }
 .card h3 { margin: 0; font-size: .82rem; color: var(--muted); }
 .card strong { display: block; margin-top: 6px; font-size: 1.3rem; }
 
-.kpi-panel { margin-bottom: 12px; }
+.workflow-panel, .ai-panel, .kpi-panel { margin-bottom: 12px; }
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+.workflow-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+}
+.workflow-card h3 { margin: 0; font-size: .92rem; }
+.workflow-card p { margin: 4px 0; color: var(--muted); font-size: .82rem; }
+.workflow-card .target { color: var(--warn); font-weight: 600; }
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  align-items: end;
+}
+.ai-grid label {
+  display: grid;
+  gap: 5px;
+  color: var(--muted);
+  font-size: .82rem;
+}
+.ai-grid input {
+  background: #0f1731;
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 9px;
+}
+.ai-summary {
+  margin-top: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px;
+  background: #0f1731;
+  color: var(--muted);
+}
+.ai-summary strong { color: var(--text); }
+
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
@@ -146,8 +191,9 @@ button.danger { background: var(--danger); color: #29090a; }
 
 @media (max-width: 1024px) {
   .layout { grid-template-columns: 1fr; }
-  .cards, .kpi-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .cards, .kpi-grid, .workflow-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .ai-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media (max-width: 760px) {
-  .columns, .cards, .kpi-grid { grid-template-columns: 1fr; }
+  .columns, .cards, .kpi-grid, .workflow-grid, .ai-grid { grid-template-columns: 1fr; }
 }

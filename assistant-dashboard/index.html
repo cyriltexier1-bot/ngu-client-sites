@@ -27,6 +27,34 @@
 
     <section class="cards" id="metrics"></section>
 
+    <section class="panel workflow-panel">
+      <div class="panel-head">
+        <h2>Team Workflow & Ownership</h2>
+        <small>Clear responsibilities + KPI targets</small>
+      </div>
+      <div id="workflowGrid" class="workflow-grid"></div>
+    </section>
+
+    <section class="panel ai-panel">
+      <div class="panel-head">
+        <h2>OpenAI Usage Guardrail</h2>
+        <small>Track spend so you don’t overspend</small>
+      </div>
+      <div class="ai-grid">
+        <label>Monthly budget (AUD)
+          <input id="aiBudgetInput" type="number" min="0" step="1" />
+        </label>
+        <label>Spent this month (AUD)
+          <input id="aiSpentInput" type="number" min="0" step="0.01" />
+        </label>
+        <label>Today spend (AUD)
+          <input id="aiTodayInput" type="number" min="0" step="0.01" />
+        </label>
+        <button id="saveAiUsageBtn">Save Usage</button>
+      </div>
+      <div id="aiUsageSummary" class="ai-summary"></div>
+    </section>
+
     <section class="panel kpi-panel">
       <div class="panel-head">
         <h2>Weekly KPI Scorecard</h2>
