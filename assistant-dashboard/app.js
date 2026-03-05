@@ -20,6 +20,13 @@ const teamWorkflow = [
   { name: "Mamadou", role: "Automation & Tech", workflow: "Integrate → QA matrix → Deploy → Monitor", kpi: "QA pass rate 100% before release" }
 ];
 
+const latestDeliverySummary = [
+  "<strong>Pauleau buyer page:</strong> upgraded with NGU branding, listing photos, quick comparison filters, and per-listing inspection CTA.",
+  "<strong>Dashboard:</strong> added team workflow ownership, KPI scorecard, completion trend, and OpenAI usage guardrail.",
+  "<strong>Ops docs:</strong> created CRM workflow spec and QA checklist for repeatable execution.",
+  "<strong>Next focus:</strong> connect real CRM data + automate weekly KPI reporting and cost tracking updates."
+];
+
 const defaultData = {
   tasks: [
     {
@@ -64,6 +71,7 @@ const defaultData = {
 const dom = {
   metrics: document.getElementById("metrics"),
   workflowGrid: document.getElementById("workflowGrid"),
+  deliverySummary: document.getElementById("deliverySummary"),
   aiBudgetInput: document.getElementById("aiBudgetInput"),
   aiSpentInput: document.getElementById("aiSpentInput"),
   aiTodayInput: document.getElementById("aiTodayInput"),
@@ -201,6 +209,10 @@ function renderWorkflow() {
       <p class="target">KPI: ${item.kpi}</p>
     </article>
   `).join("");
+}
+
+function renderDeliverySummary() {
+  dom.deliverySummary.innerHTML = latestDeliverySummary.map(item => `<li>${item}</li>`).join("");
 }
 
 function renderAiUsage() {
@@ -521,6 +533,7 @@ function render() {
   const filteredTasks = getFilteredTasks();
   renderMetrics(filteredTasks);
   renderWorkflow();
+  renderDeliverySummary();
   renderAiUsage();
   renderWeeklyKpi();
   renderBoard(filteredTasks);

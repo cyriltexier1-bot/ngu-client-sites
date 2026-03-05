@@ -45,7 +45,15 @@ h1 { margin: .2rem 0 .4rem; font-size: clamp(1.6rem, 3vw, 2.3rem); }
 .card h3 { margin: 0; font-size: .82rem; color: var(--muted); }
 .card strong { display: block; margin-top: 6px; font-size: 1.3rem; }
 
-.workflow-panel, .ai-panel, .kpi-panel { margin-bottom: 12px; }
+.workflow-panel, .delivery-panel, .ai-panel, .kpi-panel { margin-bottom: 12px; }
+
+.delivery-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.delivery-list li { margin: 0 0 6px; }
+.delivery-list strong { color: var(--text); }
 
 .workflow-grid {
   display: grid;
