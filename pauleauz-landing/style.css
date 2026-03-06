@@ -130,12 +130,12 @@ h1 {
   padding: .45rem;
   background: #fafafa;
 }
-.thumb a {
-  color: #666;
-  text-decoration: none;
-  font-size: .76rem;
+.thumb img {
+  width: 100%;
+  height: 76px;
+  object-fit: cover;
+  border-radius: 6px;
 }
-.thumb a:hover { color: var(--accent); }
 .listing-card h4 { margin: 0 0 .2rem; font-size: 1rem; }
 .price { margin: 0 0 .2rem; color: #202020; font-weight: 700; }
 .listing-card a { color: #4f4f56; text-decoration: none; font-size: .9rem; }
