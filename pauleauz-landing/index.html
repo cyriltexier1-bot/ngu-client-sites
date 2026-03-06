@@ -240,6 +240,17 @@
       const query = encodeURIComponent(`${title}, ${suburb}, QLD`);
       const url = `https://www.realestate.com.au/buy/in-${query}/list-1`;
 
+      const pending = card.querySelector('.photo-pending');
+      if (pending) {
+        const thumbLink = document.createElement('a');
+        thumbLink.className = 'photo-link';
+        thumbLink.href = url;
+        thumbLink.target = '_blank';
+        thumbLink.rel = 'noopener';
+        thumbLink.textContent = 'Open live photos on realestate.com.au';
+        pending.replaceWith(thumbLink);
+      }
+
       const link = document.createElement('a');
       link.className = 'card-cta secondary';
       link.href = url;

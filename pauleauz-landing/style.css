@@ -217,7 +217,7 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.45rem); }
   transition: transform .2s ease, border-color .2s ease;
 }
 .card:hover { transform: translateY(-4px); border-color: rgba(201,168,106,.45); }
-.photo-pending {
+.photo-link {
   width: 100%;
   min-height: 88px;
   border-radius: 10px;
@@ -230,7 +230,9 @@ h2 { font-size: clamp(1.55rem, 3vw, 2.45rem); }
   text-align: center;
   font-size: .8rem;
   padding: .6rem;
+  text-decoration: none;
 }
+.photo-link:hover { border-color: rgba(201,168,106,.45); color: var(--gold); }
 .card.featured { border-color: rgba(201,168,106,.45); box-shadow: inset 0 0 0 1px rgba(201,168,106,.2); }
 .card h3 { font-size: 1.15rem; }
 .suburb { color: var(--muted); margin: 0 0 .25rem; }
