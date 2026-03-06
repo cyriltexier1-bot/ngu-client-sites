@@ -4,7 +4,7 @@
   --line:#e5e5ea;
   --text:#111;
   --muted:#6f6f74;
-  --accent:#d92b2b;
+  --accent:#b89a64;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -16,10 +16,10 @@ body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);backgroun
 .topbar{padding:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .brand-wrap{display:flex;gap:.7rem;align-items:center}
 .logo{height:34px;width:auto}
-.brand{margin:0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.brand{margin:0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
 .subbrand{margin:.15rem 0 0;color:var(--muted);font-size:.82rem}
 .top-cta{background:#111;color:#fff;text-decoration:none;padding:.62rem .9rem;border-radius:8px;font-weight:700}
-.kicker{margin:0;color:var(--accent);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.kicker{margin:0;color:var(--text);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
 h1{margin:.45rem 0 .7rem;font-size:clamp(2rem,4.4vw,3.15rem);line-height:1.05;font-weight:800;letter-spacing:-.02em;max-width:870px}
 .intro{max-width:760px;color:#3f3f44;margin:0 0 .9rem}
 .metrics{display:flex;gap:.55rem;flex-wrap:wrap}
@@ -37,7 +37,7 @@ h1{margin:.45rem 0 .7rem;font-size:clamp(2rem,4.4vw,3.15rem);line-height:1.05;fo
 .card h3{margin:0 0 .2rem;font-size:1.01rem}
 .price{margin:0 0 .2rem;color:#1f1f22;font-weight:700}
 .card a{color:#4b4b52;text-decoration:none;font-size:.9rem}
-.card a:hover{text-decoration:underline;color:var(--accent)}
+.card a:hover{text-decoration:underline;color:#8c7448}
 .footer{margin-top:1.2rem;border-top:1px solid var(--line);background:#fff;padding:1rem 0 1.3rem}
 .foot-wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .agent{margin:0 0 .1rem;font-weight:700}
