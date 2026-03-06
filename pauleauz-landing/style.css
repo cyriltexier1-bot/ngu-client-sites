@@ -10,7 +10,7 @@
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);background:var(--bg)}
 .container{width:min(1160px,92vw);margin:0 auto}
-.hero{min-height:56vh;position:relative;background:url("https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/c0983101e16a54b348e9ad7652c3987a.jpg") center/cover;border-bottom:1px solid var(--line)}
+.hero{min-height:56vh;position:relative;background:url("https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=2200&q=80") center/cover;border-bottom:1px solid var(--line)}
 .overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(255,255,255,.94),rgba(255,255,255,.78))}
 .topbar,.hero-content{position:relative;z-index:2}
 .topbar{padding:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem}
