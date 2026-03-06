@@ -15,7 +15,7 @@ body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--text);backgroun
 .topbar,.hero-content{position:relative;z-index:2}
 .topbar{padding:1rem 0;display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .brand-wrap{display:flex;gap:.7rem;align-items:center}
-.logo{height:34px;width:auto}
+.logo{height:34px;width:auto;filter:invert(1);background:#111;padding:6px 8px;border-radius:6px}
 .brand{margin:0;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700}
 .subbrand{margin:.15rem 0 0;color:var(--muted);font-size:.82rem}
 .top-cta{background:#111;color:#fff;text-decoration:none;padding:.62rem .9rem;border-radius:8px;font-weight:700}
