@@ -14,6 +14,18 @@ Built to create immediate operational output (not just chat).
    - Ready replies for common answer patterns
 5. `05_daily-weekly-operating-system.md`
    - Practical daily/weekly cadence to improve lead conversion
+6. `06_outreach-templates.md`
+   - Ready-to-use outreach templates (email/SMS follow-ups)
+7. `07_qualification-scorecard.md`
+   - Lead scoring model and qualification thresholds
+8. `08_followup-sequence-day0-45.md`
+   - Structured follow-up cadence from day 0 to day 45
+9. `09_weekly-kpi-tracker.md`
+   - Weekly KPI framework and starter targets
+10. `10_reactivation-campaign.md`
+   - 3-touch reactivation campaign for aged leads
+11. `11_30-60-90-plan.md`
+   - Execution roadmap for stabilization, optimization, and scale
 
 ## How to use
 
