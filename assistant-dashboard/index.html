@@ -226,6 +226,32 @@
       </section>
     </div>
 
+    <section class="panel main" style="margin-bottom:12px">
+      <h3 style="margin:0 0 10px">Elisa feedback & daily input</h3>
+      <p class="sub" style="margin-bottom:10px">Elisa can answer directly here. Entries are saved and can be exported as JSON for improvement tracking.</p>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+        <input id="fName" class="search" placeholder="Name" />
+        <input id="fEmail" class="search" placeholder="Email" />
+        <input id="fDate" class="search" type="date" />
+        <select id="fStage" class="search">
+          <option value="">Current focus</option>
+          <option>Lead qualification</option>
+          <option>Follow-up conversion</option>
+          <option>Pipeline management</option>
+          <option>Reactivation</option>
+        </select>
+      </div>
+      <textarea id="fWins" class="search" style="margin-top:10px;min-height:80px" placeholder="What worked well today?"></textarea>
+      <textarea id="fBlocks" class="search" style="margin-top:10px;min-height:80px" placeholder="What blocked progress today?"></textarea>
+      <textarea id="fNeeds" class="search" style="margin-top:10px;min-height:80px" placeholder="What support/template do you need next?"></textarea>
+      <div class="quick" style="margin-top:10px">
+        <button class="btn primary" id="saveFeedback">Save entry</button>
+        <button class="btn" id="exportFeedback">Export data (JSON)</button>
+        <button class="btn" id="clearFeedback">Clear saved entries</button>
+      </div>
+      <p id="feedbackStatus" class="sub" style="margin-top:8px">No entries saved yet.</p>
+    </section>
+
     <div class="footer">Prepared by Bernard · Team Cyril Texier · NGU Real Estate</div>
   </div>
 
@@ -286,6 +312,54 @@
       });
     });
     filterBtns[0].classList.add('primary');
+
+    const feedbackKey = 'elisa-dashboard-feedback';
+    const statusEl = document.getElementById('feedbackStatus');
+    const fDate = document.getElementById('fDate');
+    fDate.value = new Date().toISOString().slice(0,10);
+
+    function getFeedback(){
+      return JSON.parse(localStorage.getItem(feedbackKey) || '[]');
+    }
+    function setFeedback(items){
+      localStorage.setItem(feedbackKey, JSON.stringify(items));
+      statusEl.textContent = `${items.length} entr${items.length===1?'y':'ies'} saved.`;
+    }
+
+    setFeedback(getFeedback());
+
+    document.getElementById('saveFeedback').addEventListener('click', () => {
+      const payload = {
+        savedAt: new Date().toISOString(),
+        name: document.getElementById('fName').value.trim(),
+        email: document.getElementById('fEmail').value.trim(),
+        date: document.getElementById('fDate').value,
+        stage: document.getElementById('fStage').value,
+        wins: document.getElementById('fWins').value.trim(),
+        blockers: document.getElementById('fBlocks').value.trim(),
+        needs: document.getElementById('fNeeds').value.trim()
+      };
+      const items = getFeedback();
+      items.push(payload);
+      setFeedback(items);
+      statusEl.textContent = `Saved ✅ ${items.length} total entries.`;
+    });
+
+    document.getElementById('exportFeedback').addEventListener('click', () => {
+      const items = getFeedback();
+      const blob = new Blob([JSON.stringify(items, null, 2)], {type:'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `elisa-feedback-${new Date().toISOString().slice(0,10)}.json`;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    document.getElementById('clearFeedback').addEventListener('click', () => {
+      localStorage.removeItem(feedbackKey);
+      setFeedback([]);
+      statusEl.textContent = 'Entries cleared.';
+    });
   </script>
 </body>
 </html>
