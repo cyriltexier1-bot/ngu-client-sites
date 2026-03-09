@@ -98,6 +98,20 @@
       <div class="k"><b>1</b><span>Unified workspace</span></div>
     </section>
 
+    <section class="panel" style="margin-top:12px;padding:14px">
+      <h3 style="margin:0 0 10px">Knowledge Base + RAG</h3>
+      <p class="sub">Ask questions across saved URLs, PDFs, YouTube transcripts, and notes. Answers should cite sources.</p>
+      <div class="fgrid" style="margin-top:10px">
+        <input id="ragQuery" placeholder="Ask my knowledge base... (e.g. Who did I meet from Acme last month?)">
+        <button class="btn primary" id="ragRun">Run RAG Search</button>
+      </div>
+      <div id="ragAnswer" class="card" style="margin-top:10px">
+        <h4>Answer</h4>
+        <p class="desc">No query yet.</p>
+        <div class="small">Sources: <span id="ragSources">none</span></div>
+      </div>
+    </section>
+
     <section class="grid">
       <aside class="panel left">
         <h3>Today checklist</h3>
@@ -183,6 +197,20 @@
     }
     q.addEventListener('input',filter);
     tabs.forEach(b=>b.onclick=()=>{tabs.forEach(x=>x.classList.remove('primary'));b.classList.add('primary');f=b.dataset.filter;filter();});
+
+    // rag mock panel (UI-ready)
+    document.getElementById('ragRun').onclick=()=>{
+      const query=(document.getElementById('ragQuery').value||'').trim();
+      const box=document.getElementById('ragAnswer');
+      const src=document.getElementById('ragSources');
+      if(!query){
+        box.querySelector('.desc').textContent='Please enter a query first.';
+        src.textContent='none';
+        return;
+      }
+      box.querySelector('.desc').textContent='RAG query queued. The backend pipeline will return an evidence-based answer with citations.';
+      src.textContent='knowledge-base (pending retrieval)';
+    };
 
     // feedback
     const fk='elisa-hub-feedback', status=document.getElementById('status');
