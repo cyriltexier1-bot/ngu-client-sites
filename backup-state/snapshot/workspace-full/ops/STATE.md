@@ -58,3 +58,16 @@ Daily cadence:
 Continuous improvement rule:
 - Iterate dashboard + scripts from real daily feedback.
 - Keep what improves conversion; remove what adds friction.
+
+## 8) Status-Answer Guard (Locked)
+Before any status answer, run:
+`python /home/bernard/.openclaw/workspace/scripts/status_guard.py --status "<status>" --proof-cmd "<live command>" --next "<next step>"`
+
+Reply format is mandatory:
+- Status
+- Proof
+- Next
+
+Never claim completion without both:
+1) `ops/STATE.md` check
+2) one live command proof

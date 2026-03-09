@@ -1,0 +1,7 @@
+{
+  "telegram": {
+    "enabled": true,
+    "token": "8414476351:AAFHCMAyRDc0j0dKTWXMOfUV7Bj-o39iAxk",
+    "polling": true
+  }
+}
