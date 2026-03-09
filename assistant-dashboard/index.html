@@ -1,154 +1,291 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assistant Performance Dashboard</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elisa Dashboard | Team Cyril Texier</title>
+  <meta name="description" content="Professional lead-conversion dashboard for Elisa. Easy daily workflow, templates, KPI, and execution plans in one place." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root{
+      --bg:#f4f7fb;
+      --panel:#ffffff;
+      --line:#e6ebf3;
+      --text:#101828;
+      --muted:#667085;
+      --brand:#155eef;
+      --brand-soft:#eaf1ff;
+      --good:#12b76a;
+      --warn:#f79009;
+      --shadow:0 8px 24px rgba(16,24,40,.06);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#f8fbff, var(--bg));color:var(--text)}
+    .container{width:min(1180px,92vw);margin:0 auto}
+
+    .top{
+      padding:20px 0 10px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+    }
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:36px;height:36px;border-radius:10px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800}
+    .title{margin:0;font-size:1.05rem;font-weight:800}
+    .sub{margin:2px 0 0;color:var(--muted);font-size:.88rem}
+    .chip{background:var(--brand-soft);color:var(--brand);border:1px solid #d8e5ff;padding:8px 10px;border-radius:999px;font-size:.8rem;font-weight:700}
+
+    .hero{
+      background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;
+      padding:18px;margin-bottom:12px;
+    }
+    .hero h1{margin:0 0 6px;font-size:clamp(1.4rem,3vw,2rem)}
+    .hero p{margin:0;color:var(--muted)}
+    .quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+
+    .btn{border:1px solid var(--line);background:#fff;color:var(--text);padding:10px 13px;border-radius:10px;font-weight:600;text-decoration:none;cursor:pointer}
+    .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+
+    .grid{display:grid;grid-template-columns:300px 1fr;gap:12px;padding-bottom:20px}
+    .panel{background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--radius)}
+
+    .left{padding:14px}
+    .left h3{margin:0 0 10px;font-size:1rem}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+    .stat{background:#f9fbff;border:1px solid var(--line);border-radius:10px;padding:10px}
+    .stat b{display:block;font-size:1.05rem}
+    .stat span{font-size:.78rem;color:var(--muted)}
+
+    .check{display:flex;gap:8px;align-items:flex-start;margin:8px 0;color:#1d2939;font-size:.9rem}
+    .progress-wrap{margin-top:12px}
+    .bar{height:8px;background:#edf2fa;border-radius:999px;overflow:hidden}
+    .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--good),#3ac48a)}
+    .progress-txt{margin-top:7px;font-size:.82rem;color:var(--muted)}
+
+    .main{padding:14px}
+    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .search{flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:.92rem}
+
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;transition:.15s transform ease,.15s box-shadow ease}
+    .card:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(16,24,40,.06)}
+    .card h4{margin:0 0 6px;font-size:1rem}
+    .desc{margin:0 0 10px;color:var(--muted);font-size:.9rem;min-height:40px}
+    .meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+    .pill{font-size:.74rem;padding:4px 8px;border-radius:999px;background:#f2f4f7;border:1px solid var(--line);color:#344054}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .actions a{font-size:.86rem;font-weight:600;color:var(--brand);text-decoration:none}
+
+    .note{margin-top:12px;padding:11px;border-radius:10px;background:#fffbeb;border:1px solid #ffe5b4;color:#92400e;font-size:.86rem}
+    .hidden{display:none !important}
+
+    .footer{padding:8px 0 24px;color:var(--muted);font-size:.8rem}
+
+    @media (max-width:980px){
+      .grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">Live Workspace</p>
-        <h1>Assistant Performance Dashboard</h1>
-        <p class="muted">Track tasks, priorities, deadlines, delivery pace, and progress updates.</p>
-      </div>
-      <div class="right-tools">
-        <div class="status"><span class="dot"></span>Active</div>
-        <button id="exportBtn" class="ghost">Export JSON</button>
-        <label class="import-label ghost" for="importFile">Import JSON</label>
-        <input type="file" id="importFile" accept="application/json" />
-      </div>
-    </header>
-
-    <section class="cards" id="metrics"></section>
-
-    <section class="panel workflow-panel">
-      <div class="panel-head">
-        <h2>Team Workflow & Ownership</h2>
-        <small>Clear responsibilities + KPI targets</small>
-      </div>
-      <div id="workflowGrid" class="workflow-grid"></div>
-    </section>
-
-    <section class="panel delivery-panel">
-      <div class="panel-head">
-        <h2>Latest Delivery Summary</h2>
-        <small>Brief report with practical next actions</small>
-      </div>
-      <ul id="deliverySummary" class="delivery-list"></ul>
-    </section>
-
-    <section class="panel ai-panel">
-      <div class="panel-head">
-        <h2>OpenAI Usage Guardrail</h2>
-        <small>Track spend so you don’t overspend</small>
-      </div>
-      <div class="ai-grid">
-        <label>Monthly budget (AUD)
-          <input id="aiBudgetInput" type="number" min="0" step="1" />
-        </label>
-        <label>Spent this month (AUD)
-          <input id="aiSpentInput" type="number" min="0" step="0.01" />
-        </label>
-        <label>Today spend (AUD)
-          <input id="aiTodayInput" type="number" min="0" step="0.01" />
-        </label>
-        <button id="saveAiUsageBtn">Save Usage</button>
-      </div>
-      <div id="aiUsageSummary" class="ai-summary"></div>
-    </section>
-
-    <section class="panel kpi-panel">
-      <div class="panel-head">
-        <h2>Weekly KPI Scorecard</h2>
-        <small>Snapshot of funnel health and revenue momentum</small>
-      </div>
-      <div class="kpi-grid" id="kpiScorecard"></div>
-      <canvas id="revenueTrendChart" height="84"></canvas>
-    </section>
-
-    <section class="panel targets-panel">
-      <div class="panel-head">
-        <h2>Weekly Targets vs Actual</h2>
-        <small>Edit target values and track variance quickly</small>
-      </div>
-      <div id="targetsTable" class="targets-table"></div>
-    </section>
-
-    <section class="panel trend-panel">
-      <div class="panel-head">
-        <h2>7-Day Completion Trend</h2>
-        <small>Done tasks logged per day</small>
-      </div>
-      <canvas id="trendChart" height="90"></canvas>
-    </section>
-
-    <section class="panel controls">
-      <div class="row">
-        <input id="searchInput" type="search" placeholder="Search tasks..." />
-        <select id="priorityFilter">
-          <option value="all">All Priorities</option>
-          <option value="high">High</option>
-          <option value="medium">Medium</option>
-          <option value="low">Low</option>
-        </select>
-        <select id="ownerFilter">
-          <option value="all">All Owners</option>
-          <option value="Assistant">Assistant</option>
-          <option value="Marcus">Marcus</option>
-        </select>
-      </div>
-      <div class="row">
-        <button id="addTaskBtn">+ Add Task</button>
-        <button id="addUpdateBtn">+ Add Update</button>
-        <button id="clearDoneBtn" class="danger">Clear Done</button>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label">
-          <span>Completion Progress</span>
-          <strong id="progressText">0%</strong>
+    <div class="top">
+      <div class="brand">
+        <div class="logo">ET</div>
+        <div>
+          <p class="title">Elisa Conversion Dashboard</p>
+          <p class="sub">Team Cyril Texier · NGU Real Estate</p>
         </div>
-        <div class="progress-bar"><div id="progressFill"></div></div>
+      </div>
+      <span class="chip">User-friendly operating portal</span>
+    </div>
+
+    <section class="hero">
+      <h1>Everything Elisa needs, in one clean dashboard</h1>
+      <p>Daily actions, scripts, KPI tracking, and follow-up playbooks arranged for fast execution — no technical clutter.</p>
+      <div class="quick">
+        <a class="btn primary" href="01_email-to-elisa.txt" target="_blank">Start now: Diagnostic Email</a>
+        <a class="btn" href="README.md" target="_blank">Open playbook overview</a>
+        <button class="btn" id="resetChecklist">Reset checklist</button>
       </div>
     </section>
 
-    <section class="layout">
-      <article class="panel">
-        <div class="panel-head">
-          <h2>Task Board</h2>
-          <small id="taskCounter">0 tasks</small>
+    <div class="grid">
+      <aside class="panel left">
+        <h3>Today at a glance</h3>
+        <div class="stats">
+          <div class="stat"><b>11</b><span>Operational modules</span></div>
+          <div class="stat"><b>5</b><span>Daily priority steps</span></div>
+          <div class="stat"><b>3</b><span>Main workflow phases</span></div>
+          <div class="stat"><b>1</b><span>Single source portal</span></div>
         </div>
-        <div class="columns" id="board"></div>
-      </article>
 
-      <article class="panel">
-        <div class="panel-head"><h2>Updates</h2></div>
-        <ul id="updates" class="updates"></ul>
-      </article>
-    </section>
+        <h3>Daily checklist</h3>
+        <label class="check"><input type="checkbox" data-k="c1">Send/review diagnostic email (01)</label>
+        <label class="check"><input type="checkbox" data-k="c2">Score responses (02 + 07)</label>
+        <label class="check"><input type="checkbox" data-k="c3">Select response strategy (03 + 04)</label>
+        <label class="check"><input type="checkbox" data-k="c4">Run follow-up sequence (06 + 08)</label>
+        <label class="check"><input type="checkbox" data-k="c5">Review KPIs and 30/60/90 plan (09 + 11)</label>
+
+        <div class="progress-wrap">
+          <div class="bar"><i id="barFill"></i></div>
+          <div class="progress-txt" id="progressText">0 / 5 completed</div>
+        </div>
+
+        <div class="note">Tip: keep this open during your day. Work top-to-bottom and update checklist live.</div>
+      </aside>
+
+      <section class="panel main">
+        <div class="toolbar">
+          <input id="search" class="search" placeholder="Search modules… (follow-up, KPI, templates, scorecard)" />
+          <button class="btn filter" data-filter="all">All</button>
+          <button class="btn filter" data-filter="setup">Setup</button>
+          <button class="btn filter" data-filter="followup">Follow-up</button>
+          <button class="btn filter" data-filter="performance">Performance</button>
+        </div>
+
+        <div class="cards" id="cards">
+          <article class="card" data-tags="setup">
+            <h4>01 · Diagnostic Email</h4>
+            <p class="desc">Collect initial workflow and bottleneck data in one message.</p>
+            <div class="meta"><span class="pill">setup</span><span class="pill">first step</span></div>
+            <div class="actions"><a href="01_email-to-elisa.txt" target="_blank">Open file</a></div>
+          </article>
+
+          <article class="card" data-tags="setup">
+            <h4>02 · Scoring Matrix</h4>
+            <p class="desc">Turn qualitative answers into objective priority scores.</p>
+            <div class="meta"><span class="pill">setup</span><span class="pill">qualification</span></div>
+            <div class="actions"><a href="02_scoring-matrix.md" target="_blank">Open file</a></div>
+          </article>
+
+          <article class="card" data-tags="setup">
+            <h4>03 · Tailored Options by Gap</h4>
+            <p class="desc">Choose actions based on weakest process areas.</p>
+            <div class="meta"><span class="pill">setup</span><span class="pill">strategy</span></div>
+            <div class="actions"><a href="03_tailored-options-by-gap.md" target="_blank">Open file</a></div>
+          </article>
+
+          <article class="card" data-tags="followup">
+            <h4>04 · Follow-up Reply Templates</h4>
+            <p class="desc">Fast, polished replies for common lead objections and delays.</p>
+            <div class="meta"><span class="pill">follow-up</span><span class="pill">templates</span></div>
+            <div class="actions"><a href="04_followup-reply-templates.md" target="_blank">Open file</a></div>
+          </article>
+
+          <article class="card" data-tags="performance">
+            <h4>05 · Daily/Weekly Operating System</h4>
+            <p class="desc">Cadence for daily execution and weekly review discipline.</p>
+            <div class="meta"><span class="pill">performance</span><span class="pill">operations</span></div>
+            <div class="actions"><a href="05_daily-weekly-operating-system.md" target="_blank">Open file</a></div>
+          </article>
+
+          <article class="card" data-tags="followup">
+            <h4>06 · Outreach Templates</h4>
+            <p class="desc">Email/SMS scripts to drive replies and meetings.</p>
+            <div class="meta"><span class="pill">follow-up</span><span class="pill">outreach</span></div>
+            <div class="actions"><a href="06_outreach-templates.md" target="_blank">Open file</a></div>
+          </article>
+
+          <article class="card" data-tags="setup">
+            <h4>07 · Qualification Scorecard</h4>
+            <p class="desc">Prioritize high-intent opportunities first.</p>
+            <div class="meta"><span class="pill">setup</span><span class="pill">scorecard</span></div>
+            <div class="actions"><a href="07_qualification-scorecard.md" target="_blank">Open file</a></div>
+          </article>
+
+          <article class="card" data-tags="followup">
+            <h4>08 · Follow-up Sequence (Day 0–45)</h4>
+            <p class="desc">A complete sequence so no lead drops out silently.</p>
+            <div class="meta"><span class="pill">follow-up</span><span class="pill">sequence</span></div>
+            <div class="actions"><a href="08_followup-sequence-day0-45.md" target="_blank">Open file</a></div>
+          </article>
+
+          <article class="card" data-tags="performance">
+            <h4>09 · Weekly KPI Tracker</h4>
+            <p class="desc">Monitor volume, response rates, and conversion momentum.</p>
+            <div class="meta"><span class="pill">performance</span><span class="pill">KPI</span></div>
+            <div class="actions"><a href="09_weekly-kpi-tracker.md" target="_blank">Open file</a></div>
+          </article>
+
+          <article class="card" data-tags="followup performance">
+            <h4>10 · Reactivation Campaign</h4>
+            <p class="desc">Re-engage old leads through a structured 3-touch campaign.</p>
+            <div class="meta"><span class="pill">follow-up</span><span class="pill">reactivation</span></div>
+            <div class="actions"><a href="10_reactivation-campaign.md" target="_blank">Open file</a></div>
+          </article>
+
+          <article class="card" data-tags="performance">
+            <h4>11 · 30/60/90 Execution Plan</h4>
+            <p class="desc">Roadmap to stabilize, optimize, and scale lead conversion.</p>
+            <div class="meta"><span class="pill">performance</span><span class="pill">roadmap</span></div>
+            <div class="actions"><a href="11_30-60-90-plan.md" target="_blank">Open file</a></div>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="footer">Prepared by Bernard · Team Cyril Texier · NGU Real Estate</div>
   </div>
 
-  <template id="taskTemplate">
-    <div class="task">
-      <div class="task-head">
-        <h4></h4>
-        <span class="badge"></span>
-      </div>
-      <p class="details"></p>
-      <div class="meta"></div>
-      <div class="actions">
-        <button class="move">Move</button>
-        <button class="edit ghost">Edit</button>
-        <button class="delete danger">Delete</button>
-      </div>
-    </div>
-  </template>
+  <script>
+    const checks = [...document.querySelectorAll('input[data-k]')];
+    const progressText = document.getElementById('progressText');
+    const barFill = document.getElementById('barFill');
 
-  <script src="app.js"></script>
+    function saveChecks(){
+      const data = checks.map(c => ({k:c.dataset.k,v:c.checked}));
+      localStorage.setItem('elisa-dashboard-checks', JSON.stringify(data));
+    }
+    function renderProgress(){
+      const done = checks.filter(c => c.checked).length;
+      const total = checks.length;
+      const pct = Math.round((done/total)*100);
+      progressText.textContent = `${done} / ${total} completed (${pct}%)`;
+      barFill.style.width = pct + '%';
+      saveChecks();
+    }
+
+    const stored = JSON.parse(localStorage.getItem('elisa-dashboard-checks') || '[]');
+    stored.forEach(s => {
+      const el = checks.find(c => c.dataset.k === s.k);
+      if(el) el.checked = !!s.v;
+    });
+    checks.forEach(c => c.addEventListener('change', renderProgress));
+    renderProgress();
+
+    document.getElementById('resetChecklist').addEventListener('click', () => {
+      checks.forEach(c => c.checked = false);
+      renderProgress();
+    });
+
+    const cards = [...document.querySelectorAll('.card')];
+    const search = document.getElementById('search');
+    const filterBtns = [...document.querySelectorAll('.filter')];
+    let activeFilter = 'all';
+
+    function apply(){
+      const q = search.value.toLowerCase().trim();
+      cards.forEach(card => {
+        const tags = card.dataset.tags || '';
+        const txt = card.innerText.toLowerCase();
+        const okTag = activeFilter === 'all' || tags.includes(activeFilter);
+        const okSearch = !q || txt.includes(q);
+        card.classList.toggle('hidden', !(okTag && okSearch));
+      });
+    }
+
+    search.addEventListener('input', apply);
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeFilter = btn.dataset.filter;
+        filterBtns.forEach(b => b.classList.remove('primary'));
+        btn.classList.add('primary');
+        apply();
+      });
+    });
+    filterBtns[0].classList.add('primary');
+  </script>
 </body>
 </html>
