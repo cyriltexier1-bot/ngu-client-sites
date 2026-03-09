@@ -1,0 +1,3 @@
+/home/bernard/.openclaw/workspace/MEMORY.md
+/home/bernard/.openclaw/gateway.json
+/home/bernard/.openclaw/agents/main/bootstrap.md
