@@ -98,31 +98,31 @@
           <p class="sub">Team Cyril Texier · NGU Real Estate</p>
         </div>
       </div>
-      <span class="chip">User-friendly operating portal</span>
+      <span class="chip">Operational Portal</span>
     </div>
 
     <section class="hero">
-      <h1>Everything Elisa needs, in one clean dashboard</h1>
-      <p>Daily actions, scripts, KPI tracking, and follow-up playbooks arranged for fast execution — no technical clutter.</p>
+      <h1>Daily Operations Dashboard for Elisa</h1>
+      <p>A practical workspace for daily priorities, templates, KPI tracking, and follow-up execution.</p>
       <div class="quick">
-        <a class="btn primary" href="01_email-to-elisa.txt" target="_blank">Start now: Diagnostic Email</a>
-        <a class="btn" href="README.md" target="_blank">Open playbook overview</a>
+        <a class="btn primary" href="01_email-to-elisa.txt" target="_blank">Start: Diagnostic Email</a>
+        <a class="btn" href="README.md" target="_blank">Open Guide</a>
         <button class="btn" id="resetChecklist">Reset checklist</button>
       </div>
     </section>
 
     <div class="grid">
       <aside class="panel left">
-        <h3>Today at a glance</h3>
+        <h3>Today at a Glance</h3>
         <div class="stats">
           <div class="stat"><b>11</b><span>Operational modules</span></div>
           <div class="stat"><b>5</b><span>Daily priority steps</span></div>
           <div class="stat"><b>3</b><span>Main workflow phases</span></div>
-          <div class="stat"><b>1</b><span>Single source portal</span></div>
+          <div class="stat"><b>1</b><span>Unified workspace</span></div>
         </div>
 
         <h3>Daily checklist</h3>
-        <label class="check"><input type="checkbox" data-k="c1">Send/review diagnostic email (01)</label>
+        <label class="check"><input type="checkbox" data-k="c1">Send or review diagnostic email (01)</label>
         <label class="check"><input type="checkbox" data-k="c2">Score responses (02 + 07)</label>
         <label class="check"><input type="checkbox" data-k="c3">Select response strategy (03 + 04)</label>
         <label class="check"><input type="checkbox" data-k="c4">Run follow-up sequence (06 + 08)</label>
@@ -133,12 +133,12 @@
           <div class="progress-txt" id="progressText">0 / 5 completed</div>
         </div>
 
-        <div class="note">Tip: keep this open during your day. Work top-to-bottom and update checklist live.</div>
+        <div class="note">Tip: keep this dashboard open throughout the day. Work top-to-bottom and update progress live.</div>
       </aside>
 
       <section class="panel main">
         <div class="toolbar">
-          <input id="search" class="search" placeholder="Search modules… (follow-up, KPI, templates, scorecard)" />
+          <input id="search" class="search" placeholder="Search modules (follow-up, KPI, templates, scorecard)" />
           <button class="btn filter" data-filter="all">All</button>
           <button class="btn filter" data-filter="setup">Setup</button>
           <button class="btn filter" data-filter="followup">Follow-up</button>
@@ -169,7 +169,7 @@
 
           <article class="card" data-tags="followup">
             <h4>04 · Follow-up Reply Templates</h4>
-            <p class="desc">Fast, polished replies for common lead objections and delays.</p>
+            <p class="desc">Polished responses for common lead objections and delays.</p>
             <div class="meta"><span class="pill">follow-up</span><span class="pill">templates</span></div>
             <div class="actions"><a href="04_followup-reply-templates.md" target="_blank">Open file</a></div>
           </article>
@@ -197,21 +197,21 @@
 
           <article class="card" data-tags="followup">
             <h4>08 · Follow-up Sequence (Day 0–45)</h4>
-            <p class="desc">A complete sequence so no lead drops out silently.</p>
+            <p class="desc">A complete sequence to prevent lead drop-off.</p>
             <div class="meta"><span class="pill">follow-up</span><span class="pill">sequence</span></div>
             <div class="actions"><a href="08_followup-sequence-day0-45.md" target="_blank">Open file</a></div>
           </article>
 
           <article class="card" data-tags="performance">
             <h4>09 · Weekly KPI Tracker</h4>
-            <p class="desc">Monitor volume, response rates, and conversion momentum.</p>
+            <p class="desc">Track activity volume, response rates, and conversion momentum.</p>
             <div class="meta"><span class="pill">performance</span><span class="pill">KPI</span></div>
             <div class="actions"><a href="09_weekly-kpi-tracker.md" target="_blank">Open file</a></div>
           </article>
 
           <article class="card" data-tags="followup performance">
             <h4>10 · Reactivation Campaign</h4>
-            <p class="desc">Re-engage old leads through a structured 3-touch campaign.</p>
+            <p class="desc">Re-engage inactive leads through a structured 3-touch campaign.</p>
             <div class="meta"><span class="pill">follow-up</span><span class="pill">reactivation</span></div>
             <div class="actions"><a href="10_reactivation-campaign.md" target="_blank">Open file</a></div>
           </article>
@@ -228,7 +228,7 @@
 
     <section class="panel main" style="margin-bottom:12px">
       <h3 style="margin:0 0 10px">Elisa feedback & daily input</h3>
-      <p class="sub" style="margin-bottom:10px">Elisa can answer directly here. Entries are saved and can be exported as JSON for improvement tracking.</p>
+      <p class="sub" style="margin-bottom:10px">Elisa can submit daily feedback directly here. Entries are saved locally and can be exported as JSON for improvement tracking.</p>
       <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
         <input id="fName" class="search" placeholder="Name" />
         <input id="fEmail" class="search" placeholder="Email" />
@@ -243,7 +243,7 @@
       </div>
       <textarea id="fWins" class="search" style="margin-top:10px;min-height:80px" placeholder="What worked well today?"></textarea>
       <textarea id="fBlocks" class="search" style="margin-top:10px;min-height:80px" placeholder="What blocked progress today?"></textarea>
-      <textarea id="fNeeds" class="search" style="margin-top:10px;min-height:80px" placeholder="What support/template do you need next?"></textarea>
+      <textarea id="fNeeds" class="search" style="margin-top:10px;min-height:80px" placeholder="What support or template is needed next?"></textarea>
       <div class="quick" style="margin-top:10px">
         <button class="btn primary" id="saveFeedback">Save entry</button>
         <button class="btn" id="exportFeedback">Export data (JSON)</button>
