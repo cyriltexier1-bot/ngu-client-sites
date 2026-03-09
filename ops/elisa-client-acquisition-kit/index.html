@@ -3,33 +3,231 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Elisa Client Acquisition Kit</title>
+  <title>Elisa Portal | Client Acquisition Kit</title>
+  <meta name="description" content="Interactive operational portal for Elisa: lead qualification, follow-up, KPI tracking and 30/60/90 execution." />
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;margin:40px;max-width:900px;line-height:1.5;color:#111}
-    h1{margin-bottom:6px} .muted{color:#555} ul{padding-left:18px} a{color:#0b57d0}
-    .card{border:1px solid #ddd;border-radius:10px;padding:18px;margin-top:18px}
+    :root{
+      --bg:#f6f8fb;
+      --panel:#ffffff;
+      --line:#e6eaf2;
+      --text:#111827;
+      --muted:#5b6472;
+      --accent:#2c6bed;
+      --accent-soft:#e9f0ff;
+      --good:#0e9f6e;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    .container{width:min(1080px,92vw);margin:0 auto}
+    .hero{padding:28px 0 18px}
+    .badge{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:700;padding:6px 10px;border-radius:999px;font-size:12px}
+    h1{margin:10px 0 8px;font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.1}
+    .sub{margin:0;color:var(--muted);max-width:760px}
+
+    .quickbar{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+    .btn{border:1px solid var(--line);background:#fff;padding:9px 12px;border-radius:10px;text-decoration:none;color:var(--text);font-weight:600;font-size:14px;cursor:pointer}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+
+    .layout{display:grid;grid-template-columns:280px 1fr;gap:14px;padding:10px 0 28px}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px}
+    .side{padding:14px;position:sticky;top:10px;height:max-content}
+    .side h3{margin:0 0 10px;font-size:15px}
+    .check{display:flex;align-items:flex-start;gap:9px;margin:8px 0;color:#1f2937;font-size:14px}
+    .check input{margin-top:2px}
+    .progress{margin-top:12px;padding:10px;border-radius:10px;background:#f8fafc;border:1px solid var(--line);font-size:13px;color:var(--muted)}
+
+    .main{padding:14px}
+    .tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    .search{flex:1;min-width:220px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14px}
+
+    .cards{display:grid;gap:10px}
+    .card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+    .card h4{margin:0 0 4px;font-size:16px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+    .pill{font-size:12px;padding:4px 8px;border-radius:999px;background:#f3f6fb;color:#334155;border:1px solid var(--line)}
+    .desc{margin:0 0 10px;color:var(--muted);font-size:14px}
+    .links a{margin-right:10px;color:var(--accent);text-decoration:none;font-weight:600;font-size:14px}
+
+    .footer{padding:10px 0 22px;color:var(--muted);font-size:13px}
+    .hidden{display:none !important}
+
+    @media (max-width:900px){
+      .layout{grid-template-columns:1fr}
+      .side{position:static}
+    }
   </style>
 </head>
 <body>
-  <h1>Elisa Client Acquisition Kit</h1>
-  <div class="muted">Operational pack for lead management, follow-up, and conversion performance.</div>
+  <header class="hero container">
+    <span class="badge">Team Cyril Texier · NGU Real Estate</span>
+    <h1>Elisa Client Acquisition Portal</h1>
+    <p class="sub">Simple, practical and interactive. Everything Elisa needs to qualify leads, follow up faster, and convert consistently — in one place.</p>
 
-  <div class="card">
-    <h3>Start Here</h3>
-    <ul>
-      <li><a href="README.md">README</a></li>
-      <li><a href="01_email-to-elisa.txt">01 - Email to Elisa</a></li>
-      <li><a href="02_scoring-matrix.md">02 - Scoring Matrix</a></li>
-      <li><a href="03_tailored-options-by-gap.md">03 - Tailored Options by Gap</a></li>
-      <li><a href="04_followup-reply-templates.md">04 - Follow-up Reply Templates</a></li>
-      <li><a href="05_daily-weekly-operating-system.md">05 - Daily/Weekly Operating System</a></li>
-      <li><a href="06_outreach-templates.md">06 - Outreach Templates</a></li>
-      <li><a href="07_qualification-scorecard.md">07 - Qualification Scorecard</a></li>
-      <li><a href="08_followup-sequence-day0-45.md">08 - Follow-up Sequence Day 0-45</a></li>
-      <li><a href="09_weekly-kpi-tracker.md">09 - Weekly KPI Tracker</a></li>
-      <li><a href="10_reactivation-campaign.md">10 - Reactivation Campaign</a></li>
-      <li><a href="11_30-60-90-plan.md">11 - 30/60/90 Plan</a></li>
-    </ul>
-  </div>
+    <div class="quickbar">
+      <a class="btn primary" href="01_email-to-elisa.txt" target="_blank" rel="noopener">Start: Send Diagnostic Email</a>
+      <a class="btn" href="README.md" target="_blank" rel="noopener">How This Works</a>
+      <button class="btn" id="expandAll">Show All</button>
+      <button class="btn" id="resetChecks">Reset Checklist</button>
+    </div>
+  </header>
+
+  <main class="container layout">
+    <aside class="panel side">
+      <h3>Daily execution checklist</h3>
+      <label class="check"><input type="checkbox" data-check="c1">Send or review diagnostic email (file 01)</label>
+      <label class="check"><input type="checkbox" data-check="c2">Score replies with matrix (file 02)</label>
+      <label class="check"><input type="checkbox" data-check="c3">Pick gap-specific action (files 03 + 04)</label>
+      <label class="check"><input type="checkbox" data-check="c4">Run follow-up sequence (file 08)</label>
+      <label class="check"><input type="checkbox" data-check="c5">Update KPIs and next actions (file 09)</label>
+      <div class="progress" id="progressText">Progress: 0 / 5 completed</div>
+    </aside>
+
+    <section class="panel main">
+      <div class="tools">
+        <input id="search" class="search" type="search" placeholder="Search a file, task, or keyword (e.g. follow-up, KPI, scorecard)" />
+        <button class="btn" data-filter="all">All</button>
+        <button class="btn" data-filter="setup">Setup</button>
+        <button class="btn" data-filter="followup">Follow-up</button>
+        <button class="btn" data-filter="performance">Performance</button>
+      </div>
+
+      <div class="cards" id="cards">
+        <article class="card" data-tags="setup diagnostic">
+          <h4>01 · Email to Elisa (diagnostic)</h4>
+          <div class="meta"><span class="pill">setup</span><span class="pill">first step</span></div>
+          <p class="desc">Ready-to-send message to capture current workflow, bottlenecks and priorities.</p>
+          <div class="links"><a href="01_email-to-elisa.txt" target="_blank">Open file</a></div>
+        </article>
+
+        <article class="card" data-tags="setup scoring">
+          <h4>02 · Scoring Matrix</h4>
+          <div class="meta"><span class="pill">setup</span><span class="pill">qualification</span></div>
+          <p class="desc">Turns answers into a clear score so decisions are objective and fast.</p>
+          <div class="links"><a href="02_scoring-matrix.md" target="_blank">Open file</a></div>
+        </article>
+
+        <article class="card" data-tags="setup strategy">
+          <h4>03 · Tailored Options by Gap</h4>
+          <div class="meta"><span class="pill">setup</span><span class="pill">strategy</span></div>
+          <p class="desc">Maps weak areas to specific recommended actions.</p>
+          <div class="links"><a href="03_tailored-options-by-gap.md" target="_blank">Open file</a></div>
+        </article>
+
+        <article class="card" data-tags="followup templates">
+          <h4>04 · Follow-up Reply Templates</h4>
+          <div class="meta"><span class="pill">followup</span><span class="pill">templates</span></div>
+          <p class="desc">Copy-ready responses for common lead scenarios.</p>
+          <div class="links"><a href="04_followup-reply-templates.md" target="_blank">Open file</a></div>
+        </article>
+
+        <article class="card" data-tags="performance operations">
+          <h4>05 · Daily/Weekly Operating System</h4>
+          <div class="meta"><span class="pill">performance</span><span class="pill">operations</span></div>
+          <p class="desc">A rhythm to execute consistently and avoid dropped leads.</p>
+          <div class="links"><a href="05_daily-weekly-operating-system.md" target="_blank">Open file</a></div>
+        </article>
+
+        <article class="card" data-tags="followup templates outreach">
+          <h4>06 · Outreach Templates</h4>
+          <div class="meta"><span class="pill">followup</span><span class="pill">outreach</span></div>
+          <p class="desc">Email/SMS templates designed for response and conversion.</p>
+          <div class="links"><a href="06_outreach-templates.md" target="_blank">Open file</a></div>
+        </article>
+
+        <article class="card" data-tags="setup scoring qualification">
+          <h4>07 · Qualification Scorecard</h4>
+          <div class="meta"><span class="pill">setup</span><span class="pill">qualification</span></div>
+          <p class="desc">Scoring model to prioritize high-intent leads first.</p>
+          <div class="links"><a href="07_qualification-scorecard.md" target="_blank">Open file</a></div>
+        </article>
+
+        <article class="card" data-tags="followup sequence">
+          <h4>08 · Follow-up Sequence (Day 0–45)</h4>
+          <div class="meta"><span class="pill">followup</span><span class="pill">sequence</span></div>
+          <p class="desc">Structured cadence so no opportunity goes cold.</p>
+          <div class="links"><a href="08_followup-sequence-day0-45.md" target="_blank">Open file</a></div>
+        </article>
+
+        <article class="card" data-tags="performance kpi">
+          <h4>09 · Weekly KPI Tracker</h4>
+          <div class="meta"><span class="pill">performance</span><span class="pill">kpi</span></div>
+          <p class="desc">Measure pipeline health and conversion outcomes each week.</p>
+          <div class="links"><a href="09_weekly-kpi-tracker.md" target="_blank">Open file</a></div>
+        </article>
+
+        <article class="card" data-tags="followup reactivation">
+          <h4>10 · Reactivation Campaign</h4>
+          <div class="meta"><span class="pill">followup</span><span class="pill">reactivation</span></div>
+          <p class="desc">3-touch campaign to revive aged/inactive leads.</p>
+          <div class="links"><a href="10_reactivation-campaign.md" target="_blank">Open file</a></div>
+        </article>
+
+        <article class="card" data-tags="performance roadmap">
+          <h4>11 · 30/60/90 Plan</h4>
+          <div class="meta"><span class="pill">performance</span><span class="pill">roadmap</span></div>
+          <p class="desc">Execution roadmap from stabilization to scale.</p>
+          <div class="links"><a href="11_30-60-90-plan.md" target="_blank">Open file</a></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">Built for practical execution by Team Cyril Texier. Keep this portal open daily and work top-to-bottom.</footer>
+
+  <script>
+    const cards = [...document.querySelectorAll('.card')];
+    const search = document.getElementById('search');
+    const filterButtons = [...document.querySelectorAll('[data-filter]')];
+
+    function applyFilters(){
+      const q = search.value.toLowerCase().trim();
+      const active = document.querySelector('[data-filter].primary-filter')?.dataset.filter || 'all';
+      cards.forEach(card => {
+        const txt = card.innerText.toLowerCase();
+        const tags = card.dataset.tags || '';
+        const bySearch = !q || txt.includes(q);
+        const byTag = active === 'all' || tags.includes(active);
+        card.classList.toggle('hidden', !(bySearch && byTag));
+      });
+    }
+
+    search.addEventListener('input', applyFilters);
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('primary-filter','primary'));
+        btn.classList.add('primary-filter','primary');
+        applyFilters();
+      });
+    });
+    document.querySelector('[data-filter="all"]').classList.add('primary-filter','primary');
+
+    const checks = [...document.querySelectorAll('input[data-check]')];
+    const progressText = document.getElementById('progressText');
+
+    function updateProgress(){
+      const done = checks.filter(c => c.checked).length;
+      progressText.textContent = `Progress: ${done} / ${checks.length} completed`;
+      localStorage.setItem('elisaPortalChecks', JSON.stringify(checks.map(c => ({k:c.dataset.check,v:c.checked}))));
+    }
+
+    const saved = JSON.parse(localStorage.getItem('elisaPortalChecks') || '[]');
+    saved.forEach(s => {
+      const el = checks.find(c => c.dataset.check === s.k);
+      if(el) el.checked = !!s.v;
+    });
+
+    checks.forEach(c => c.addEventListener('change', updateProgress));
+    updateProgress();
+
+    document.getElementById('resetChecks').addEventListener('click', () => {
+      checks.forEach(c => c.checked = false);
+      updateProgress();
+    });
+
+    document.getElementById('expandAll').addEventListener('click', () => {
+      search.value = '';
+      document.querySelector('[data-filter="all"]').click();
+    });
+  </script>
 </body>
 </html>
