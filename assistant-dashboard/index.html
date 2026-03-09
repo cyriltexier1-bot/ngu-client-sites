@@ -3,363 +3,193 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Elisa Dashboard | Team Cyril Texier</title>
-  <meta name="description" content="Professional lead-conversion dashboard for Elisa. Easy daily workflow, templates, KPI, and execution plans in one place." />
+  <title>Elisa Operations Hub | Team Cyril Texier</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f4f7fb;
-      --panel:#ffffff;
-      --line:#e6ebf3;
-      --text:#101828;
-      --muted:#667085;
-      --brand:#155eef;
-      --brand-soft:#eaf1ff;
-      --good:#12b76a;
-      --warn:#f79009;
-      --shadow:0 8px 24px rgba(16,24,40,.06);
-      --radius:14px;
+      --bg:#f5f7fb;--panel:#fff;--line:#e6eaf1;--text:#0f172a;--muted:#64748b;
+      --brand:#0f62fe;--brand-soft:#e8f0ff;--ok:#16a34a;--warn:#d97706;--radius:14px;
+      --shadow:0 10px 30px rgba(2,6,23,.06);
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#f8fbff, var(--bg));color:var(--text)}
-    .container{width:min(1180px,92vw);margin:0 auto}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{width:min(1200px,92vw);margin:0 auto;padding:20px 0 28px}
+    .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:38px;height:38px;border-radius:10px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800}
+    .h0{margin:0;font-size:1.05rem;font-weight:800}.sub{margin:2px 0 0;color:var(--muted);font-size:.88rem}
+    .tag{background:var(--brand-soft);color:var(--brand);border:1px solid #d8e5ff;padding:8px 10px;border-radius:999px;font-size:.78rem;font-weight:700}
 
-    .top{
-      padding:20px 0 10px;
-      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-    }
-    .brand{display:flex;align-items:center;gap:10px}
-    .logo{width:36px;height:36px;border-radius:10px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800}
-    .title{margin:0;font-size:1.05rem;font-weight:800}
-    .sub{margin:2px 0 0;color:var(--muted);font-size:.88rem}
-    .chip{background:var(--brand-soft);color:var(--brand);border:1px solid #d8e5ff;padding:8px 10px;border-radius:999px;font-size:.8rem;font-weight:700}
-
-    .hero{
-      background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;
-      padding:18px;margin-bottom:12px;
-    }
-    .hero h1{margin:0 0 6px;font-size:clamp(1.4rem,3vw,2rem)}
+    .hero{margin-top:12px;background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px}
+    .hero h1{margin:0 0 8px;font-size:clamp(1.3rem,2.8vw,1.9rem)}
     .hero p{margin:0;color:var(--muted)}
-    .quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-
-    .btn{border:1px solid var(--line);background:#fff;color:var(--text);padding:10px 13px;border-radius:10px;font-weight:600;text-decoration:none;cursor:pointer}
+    .quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 13px;font-weight:600;text-decoration:none;color:var(--text);cursor:pointer}
     .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
 
-    .grid{display:grid;grid-template-columns:300px 1fr;gap:12px;padding-bottom:20px}
-    .panel{background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:var(--radius)}
+    .kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+    .k{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+    .k b{display:block;font-size:1.2rem}.k span{font-size:.82rem;color:var(--muted)}
 
-    .left{padding:14px}
-    .left h3{margin:0 0 10px;font-size:1rem}
-    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
-    .stat{background:#f9fbff;border:1px solid var(--line);border-radius:10px;padding:10px}
-    .stat b{display:block;font-size:1.05rem}
-    .stat span{font-size:.78rem;color:var(--muted)}
-
-    .check{display:flex;gap:8px;align-items:flex-start;margin:8px 0;color:#1d2939;font-size:.9rem}
-    .progress-wrap{margin-top:12px}
-    .bar{height:8px;background:#edf2fa;border-radius:999px;overflow:hidden}
-    .bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--good),#3ac48a)}
-    .progress-txt{margin-top:7px;font-size:.82rem;color:var(--muted)}
-
+    .grid{display:grid;grid-template-columns:290px 1fr;gap:12px;margin-top:12px}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .left{padding:14px}.left h3,.main h3{margin:0 0 10px;font-size:1rem}
+    .check{display:flex;gap:8px;align-items:flex-start;margin:8px 0;font-size:.9rem}
+    .bar{height:8px;background:#edf2fa;border-radius:999px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a)}
+    .ptxt{margin-top:7px;color:var(--muted);font-size:.82rem}
     .main{padding:14px}
-    .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-    .search{flex:1;min-width:220px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:.92rem}
 
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
     .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    .card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;transition:.15s transform ease,.15s box-shadow ease}
-    .card:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(16,24,40,.06)}
-    .card h4{margin:0 0 6px;font-size:1rem}
-    .desc{margin:0 0 10px;color:var(--muted);font-size:.9rem;min-height:40px}
-    .meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
-    .pill{font-size:.74rem;padding:4px 8px;border-radius:999px;background:#f2f4f7;border:1px solid var(--line);color:#344054}
-    .actions{display:flex;gap:8px;flex-wrap:wrap}
-    .actions a{font-size:.86rem;font-weight:600;color:var(--brand);text-decoration:none}
+    .card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+    .card h4{margin:0 0 5px;font-size:1rem}.desc{margin:0 0 8px;color:var(--muted);font-size:.88rem}
+    .pill{display:inline-block;font-size:.74rem;background:#f3f6fb;border:1px solid var(--line);color:#334155;border-radius:999px;padding:4px 8px;margin-right:5px}
+    .actions{margin-top:8px;display:flex;gap:10px;flex-wrap:wrap}.actions a{font-size:.86rem;color:var(--brand);text-decoration:none;font-weight:600}
 
-    .note{margin-top:12px;padding:11px;border-radius:10px;background:#fffbeb;border:1px solid #ffe5b4;color:#92400e;font-size:.86rem}
+    .feedback{margin-top:12px;padding:14px}
+    .fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    input,select,textarea{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:10px;font:inherit}
+    textarea{min-height:86px;resize:vertical}
+    .factions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .small{font-size:.82rem;color:var(--muted)}
+
+    .footer{margin-top:10px;color:var(--muted);font-size:.8rem}
     .hidden{display:none !important}
-
-    .footer{padding:8px 0 24px;color:var(--muted);font-size:.8rem}
-
-    @media (max-width:980px){
-      .grid{grid-template-columns:1fr}
-      .cards{grid-template-columns:1fr}
-    }
+    @media (max-width:980px){.kpi{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="wrap">
     <div class="top">
       <div class="brand">
         <div class="logo">ET</div>
         <div>
-          <p class="title">Elisa Conversion Dashboard</p>
+          <p class="h0">Elisa Operations Hub</p>
           <p class="sub">Team Cyril Texier · NGU Real Estate</p>
         </div>
       </div>
-      <span class="chip">Operational Portal</span>
+      <span class="tag">Daily workflow dashboard</span>
     </div>
 
     <section class="hero">
-      <h1>Daily Operations Dashboard for Elisa</h1>
-      <p>A practical workspace for daily priorities, templates, KPI tracking, and follow-up execution.</p>
+      <h1>Simple daily execution for higher lead conversion</h1>
+      <p>Follow the checklist, use ready templates, track KPIs, and submit daily feedback in one place.</p>
       <div class="quick">
         <a class="btn primary" href="01_email-to-elisa.txt" target="_blank">Start: Diagnostic Email</a>
-        <a class="btn" href="README.md" target="_blank">Open Guide</a>
-        <button class="btn" id="resetChecklist">Reset checklist</button>
+        <a class="btn" href="README.md" target="_blank">Open Full Guide</a>
+        <button class="btn" id="resetAll">Reset Daily Progress</button>
       </div>
     </section>
 
-    <div class="grid">
+    <section class="kpi">
+      <div class="k"><b>11</b><span>Operational modules</span></div>
+      <div class="k"><b>5</b><span>Daily priority tasks</span></div>
+      <div class="k"><b>3</b><span>Focus tracks</span></div>
+      <div class="k"><b>1</b><span>Unified workspace</span></div>
+    </section>
+
+    <section class="grid">
       <aside class="panel left">
-        <h3>Today at a Glance</h3>
-        <div class="stats">
-          <div class="stat"><b>11</b><span>Operational modules</span></div>
-          <div class="stat"><b>5</b><span>Daily priority steps</span></div>
-          <div class="stat"><b>3</b><span>Main workflow phases</span></div>
-          <div class="stat"><b>1</b><span>Unified workspace</span></div>
-        </div>
-
-        <h3>Daily checklist</h3>
-        <label class="check"><input type="checkbox" data-k="c1">Send or review diagnostic email (01)</label>
-        <label class="check"><input type="checkbox" data-k="c2">Score responses (02 + 07)</label>
-        <label class="check"><input type="checkbox" data-k="c3">Select response strategy (03 + 04)</label>
-        <label class="check"><input type="checkbox" data-k="c4">Run follow-up sequence (06 + 08)</label>
-        <label class="check"><input type="checkbox" data-k="c5">Review KPIs and 30/60/90 plan (09 + 11)</label>
-
-        <div class="progress-wrap">
-          <div class="bar"><i id="barFill"></i></div>
-          <div class="progress-txt" id="progressText">0 / 5 completed</div>
-        </div>
-
-        <div class="note">Tip: keep this dashboard open throughout the day. Work top-to-bottom and update progress live.</div>
+        <h3>Today checklist</h3>
+        <label class="check"><input type="checkbox" data-k="1">Review and send diagnostic outreach (01)</label>
+        <label class="check"><input type="checkbox" data-k="2">Score lead responses (02 + 07)</label>
+        <label class="check"><input type="checkbox" data-k="3">Apply reply strategy (03 + 04)</label>
+        <label class="check"><input type="checkbox" data-k="4">Run follow-up cadence (06 + 08)</label>
+        <label class="check"><input type="checkbox" data-k="5">Update KPI + action plan (09 + 11)</label>
+        <div class="bar"><i id="fill"></i></div>
+        <div class="ptxt" id="ptext">0 / 5 completed</div>
       </aside>
 
-      <section class="panel main">
-        <div class="toolbar">
-          <input id="search" class="search" placeholder="Search modules (follow-up, KPI, templates, scorecard)" />
-          <button class="btn filter" data-filter="all">All</button>
-          <button class="btn filter" data-filter="setup">Setup</button>
-          <button class="btn filter" data-filter="followup">Follow-up</button>
-          <button class="btn filter" data-filter="performance">Performance</button>
+      <div class="panel main">
+        <h3>Playbooks & templates</h3>
+        <div class="tabs">
+          <button class="btn tab primary" data-filter="all">All</button>
+          <button class="btn tab" data-filter="setup">Setup</button>
+          <button class="btn tab" data-filter="followup">Follow-up</button>
+          <button class="btn tab" data-filter="performance">Performance</button>
+          <input id="q" placeholder="Search module..." style="margin-left:auto;min-width:220px">
         </div>
-
         <div class="cards" id="cards">
-          <article class="card" data-tags="setup">
-            <h4>01 · Diagnostic Email</h4>
-            <p class="desc">Collect initial workflow and bottleneck data in one message.</p>
-            <div class="meta"><span class="pill">setup</span><span class="pill">first step</span></div>
-            <div class="actions"><a href="01_email-to-elisa.txt" target="_blank">Open file</a></div>
-          </article>
-
-          <article class="card" data-tags="setup">
-            <h4>02 · Scoring Matrix</h4>
-            <p class="desc">Turn qualitative answers into objective priority scores.</p>
-            <div class="meta"><span class="pill">setup</span><span class="pill">qualification</span></div>
-            <div class="actions"><a href="02_scoring-matrix.md" target="_blank">Open file</a></div>
-          </article>
-
-          <article class="card" data-tags="setup">
-            <h4>03 · Tailored Options by Gap</h4>
-            <p class="desc">Choose actions based on weakest process areas.</p>
-            <div class="meta"><span class="pill">setup</span><span class="pill">strategy</span></div>
-            <div class="actions"><a href="03_tailored-options-by-gap.md" target="_blank">Open file</a></div>
-          </article>
-
-          <article class="card" data-tags="followup">
-            <h4>04 · Follow-up Reply Templates</h4>
-            <p class="desc">Polished responses for common lead objections and delays.</p>
-            <div class="meta"><span class="pill">follow-up</span><span class="pill">templates</span></div>
-            <div class="actions"><a href="04_followup-reply-templates.md" target="_blank">Open file</a></div>
-          </article>
-
-          <article class="card" data-tags="performance">
-            <h4>05 · Daily/Weekly Operating System</h4>
-            <p class="desc">Cadence for daily execution and weekly review discipline.</p>
-            <div class="meta"><span class="pill">performance</span><span class="pill">operations</span></div>
-            <div class="actions"><a href="05_daily-weekly-operating-system.md" target="_blank">Open file</a></div>
-          </article>
-
-          <article class="card" data-tags="followup">
-            <h4>06 · Outreach Templates</h4>
-            <p class="desc">Email/SMS scripts to drive replies and meetings.</p>
-            <div class="meta"><span class="pill">follow-up</span><span class="pill">outreach</span></div>
-            <div class="actions"><a href="06_outreach-templates.md" target="_blank">Open file</a></div>
-          </article>
-
-          <article class="card" data-tags="setup">
-            <h4>07 · Qualification Scorecard</h4>
-            <p class="desc">Prioritize high-intent opportunities first.</p>
-            <div class="meta"><span class="pill">setup</span><span class="pill">scorecard</span></div>
-            <div class="actions"><a href="07_qualification-scorecard.md" target="_blank">Open file</a></div>
-          </article>
-
-          <article class="card" data-tags="followup">
-            <h4>08 · Follow-up Sequence (Day 0–45)</h4>
-            <p class="desc">A complete sequence to prevent lead drop-off.</p>
-            <div class="meta"><span class="pill">follow-up</span><span class="pill">sequence</span></div>
-            <div class="actions"><a href="08_followup-sequence-day0-45.md" target="_blank">Open file</a></div>
-          </article>
-
-          <article class="card" data-tags="performance">
-            <h4>09 · Weekly KPI Tracker</h4>
-            <p class="desc">Track activity volume, response rates, and conversion momentum.</p>
-            <div class="meta"><span class="pill">performance</span><span class="pill">KPI</span></div>
-            <div class="actions"><a href="09_weekly-kpi-tracker.md" target="_blank">Open file</a></div>
-          </article>
-
-          <article class="card" data-tags="followup performance">
-            <h4>10 · Reactivation Campaign</h4>
-            <p class="desc">Re-engage inactive leads through a structured 3-touch campaign.</p>
-            <div class="meta"><span class="pill">follow-up</span><span class="pill">reactivation</span></div>
-            <div class="actions"><a href="10_reactivation-campaign.md" target="_blank">Open file</a></div>
-          </article>
-
-          <article class="card" data-tags="performance">
-            <h4>11 · 30/60/90 Execution Plan</h4>
-            <p class="desc">Roadmap to stabilize, optimize, and scale lead conversion.</p>
-            <div class="meta"><span class="pill">performance</span><span class="pill">roadmap</span></div>
-            <div class="actions"><a href="11_30-60-90-plan.md" target="_blank">Open file</a></div>
-          </article>
+          <article class="card" data-tags="setup"><h4>01 · Diagnostic Email</h4><p class="desc">Initial outreach to capture process gaps and immediate priorities.</p><span class="pill">setup</span><div class="actions"><a href="01_email-to-elisa.txt" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="setup"><h4>02 · Scoring Matrix</h4><p class="desc">Convert responses into objective scoring for prioritization.</p><span class="pill">setup</span><span class="pill">qualification</span><div class="actions"><a href="02_scoring-matrix.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="setup"><h4>03 · Options by Gap</h4><p class="desc">Action mapping based on weak points in the workflow.</p><span class="pill">setup</span><span class="pill">strategy</span><div class="actions"><a href="03_tailored-options-by-gap.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="followup"><h4>04 · Reply Templates</h4><p class="desc">Polished responses for common lead objections and delays.</p><span class="pill">follow-up</span><div class="actions"><a href="04_followup-reply-templates.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="performance"><h4>05 · Operating System</h4><p class="desc">Daily and weekly cadence for consistency and accountability.</p><span class="pill">performance</span><div class="actions"><a href="05_daily-weekly-operating-system.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="followup"><h4>06 · Outreach Templates</h4><p class="desc">Ready scripts for email/SMS follow-up execution.</p><span class="pill">follow-up</span><div class="actions"><a href="06_outreach-templates.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="setup"><h4>07 · Qualification Scorecard</h4><p class="desc">Prioritize high-intent leads and route next actions quickly.</p><span class="pill">setup</span><div class="actions"><a href="07_qualification-scorecard.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="followup"><h4>08 · Day 0–45 Follow-up</h4><p class="desc">Structured timeline to prevent lead drop-off.</p><span class="pill">follow-up</span><div class="actions"><a href="08_followup-sequence-day0-45.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="performance"><h4>09 · Weekly KPI Tracker</h4><p class="desc">Track volume, response quality, and conversion momentum.</p><span class="pill">performance</span><div class="actions"><a href="09_weekly-kpi-tracker.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="followup performance"><h4>10 · Reactivation Campaign</h4><p class="desc">3-touch sequence to recover inactive opportunities.</p><span class="pill">follow-up</span><span class="pill">performance</span><div class="actions"><a href="10_reactivation-campaign.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="performance"><h4>11 · 30/60/90 Plan</h4><p class="desc">Roadmap for stabilization, optimization, and scale.</p><span class="pill">performance</span><div class="actions"><a href="11_30-60-90-plan.md" target="_blank">Open</a></div></article>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
 
-    <section class="panel main" style="margin-bottom:12px">
-      <h3 style="margin:0 0 10px">Elisa feedback & daily input</h3>
-      <p class="sub" style="margin-bottom:10px">Elisa can submit daily feedback directly here. Entries are saved locally and can be exported as JSON for improvement tracking.</p>
-      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
-        <input id="fName" class="search" placeholder="Name" />
-        <input id="fEmail" class="search" placeholder="Email" />
-        <input id="fDate" class="search" type="date" />
-        <select id="fStage" class="search">
-          <option value="">Current focus</option>
-          <option>Lead qualification</option>
-          <option>Follow-up conversion</option>
-          <option>Pipeline management</option>
-          <option>Reactivation</option>
-        </select>
+    <section class="panel feedback">
+      <h3 style="margin:0 0 10px">Daily feedback capture (for continuous improvement)</h3>
+      <div class="fgrid">
+        <input id="name" placeholder="Name">
+        <input id="email" placeholder="Email">
+        <input id="date" type="date">
+        <select id="focus"><option value="">Current focus</option><option>Lead qualification</option><option>Follow-up conversion</option><option>Pipeline management</option><option>Reactivation</option></select>
       </div>
-      <textarea id="fWins" class="search" style="margin-top:10px;min-height:80px" placeholder="What worked well today?"></textarea>
-      <textarea id="fBlocks" class="search" style="margin-top:10px;min-height:80px" placeholder="What blocked progress today?"></textarea>
-      <textarea id="fNeeds" class="search" style="margin-top:10px;min-height:80px" placeholder="What support or template is needed next?"></textarea>
-      <div class="quick" style="margin-top:10px">
-        <button class="btn primary" id="saveFeedback">Save entry</button>
-        <button class="btn" id="exportFeedback">Export data (JSON)</button>
-        <button class="btn" id="clearFeedback">Clear saved entries</button>
+      <textarea id="wins" placeholder="What worked well today?"></textarea>
+      <textarea id="blocks" placeholder="What blocked progress today?"></textarea>
+      <textarea id="needs" placeholder="What support/template do you need next?"></textarea>
+      <div class="factions">
+        <button class="btn primary" id="save">Save Entry</button>
+        <button class="btn" id="export">Export JSON</button>
+        <button class="btn" id="clear">Clear Entries</button>
       </div>
-      <p id="feedbackStatus" class="sub" style="margin-top:8px">No entries saved yet.</p>
+      <p class="small" id="status">No entries yet.</p>
     </section>
 
     <div class="footer">Prepared by Bernard · Team Cyril Texier · NGU Real Estate</div>
   </div>
 
   <script>
-    const checks = [...document.querySelectorAll('input[data-k]')];
-    const progressText = document.getElementById('progressText');
-    const barFill = document.getElementById('barFill');
+    // checklist
+    const checks=[...document.querySelectorAll('input[data-k]')], fill=document.getElementById('fill'), ptext=document.getElementById('ptext');
+    const ck='elisa-hub-checks';
+    const saved=JSON.parse(localStorage.getItem(ck)||'{}');
+    checks.forEach(c=>{c.checked=!!saved[c.dataset.k]; c.onchange=render;});
+    function render(){
+      const o={}; checks.forEach(c=>o[c.dataset.k]=c.checked); localStorage.setItem(ck,JSON.stringify(o));
+      const done=checks.filter(c=>c.checked).length, total=checks.length, pct=Math.round(done*100/total);
+      fill.style.width=pct+'%'; ptext.textContent=`${done} / ${total} completed (${pct}%)`;
+    } render();
+    document.getElementById('resetAll').onclick=()=>{checks.forEach(c=>c.checked=false);render();};
 
-    function saveChecks(){
-      const data = checks.map(c => ({k:c.dataset.k,v:c.checked}));
-      localStorage.setItem('elisa-dashboard-checks', JSON.stringify(data));
-    }
-    function renderProgress(){
-      const done = checks.filter(c => c.checked).length;
-      const total = checks.length;
-      const pct = Math.round((done/total)*100);
-      progressText.textContent = `${done} / ${total} completed (${pct}%)`;
-      barFill.style.width = pct + '%';
-      saveChecks();
-    }
-
-    const stored = JSON.parse(localStorage.getItem('elisa-dashboard-checks') || '[]');
-    stored.forEach(s => {
-      const el = checks.find(c => c.dataset.k === s.k);
-      if(el) el.checked = !!s.v;
-    });
-    checks.forEach(c => c.addEventListener('change', renderProgress));
-    renderProgress();
-
-    document.getElementById('resetChecklist').addEventListener('click', () => {
-      checks.forEach(c => c.checked = false);
-      renderProgress();
-    });
-
-    const cards = [...document.querySelectorAll('.card')];
-    const search = document.getElementById('search');
-    const filterBtns = [...document.querySelectorAll('.filter')];
-    let activeFilter = 'all';
-
-    function apply(){
-      const q = search.value.toLowerCase().trim();
-      cards.forEach(card => {
-        const tags = card.dataset.tags || '';
-        const txt = card.innerText.toLowerCase();
-        const okTag = activeFilter === 'all' || tags.includes(activeFilter);
-        const okSearch = !q || txt.includes(q);
-        card.classList.toggle('hidden', !(okTag && okSearch));
+    // filtering
+    const cards=[...document.querySelectorAll('.card')], q=document.getElementById('q'), tabs=[...document.querySelectorAll('.tab')];
+    let f='all';
+    function filter(){
+      const t=q.value.toLowerCase().trim();
+      cards.forEach(c=>{
+        const okf=f==='all'||(c.dataset.tags||'').includes(f);
+        const okt=!t||c.innerText.toLowerCase().includes(t);
+        c.classList.toggle('hidden',!(okf&&okt));
       });
     }
+    q.addEventListener('input',filter);
+    tabs.forEach(b=>b.onclick=()=>{tabs.forEach(x=>x.classList.remove('primary'));b.classList.add('primary');f=b.dataset.filter;filter();});
 
-    search.addEventListener('input', apply);
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        activeFilter = btn.dataset.filter;
-        filterBtns.forEach(b => b.classList.remove('primary'));
-        btn.classList.add('primary');
-        apply();
-      });
-    });
-    filterBtns[0].classList.add('primary');
-
-    const feedbackKey = 'elisa-dashboard-feedback';
-    const statusEl = document.getElementById('feedbackStatus');
-    const fDate = document.getElementById('fDate');
-    fDate.value = new Date().toISOString().slice(0,10);
-
-    function getFeedback(){
-      return JSON.parse(localStorage.getItem(feedbackKey) || '[]');
-    }
-    function setFeedback(items){
-      localStorage.setItem(feedbackKey, JSON.stringify(items));
-      statusEl.textContent = `${items.length} entr${items.length===1?'y':'ies'} saved.`;
-    }
-
-    setFeedback(getFeedback());
-
-    document.getElementById('saveFeedback').addEventListener('click', () => {
-      const payload = {
-        savedAt: new Date().toISOString(),
-        name: document.getElementById('fName').value.trim(),
-        email: document.getElementById('fEmail').value.trim(),
-        date: document.getElementById('fDate').value,
-        stage: document.getElementById('fStage').value,
-        wins: document.getElementById('fWins').value.trim(),
-        blockers: document.getElementById('fBlocks').value.trim(),
-        needs: document.getElementById('fNeeds').value.trim()
-      };
-      const items = getFeedback();
-      items.push(payload);
-      setFeedback(items);
-      statusEl.textContent = `Saved ✅ ${items.length} total entries.`;
-    });
-
-    document.getElementById('exportFeedback').addEventListener('click', () => {
-      const items = getFeedback();
-      const blob = new Blob([JSON.stringify(items, null, 2)], {type:'application/json'});
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = `elisa-feedback-${new Date().toISOString().slice(0,10)}.json`;
-      a.click();
-      URL.revokeObjectURL(a.href);
-    });
-
-    document.getElementById('clearFeedback').addEventListener('click', () => {
-      localStorage.removeItem(feedbackKey);
-      setFeedback([]);
-      statusEl.textContent = 'Entries cleared.';
-    });
+    // feedback
+    const fk='elisa-hub-feedback', status=document.getElementById('status');
+    document.getElementById('date').value=new Date().toISOString().slice(0,10);
+    const get=()=>JSON.parse(localStorage.getItem(fk)||'[]');
+    const set=(arr)=>{localStorage.setItem(fk,JSON.stringify(arr));status.textContent=`${arr.length} entr${arr.length===1?'y':'ies'} saved.`;};
+    set(get());
+    document.getElementById('save').onclick=()=>{
+      const row={ts:new Date().toISOString(),name:name.value.trim(),email:email.value.trim(),date:date.value,focus:focus.value,wins:wins.value.trim(),blocks:blocks.value.trim(),needs:needs.value.trim()};
+      const arr=get();arr.push(row);set(arr);status.textContent=`Saved ✅ ${arr.length} total entries.`;
+    };
+    document.getElementById('export').onclick=()=>{
+      const blob=new Blob([JSON.stringify(get(),null,2)],{type:'application/json'}),a=document.createElement('a');
+      a.href=URL.createObjectURL(blob);a.download=`elisa-feedback-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href);
+    };
+    document.getElementById('clear').onclick=()=>{localStorage.removeItem(fk);set([]);};
   </script>
 </body>
 </html>
