@@ -42,3 +42,19 @@ For all future status claims:
 2. Report status as: **verified / pending / blocked**.
 3. Include proof reference (path or command output).
 4. For outbound actions, require confirmation phrase before send.
+
+## 7) Locked Daily Command Center (CEO/CFO/Prospector)
+Status: **LOCKED ACTIVE**
+
+- CEO focus (daily): top 3 decisions, priority alignment, execution discipline.
+- CFO focus (daily): activity & conversion targets, red-flag detection, pipeline hygiene checks.
+- Prospector focus (daily): high-intent first, structured follow-up blocks, reactivation block, EOD KPI log.
+
+Daily cadence:
+1. Morning: set targets and top 3 decisions.
+2. Midday: check execution vs targets.
+3. EOD: KPI review + blockers + next-day top 3.
+
+Continuous improvement rule:
+- Iterate dashboard + scripts from real daily feedback.
+- Keep what improves conversion; remove what adds friction.
