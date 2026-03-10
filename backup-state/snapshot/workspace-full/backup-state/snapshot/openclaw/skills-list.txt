@@ -33,8 +33,9 @@ Skills (4/51 ready)
 │           │                  │ reading code (use read tool), thread-bound ACP harness requests   │                  │
 │           │                  │ in chat (for example spawn/run Codex or Claude Code in a Discord  │                  │
 │           │                  │ thread; use sessions_spawn with runtime:"acp"), or any work in ~/ │                  │
-│           │                  │ clawd workspace (never spawn agents here). Requires a bash tool   │                  │
-│           │                  │ that supports pty:true.                                           │                  │
+│           │                  │ clawd workspace (never spawn agents here). Claude Code: use --    │                  │
+│           │                  │ print --permission-mode bypassPermissions (no PTY). Codex/Pi/     │                  │
+│           │                  │ OpenCode: pty:true required.                                      │                  │
 │ ✗ missing │ 🎮 discord        │ Discord ops via the message tool (channel=discord).               │ openclaw-bundled │
 │ ✗ missing │ 🎛️ eightctl      │ Control Eight Sleep pods (status, temperature, alarms,            │ openclaw-bundled │
 │           │                  │ schedules).                                                       │                  │

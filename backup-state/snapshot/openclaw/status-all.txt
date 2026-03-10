@@ -4,20 +4,20 @@ Overview
 ┌─────────────────┬───────────────────────────────────────────────────────────────────────────────────────────────────┐
 │ Item            │ Value                                                                                             │
 ├─────────────────┼───────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ Version         │ 2026.3.7                                                                                          │
+│ Version         │ 2026.3.8                                                                                          │
 │ OS              │ linux 6.8.0-101-generic (x64)                                                                     │
 │ Node            │ 22.22.0                                                                                           │
 │ Config          │ ~/.openclaw/openclaw.json                                                                         │
 │ Dashboard       │ http://127.0.0.1:18789/                                                                           │
 │ Tailscale       │ off · Running · srv1457479-1.tail8fed73.ts.net                                                    │
 │ Channel         │ stable (default)                                                                                  │
-│ Update          │ pnpm · npm latest 2026.3.7                                                                        │
-│ Gateway         │ local · ws://127.0.0.1:18789 (local loopback) · reachable 12ms · auth token                       │
+│ Update          │ pnpm · npm latest 2026.3.8                                                                        │
+│ Gateway         │ local · ws://127.0.0.1:18789 (local loopback) · reachable 10ms · auth token                       │
 │ Security        │ Run: openclaw security audit --deep                                                               │
-│ Gateway self    │ srv1457479 (72.62.122.169) app 2026.3.7 linux 6.8.0-101-generic                                   │
-│ Gateway service │ systemd installed · enabled · running (pid 976061)                                                │
+│ Gateway self    │ srv1457479 (72.62.122.169) app 2026.3.8 linux 6.8.0-101-generic                                   │
+│ Gateway service │ systemd installed · enabled · running (pid 1225926)                                               │
 │ Node service    │ systemd not installed                                                                             │
-│ Agents          │ 1 total · 1 bootstrapping · 1 active · 6 sessions                                                 │
+│ Agents          │ 1 total · 1 bootstrapping · 1 active · 68 sessions                                                │
 └─────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 Channels
@@ -38,7 +38,7 @@ Agents
 ┌────────────┬────────────────┬──────────┬──────────┬─────────────────────────────────────────────────────────────────┐
 │ Agent      │ Bootstrap file │ Sessions │ Active   │ Store                                                           │
 ├────────────┼────────────────┼──────────┼──────────┼─────────────────────────────────────────────────────────────────┤
-│ main       │ PRESENT        │        6 │ just now │ ~/.openclaw/agents/main/sessions/sessions.json                  │
+│ main       │ PRESENT        │       68 │ just now │ ~/.openclaw/agents/main/sessions/sessions.json                  │
 └────────────┴────────────────┴──────────┴──────────┴─────────────────────────────────────────────────────────────────┘
 
 Diagnosis (read-only)
@@ -53,7 +53,7 @@ Gateway connection details:
 ✓ Restart sentinel: none
 ! Port 18789
   Port 18789 is already in use.
-  - pid 976061 bernard: openclaw-gateway (127.0.0.1:18789)
+  - pid 1225926 bernard: openclaw-gateway (127.0.0.1:18789)
   - Gateway already running locally. Stop it (openclaw gateway stop) or use a different port.
 ✓ Tailscale: off · Running · srv1457479-1.tail8fed73.ts.net
   ips: 100.79.0.8, fd7a:115c:a1e0::6e01:18
