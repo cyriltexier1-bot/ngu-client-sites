@@ -1,2 +1,4 @@
 ID                                   Name                     Schedule                         Next       Last       Status    Target    Agent ID   Model               
-ccd2bc07-372b-47c7-ae11-7ecb7d0699d5 maintenance:daily-update cron 0 4 * * * @ UTC (exact)     in 1h      -          idle      isolated  -          -
+448abd80-99af-4aec-abf6-2c8df0bef061 maintenance:daily-backup cron 30 4 * * * @ UTC (exact)    <1m ago    -          running   isolated  -          -
+d82a4799-8a13-47d4-aa5d-54673fde5f94 monitoring:heartbeat-30m cron 0,30 7-23 * * * @ UTC (e... in 2h      -          idle      isolated  -          -
+ccd2bc07-372b-47c7-ae11-7ecb7d0699d5 maintenance:daily-update cron 0 4 * * * @ UTC (exact)     in 23h     -          idle      isolated  -          -

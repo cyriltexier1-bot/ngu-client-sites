@@ -1,0 +1,6 @@
+{
+  "positive_keywords": ["proposal", "follow up", "meeting", "invoice", "urgent"],
+  "negative_keywords": ["newsletter", "unsubscribe", "promo"],
+  "sender_weights": {},
+  "threshold": 45
+}
