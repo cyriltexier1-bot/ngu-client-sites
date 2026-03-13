@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-03-09T02:57:40Z",
+  "push_status": "ok",
+  "missing": [
+    "/home/bernard/.openclaw/workspace/MEMORY.md",
+    "/home/bernard/.openclaw/gateway.json",
+    "/home/bernard/.openclaw/agents/main/bootstrap.md"
+  ]
+}

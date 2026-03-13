@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elisa Operations Hub | Team Cyril Texier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f5f7fb;--panel:#fff;--line:#e6eaf1;--text:#0f172a;--muted:#64748b;
+      --brand:#0f62fe;--brand-soft:#e8f0ff;--ok:#16a34a;--warn:#d97706;--radius:14px;
+      --shadow:0 10px 30px rgba(2,6,23,.06);
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text)}
+    .wrap{width:min(1200px,92vw);margin:0 auto;padding:20px 0 28px}
+    .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:38px;height:38px;border-radius:10px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800}
+    .h0{margin:0;font-size:1.05rem;font-weight:800}.sub{margin:2px 0 0;color:var(--muted);font-size:.88rem}
+    .tag{background:var(--brand-soft);color:var(--brand);border:1px solid #d8e5ff;padding:8px 10px;border-radius:999px;font-size:.78rem;font-weight:700}
+
+    .hero{margin-top:12px;background:var(--panel);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px}
+    .hero h1{margin:0 0 8px;font-size:clamp(1.3rem,2.8vw,1.9rem)}
+    .hero p{margin:0;color:var(--muted)}
+    .quick{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 13px;font-weight:600;text-decoration:none;color:var(--text);cursor:pointer}
+    .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+
+    .kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
+    .k{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+    .k b{display:block;font-size:1.2rem}.k span{font-size:.82rem;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:290px 1fr;gap:12px;margin-top:12px}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .left{padding:14px}.left h3,.main h3{margin:0 0 10px;font-size:1rem}
+    .check{display:flex;gap:8px;align-items:flex-start;margin:8px 0;font-size:.9rem}
+    .bar{height:8px;background:#edf2fa;border-radius:999px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a)}
+    .ptxt{margin-top:7px;color:var(--muted);font-size:.82rem}
+    .main{padding:14px}
+
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+    .card h4{margin:0 0 5px;font-size:1rem}.desc{margin:0 0 8px;color:var(--muted);font-size:.88rem}
+    .pill{display:inline-block;font-size:.74rem;background:#f3f6fb;border:1px solid var(--line);color:#334155;border-radius:999px;padding:4px 8px;margin-right:5px}
+    .actions{margin-top:8px;display:flex;gap:10px;flex-wrap:wrap}.actions a{font-size:.86rem;color:var(--brand);text-decoration:none;font-weight:600}
+
+    .feedback{margin-top:12px;padding:14px}
+    .fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    input,select,textarea{width:100%;padding:10px 11px;border:1px solid var(--line);border-radius:10px;font:inherit}
+    textarea{min-height:86px;resize:vertical}
+    .factions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .small{font-size:.82rem;color:var(--muted)}
+
+    .footer{margin-top:10px;color:var(--muted);font-size:.8rem}
+    .hidden{display:none !important}
+    @media (max-width:980px){.kpi{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.fgrid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <div class="brand">
+        <div class="logo">ET</div>
+        <div>
+          <p class="h0">Elisa Operations Hub</p>
+          <p class="sub">Team Cyril Texier · NGU Real Estate</p>
+        </div>
+      </div>
+      <span class="tag">Daily workflow dashboard</span>
+    </div>
+
+    <section class="hero">
+      <h1>Simple daily execution for higher lead conversion</h1>
+      <p>Follow the checklist, use ready templates, track KPIs, and submit daily feedback in one place.</p>
+      <div class="quick">
+        <a class="btn primary" href="01_email-to-elisa.txt" target="_blank">Start: Diagnostic Email</a>
+        <a class="btn" href="README.md" target="_blank">Open Full Guide</a>
+        <button class="btn" id="resetAll">Reset Daily Progress</button>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:12px;padding:14px">
+      <h3 style="margin:0 0 10px">Locked Command Center (Daily)</h3>
+      <div class="cards" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+        <article class="card"><h4>CEO</h4><p class="desc">Set top 3 decisions, align priorities, remove blockers fast.</p><span class="pill">Morning</span><span class="pill">Direction</span></article>
+        <article class="card"><h4>CFO</h4><p class="desc">Track activity vs conversion targets and fix red flags early.</p><span class="pill">Midday</span><span class="pill">Control</span></article>
+        <article class="card"><h4>Prospector</h4><p class="desc">Run high-intent outreach, follow-ups, and reactivation every day.</p><span class="pill">Execution</span><span class="pill">EOD review</span></article>
+      </div>
+    </section>
+
+    <section class="kpi">
+      <div class="k"><b>11</b><span>Operational modules</span></div>
+      <div class="k"><b>5</b><span>Daily priority tasks</span></div>
+      <div class="k"><b>3</b><span>Focus tracks</span></div>
+      <div class="k"><b>1</b><span>Unified workspace</span></div>
+    </section>
+
+    <section class="grid">
+      <aside class="panel left">
+        <h3>Today checklist</h3>
+        <label class="check"><input type="checkbox" data-k="1">Review and send diagnostic outreach (01)</label>
+        <label class="check"><input type="checkbox" data-k="2">Score lead responses (02 + 07)</label>
+        <label class="check"><input type="checkbox" data-k="3">Apply reply strategy (03 + 04)</label>
+        <label class="check"><input type="checkbox" data-k="4">Run follow-up cadence (06 + 08)</label>
+        <label class="check"><input type="checkbox" data-k="5">Update KPI + action plan (09 + 11)</label>
+        <div class="bar"><i id="fill"></i></div>
+        <div class="ptxt" id="ptext">0 / 5 completed</div>
+      </aside>
+
+      <div class="panel main">
+        <h3>Playbooks & templates</h3>
+        <div class="tabs">
+          <button class="btn tab primary" data-filter="all">All</button>
+          <button class="btn tab" data-filter="setup">Setup</button>
+          <button class="btn tab" data-filter="followup">Follow-up</button>
+          <button class="btn tab" data-filter="performance">Performance</button>
+          <input id="q" placeholder="Search module..." style="margin-left:auto;min-width:220px">
+        </div>
+        <div class="cards" id="cards">
+          <article class="card" data-tags="setup"><h4>01 · Diagnostic Email</h4><p class="desc">Initial outreach to capture process gaps and immediate priorities.</p><span class="pill">setup</span><div class="actions"><a href="01_email-to-elisa.txt" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="setup"><h4>02 · Scoring Matrix</h4><p class="desc">Convert responses into objective scoring for prioritization.</p><span class="pill">setup</span><span class="pill">qualification</span><div class="actions"><a href="02_scoring-matrix.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="setup"><h4>03 · Options by Gap</h4><p class="desc">Action mapping based on weak points in the workflow.</p><span class="pill">setup</span><span class="pill">strategy</span><div class="actions"><a href="03_tailored-options-by-gap.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="followup"><h4>04 · Reply Templates</h4><p class="desc">Polished responses for common lead objections and delays.</p><span class="pill">follow-up</span><div class="actions"><a href="04_followup-reply-templates.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="performance"><h4>05 · Operating System</h4><p class="desc">Daily and weekly cadence for consistency and accountability.</p><span class="pill">performance</span><div class="actions"><a href="05_daily-weekly-operating-system.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="followup"><h4>06 · Outreach Templates</h4><p class="desc">Ready scripts for email/SMS follow-up execution.</p><span class="pill">follow-up</span><div class="actions"><a href="06_outreach-templates.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="setup"><h4>07 · Qualification Scorecard</h4><p class="desc">Prioritize high-intent leads and route next actions quickly.</p><span class="pill">setup</span><div class="actions"><a href="07_qualification-scorecard.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="followup"><h4>08 · Day 0–45 Follow-up</h4><p class="desc">Structured timeline to prevent lead drop-off.</p><span class="pill">follow-up</span><div class="actions"><a href="08_followup-sequence-day0-45.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="performance"><h4>09 · Weekly KPI Tracker</h4><p class="desc">Track volume, response quality, and conversion momentum.</p><span class="pill">performance</span><div class="actions"><a href="09_weekly-kpi-tracker.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="followup performance"><h4>10 · Reactivation Campaign</h4><p class="desc">3-touch sequence to recover inactive opportunities.</p><span class="pill">follow-up</span><span class="pill">performance</span><div class="actions"><a href="10_reactivation-campaign.md" target="_blank">Open</a></div></article>
+          <article class="card" data-tags="performance"><h4>11 · 30/60/90 Plan</h4><p class="desc">Roadmap for stabilization, optimization, and scale.</p><span class="pill">performance</span><div class="actions"><a href="11_30-60-90-plan.md" target="_blank">Open</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel feedback">
+      <h3 style="margin:0 0 10px">Daily feedback capture (for continuous improvement)</h3>
+      <div class="fgrid">
+        <input id="name" placeholder="Name">
+        <input id="email" placeholder="Email">
+        <input id="date" type="date">
+        <select id="focus"><option value="">Current focus</option><option>Lead qualification</option><option>Follow-up conversion</option><option>Pipeline management</option><option>Reactivation</option></select>
+      </div>
+      <textarea id="wins" placeholder="What worked well today?"></textarea>
+      <textarea id="blocks" placeholder="What blocked progress today?"></textarea>
+      <textarea id="needs" placeholder="What support/template do you need next?"></textarea>
+      <div class="factions">
+        <button class="btn primary" id="save">Save Entry</button>
+        <button class="btn" id="export">Export JSON</button>
+        <button class="btn" id="clear">Clear Entries</button>
+      </div>
+      <p class="small" id="status">No entries yet.</p>
+    </section>
+
+    <div class="footer">Prepared by Bernard · Team Cyril Texier · NGU Real Estate</div>
+  </div>
+
+  <script>
+    // checklist
+    const checks=[...document.querySelectorAll('input[data-k]')], fill=document.getElementById('fill'), ptext=document.getElementById('ptext');
+    const ck='elisa-hub-checks';
+    const saved=JSON.parse(localStorage.getItem(ck)||'{}');
+    checks.forEach(c=>{c.checked=!!saved[c.dataset.k]; c.onchange=render;});
+    function render(){
+      const o={}; checks.forEach(c=>o[c.dataset.k]=c.checked); localStorage.setItem(ck,JSON.stringify(o));
+      const done=checks.filter(c=>c.checked).length, total=checks.length, pct=Math.round(done*100/total);
+      fill.style.width=pct+'%'; ptext.textContent=`${done} / ${total} completed (${pct}%)`;
+    } render();
+    document.getElementById('resetAll').onclick=()=>{checks.forEach(c=>c.checked=false);render();};
+
+    // filtering
+    const cards=[...document.querySelectorAll('.card')], q=document.getElementById('q'), tabs=[...document.querySelectorAll('.tab')];
+    let f='all';
+    function filter(){
+      const t=q.value.toLowerCase().trim();
+      cards.forEach(c=>{
+        const okf=f==='all'||(c.dataset.tags||'').includes(f);
+        const okt=!t||c.innerText.toLowerCase().includes(t);
+        c.classList.toggle('hidden',!(okf&&okt));
+      });
+    }
+    q.addEventListener('input',filter);
+    tabs.forEach(b=>b.onclick=()=>{tabs.forEach(x=>x.classList.remove('primary'));b.classList.add('primary');f=b.dataset.filter;filter();});
+
+    // feedback
+    const fk='elisa-hub-feedback', status=document.getElementById('status');
+    document.getElementById('date').value=new Date().toISOString().slice(0,10);
+    const get=()=>JSON.parse(localStorage.getItem(fk)||'[]');
+    const set=(arr)=>{localStorage.setItem(fk,JSON.stringify(arr));status.textContent=`${arr.length} entr${arr.length===1?'y':'ies'} saved.`;};
+    set(get());
+    document.getElementById('save').onclick=()=>{
+      const row={ts:new Date().toISOString(),name:name.value.trim(),email:email.value.trim(),date:date.value,focus:focus.value,wins:wins.value.trim(),blocks:blocks.value.trim(),needs:needs.value.trim()};
+      const arr=get();arr.push(row);set(arr);status.textContent=`Saved ✅ ${arr.length} total entries.`;
+    };
+    document.getElementById('export').onclick=()=>{
+      const blob=new Blob([JSON.stringify(get(),null,2)],{type:'application/json'}),a=document.createElement('a');
+      a.href=URL.createObjectURL(blob);a.download=`elisa-feedback-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(a.href);
+    };
+    document.getElementById('clear').onclick=()=>{localStorage.removeItem(fk);set([]);};
+  </script>
+</body>
+</html>
