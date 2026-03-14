@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+data/systems.db
+data/assets/*
+!data/assets/.gitkeep
+data/cache/*
+!data/cache/.gitkeep
+data/retry/*
+!data/retry/.gitkeep

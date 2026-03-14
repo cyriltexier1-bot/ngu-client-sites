@@ -12,12 +12,12 @@ Overview
 │ Tailscale       │ off · Running · srv1457479-1.tail8fed73.ts.net                                                    │
 │ Channel         │ stable (default)                                                                                  │
 │ Update          │ pnpm · npm latest 2026.3.8                                                                        │
-│ Gateway         │ local · ws://127.0.0.1:18789 (local loopback) · reachable 10ms · auth token                       │
+│ Gateway         │ local · ws://127.0.0.1:18789 (local loopback) · reachable 12ms · auth token                       │
 │ Security        │ Run: openclaw security audit --deep                                                               │
 │ Gateway self    │ srv1457479 (72.62.122.169) app 2026.3.8 linux 6.8.0-101-generic                                   │
-│ Gateway service │ systemd installed · enabled · running (pid 1225926)                                               │
+│ Gateway service │ systemd installed · enabled · running (pid 1471357)                                               │
 │ Node service    │ systemd not installed                                                                             │
-│ Agents          │ 1 total · 1 bootstrapping · 1 active · 68 sessions                                                │
+│ Agents          │ 1 total · 1 bootstrapping · 1 active · 185 sessions                                               │
 └─────────────────┴───────────────────────────────────────────────────────────────────────────────────────────────────┘
 
 Channels
@@ -38,7 +38,7 @@ Agents
 ┌────────────┬────────────────┬──────────┬──────────┬─────────────────────────────────────────────────────────────────┐
 │ Agent      │ Bootstrap file │ Sessions │ Active   │ Store                                                           │
 ├────────────┼────────────────┼──────────┼──────────┼─────────────────────────────────────────────────────────────────┤
-│ main       │ PRESENT        │       68 │ just now │ ~/.openclaw/agents/main/sessions/sessions.json                  │
+│ main       │ PRESENT        │      185 │ just now │ ~/.openclaw/agents/main/sessions/sessions.json                  │
 └────────────┴────────────────┴──────────┴──────────┴─────────────────────────────────────────────────────────────────┘
 
 Diagnosis (read-only)
@@ -53,7 +53,7 @@ Gateway connection details:
 ✓ Restart sentinel: none
 ! Port 18789
   Port 18789 is already in use.
-  - pid 1225926 bernard: openclaw-gateway (127.0.0.1:18789)
+  - pid 1471357 bernard: openclaw-gateway (127.0.0.1:18789)
   - Gateway already running locally. Stop it (openclaw gateway stop) or use a different port.
 ✓ Tailscale: off · Running · srv1457479-1.tail8fed73.ts.net
   ips: 100.79.0.8, fd7a:115c:a1e0::6e01:18

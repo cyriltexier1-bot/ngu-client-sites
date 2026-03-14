@@ -1,0 +1,2 @@
+ID                                   Name                     Schedule                         Next       Last       Status    Target    Agent ID   Model               
+ccd2bc07-372b-47c7-ae11-7ecb7d0699d5 maintenance:daily-update cron 0 4 * * * @ UTC (exact)     in 1h      -          idle      isolated  -          -
