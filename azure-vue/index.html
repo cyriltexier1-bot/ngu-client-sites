@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Updated: 2026-03-27 02:02 UTC - 11 units, 300m², Cyril photo, new hero -->
+  <!-- Updated: 2026-03-27 02:18 UTC - Final Feasibility & Technical details -->
   <title>Nouméa Résidences — Surfers Paradise · Gold Coast</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -51,7 +51,7 @@
     .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=85') center 40%/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1510469062325-c6198f8e025a?q=80&w=1920') center bottom/cover no-repeat;
       transform: scale(1.06); transition: transform 10s ease-out;
     }
     .hero-bg.loaded { transform: scale(1); }
@@ -273,6 +273,18 @@
 </head>
 <body>
 
+<!-- WELCOME OVERLAY -->
+<div class="welcome-overlay no-print" id="welcomeOverlay">
+  <div class="welcome-content fade-in visible">
+    <p class="welcome-eyebrow">Présentation Confidentielle</p>
+    <h1 class="welcome-title">Bienvenue<br>M. Daniel Leroux</h1>
+    <div class="welcome-line"></div>
+    <p class="welcome-subtitle">Explorez les Résidences Nouméa · Surfers Paradise</p>
+    <button class="welcome-btn" id="discoverBtn">Découvrir le Projet</button>
+  </div>
+</div>
+
+
 <!-- NAV -->
 <nav id="nav">
   <div>
@@ -351,7 +363,7 @@
       <div class="diff-card"><div class="diff-icon">🏅</div><div class="diff-title">Brisbane 2032</div><div class="diff-body">La Gold Coast bénéficiera directement des Jeux Olympiques de Brisbane 2032 — infrastructures, visibilité mondiale et valorisation accélérée.</div></div>
       <div class="diff-card"><div class="diff-icon">🌏</div><div class="diff-title">Acheteurs Internationaux</div><div class="diff-body">Des acheteurs fortunés d'Europe, d'Asie et du Pacifique ciblent activement la Gold Coast pour des actifs lifestyle premium. Marché en pleine expansion.</div></div>
       <div class="diff-card"><div class="diff-icon">📐</div><div class="diff-title">300m² · Rare sur le Marché</div><div class="diff-body">300 m² plein étage est un format quasi introuvable à ce prix sur la Gold Coast. La rareté crée une valeur intrinsèque durable et protège l'investissement.</div></div>
-      <div class="diff-card"><div class="diff-icon">📈</div><div class="diff-title">Sous-Coté vs Marché</div><div class="diff-body">À $3.5M pour 300 m², le projet se positionne à ~$11 700/m² — bien en dessous des comparables plein étage ($17 000–$26 000/m²). Marge de hausse réelle.</div></div>
+      <div class="diff-card"><div class="diff-icon">📈</div><div class="diff-title">Positionnement Stratégique</div><div class="diff-body">À un prix de vente moyen cible de $3.5M–$3.95M pour 300 m², le projet se positionne à ~$11 700–$13 167/m² — bien en dessous des comparables plein étage ($17 000–$26 000/m²). Une marge de hausse réelle avec un risque contenu.</div></div>
     </div>
   </div>
 </section>
@@ -360,23 +372,23 @@
 <div class="gallery-section">
   <div class="gallery-grid">
     <div class="gitem tall">
-      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80" alt="Surfers Paradise" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1549646452-944a991871a2?q=80&w=900" alt="Gold Coast Skyline Nuit" loading="lazy" />
       <div class="gcap">Surfers Paradise · Gold Coast</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=700&q=80" alt="Intérieur Luxe" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1574693758177-3e5e4d293f0b?q=80&w=700" alt="Intérieur Luxueux Gold Coast" loading="lazy" />
       <div class="gcap">Intérieur · Finitions de Luxe</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&q=80" alt="Vue Rivière" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1579607870377-6f011b931980?q=80&w=700" alt="Vue Panoramique Rivière Gold Coast" loading="lazy" />
       <div class="gcap">Vue Panoramique · Rivière</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1551361415-69c87624334f?w=700&q=80" alt="Architecture" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1580927756184-a10c9c7f1a3b?q=80&w=700" alt="Architecture Moderne Gold Coast" loading="lazy" />
       <div class="gcap">Architecture Contemporaine</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80" alt="Terrasse" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=700" alt="Terrasse Vue Mer Gold Coast" loading="lazy" />
       <div class="gcap">Terrasse Privative</div>
     </div>
   </div>
@@ -411,7 +423,7 @@
     <div class="fade-in" style="text-align:center;">
       <p class="eyebrow" style="text-align:center;">Étude de Faisabilité Préliminaire</p>
       <h2 class="sh" style="text-align:center;">Analyse Financière · <span class="gold">4 Scénarios</span></h2>
-      <p class="body-p" style="text-align:center; max-width:680px; margin:16px auto 0; font-size:13px;">11 appartements · 300 m² · 1.5 parking/unité · Terrain $6M · 28% frais annexes. Données mars 2026.</p>
+      <p class="body-p" style="text-align:center; max-width:680px; margin:16px auto 0; font-size:13px;">11 appartements · 300 m² bruts · 1.5 parking/unité · Terrain $6M · 28% frais annexes. Données marché mars 2026. <em class="gold" style="font-style:normal;">Ces scénarios intègrent la vision et les données préliminaires de M. Leroux. Le coût de construction par m² est une estimation clé; il est vital de le valider par des devis de Quantity Surveyors agréés pour une précision optimale.</em></p>
     </div>
     <div class="feas-grid fade-in d1">
 
@@ -480,24 +492,24 @@
       <div class="feas-card">
         <div class="feas-head">
           <div class="feas-sc">Scénario D</div>
-          <div class="feas-nm">Premium Plein Étage — $5 000/m²</div>
+          <div class="feas-nm">Premium Plein Étage — $5 100/m²</div>
         </div>
         <div class="feas-body">
-          <div class="frow"><span class="lbl">Prix de vente moyen / unité</span><span class="val gold">AUD $4 200 000</span></div>
-          <div class="frow"><span class="lbl">VRB (11 × $4.2M)</span><span class="val">AUD $46 200 000</span></div>
-          <div class="frow"><span class="lbl">Construction (3 600m² × $5 000)</span><span class="val">AUD $18 000 000</span></div>
+          <div class="frow"><span class="lbl">Prix de vente moyen / unité</span><span class="val gold">AUD $3 950 000</span></div>
+          <div class="frow"><span class="lbl">VRB (11 × $3.95M)</span><span class="val">AUD $43 450 000</span></div>
+          <div class="frow"><span class="lbl">Construction (3 600m² × $5 100)</span><span class="val">AUD $18 360 000</span></div>
           <div class="frow"><span class="lbl">Terrain</span><span class="val">AUD $6 000 000</span></div>
-          <div class="frow"><span class="lbl">Frais annexes 28%</span><span class="val">AUD $6 720 000</span></div>
+          <div class="frow"><span class="lbl">Frais annexes 28%</span><span class="val">AUD $6 820 800</span></div>
         </div>
-        <div class="feas-tot"><span class="ftlbl">Coût Total</span><span class="ftval">$30 720 000</span></div>
+        <div class="feas-tot"><span class="ftlbl">Coût Total</span><span class="ftval">$31 180 800</span></div>
         <div class="feas-margin">
-          <div><div class="mbig">50%</div><div class="msub">Marge</div></div>
-          <div class="mprofit"><div class="mpn gold">$15.5M</div><div class="mpl">Bénéfice</div></div>
+          <div><div class="mbig">39.4%</div><div class="msub">Marge</div></div>
+          <div class="mprofit"><div class="mpn gold">$12.3M</div><div class="mpl">Bénéfice</div></div>
         </div>
       </div>
 
     </div>
-    <p class="body-p" style="font-size:12px; opacity:.4; text-align:center; margin-top:24px;">Surface totale constructible estimée à 3 600 m² (3 300 m² résidentiel + ~300 m² stationnement). Ces chiffres sont indicatifs — à valider par un Quantity Surveyor agréé.</p>
+    <p class="body-p" style="font-size:12px; opacity:.4; text-align:center; margin-top:24px;">Surface totale constructible estimée à 3 600 m² (3 300 m² résidentiel + ~300 m² stationnement). <strong class="gold">Le coût de construction par m² est une estimation clé; il est vital de le valider par des devis de Quantity Surveyors agréés pour une précision optimale.</strong> Ces chiffres sont indicatifs.</p>
   </div>
 </section>
 
@@ -507,7 +519,7 @@
     <div class="fade-in" style="text-align:center;">
       <p class="eyebrow" style="text-align:center;">Ventes Récentes Comparables</p>
       <h2 class="sh" style="text-align:center;">Le Marché Valide <span class="gold">Notre Positionnement</span></h2>
-      <p class="body-p" style="text-align:center; max-width:680px; margin:16px auto 0;">Surfers Paradise et ses environs immédiats affichent des prix au m² entre $15 000 et $27 000 pour les produits plein étage boutique. Nouméa Résidences se positionne à ~$11 700–$14 000/m² — en dessous du marché.</p>
+      <p class="body-p" style="text-align:center; max-width:680px; margin:16px auto 0;">Surfers Paradise et ses environs immédiats affichent des prix au m² entre $15 000 et $27 000 pour les produits plein étage boutique. Nouméa Résidences se positionne de manière stratégique à ~$11 700–$13 167/m² — garantissant un attrait fort et un potentiel de valorisation.</p>
     </div>
     <div class="comp-table fade-in d1">
       <div class="comp-head">
@@ -519,8 +531,8 @@
       <div class="comp-row noumea">
         <div class="ccell h">🏢 Nouméa Résidences — Cible</div>
         <div class="ccell g">300 m² · Plein Étage</div>
-        <div class="ccell g">$3.5M–$3.8M</div>
-        <div class="ccell g">~$11 700–$12 700</div>
+        <div class="ccell g">$3.5M–$3.95M</div>
+        <div class="ccell g">~$11 700–$13 167</div>
       </div>
       <div class="comp-row">
         <div class="ccell">Nera Residences — Penthouse Plein Étage<br><span style="opacity:.5;font-size:12px">Chevron Island · Vendu mars 2026</span></div>
@@ -617,8 +629,8 @@
       <h2 class="agent-name">Cyril<br>Texier</h2>
       <p class="agent-title">Agent Immobilier Résidentiel · NGU Real Estate · Gold Coast</p>
       <div class="rule"></div>
-      <p class="agent-bio">Spécialiste de l'immobilier résidentiel haut de gamme sur la Gold Coast et Brisbane, Cyril Texier accompagne une clientèle locale et internationale dans leurs acquisitions les plus stratégiques. Originaire de Nouvelle-Calédonie, parfaitement bilingue français-anglais, il est l'interlocuteur idéal pour les investisseurs francophones.</p>
-      <p class="agent-bio">Avec un background en ingénierie et gestion de projets de construction, Cyril apporte une compréhension technique unique des projets de développement — un atout décisif pour des opérations de la complexité de Nouméa Résidences.</p>
+      <p class="agent-bio">Spécialiste de l'immobilier résidentiel haut de gamme sur la Gold Coast et Brisbane, Cyril Texier accompagne une clientèle locale et internationale dans leurs acquisitions les plus stratégiques. Originaire de Nouvelle-Calédonie et parfaitement bilingue français-anglais, il est l'interlocuteur idéal pour les investisseurs francophones.</p>
+      <p class="agent-bio">Fort d'un solide <strong>background en ingénierie et en gestion de projets de construction</strong>, Cyril apporte une compréhension technique unique des enjeux de développement immobilier. Son expertise couvre la qualité de construction, la structure, les matériaux et la performance des actifs à long terme — un atout décisif pour des opérations de la complexité et de l'envergure de Nouméa Résidences.</p>
       <div class="agent-stats">
         <div><div class="astat-n">$170M+</div><div class="astat-l">Ventes réalisées</div></div>
         <div><div class="astat-n">GC + BNE</div><div class="astat-l">Marchés couverts</div></div>
