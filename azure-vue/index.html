@@ -73,7 +73,7 @@
     .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1551632786-de41ec78fdc4?w=1920&q=80') center bottom/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1920&q=80') center bottom/cover no-repeat;
       transform: scale(1.06); transition: transform 10s ease-out;
     }
     .hero-bg.loaded { transform: scale(1); }
@@ -97,9 +97,9 @@
 
     /* SECTIONS */
     section { padding: 120px 0; }
-    .eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
-    .sh { font-family: var(--serif); font-size: clamp(38px, 5vw, 68px); font-weight: 300; line-height: 1.05; margin-bottom: 24px; }
-    .body-p { font-size: 15px; line-height: 1.9; opacity: 0.72; }
+    .eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; font-weight: 600; }
+    .sh { font-family: var(--serif); font-size: clamp(38px, 5vw, 68px); font-weight: 300; line-height: 1.2; margin-bottom: 32px; letter-spacing: 0.5px; }
+    .body-p { font-size: 16px; line-height: 2.0; opacity: 0.80; letter-spacing: 0.3px; }
     .rule { width: 64px; height: 1px; background: var(--gold); margin: 28px 0; }
 
     /* PROJECT */
@@ -251,7 +251,7 @@
 
     /* CTA */
     .cta-section { position: relative; overflow: hidden; text-align: center; padding: 150px 0; }
-    .cta-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1920&q=80') center/cover; filter: brightness(.22); }
+    .cta-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1920&q=80') center/cover; filter: brightness(.22); }
     .cta-content { position: relative; z-index: 2; }
     .cta-title { font-family: var(--serif); font-size: clamp(44px, 6vw, 90px); font-weight: 300; margin-bottom: 28px; }
     .cta-body { font-size: 16px; opacity: .65; max-width: 580px; margin: 0 auto 52px; line-height: 1.9; }
@@ -291,7 +291,7 @@
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
       .fnote { text-align: center; }
     }
-    .welcome-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 9999; background: linear-gradient(135deg, rgba(8,12,18,0.85) 0%, rgba(8,12,18,0.90) 100%), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; opacity: 1; transition: opacity 0.8s ease; }
+    .welcome-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 9999; background: linear-gradient(135deg, rgba(8,12,18,0.85) 0%, rgba(8,12,18,0.90) 100%), url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1920&q=80') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; opacity: 1; transition: opacity 0.8s ease; }
     .welcome-overlay.hidden { opacity: 0; pointer-events: none; }
     .welcome-content { position: relative; z-index: 2; }
     .welcome-eyebrow { font-size: 11px; letter-spacing: 7px; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
@@ -363,7 +363,7 @@
 <section class="project-section" id="projet">
   <div class="wrap proj-grid">
     <div class="proj-img fade-in">
-      <img src="https://images.unsplash.com/photo-1551632786-de41ec78fdc4?w=900&q=80" alt="Vue Rivière Nerang" />
+      <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=900&q=80" alt="Vue Rivière Nerang" />
       <div class="proj-img-cap">Vue Rivière Nerang · Surfers Paradise</div>
     </div>
     <div class="fade-in d1">
@@ -405,23 +405,23 @@
 <div class="gallery-section">
   <div class="gallery-grid">
     <div class="gitem tall">
-      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=900" alt="Gold Coast Skyline Nuit" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?q=80&w=900" alt="Gold Coast Skyline Nuit" loading="lazy" />
       <div class="gcap">Surfers Paradise · Gold Coast</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1551632786-de41ec78fdc4?q=80&w=700" alt="Intérieur Luxueux Gold Coast" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=700" alt="Intérieur Luxueux Gold Coast" loading="lazy" />
       <div class="gcap">Intérieur · Finitions de Luxe</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1552278335-edd06ef40c1d?q=80&w=700" alt="Vue Panoramique Rivière Gold Coast" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=700" alt="Vue Panoramique Rivière Gold Coast" loading="lazy" />
       <div class="gcap">Vue Panoramique · Rivière</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1535221228889-2a62619c46d5?q=80&w=700" alt="Architecture Moderne Gold Coast" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=700" alt="Architecture Moderne Gold Coast" loading="lazy" />
       <div class="gcap">Architecture Contemporaine</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=700" alt="Terrasse Vue Mer Gold Coast" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1460896849987-8f19f69f8e1b?q=80&w=700" alt="Terrasse Vue Mer Gold Coast" loading="lazy" />
       <div class="gcap">Terrasse Privative</div>
     </div>
   </div>
@@ -431,7 +431,7 @@
 <section class="history-section" id="histoire">
   <div class="wrap history-grid">
     <div class="history-img fade-in">
-      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Surfers Paradise Skyline" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800&q=80" alt="Surfers Paradise Skyline" loading="lazy" />
     </div>
     <div class="fade-in d1">
       <p class="eyebrow">Histoire & Contexte</p>
@@ -631,7 +631,7 @@
     </div>
     <div class="market-grid2">
       <div class="mkt-img fade-in">
-        <img src="https://images.unsplash.com/photo-1551918221-acf2b566ec2d?w=800&q=80" alt="Gold Coast Aerial" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Gold Coast Aerial" loading="lazy" />
       </div>
       <div class="mstats fade-in d1">
         <div class="mstat"><div class="mstat-n">7–13%</div><div><div class="mstat-l">Croissance prévue 2026</div><div class="mstat-d">SQM Research & Bamboo Routes. Gold Coast surpasse la moyenne nationale et dépasse Sydney en valeur médiane depuis oct. 2025.</div></div></div>
