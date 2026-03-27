@@ -778,21 +778,34 @@
 </footer>
 
 <script>
-  // Welcome overlay dismiss
+  // Welcome overlay - show only once per session
   const welcomeOverlay = document.getElementById('welcomeOverlay');
   const discoverBtn = document.getElementById('discoverBtn');
+  const welcomeKey = 'noumeaWelcomeSeen';
   
-  // Ensure overlay is visible on load
-  window.addEventListener('load', () => {
+  // Check if user has already seen welcome
+  const hasSeenWelcome = sessionStorage.getItem(welcomeKey);
+  
+  if (hasSeenWelcome) {
+    // Hide welcome overlay immediately if already seen
     if (welcomeOverlay) {
-      welcomeOverlay.classList.remove('hidden');
-      welcomeOverlay.style.opacity = '1';
-      welcomeOverlay.style.pointerEvents = 'auto';
+      welcomeOverlay.style.display = 'none';
     }
-  });
+  } else {
+    // Show welcome overlay on first load
+    window.addEventListener('load', () => {
+      if (welcomeOverlay) {
+        welcomeOverlay.classList.remove('hidden');
+        welcomeOverlay.style.opacity = '1';
+        welcomeOverlay.style.pointerEvents = 'auto';
+      }
+    });
+  }
   
+  // Handle discover button click
   if (discoverBtn) {
     discoverBtn.addEventListener('click', () => {
+      sessionStorage.setItem(welcomeKey, 'true');
       welcomeOverlay.classList.add('hidden');
       setTimeout(() => { welcomeOverlay.style.display = 'none'; }, 800);
     });
