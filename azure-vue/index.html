@@ -26,122 +26,16 @@
   }
   </script>
   
-  <!-- PAGE VIEW TRACKING & TIME MONITORING -->
+  <!-- MINIMAL TRACKING - No token overhead -->
   <script>
     (function() {
-      const SESSION_KEY = 'ngu-session-data';
-      const TRACKING_INTERVAL = 300000; // Send updates every 5 minutes (reduced to save tokens)
-      
-      // Initialize session
-      const initSession = () => {
-        const sessionData = {
-          sessionId: 'ngu_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
-          startTime: new Date().toISOString(),
-          startTimeFormatted: new Date().toLocaleString('fr-FR', { 
-            year: 'numeric', month: 'long', day: 'numeric', 
-            hour: '2-digit', minute: '2-digit', second: '2-digit' 
-          }),
-          referrer: document.referrer || 'Direct',
-          initialUrl: window.location.href,
-          isFirstVisit: !sessionStorage.getItem(SESSION_KEY)
-        };
-        
-        sessionStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
-        return sessionData;
+      // Ultra-minimal session tracker (zero overhead)
+      const key = 'ngu_v';
+      const data = {
+        t: Date.now(),
+        r: document.referrer || 'direct'
       };
-      
-      // Track time spent on site
-      const trackTimeSpent = () => {
-        const storedData = sessionStorage.getItem(SESSION_KEY);
-        if (!storedData) return;
-        
-        const sessionData = JSON.parse(storedData);
-        const startTime = new Date(sessionData.startTime);
-        const currentTime = new Date();
-        const timeSpentMs = currentTime - startTime;
-        const timeSpentSeconds = Math.round(timeSpentMs / 1000);
-        const timeSpentMinutes = Math.round(timeSpentSeconds / 60);
-        
-        // Format time spent
-        let timeSpentFormatted = '';
-        if (timeSpentSeconds < 60) {
-          timeSpentFormatted = `${timeSpentSeconds} secondes`;
-        } else if (timeSpentMinutes < 60) {
-          timeSpentFormatted = `${timeSpentMinutes} minutes ${timeSpentSeconds % 60} secondes`;
-        } else {
-          const hours = Math.floor(timeSpentMinutes / 60);
-          const mins = timeSpentMinutes % 60;
-          timeSpentFormatted = `${hours}h ${mins}m`;
-        }
-        
-        const trackingPayload = {
-          event: 'noumea_time_tracking',
-          sessionId: sessionData.sessionId,
-          timestamp: currentTime.toISOString(),
-          timeSpentSeconds: timeSpentSeconds,
-          timeSpentMinutes: timeSpentMinutes,
-          timeSpentFormatted: timeSpentFormatted,
-          sessionStartTime: sessionData.startTime,
-          sessionStartTimeFormatted: sessionData.startTimeFormatted,
-          referrer: sessionData.referrer,
-          currentUrl: window.location.href,
-          scrollDepth: Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100) || 0,
-          isFirstVisit: sessionData.isFirstVisit
-        };
-        
-        // Store session analytics (silent tracking)
-        const sessions = JSON.parse(localStorage.getItem('noumea_sessions') || '[]');
-        const existingIndex = sessions.findIndex(s => s.sessionId === trackingPayload.sessionId);
-        if (existingIndex >= 0) {
-          sessions[existingIndex] = trackingPayload;
-        } else {
-          sessions.push(trackingPayload);
-        }
-        localStorage.setItem('noumea_sessions', JSON.stringify(sessions.slice(-50)));
-        
-        return trackingPayload;
-      };
-      
-      // Send initial view notification
-      const sendInitialNotification = (sessionData) => {
-        const notificationPayload = {
-          event: 'noumea_site_opened',
-          sessionId: sessionData.sessionId,
-          timestamp: sessionData.startTime,
-          timestampFormatted: sessionData.startTimeFormatted,
-          referrer: sessionData.referrer,
-          isFirstVisit: sessionData.isFirstVisit
-        };
-        
-        // Store in localStorage for analytics (silent tracking)
-        const visits = JSON.parse(localStorage.getItem('noumea_visits') || '[]');
-        visits.push(notificationPayload);
-        localStorage.setItem('noumea_visits', JSON.stringify(visits.slice(-100)));
-      };
-      
-      // Track on exit (silent)
-      const trackOnExit = () => {
-        trackTimeSpent();
-      };
-      
-      // Initialize
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', () => {
-          const sessionData = initSession();
-          sendInitialNotification(sessionData);
-          
-          // Track time every 30 seconds
-          setInterval(trackTimeSpent, TRACKING_INTERVAL);
-          
-          // Track on page exit
-          window.addEventListener('beforeunload', trackOnExit);
-        });
-      } else {
-        const sessionData = initSession();
-        sendInitialNotification(sessionData);
-        setInterval(trackTimeSpent, TRACKING_INTERVAL);
-        window.addEventListener('beforeunload', trackOnExit);
-      }
+      sessionStorage.setItem(key, JSON.stringify(data));
     })();
   </script>
   <style>
