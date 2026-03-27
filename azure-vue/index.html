@@ -3,12 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="pragma" content="no-cache">
-  <meta http-equiv="expires" content="0">
-  <!-- Updated: 2026-03-27 05:02 UTC - Welcome overlay with beach background -->
+  <meta http-equiv="cache-control" content="public, max-age=3600">
+  <meta name="description" content="Nouméa Résidences — 11 exclusive full-floor residences on the Nerang River, Surfers Paradise. Luxury gold coast real estate. 300m² per unit. $3.5-3.95M.">
+  <meta name="keywords" content="Gold Coast, Surfers Paradise, luxury residences, real estate, Nerang River, waterfront">
+  <meta name="theme-color" content="#080C12">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <!-- Updated: 2026-03-27 05:04 UTC - All Gold Coast imagery + technical improvements -->
   <title>Nouméa Résidences — Surfers Paradise · Gold Coast</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin="anonymous">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "Cyril Texier",
+    "url": "https://cyriltexier1-bot.github.io/ngu-client-sites/azure-vue/",
+    "telephone": "+61402293358",
+    "email": "teamcyril@ngurealestate.com.au",
+    "areaServed": ["Gold Coast", "Surfers Paradise", "Queensland"],
+    "knowsAbout": "Luxury Residential Real Estate"
+  }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -22,8 +38,11 @@
       --serif: 'Cormorant Garamond', serif;
       --sans: 'Montserrat', sans-serif;
     }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--sans); background: var(--dark); color: var(--light); overflow-x: hidden; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: var(--sans); background: var(--dark); color: var(--light); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; transition: color 0.3s ease; }
+    button { font-family: inherit; }
 
     .wrap { max-width: 1240px; margin: 0 auto; padding: 0 60px; }
     .gold { color: var(--gold); }
@@ -54,7 +73,7 @@
     .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1510469062325-c6198f8e025a?q=80&w=1920') center bottom/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1551632786-de41ec78fdc4?w=1920&q=80') center bottom/cover no-repeat;
       transform: scale(1.06); transition: transform 10s ease-out;
     }
     .hero-bg.loaded { transform: scale(1); }
@@ -232,7 +251,7 @@
 
     /* CTA */
     .cta-section { position: relative; overflow: hidden; text-align: center; padding: 150px 0; }
-    .cta-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=1920&q=80') center/cover; filter: brightness(.22); }
+    .cta-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1519046904884-53103b34b206?w=1920&q=80') center/cover; filter: brightness(.22); }
     .cta-content { position: relative; z-index: 2; }
     .cta-title { font-family: var(--serif); font-size: clamp(44px, 6vw, 90px); font-weight: 300; margin-bottom: 28px; }
     .cta-body { font-size: 16px; opacity: .65; max-width: 580px; margin: 0 auto 52px; line-height: 1.9; }
@@ -344,7 +363,7 @@
 <section class="project-section" id="projet">
   <div class="wrap proj-grid">
     <div class="proj-img fade-in">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80" alt="Vue Rivière Nerang" />
+      <img src="https://images.unsplash.com/photo-1551632786-de41ec78fdc4?w=900&q=80" alt="Vue Rivière Nerang" />
       <div class="proj-img-cap">Vue Rivière Nerang · Surfers Paradise</div>
     </div>
     <div class="fade-in d1">
@@ -386,23 +405,23 @@
 <div class="gallery-section">
   <div class="gallery-grid">
     <div class="gitem tall">
-      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=900" alt="Gold Coast Skyline Nuit" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=900" alt="Gold Coast Skyline Nuit" loading="lazy" />
       <div class="gcap">Surfers Paradise · Gold Coast</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?q=80&w=700" alt="Intérieur Luxueux Gold Coast" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1551632786-de41ec78fdc4?q=80&w=700" alt="Intérieur Luxueux Gold Coast" loading="lazy" />
       <div class="gcap">Intérieur · Finitions de Luxe</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1512207736139-d983b3870316?q=80&w=700" alt="Vue Panoramique Rivière Gold Coast" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1552278335-edd06ef40c1d?q=80&w=700" alt="Vue Panoramique Rivière Gold Coast" loading="lazy" />
       <div class="gcap">Vue Panoramique · Rivière</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1494145904049-0dca59b4bbad?q=80&w=700" alt="Architecture Moderne Gold Coast" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1535221228889-2a62619c46d5?q=80&w=700" alt="Architecture Moderne Gold Coast" loading="lazy" />
       <div class="gcap">Architecture Contemporaine</div>
     </div>
     <div class="gitem">
-      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=700" alt="Terrasse Vue Mer Gold Coast" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=700" alt="Terrasse Vue Mer Gold Coast" loading="lazy" />
       <div class="gcap">Terrasse Privative</div>
     </div>
   </div>
@@ -412,7 +431,7 @@
 <section class="history-section" id="histoire">
   <div class="wrap history-grid">
     <div class="history-img fade-in">
-      <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80" alt="Surfers Paradise Skyline" loading="lazy" />
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Surfers Paradise Skyline" loading="lazy" />
     </div>
     <div class="fade-in d1">
       <p class="eyebrow">Histoire & Contexte</p>
@@ -612,7 +631,7 @@
     </div>
     <div class="market-grid2">
       <div class="mkt-img fade-in">
-        <img src="https://images.unsplash.com/photo-1522083165195-3424ed129620?w=800&q=80" alt="Gold Coast Aerial" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1551918221-acf2b566ec2d?w=800&q=80" alt="Gold Coast Aerial" loading="lazy" />
       </div>
       <div class="mstats fade-in d1">
         <div class="mstat"><div class="mstat-n">7–13%</div><div><div class="mstat-l">Croissance prévue 2026</div><div class="mstat-d">SQM Research & Bamboo Routes. Gold Coast surpasse la moyenne nationale et dépasse Sydney en valeur médiane depuis oct. 2025.</div></div></div>
