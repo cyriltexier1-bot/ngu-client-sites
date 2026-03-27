@@ -778,6 +778,16 @@
   // Welcome overlay dismiss
   const welcomeOverlay = document.getElementById('welcomeOverlay');
   const discoverBtn = document.getElementById('discoverBtn');
+  
+  // Ensure overlay is visible on load
+  window.addEventListener('load', () => {
+    if (welcomeOverlay) {
+      welcomeOverlay.classList.remove('hidden');
+      welcomeOverlay.style.opacity = '1';
+      welcomeOverlay.style.pointerEvents = 'auto';
+    }
+  });
+  
   if (discoverBtn) {
     discoverBtn.addEventListener('click', () => {
       welcomeOverlay.classList.add('hidden');
