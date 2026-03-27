@@ -30,7 +30,7 @@
   <script>
     (function() {
       const SESSION_KEY = 'ngu-session-data';
-      const TRACKING_INTERVAL = 30000; // Send updates every 30 seconds
+      const TRACKING_INTERVAL = 300000; // Send updates every 5 minutes (reduced to save tokens)
       
       // Initialize session
       const initSession = () => {
@@ -89,10 +89,7 @@
           isFirstVisit: sessionData.isFirstVisit
         };
         
-        // Log time tracking
-        console.log('⏱️ Time Tracking Update:', trackingPayload);
-        
-        // Store session analytics
+        // Store session analytics (silent tracking)
         const sessions = JSON.parse(localStorage.getItem('noumea_sessions') || '[]');
         const existingIndex = sessions.findIndex(s => s.sessionId === trackingPayload.sessionId);
         if (existingIndex >= 0) {
@@ -116,25 +113,15 @@
           isFirstVisit: sessionData.isFirstVisit
         };
         
-        // Log to console (for dashboard integration)
-        console.log('📊 Nouméa Tracking:', notificationPayload);
-        
-        // Store in localStorage for analytics
+        // Store in localStorage for analytics (silent tracking)
         const visits = JSON.parse(localStorage.getItem('noumea_visits') || '[]');
         visits.push(notificationPayload);
         localStorage.setItem('noumea_visits', JSON.stringify(visits.slice(-100)));
       };
       
-      // Track on exit
+      // Track on exit (silent)
       const trackOnExit = () => {
-        const trackingData = trackTimeSpent();
-        if (trackingData) {
-          console.log('🚪 Session End:', {
-            ...trackingData,
-            event: 'noumea_session_end',
-            totalTime: trackingData.timeSpentFormatted
-          });
-        }
+        trackTimeSpent();
       };
       
       // Initialize
