@@ -89,15 +89,18 @@
           isFirstVisit: sessionData.isFirstVisit
         };
         
-        // Send to webhook
-        try {
-          fetch('https://webhook.site/YOUR_UNIQUE_ID_HERE', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(trackingPayload),
-            mode: 'no-cors'
-          }).catch(() => {});
-        } catch (e) {}
+        // Log time tracking
+        console.log('⏱️ Time Tracking Update:', trackingPayload);
+        
+        // Store session analytics
+        const sessions = JSON.parse(localStorage.getItem('noumea_sessions') || '[]');
+        const existingIndex = sessions.findIndex(s => s.sessionId === trackingPayload.sessionId);
+        if (existingIndex >= 0) {
+          sessions[existingIndex] = trackingPayload;
+        } else {
+          sessions.push(trackingPayload);
+        }
+        localStorage.setItem('noumea_sessions', JSON.stringify(sessions.slice(-50)));
         
         return trackingPayload;
       };
@@ -110,39 +113,27 @@
           timestamp: sessionData.startTime,
           timestampFormatted: sessionData.startTimeFormatted,
           referrer: sessionData.referrer,
-          isFirstVisit: sessionData.isFirstVisit,
-          subject: `🔔 Nouméa Résidences — ${sessionData.isFirstVisit ? 'NEW' : 'RETURN'} Visitor`,
-          message: `Site ouvert à ${sessionData.startTimeFormatted}\nRéférent: ${sessionData.referrer}`
+          isFirstVisit: sessionData.isFirstVisit
         };
         
-        // Send to webhook
-        try {
-          fetch('https://webhook.site/YOUR_UNIQUE_ID_HERE', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(notificationPayload),
-            mode: 'no-cors'
-          }).catch(() => {});
-        } catch (e) {}
+        // Log to console (for dashboard integration)
+        console.log('📊 Nouméa Tracking:', notificationPayload);
+        
+        // Store in localStorage for analytics
+        const visits = JSON.parse(localStorage.getItem('noumea_visits') || '[]');
+        visits.push(notificationPayload);
+        localStorage.setItem('noumea_visits', JSON.stringify(visits.slice(-100)));
       };
       
       // Track on exit
       const trackOnExit = () => {
         const trackingData = trackTimeSpent();
         if (trackingData) {
-          // Send final time data
-          try {
-            fetch('https://webhook.site/YOUR_UNIQUE_ID_HERE', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                ...trackingData,
-                event: 'noumea_session_end',
-                message: `Session fermée après ${trackingData.timeSpentFormatted}`
-              }),
-              mode: 'no-cors'
-            }).catch(() => {});
-          } catch (e) {}
+          console.log('🚪 Session End:', {
+            ...trackingData,
+            event: 'noumea_session_end',
+            totalTime: trackingData.timeSpentFormatted
+          });
         }
       };
       
