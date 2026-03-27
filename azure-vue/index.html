@@ -25,6 +25,81 @@
     "knowsAbout": "Luxury Residential Real Estate"
   }
   </script>
+  
+  <!-- PAGE VIEW TRACKING & EMAIL NOTIFICATION -->
+  <script>
+    (function() {
+      const sendEmailNotification = () => {
+        const hasTracked = sessionStorage.getItem('ngu-viewed-tracked');
+        if (!hasTracked) {
+          sessionStorage.setItem('ngu-viewed-tracked', 'true');
+          
+          const timestamp = new Date().toLocaleString('fr-FR', { 
+            year: 'numeric', month: 'long', day: 'numeric', 
+            hour: '2-digit', minute: '2-digit', second: '2-digit' 
+          });
+          
+          // Create email tracking payload
+          const emailPayload = {
+            to: 'teamcyril@ngurealestate.com.au',
+            subject: '🔔 Nouméa Résidences — Site Viewed',
+            text: `Site ouvert à: ${timestamp}\n\nRéférent: ${document.referrer || 'Accès direct'}\n\nVérifier les stats de visite sur le dashboard.`
+          };
+          
+          // Try multiple tracking methods
+          
+          // Method 1: SendGrid API (if configured)
+          try {
+            fetch('https://api.sendgrid.com/v3/mail/send', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer SG.YOUR_KEY_HERE'
+              },
+              body: JSON.stringify({
+                personalizations: [{ to: [{ email: 'teamcyril@ngurealestate.com.au' }] }],
+                from: { email: 'noreply@noumeaproject.com' },
+                subject: emailPayload.subject,
+                content: [{ type: 'text/plain', value: emailPayload.text }]
+              }),
+              mode: 'no-cors'
+            }).catch(() => {});
+          } catch (e) {}
+          
+          // Method 2: Webhook logger (reliable)
+          try {
+            fetch('https://webhook.site/unique-id-here', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                event: 'noumea_site_opened',
+                timestamp: new Date().toISOString(),
+                viewer_info: {
+                  time: timestamp,
+                  referrer: document.referrer || 'Direct',
+                  userAgent: navigator.userAgent,
+                  url: window.location.href
+                }
+              }),
+              mode: 'no-cors'
+            }).catch(() => {});
+          } catch (e) {}
+          
+          // Method 3: Pixel tracking (lightweight)
+          const trackingPixel = new Image();
+          trackingPixel.src = `https://analytics.custom/track?event=noumea_view&ts=${Date.now()}&ref=${encodeURIComponent(document.referrer)}`;
+          trackingPixel.style.display = 'none';
+          document.body.appendChild(trackingPixel);
+        }
+      };
+      
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', sendEmailNotification);
+      } else {
+        sendEmailNotification();
+      }
+    })();
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
