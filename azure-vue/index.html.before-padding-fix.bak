@@ -269,7 +269,7 @@
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
       .fnote { text-align: center; }
     }
-    .welcome-overlay { padding-top: 80px; }
+      .welcome-overlay { padding-top: 80px; }
   </style>
 </head>
 <body>
