@@ -269,7 +269,7 @@
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
       .fnote { text-align: center; }
     }
-    .welcome-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 9999; background: linear-gradient(135deg, rgba(8,12,18,0.7) 0%, rgba(8,12,18,0.8) 100%), url('https://images.unsplash.com/photo-1510469062325-c6198f8e025a?q=80&w=1920') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; opacity: 1; transition: opacity 0.8s ease; }
+    .welcome-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 9999; background: linear-gradient(135deg, rgba(8,12,18,0.92) 0%, rgba(8,12,18,0.95) 100%), url('https://images.unsplash.com/photo-1510469062325-c6198f8e025a?q=80&w=1920') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; opacity: 1; transition: opacity 0.8s ease; }
     .welcome-overlay.hidden { opacity: 0; pointer-events: none; }
     .welcome-content { position: relative; z-index: 2; }
     .welcome-eyebrow { font-size: 11px; letter-spacing: 7px; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
@@ -278,6 +278,7 @@
     .welcome-subtitle { font-size: 13px; letter-spacing: 7px; text-transform: uppercase; opacity: 0.65; font-weight: 300; margin-bottom: 52px; }
     .welcome-btn { display: inline-block; padding: 18px 56px; background: var(--gold); color: var(--dark); font-size: 12px; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; font-weight: 700; border: none; cursor: pointer; transition: background 0.3s; }
     .welcome-btn:hover { background: var(--gold-light); }
+    .welcome-credit { position: absolute; bottom: 40px; width: 100%; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.5; }
   </style>
 </head>
 <body>
@@ -291,6 +292,7 @@
     <p class="welcome-subtitle">Explorez les Résidences Nouméa · Surfers Paradise</p>
     <button class="welcome-btn" id="discoverBtn">Découvrir le Projet</button>
   </div>
+  <div class="welcome-credit">Prepared by Cyril Texier · NGU Real Estate</div>
 </div>
 
 
