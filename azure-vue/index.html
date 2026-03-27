@@ -30,16 +30,21 @@
     :root {
       --gold: #C9A96E;
       --gold-light: #E8D4A8;
-      --dark: #080C12;
-      --mid: #111720;
-      --panel: #181F2C;
-      --light: #F8F6F2;
-      --muted: #8A8FA0;
+      --gold-dark: #9d8456;
+      --dark: #0a0e14;
+      --dark-alt: #0f1218;
+      --mid: #13171f;
+      --mid-light: #1a1f2b;
+      --panel: #1e2532;
+      --light: #e8e6e1;
+      --text-primary: #e8e6e1;
+      --text-secondary: #c0bdb8;
+      --text-muted: #8a8fa0;
       --serif: 'Cormorant Garamond', serif;
       --sans: 'Montserrat', sans-serif;
     }
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body { font-family: var(--sans); background: var(--dark); color: var(--light); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: var(--sans); background: linear-gradient(180deg, #0a0e14 0%, #0f1218 50%, #13171f 100%); color: var(--text-primary); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     img { max-width: 100%; height: auto; display: block; }
     a { color: inherit; transition: color 0.3s ease; }
     button { font-family: inherit; }
@@ -57,10 +62,10 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 999;
       display: flex; justify-content: space-between; align-items: center;
       padding: 28px 60px;
-      background: linear-gradient(to bottom, rgba(8,12,18,0.97), transparent);
+      background: linear-gradient(to bottom, rgba(10,14,20,0.98), transparent);
       transition: padding 0.4s, background 0.4s;
     }
-    nav.solid { background: rgba(8,12,18,0.97); padding: 18px 60px; box-shadow: 0 1px 0 rgba(201,169,110,0.1); }
+    nav.solid { background: rgba(10,14,20,0.98); padding: 18px 60px; box-shadow: 0 4px 16px rgba(201,169,110,0.08); }
     .nav-brand { font-family: var(--serif); font-size: 24px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; font-weight: 600; }
     .nav-sub { font-size: 9px; letter-spacing: 2px; opacity: 0.4; text-transform: uppercase; margin-top: 2px; }
     .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -89,33 +94,33 @@
     @keyframes pulse { 0%,100%{opacity:.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(.6)} }
 
     /* STRIP */
-    .strip { background: var(--gold); color: var(--dark); padding: 18px 60px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .strip { background: linear-gradient(135deg, var(--gold) 0%, #b8956a 100%); color: #0a0e14; padding: 24px 60px; display: flex; justify-content: space-between; align-items: center; gap: 10px; box-shadow: 0 8px 32px rgba(201,169,110,0.15); }
     .strip-item { text-align: center; flex: 1; }
-    .strip-n { font-family: var(--serif); font-size: 42px; font-weight: 700; line-height: 1; }
-    .strip-l { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; margin-top: 8px; font-weight: 600; }
-    .strip-sep { width: 1px; height: 36px; background: rgba(0,0,0,0.15); }
+    .strip-n { font-family: var(--serif); font-size: 44px; font-weight: 700; line-height: 1; }
+    .strip-l { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.85; margin-top: 10px; font-weight: 700; }
+    .strip-sep { width: 1px; height: 40px; background: rgba(10,14,20,0.2); }
 
     /* SECTIONS - UNIFIED */
     section { padding: 80px 0; }
     section > .wrap { display: flex; flex-direction: column; gap: 28px; }
     
     /* CONSISTENT TYPOGRAPHY */
-    .eyebrow { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #e8d4a8; margin-bottom: 24px; font-weight: 700; }
-    .sh { font-family: var(--serif); font-size: clamp(40px, 5.5vw, 72px); font-weight: 400; line-height: 1.2; margin-bottom: 40px; letter-spacing: 1px; color: #ffffff; }
-    .body-p { font-size: 18px; line-height: 2.2; opacity: 0.90; letter-spacing: 0.5px; margin-bottom: 24px; color: #e0e0e0; }
-    .rule { width: 80px; height: 3px; background: var(--gold); margin: 36px 0; }
+    .eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; font-weight: 800; }
+    .sh { font-family: var(--serif); font-size: clamp(42px, 5.5vw, 74px); font-weight: 300; line-height: 1.15; margin-bottom: 40px; letter-spacing: 0.5px; color: var(--text-primary); }
+    .body-p { font-size: 17px; line-height: 2.0; letter-spacing: 0.3px; margin-bottom: 24px; color: var(--text-secondary); }
+    .rule { width: 70px; height: 2px; background: linear-gradient(to right, var(--gold), transparent); margin: 32px 0; }
     
-    /* SECTION COLORS */
+    /* SECTION BACKGROUND STRATEGY - Professional Alternation */
     .executive-summary { background: var(--dark); }
-    .project-section { background: var(--mid); }
-    .tech-specs { background: var(--mid); }
-    .diff-section { background: var(--dark); }
+    .project-section { background: var(--mid-light); }
+    .tech-specs { background: var(--mid-light); }
+    .diff-section { background: var(--dark-alt); }
     .gallery-section { background: var(--mid); }
     .history-section { background: var(--dark); }
-    .marketing-section { background: var(--dark); }
-    .agent-section { background: var(--mid); }
-    .feas-section { background: var(--dark); }
-    .comp-section { background: var(--mid); }
+    .marketing-section { background: var(--mid-light); }
+    .agent-section { background: var(--dark-alt); }
+    .feas-section { background: var(--mid); }
+    .comp-section { background: var(--dark-alt); }
 
     /* PROJECT */
     .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
