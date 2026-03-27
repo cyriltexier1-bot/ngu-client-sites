@@ -73,7 +73,7 @@
     .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
     .hero-bg {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(8,12,18,0.3) 0%, rgba(8,12,18,0.65) 100%), url('https://images.unsplash.com/photo-1439405326854-014607f694d7?w=1920&h=1080&fit=crop') center bottom/cover no-repeat;
+      background: linear-gradient(135deg, #0d2a47 0%, #1a5f8a 50%, #2d7aa6 100%);
       transform: scale(1.06); transition: transform 10s ease-out;
     }
     .hero-bg.loaded { transform: scale(1); }
@@ -276,23 +276,28 @@
       .contacts-grid { grid-template-columns: 1fr 1fr; }
       .form-grid { grid-template-columns: 1fr; }
       .form-full { grid-column: span 1; }
-      section { padding: 80px 0; }
+      section { padding: 100px 0; }
     }
     @media (max-width: 680px) {
       nav { padding: 16px 20px; }
+      .nav-brand { font-size: 18px; }
       .nav-links { display: none; }
       .wrap { padding: 0 20px; }
       .strip { flex-direction: column; gap: 16px; padding: 28px 20px; }
       .strip-sep { display: none; }
+      .sh { font-size: clamp(28px, 6vw, 48px); }
+      .body-p { font-size: 16px; line-height: 1.9; }
       .diff-grid, .contacts-grid, .feas-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
       .pstats { grid-template-columns: 1fr 1fr; }
       .comp-head, .comp-row { grid-template-columns: 2fr 1fr 1fr; }
       .comp-hcell:nth-child(4), .ccell:nth-child(4) { display: none; }
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
-      .fnote { text-align: center; }
+      .fnote { text-align: center; font-size: 10px; }
+      .welcome-title { font-size: clamp(42px, 8vw, 72px); }
+      .welcome-btn { padding: 16px 48px; font-size: 12px; }
     }
-    .welcome-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 9999; background: linear-gradient(135deg, rgba(8,12,18,0.80) 0%, rgba(8,12,18,0.85) 100%), url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1920&h=1080&fit=crop') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; opacity: 1; transition: opacity 0.8s ease; }
+    .welcome-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 9999; background: linear-gradient(135deg, rgba(8,12,18,0.80) 0%, rgba(8,12,18,0.85) 100%), linear-gradient(to bottom, #1a5f8a, #0d3a57); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; opacity: 1; transition: opacity 0.8s ease; }
     .welcome-overlay.hidden { opacity: 0; pointer-events: none; }
     .welcome-content { position: relative; z-index: 2; }
     .welcome-eyebrow { font-size: 11px; letter-spacing: 7px; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
@@ -405,11 +410,11 @@
 <!-- GALLERY -->
 <div class="gallery-section">
   <div class="gallery-grid">
-    <div class="gitem tall" style="background: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=900&h=1080&fit=crop') center/cover;"><div class="gcap">Surfers Paradise · Gold Coast</div></div>
-    <div class="gitem" style="background: url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&h=700&fit=crop') center/cover;"><div class="gcap">Intérieur · Finitions de Luxe</div></div>
-    <div class="gitem" style="background: url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=700&h=700&fit=crop') center/cover;"><div class="gcap">Vue Panoramique · Rivière Nerang</div></div>
-    <div class="gitem" style="background: url('https://images.unsplash.com/photo-1511449885557-37d19e0ab8e5?w=700&h=700&fit=crop') center/cover;"><div class="gcap">Terrasse Rivière</div></div>
-    <div class="gitem" style="background: url('https://images.unsplash.com/photo-1512207736139-d983b3870316?w=700&h=700&fit=crop') center/cover;"><div class="gcap">Architecture Contemporaine</div></div>
+    <div class="gitem tall" style="background: linear-gradient(135deg, #1a5f8a 0%, #0d3a57 100%);"><div class="gcap">Surfers Paradise · Gold Coast</div></div>
+    <div class="gitem" style="background: linear-gradient(135deg, #2d7aa6 0%, #1a4d7a 100%);"><div class="gcap">Intérieur · Finitions de Luxe</div></div>
+    <div class="gitem" style="background: linear-gradient(135deg, #0f3a5a 0%, #1a5f8a 100%);"><div class="gcap">Vue Panoramique · Rivière Nerang</div></div>
+    <div class="gitem" style="background: linear-gradient(135deg, #2d5f8d 0%, #0d2a47 100%);"><div class="gcap">Terrasse Rivière</div></div>
+    <div class="gitem" style="background: linear-gradient(135deg, #1a4d7a 0%, #0d3a57 100%);"><div class="gcap">Architecture Contemporaine</div></div>
   </div>
 </div>
 
