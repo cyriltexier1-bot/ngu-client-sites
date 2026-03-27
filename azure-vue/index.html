@@ -95,27 +95,29 @@
     .strip-l { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.75; margin-top: 8px; font-weight: 600; }
     .strip-sep { width: 1px; height: 36px; background: rgba(0,0,0,0.15); }
 
-    /* SECTIONS */
+    /* SECTIONS - UNIFIED */
     section { padding: 80px 0; }
     section > .wrap { display: flex; flex-direction: column; gap: 28px; }
-    section:nth-child(even) { background: var(--mid); }
-    section:nth-child(odd) { background: var(--dark); }
+    
+    /* CONSISTENT TYPOGRAPHY */
     .eyebrow { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: #e8d4a8; margin-bottom: 24px; font-weight: 700; }
     .sh { font-family: var(--serif); font-size: clamp(40px, 5.5vw, 72px); font-weight: 400; line-height: 1.2; margin-bottom: 40px; letter-spacing: 1px; color: #ffffff; }
-    .body-p { font-size: 18px; line-height: 2.2; opacity: 0.90; letter-spacing: 0.5px; margin-bottom: 24px; color: #f0f0f0; }
+    .body-p { font-size: 18px; line-height: 2.2; opacity: 0.90; letter-spacing: 0.5px; margin-bottom: 24px; color: #e0e0e0; }
+    .rule { width: 80px; height: 3px; background: var(--gold); margin: 36px 0; }
     
-    /* SECTION ALTERNATING BACKGROUNDS */
+    /* SECTION COLORS */
+    .executive-summary { background: var(--dark); }
     .project-section { background: var(--mid); }
+    .tech-specs { background: var(--mid); }
     .diff-section { background: var(--dark); }
     .gallery-section { background: var(--mid); }
     .history-section { background: var(--dark); }
-    .market-section { background: var(--mid); }
+    .marketing-section { background: var(--dark); }
+    .agent-section { background: var(--mid); }
     .feas-section { background: var(--dark); }
     .comp-section { background: var(--mid); }
-    .rule { width: 64px; height: 1px; background: var(--gold); margin: 28px 0; }
 
     /* PROJECT */
-    .project-section { background: var(--mid); }
     .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .proj-img { height: 380px; overflow: hidden; position: relative; }
     .proj-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -126,7 +128,6 @@
     .pstat-l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: .5; margin-top: 8px; }
 
     /* DIFF */
-    .diff-section { background: var(--dark); }
     .diff-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: rgba(201,169,110,0.15); margin-top: 64px; }
     .diff-card { background: var(--panel); padding: 48px 40px; }
     .diff-icon { font-size: 30px; margin-bottom: 18px; }
@@ -143,7 +144,6 @@
     .gcap { display: none; }
 
     /* HISTORY */
-    .history-section { background: var(--panel); }
     .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
     .history-img { height: 360px; overflow: hidden; }
     .history-img img { width: 100%; height: 100%; object-fit: cover; }
@@ -374,7 +374,7 @@
 </div>
 
 <!-- EXECUTIVE SUMMARY -->
-<section style="background: var(--panel); padding: 80px 0;">
+<section class="executive-summary">
   <div class="wrap">
     <div class="fade-in">
       <p class="eyebrow">Résumé Exécutif</p>
@@ -414,7 +414,7 @@
 </section>
 
 <!-- TECHNICAL SPECS -->
-<section style="background: var(--mid); padding: 80px 0;">
+<section class="tech-specs">
   <div class="wrap">
     <div class="fade-in">
       <p class="eyebrow">Spécifications Détaillées</p>
@@ -705,7 +705,7 @@
 </section>
 
 <!-- MARKETING STRATEGY -->
-<section style="background: var(--dark); padding: 80px 0;">
+<section class="marketing-section">
   <div class="wrap">
     <div class="fade-in">
       <p class="eyebrow">Stratégie de Commercialisation</p>
