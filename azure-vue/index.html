@@ -26,77 +26,143 @@
   }
   </script>
   
-  <!-- PAGE VIEW TRACKING & EMAIL NOTIFICATION -->
+  <!-- PAGE VIEW TRACKING & TIME MONITORING -->
   <script>
     (function() {
-      const sendEmailNotification = () => {
-        const hasTracked = sessionStorage.getItem('ngu-viewed-tracked');
-        if (!hasTracked) {
-          sessionStorage.setItem('ngu-viewed-tracked', 'true');
-          
-          const timestamp = new Date().toLocaleString('fr-FR', { 
+      const SESSION_KEY = 'ngu-session-data';
+      const TRACKING_INTERVAL = 30000; // Send updates every 30 seconds
+      
+      // Initialize session
+      const initSession = () => {
+        const sessionData = {
+          sessionId: 'ngu_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
+          startTime: new Date().toISOString(),
+          startTimeFormatted: new Date().toLocaleString('fr-FR', { 
             year: 'numeric', month: 'long', day: 'numeric', 
             hour: '2-digit', minute: '2-digit', second: '2-digit' 
-          });
-          
-          // Create email tracking payload
-          const emailPayload = {
-            to: 'teamcyril@ngurealestate.com.au',
-            subject: '🔔 Nouméa Résidences — Site Viewed',
-            text: `Site ouvert à: ${timestamp}\n\nRéférent: ${document.referrer || 'Accès direct'}\n\nVérifier les stats de visite sur le dashboard.`
-          };
-          
-          // Try multiple tracking methods
-          
-          // Method 1: SendGrid API (if configured)
+          }),
+          referrer: document.referrer || 'Direct',
+          initialUrl: window.location.href,
+          isFirstVisit: !sessionStorage.getItem(SESSION_KEY)
+        };
+        
+        sessionStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
+        return sessionData;
+      };
+      
+      // Track time spent on site
+      const trackTimeSpent = () => {
+        const storedData = sessionStorage.getItem(SESSION_KEY);
+        if (!storedData) return;
+        
+        const sessionData = JSON.parse(storedData);
+        const startTime = new Date(sessionData.startTime);
+        const currentTime = new Date();
+        const timeSpentMs = currentTime - startTime;
+        const timeSpentSeconds = Math.round(timeSpentMs / 1000);
+        const timeSpentMinutes = Math.round(timeSpentSeconds / 60);
+        
+        // Format time spent
+        let timeSpentFormatted = '';
+        if (timeSpentSeconds < 60) {
+          timeSpentFormatted = `${timeSpentSeconds} secondes`;
+        } else if (timeSpentMinutes < 60) {
+          timeSpentFormatted = `${timeSpentMinutes} minutes ${timeSpentSeconds % 60} secondes`;
+        } else {
+          const hours = Math.floor(timeSpentMinutes / 60);
+          const mins = timeSpentMinutes % 60;
+          timeSpentFormatted = `${hours}h ${mins}m`;
+        }
+        
+        const trackingPayload = {
+          event: 'noumea_time_tracking',
+          sessionId: sessionData.sessionId,
+          timestamp: currentTime.toISOString(),
+          timeSpentSeconds: timeSpentSeconds,
+          timeSpentMinutes: timeSpentMinutes,
+          timeSpentFormatted: timeSpentFormatted,
+          sessionStartTime: sessionData.startTime,
+          sessionStartTimeFormatted: sessionData.startTimeFormatted,
+          referrer: sessionData.referrer,
+          currentUrl: window.location.href,
+          scrollDepth: Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100) || 0,
+          isFirstVisit: sessionData.isFirstVisit
+        };
+        
+        // Send to webhook
+        try {
+          fetch('https://webhook.site/YOUR_UNIQUE_ID_HERE', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(trackingPayload),
+            mode: 'no-cors'
+          }).catch(() => {});
+        } catch (e) {}
+        
+        return trackingPayload;
+      };
+      
+      // Send initial view notification
+      const sendInitialNotification = (sessionData) => {
+        const notificationPayload = {
+          event: 'noumea_site_opened',
+          sessionId: sessionData.sessionId,
+          timestamp: sessionData.startTime,
+          timestampFormatted: sessionData.startTimeFormatted,
+          referrer: sessionData.referrer,
+          isFirstVisit: sessionData.isFirstVisit,
+          subject: `🔔 Nouméa Résidences — ${sessionData.isFirstVisit ? 'NEW' : 'RETURN'} Visitor`,
+          message: `Site ouvert à ${sessionData.startTimeFormatted}\nRéférent: ${sessionData.referrer}`
+        };
+        
+        // Send to webhook
+        try {
+          fetch('https://webhook.site/YOUR_UNIQUE_ID_HERE', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(notificationPayload),
+            mode: 'no-cors'
+          }).catch(() => {});
+        } catch (e) {}
+      };
+      
+      // Track on exit
+      const trackOnExit = () => {
+        const trackingData = trackTimeSpent();
+        if (trackingData) {
+          // Send final time data
           try {
-            fetch('https://api.sendgrid.com/v3/mail/send', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer SG.YOUR_KEY_HERE'
-              },
-              body: JSON.stringify({
-                personalizations: [{ to: [{ email: 'teamcyril@ngurealestate.com.au' }] }],
-                from: { email: 'noreply@noumeaproject.com' },
-                subject: emailPayload.subject,
-                content: [{ type: 'text/plain', value: emailPayload.text }]
-              }),
-              mode: 'no-cors'
-            }).catch(() => {});
-          } catch (e) {}
-          
-          // Method 2: Webhook logger (reliable)
-          try {
-            fetch('https://webhook.site/unique-id-here', {
+            fetch('https://webhook.site/YOUR_UNIQUE_ID_HERE', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                event: 'noumea_site_opened',
-                timestamp: new Date().toISOString(),
-                viewer_info: {
-                  time: timestamp,
-                  referrer: document.referrer || 'Direct',
-                  userAgent: navigator.userAgent,
-                  url: window.location.href
-                }
+                ...trackingData,
+                event: 'noumea_session_end',
+                message: `Session fermée après ${trackingData.timeSpentFormatted}`
               }),
               mode: 'no-cors'
             }).catch(() => {});
           } catch (e) {}
-          
-          // Method 3: Pixel tracking (lightweight)
-          const trackingPixel = new Image();
-          trackingPixel.src = `https://analytics.custom/track?event=noumea_view&ts=${Date.now()}&ref=${encodeURIComponent(document.referrer)}`;
-          trackingPixel.style.display = 'none';
-          document.body.appendChild(trackingPixel);
         }
       };
       
+      // Initialize
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', sendEmailNotification);
+        document.addEventListener('DOMContentLoaded', () => {
+          const sessionData = initSession();
+          sendInitialNotification(sessionData);
+          
+          // Track time every 30 seconds
+          setInterval(trackTimeSpent, TRACKING_INTERVAL);
+          
+          // Track on page exit
+          window.addEventListener('beforeunload', trackOnExit);
+        });
       } else {
-        sendEmailNotification();
+        const sessionData = initSession();
+        sendInitialNotification(sessionData);
+        setInterval(trackTimeSpent, TRACKING_INTERVAL);
+        window.addEventListener('beforeunload', trackOnExit);
       }
     })();
   </script>
