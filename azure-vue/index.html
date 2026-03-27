@@ -269,7 +269,15 @@
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
       .fnote { text-align: center; }
     }
-    .welcome-overlay { padding-top: 80px; z-index: 1000; position: relative; }
+    .welcome-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 9999; background: var(--dark); display: flex; align-items: center; justify-content: center; text-align: center; opacity: 1; transition: opacity 0.8s ease; }
+    .welcome-overlay.hidden { opacity: 0; pointer-events: none; }
+    .welcome-content { position: relative; z-index: 2; }
+    .welcome-eyebrow { font-size: 11px; letter-spacing: 7px; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+    .welcome-title { font-family: var(--serif); font-size: clamp(54px, 8vw, 96px); font-weight: 300; line-height: 0.95; margin-bottom: 24px; }
+    .welcome-line { width: 1px; height: 56px; background: rgba(201,169,110,0.5); margin: 36px auto; }
+    .welcome-subtitle { font-size: 13px; letter-spacing: 7px; text-transform: uppercase; opacity: 0.65; font-weight: 300; margin-bottom: 52px; }
+    .welcome-btn { display: inline-block; padding: 18px 56px; background: var(--gold); color: var(--dark); font-size: 12px; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; font-weight: 700; border: none; cursor: pointer; transition: background 0.3s; }
+    .welcome-btn:hover { background: var(--gold-light); }
   </style>
 </head>
 <body>
@@ -765,6 +773,16 @@
 </footer>
 
 <script>
+  // Welcome overlay dismiss
+  const welcomeOverlay = document.getElementById('welcomeOverlay');
+  const discoverBtn = document.getElementById('discoverBtn');
+  if (discoverBtn) {
+    discoverBtn.addEventListener('click', () => {
+      welcomeOverlay.classList.add('hidden');
+      setTimeout(() => { welcomeOverlay.style.display = 'none'; }, 800);
+    });
+  }
+
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('solid', window.scrollY > 60);
