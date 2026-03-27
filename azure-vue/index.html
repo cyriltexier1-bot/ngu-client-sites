@@ -10,7 +10,6 @@
     :root {
       --gold: #C9A96E;
       --gold-light: #E8D4A8;
-      --gold-dark: #9E7E4A;
       --dark: #080C12;
       --mid: #111720;
       --panel: #181F2C;
@@ -19,336 +18,255 @@
       --serif: 'Cormorant Garamond', serif;
       --sans: 'Montserrat', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
     body { font-family: var(--sans); background: var(--dark); color: var(--light); overflow-x: hidden; }
 
-    /* ─── UTILITY ─── */
     .wrap { max-width: 1240px; margin: 0 auto; padding: 0 60px; }
-    .wrap--narrow { max-width: 900px; margin: 0 auto; padding: 0 60px; }
     .gold { color: var(--gold); }
-    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
-    .fade-in-delay-1 { transition-delay: 0.15s; }
-    .fade-in-delay-2 { transition-delay: 0.3s; }
-    .fade-in-delay-3 { transition-delay: 0.45s; }
+    .d1 { transition-delay: 0.15s; }
+    .d2 { transition-delay: 0.3s; }
+    .d3 { transition-delay: 0.45s; }
 
-    /* ─── NAV ─── */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 999;
       display: flex; justify-content: space-between; align-items: center;
       padding: 28px 60px;
-      background: linear-gradient(to bottom, rgba(8,12,18,0.97) 0%, rgba(8,12,18,0.0) 100%);
+      background: linear-gradient(to bottom, rgba(8,12,18,0.97), transparent);
       transition: padding 0.4s, background 0.4s;
     }
     nav.solid { background: rgba(8,12,18,0.97); padding: 18px 60px; box-shadow: 0 1px 0 rgba(201,169,110,0.1); }
-    .nav-brand {
-      font-family: var(--serif); font-size: 24px; letter-spacing: 6px;
-      color: var(--gold); text-transform: uppercase; font-weight: 600;
-    }
-    .nav-sub { font-size: 9px; letter-spacing: 2px; opacity: 0.45; text-transform: uppercase; margin-top: 2px; }
-    .nav-links { display: flex; gap: 36px; list-style: none; }
-    .nav-links a {
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--light); opacity: 0.6; text-decoration: none;
-      transition: opacity 0.3s, color 0.3s;
-    }
+    .nav-brand { font-family: var(--serif); font-size: 24px; letter-spacing: 6px; color: var(--gold); text-transform: uppercase; font-weight: 600; }
+    .nav-sub { font-size: 9px; letter-spacing: 2px; opacity: 0.4; text-transform: uppercase; margin-top: 2px; }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--light); opacity: 0.6; text-decoration: none; transition: opacity 0.3s, color 0.3s; }
     .nav-links a:hover { opacity: 1; color: var(--gold); }
-    .nav-cta {
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      border: 1px solid rgba(201,169,110,0.5); color: var(--gold);
-      padding: 11px 26px; text-decoration: none;
-      transition: background 0.3s, border-color 0.3s;
-    }
+    .nav-cta { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(201,169,110,0.5); color: var(--gold); padding: 11px 26px; text-decoration: none; transition: background 0.3s; }
     .nav-cta:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
 
-    /* ─── HERO ─── */
-    .hero {
-      height: 100vh; position: relative; overflow: hidden;
-      display: flex; align-items: center; justify-content: center; text-align: center;
-    }
+    /* HERO */
+    .hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80') center center/cover no-repeat;
-      transform: scale(1.08);
-      transition: transform 12s ease-out;
+      background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85') center 30%/cover no-repeat;
+      transform: scale(1.06); transition: transform 10s ease-out;
     }
     .hero-bg.loaded { transform: scale(1); }
-    .hero-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(8,12,18,0.35) 0%, rgba(8,12,18,0.6) 60%, rgba(8,12,18,0.85) 100%);
-    }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(8,12,18,0.3) 0%, rgba(8,12,18,0.55) 60%, rgba(8,12,18,0.88) 100%); }
     .hero-content { position: relative; z-index: 2; }
-    .hero-eyebrow {
-      font-size: 11px; letter-spacing: 7px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 28px; font-weight: 400;
-    }
-    .hero-title {
-      font-family: var(--serif); font-size: clamp(72px, 10vw, 130px);
-      font-weight: 300; line-height: 0.95; color: var(--light);
-    }
+    .hero-eyebrow { font-size: 11px; letter-spacing: 7px; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+    .hero-title { font-family: var(--serif); font-size: clamp(72px, 10vw, 128px); font-weight: 300; line-height: 0.95; }
     .hero-title em { font-style: italic; color: var(--gold); display: block; }
-    .hero-divider {
-      width: 1px; height: 60px; background: rgba(201,169,110,0.5);
-      margin: 36px auto;
-    }
-    .hero-tagline {
-      font-size: 13px; letter-spacing: 7px; text-transform: uppercase;
-      opacity: 0.7; font-weight: 300;
-    }
-    .hero-scroll {
-      position: absolute; bottom: 48px; left: 50%;
-      transform: translateX(-50%);
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-      font-size: 9px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.4;
-    }
-    .hero-scroll-line {
-      width: 1px; height: 48px; background: var(--gold);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse { 0%,100%{opacity:0.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(0.6)} }
+    .hero-line { width: 1px; height: 56px; background: rgba(201,169,110,0.5); margin: 36px auto; }
+    .hero-tagline { font-size: 13px; letter-spacing: 7px; text-transform: uppercase; opacity: 0.65; font-weight: 300; }
+    .hero-scroll { position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.4; }
+    .scroll-line { width: 1px; height: 48px; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(.6)} }
 
-    /* ─── INTRO STRIP ─── */
-    .intro-strip {
-      background: var(--gold); color: var(--dark);
-      padding: 28px 60px;
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 20px;
-    }
-    .intro-strip-item { text-align: center; flex: 1; }
-    .intro-strip-num { font-family: var(--serif); font-size: 40px; font-weight: 600; line-height: 1; }
-    .intro-strip-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-top: 6px; }
-    .intro-strip-sep { width: 1px; height: 40px; background: rgba(0,0,0,0.15); }
+    /* STRIP */
+    .strip { background: var(--gold); color: var(--dark); padding: 26px 60px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .strip-item { text-align: center; flex: 1; }
+    .strip-n { font-family: var(--serif); font-size: 38px; font-weight: 600; line-height: 1; }
+    .strip-l { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.65; margin-top: 6px; }
+    .strip-sep { width: 1px; height: 36px; background: rgba(0,0,0,0.15); }
 
-    /* ─── SECTION BASE ─── */
-    section { padding: 130px 0; }
-    .eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-    .section-h { font-family: var(--serif); font-size: clamp(40px, 5vw, 72px); font-weight: 300; line-height: 1.05; margin-bottom: 28px; }
+    /* SECTIONS */
+    section { padding: 120px 0; }
+    .eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .sh { font-family: var(--serif); font-size: clamp(38px, 5vw, 68px); font-weight: 300; line-height: 1.05; margin-bottom: 24px; }
     .body-p { font-size: 15px; line-height: 1.9; opacity: 0.72; }
-    .gold-rule { width: 72px; height: 1px; background: var(--gold); margin: 32px 0; }
+    .rule { width: 64px; height: 1px; background: var(--gold); margin: 28px 0; }
 
-    /* ─── PROJECT SECTION ─── */
+    /* PROJECT */
     .project-section { background: var(--mid); }
-    .project-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
-    .project-image {
-      height: 640px; position: relative; overflow: hidden;
-    }
-    .project-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .project-image-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(8,12,18,0.8), transparent);
-      padding: 30px 24px 20px;
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7;
-    }
-    .project-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; margin-top: 56px; }
-    .pstat { border-left: 1px solid var(--gold); padding-left: 24px; }
-    .pstat-n { font-family: var(--serif); font-size: 48px; font-weight: 300; color: var(--gold); line-height: 1; }
-    .pstat-l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.5; margin-top: 10px; }
+    .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+    .proj-img { height: 620px; overflow: hidden; position: relative; }
+    .proj-img img { width: 100%; height: 100%; object-fit: cover; }
+    .proj-img-cap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(8,12,18,.75), transparent); padding: 28px 20px 16px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: .7; }
+    .pstats { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 52px; }
+    .pstat { border-left: 1px solid var(--gold); padding-left: 22px; }
+    .pstat-n { font-family: var(--serif); font-size: 46px; font-weight: 300; color: var(--gold); line-height: 1; }
+    .pstat-l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: .5; margin-top: 8px; }
 
-    /* ─── DIFFERENTIATORS ─── */
+    /* DIFF */
     .diff-section { background: var(--dark); }
-    .diff-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 72px; background: var(--gold); }
-    .diff-card {
-      background: var(--panel); padding: 52px 44px;
-      display: flex; flex-direction: column; gap: 20px;
-      transition: background 0.3s;
-    }
-    .diff-card:hover { background: rgba(24,31,44,0.95); }
-    .diff-icon { font-size: 32px; }
-    .diff-title { font-family: var(--serif); font-size: 26px; font-weight: 400; }
-    .diff-body { font-size: 14px; line-height: 1.85; opacity: 0.65; }
+    .diff-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: rgba(201,169,110,0.15); margin-top: 64px; }
+    .diff-card { background: var(--panel); padding: 48px 40px; }
+    .diff-icon { font-size: 30px; margin-bottom: 18px; }
+    .diff-title { font-family: var(--serif); font-size: 24px; margin-bottom: 14px; }
+    .diff-body { font-size: 14px; line-height: 1.8; opacity: .65; }
 
-    /* ─── GALLERY ─── */
-    .gallery-section { background: var(--mid); padding: 0; }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: 400px 400px;
-      gap: 4px;
-    }
-    .gallery-item { overflow: hidden; position: relative; }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s ease; }
-    .gallery-item:hover img { transform: scale(1.05); }
-    .gallery-item.tall { grid-row: span 2; }
-    .gallery-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(to top, rgba(8,12,18,0.75), transparent);
-      padding: 30px 20px 16px; font-size: 10px; letter-spacing: 2px;
-      text-transform: uppercase; opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .gallery-item:hover .gallery-caption { opacity: 1; }
+    /* GALLERY */
+    .gallery-section { padding: 0; }
+    .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 380px 380px; gap: 4px; }
+    .gitem { overflow: hidden; position: relative; }
+    .gitem img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; display: block; }
+    .gitem:hover img { transform: scale(1.06); }
+    .gitem.tall { grid-row: span 2; }
+    .gcap { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(8,12,18,.7), transparent); padding: 28px 18px 14px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0; transition: opacity .3s; }
+    .gitem:hover .gcap { opacity: 1; }
 
-    /* ─── FEASIBILITY ─── */
+    /* HISTORY */
+    .history-section { background: var(--panel); }
+    .history-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .history-img { height: 520px; overflow: hidden; }
+    .history-img img { width: 100%; height: 100%; object-fit: cover; }
+    .timeline { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
+    .titem { display: flex; gap: 24px; padding: 20px 0; border-bottom: 1px solid rgba(201,169,110,0.1); }
+    .titem:last-child { border-bottom: none; }
+    .tyear { font-family: var(--serif); font-size: 22px; color: var(--gold); min-width: 60px; line-height: 1.3; }
+    .tdesc { font-size: 13px; line-height: 1.75; opacity: .7; }
+
+    /* FEASIBILITY */
     .feas-section { background: var(--dark); }
-    .feas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 72px; }
+    .feas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 64px; }
     .feas-card { border: 1px solid rgba(201,169,110,0.2); background: var(--panel); }
     .feas-card.rec { border-color: var(--gold); }
-    .feas-head { padding: 36px 40px; border-bottom: 1px solid rgba(201,169,110,0.1); position: relative; }
-    .feas-card.rec .feas-head { background: linear-gradient(135deg, rgba(201,169,110,0.12), transparent); }
-    .feas-badge {
-      position: absolute; top: -14px; right: 40px;
-      background: var(--gold); color: var(--dark);
-      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      padding: 5px 18px; font-weight: 700;
-    }
-    .feas-scenario { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
-    .feas-name { font-family: var(--serif); font-size: 32px; font-weight: 300; }
-    .feas-body { padding: 36px 40px; }
-    .feas-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 13px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
-      font-size: 14px;
-    }
-    .feas-row:last-child { border-bottom: none; }
-    .feas-row .lbl { opacity: 0.5; }
-    .feas-row .val { font-weight: 500; }
-    .feas-total {
-      background: rgba(201,169,110,0.08); padding: 20px 40px;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .feas-total-lbl { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
-    .feas-total-val { font-family: var(--serif); font-size: 32px; color: var(--gold); }
-    .feas-margin {
-      padding: 24px 40px; background: var(--mid);
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    .feas-head { padding: 32px 36px; border-bottom: 1px solid rgba(201,169,110,.1); position: relative; }
+    .feas-card.rec .feas-head { background: linear-gradient(135deg, rgba(201,169,110,.1), transparent); }
+    .feas-badge { position: absolute; top: -13px; right: 36px; background: var(--gold); color: var(--dark); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; padding: 4px 16px; font-weight: 700; }
+    .feas-sc { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .feas-nm { font-family: var(--serif); font-size: 28px; font-weight: 300; }
+    .feas-body { padding: 28px 36px; }
+    .frow { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,.05); font-size: 14px; }
+    .frow:last-child { border: none; }
+    .frow .lbl { opacity: .5; }
+    .frow .val { font-weight: 500; }
+    .feas-tot { background: rgba(201,169,110,.08); padding: 18px 36px; display: flex; justify-content: space-between; align-items: center; }
+    .ftlbl { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+    .ftval { font-family: var(--serif); font-size: 28px; color: var(--gold); }
+    .feas-margin { padding: 20px 36px; background: var(--mid); display: flex; align-items: center; justify-content: space-between; }
     .feas-card.rec .feas-margin { background: var(--gold); color: var(--dark); }
-    .margin-big { font-family: var(--serif); font-size: 56px; font-weight: 300; line-height: 1; }
-    .margin-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin-top: 6px; }
-    .margin-profit { font-family: var(--serif); font-size: 36px; font-weight: 300; text-align: right; }
-    .margin-profit-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; text-align: right; }
+    .mbig { font-family: var(--serif); font-size: 52px; font-weight: 300; line-height: 1; }
+    .msub { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: .6; margin-top: 4px; }
+    .mprofit { text-align: right; }
+    .mpn { font-family: var(--serif); font-size: 32px; }
+    .mpl { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: .6; }
 
-    /* ─── MARKET ─── */
-    .market-section { background: var(--mid); }
-    .market-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 72px; }
-    .market-image { height: 500px; overflow: hidden; }
-    .market-image img { width: 100%; height: 100%; object-fit: cover; }
-    .market-stats { display: flex; flex-direction: column; gap: 32px; }
-    .mstat {
-      display: flex; align-items: center; gap: 28px;
-      padding-bottom: 32px; border-bottom: 1px solid rgba(201,169,110,0.1);
-    }
-    .mstat:last-child { border-bottom: none; padding-bottom: 0; }
-    .mstat-num { font-family: var(--serif); font-size: 52px; color: var(--gold); min-width: 140px; font-weight: 300; line-height: 1; }
-    .mstat-lbl { font-size: 11px; letter-spacing: 1px; font-weight: 500; margin-bottom: 8px; }
-    .mstat-desc { font-size: 13px; line-height: 1.7; opacity: 0.6; }
+    /* COMPARABLES */
+    .comp-section { background: var(--mid); }
+    .comp-table { margin-top: 56px; border: 1px solid rgba(201,169,110,.15); overflow: hidden; }
+    .comp-head { display: grid; grid-template-columns: 2.5fr 1.2fr 1.2fr 1.2fr; padding: 18px 32px; background: rgba(201,169,110,.08); gap: 10px; }
+    .comp-hcell { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+    .comp-row { display: grid; grid-template-columns: 2.5fr 1.2fr 1.2fr 1.2fr; padding: 18px 32px; border-top: 1px solid rgba(255,255,255,.05); gap: 10px; transition: background .2s; }
+    .comp-row:hover { background: rgba(201,169,110,.04); }
+    .comp-row.noumea { background: rgba(201,169,110,.07); }
+    .ccell { font-size: 13px; }
+    .ccell.h { color: var(--gold); font-weight: 600; }
+    .ccell.g { color: var(--gold); }
+    .comp-note { font-size: 12px; opacity: .45; margin-top: 20px; font-style: italic; }
 
-    /* ─── COMPARABLES ─── */
-    .comp-section { background: var(--dark); }
-    .comp-table { margin-top: 60px; border: 1px solid rgba(201,169,110,0.15); }
-    .comp-head { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding: 20px 36px; background: rgba(201,169,110,0.08); }
-    .comp-head-cell { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
-    .comp-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding: 20px 36px; border-top: 1px solid rgba(255,255,255,0.05); transition: background 0.2s; }
-    .comp-row:hover { background: rgba(201,169,110,0.04); }
-    .comp-cell { font-size: 14px; }
-    .comp-cell.project { font-weight: 600; color: var(--gold); }
-    .comp-cell.highlight { color: var(--gold); }
+    /* MARKET */
+    .market-section { background: var(--dark); }
+    .market-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; margin-top: 64px; }
+    .mkt-img { height: 480px; overflow: hidden; }
+    .mkt-img img { width: 100%; height: 100%; object-fit: cover; }
+    .mstats { display: flex; flex-direction: column; gap: 28px; }
+    .mstat { display: flex; align-items: flex-start; gap: 24px; padding-bottom: 28px; border-bottom: 1px solid rgba(201,169,110,.1); }
+    .mstat:last-child { border: none; padding-bottom: 0; }
+    .mstat-n { font-family: var(--serif); font-size: 48px; color: var(--gold); min-width: 130px; line-height: 1; }
+    .mstat-l { font-size: 11px; letter-spacing: 1px; font-weight: 500; margin-bottom: 6px; }
+    .mstat-d { font-size: 13px; opacity: .6; line-height: 1.7; }
 
-    /* ─── AGENT ─── */
+    /* AGENT */
     .agent-section { background: var(--panel); }
-    .agent-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 100px; align-items: center; }
-    .agent-image { height: 600px; overflow: hidden; position: relative; }
-    .agent-image img { width: 100%; height: 100%; object-fit: cover; }
-    .agent-brand-tag {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: var(--gold); padding: 20px 28px;
-      display: flex; align-items: center; gap: 16px;
-    }
-    .ngu-logo-text {
-      font-family: var(--serif); font-size: 20px; letter-spacing: 4px;
-      color: var(--dark); font-weight: 700; text-transform: uppercase;
-    }
-    .ngu-tagline { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--dark); opacity: 0.7; }
-    .agent-name { font-family: var(--serif); font-size: 56px; font-weight: 300; margin-bottom: 6px; line-height: 1; }
-    .agent-title { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 36px; }
-    .agent-bio { font-size: 15px; line-height: 1.9; opacity: 0.72; margin-bottom: 40px; }
-    .agent-credentials { display: flex; gap: 40px; margin-top: 20px; }
-    .agent-cred { text-align: center; }
-    .agent-cred-n { font-family: var(--serif); font-size: 36px; color: var(--gold); line-height: 1; }
-    .agent-cred-l { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.5; margin-top: 8px; }
-    .agent-contact-row { display: flex; gap: 20px; margin-top: 48px; flex-wrap: wrap; }
-    .agent-contact-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 32px; border: 1px solid var(--gold);
-      color: var(--gold); text-decoration: none;
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      transition: background 0.3s, color 0.3s;
-    }
-    .agent-contact-btn:hover { background: var(--gold); color: var(--dark); }
-    .agent-contact-btn.filled { background: var(--gold); color: var(--dark); }
-    .agent-contact-btn.filled:hover { background: var(--gold-light); }
+    .agent-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 90px; align-items: center; }
+    .agent-img-wrap { position: relative; }
+    .agent-img { height: 580px; overflow: hidden; }
+    .agent-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .agent-brand { background: var(--gold); padding: 18px 24px; display: flex; align-items: center; gap: 14px; }
+    .ngu-name { font-family: var(--serif); font-size: 18px; letter-spacing: 4px; color: var(--dark); font-weight: 700; text-transform: uppercase; }
+    .ngu-sub { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--dark); opacity: .6; }
+    .agent-name { font-family: var(--serif); font-size: 56px; font-weight: 300; line-height: 1; margin-bottom: 6px; }
+    .agent-title { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; }
+    .agent-bio { font-size: 14px; line-height: 1.9; opacity: .72; margin-bottom: 18px; }
+    .agent-stats { display: flex; gap: 36px; margin-top: 24px; }
+    .astat-n { font-family: var(--serif); font-size: 34px; color: var(--gold); line-height: 1; }
+    .astat-l { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: .45; margin-top: 6px; }
+    .agent-btns { display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
+    .abtn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 30px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: background .3s, color .3s; }
+    .abtn:hover, .abtn.solid { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+    .abtn.solid:hover { background: var(--gold-light); }
 
-    /* ─── CONTACTS ─── */
+    /* CONTACTS */
     .contacts-section { background: var(--dark); }
-    .contacts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 72px; background: rgba(201,169,110,0.1); }
-    .contact-card { background: var(--panel); padding: 48px 40px; transition: background 0.3s; }
-    .contact-card:hover { background: rgba(24,31,44,0.95); }
-    .contact-role { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
-    .contact-name { font-family: var(--serif); font-size: 28px; margin-bottom: 6px; }
-    .contact-firm { font-size: 13px; opacity: 0.5; margin-bottom: 28px; }
-    .contact-details { font-size: 13px; line-height: 2.1; opacity: 0.7; }
-    .contact-details a { color: var(--gold); text-decoration: none; }
+    .contacts-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: rgba(201,169,110,.1); margin-top: 64px; }
+    .ccard { background: var(--panel); padding: 44px 36px; }
+    .crole { font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .cname { font-family: var(--serif); font-size: 26px; margin-bottom: 6px; }
+    .cfirm { font-size: 12px; opacity: .5; margin-bottom: 24px; }
+    .cdetails { font-size: 13px; line-height: 2; opacity: .7; }
+    .cdetails a { color: var(--gold); text-decoration: none; }
 
-    /* ─── CTA ─── */
-    .cta-section {
-      position: relative; overflow: hidden; text-align: center; padding: 160px 0;
+    /* CONTACT FORM */
+    .form-section { background: var(--mid); }
+    .form-wrap { max-width: 720px; margin: 0 auto; }
+    .form-intro { text-align: center; margin-bottom: 56px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-full { grid-column: span 2; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; opacity: .5; }
+    .form-group input, .form-group textarea, .form-group select {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(201,169,110,.2);
+      color: var(--light); padding: 14px 18px; font-family: var(--sans); font-size: 14px;
+      outline: none; transition: border-color .3s;
+      appearance: none;
     }
-    .cta-bg {
-      position: absolute; inset: 0;
-      background: url('https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=1920&q=80') center/cover no-repeat;
-      filter: brightness(0.25);
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--gold); }
+    .form-group textarea { height: 140px; resize: vertical; }
+    .form-group select option { background: var(--panel); }
+    .form-submit {
+      display: block; width: 100%; padding: 18px; background: var(--gold); color: var(--dark);
+      border: none; font-family: var(--sans); font-size: 12px; letter-spacing: 4px;
+      text-transform: uppercase; font-weight: 700; cursor: pointer; margin-top: 12px;
+      transition: background .3s;
     }
+    .form-submit:hover { background: var(--gold-light); }
+    .form-note { font-size: 11px; opacity: .35; text-align: center; margin-top: 16px; }
+
+    /* CTA */
+    .cta-section { position: relative; overflow: hidden; text-align: center; padding: 150px 0; }
+    .cta-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=1920&q=80') center/cover; filter: brightness(.22); }
     .cta-content { position: relative; z-index: 2; }
-    .cta-eyebrow { font-size: 11px; letter-spacing: 6px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
-    .cta-title { font-family: var(--serif); font-size: clamp(48px, 6vw, 96px); font-weight: 300; margin-bottom: 32px; line-height: 1.05; }
-    .cta-body { font-size: 16px; opacity: 0.65; max-width: 600px; margin: 0 auto 56px; line-height: 1.9; }
-    .cta-btn {
-      display: inline-block; padding: 18px 56px;
-      background: var(--gold); color: var(--dark);
-      font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
-      text-decoration: none; font-weight: 700;
-      transition: background 0.3s;
-    }
+    .cta-title { font-family: var(--serif); font-size: clamp(44px, 6vw, 90px); font-weight: 300; margin-bottom: 28px; }
+    .cta-body { font-size: 16px; opacity: .65; max-width: 580px; margin: 0 auto 52px; line-height: 1.9; }
+    .cta-btn { display: inline-block; padding: 18px 56px; background: var(--gold); color: var(--dark); font-size: 12px; letter-spacing: 4px; text-transform: uppercase; text-decoration: none; font-weight: 700; transition: background .3s; }
     .cta-btn:hover { background: var(--gold-light); }
-    .cta-disclaimer { font-size: 11px; opacity: 0.35; margin-top: 32px; letter-spacing: 1px; }
 
-    /* ─── FOOTER ─── */
-    footer {
-      padding: 48px 60px; background: var(--dark);
-      border-top: 1px solid rgba(201,169,110,0.1);
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .footer-brand { font-family: var(--serif); font-size: 22px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; font-weight: 600; }
-    .footer-by { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.35; margin-top: 6px; }
-    .footer-note { font-size: 11px; opacity: 0.3; text-align: right; line-height: 1.8; }
+    /* FOOTER */
+    footer { padding: 44px 60px; background: var(--dark); border-top: 1px solid rgba(201,169,110,.1); display: flex; justify-content: space-between; align-items: center; }
+    .fbrand { font-family: var(--serif); font-size: 20px; letter-spacing: 5px; color: var(--gold); text-transform: uppercase; font-weight: 600; }
+    .fby { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; opacity: .3; margin-top: 5px; }
+    .fnote { font-size: 11px; opacity: .28; text-align: right; line-height: 1.8; }
 
-    /* ─── RESPONSIVE ─── */
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
-      nav, .intro-strip, footer { padding-left: 30px; padding-right: 30px; }
-      .wrap, .wrap--narrow { padding: 0 30px; }
-      .project-layout, .market-layout, .agent-layout, .feas-grid, .contacts-grid { grid-template-columns: 1fr; }
-      .agent-image { height: 400px; }
+      nav, .strip, footer { padding-left: 30px; padding-right: 30px; }
+      .wrap { padding: 0 30px; }
+      .proj-grid, .market-grid2, .agent-grid, .feas-grid, .history-grid { grid-template-columns: 1fr; }
       .diff-grid { grid-template-columns: 1fr 1fr; }
       .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
-      .gallery-item.tall { grid-row: auto; }
-      .comp-head, .comp-row { grid-template-columns: 2fr 1fr 1fr; }
-      .comp-head-cell:nth-child(4), .comp-cell:nth-child(4) { display: none; }
+      .gitem.tall { grid-row: auto; }
+      .contacts-grid { grid-template-columns: 1fr 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-full { grid-column: span 1; }
       section { padding: 80px 0; }
     }
-    @media (max-width: 720px) {
-      nav { padding: 18px 20px; }
+    @media (max-width: 680px) {
+      nav { padding: 16px 20px; }
       .nav-links { display: none; }
-      .wrap, .wrap--narrow { padding: 0 20px; }
-      .hero-title { font-size: clamp(54px, 13vw, 90px); }
-      .intro-strip { flex-direction: column; gap: 16px; padding: 32px 20px; }
-      .intro-strip-sep { display: none; }
-      .diff-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr; }
-      .project-stats { grid-template-columns: 1fr 1fr; }
-      .comp-head, .comp-row { grid-template-columns: 1.5fr 1fr 1fr; }
+      .wrap { padding: 0 20px; }
+      .strip { flex-direction: column; gap: 16px; padding: 28px 20px; }
+      .strip-sep { display: none; }
+      .diff-grid, .contacts-grid, .feas-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .pstats { grid-template-columns: 1fr 1fr; }
+      .comp-head, .comp-row { grid-template-columns: 2fr 1fr 1fr; }
+      .comp-hcell:nth-child(4), .ccell:nth-child(4) { display: none; }
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 20px; }
-      .footer-note { text-align: center; }
+      .fnote { text-align: center; }
     }
   </style>
 </head>
@@ -362,12 +280,13 @@
   </div>
   <ul class="nav-links">
     <li><a href="#projet">Le Projet</a></li>
-    <li><a href="#galerie">Galerie</a></li>
+    <li><a href="#histoire">Histoire</a></li>
     <li><a href="#faisabilite">Faisabilité</a></li>
+    <li><a href="#ventes">Ventes Récentes</a></li>
     <li><a href="#marche">Marché</a></li>
-    <li><a href="#agent">L'Équipe</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="mailto:teamcyril@ngurealestate.com.au" class="nav-cta">Prendre Contact</a>
+  <a href="#contact" class="nav-cta">Nous Contacter</a>
 </nav>
 
 <!-- HERO -->
@@ -377,185 +296,141 @@
   <div class="hero-content">
     <p class="hero-eyebrow">Résidences de Prestige · Surfers Paradise</p>
     <h1 class="hero-title">Nouméa<em>Résidences</em></h1>
-    <div class="hero-divider"></div>
-    <p class="hero-tagline">12 Résidences d'Exception · 1 par Étage · Gold Coast, Australie</p>
+    <div class="hero-line"></div>
+    <p class="hero-tagline">11 Résidences d'Exception · 1 par Étage · Gold Coast, Australie</p>
   </div>
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
-    Découvrir
-  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Découvrir</div>
 </div>
 
-<!-- INTRO STRIP -->
-<div class="intro-strip">
-  <div class="intro-strip-item fade-in">
-    <div class="intro-strip-num">12</div>
-    <div class="intro-strip-label">Résidences Exclusives</div>
-  </div>
-  <div class="intro-strip-sep"></div>
-  <div class="intro-strip-item fade-in fade-in-delay-1">
-    <div class="intro-strip-num">220m²</div>
-    <div class="intro-strip-label">Surface Moyenne</div>
-  </div>
-  <div class="intro-strip-sep"></div>
-  <div class="intro-strip-item fade-in fade-in-delay-2">
-    <div class="intro-strip-num">AUD $3.2M</div>
-    <div class="intro-strip-label">Prix de Vente Cible</div>
-  </div>
-  <div class="intro-strip-sep"></div>
-  <div class="intro-strip-item fade-in fade-in-delay-3">
-    <div class="intro-strip-num">56%</div>
-    <div class="intro-strip-label">Marge Indicative</div>
-  </div>
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item fade-in"><div class="strip-n">11</div><div class="strip-l">Résidences Exclusives</div></div>
+  <div class="strip-sep"></div>
+  <div class="strip-item fade-in d1"><div class="strip-n">300m²</div><div class="strip-l">Surface par Étage</div></div>
+  <div class="strip-sep"></div>
+  <div class="strip-item fade-in d2"><div class="strip-n">$3.5–3.8M</div><div class="strip-l">Prix de Vente Cible</div></div>
+  <div class="strip-sep"></div>
+  <div class="strip-item fade-in d3"><div class="strip-n">29–36%</div><div class="strip-l">Marge Indicative</div></div>
 </div>
 
 <!-- PROJECT -->
 <section class="project-section" id="projet">
-  <div class="wrap project-layout">
-    <div class="project-image fade-in">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80" alt="Vue Rivière Surfers Paradise" />
-      <div class="project-image-label">Vue Rivière Nerang · Surfers Paradise</div>
+  <div class="wrap proj-grid">
+    <div class="proj-img fade-in">
+      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80" alt="Vue Rivière Nerang" />
+      <div class="proj-img-cap">Vue Rivière Nerang · Surfers Paradise</div>
     </div>
-    <div class="fade-in fade-in-delay-1">
+    <div class="fade-in d1">
       <p class="eyebrow">Le Projet</p>
-      <h2 class="section-h">Une Vision d'Excellence<br><em class="gold" style="font-family:var(--serif)">au Bord du Fleuve</em></h2>
-      <div class="gold-rule"></div>
-      <p class="body-p">
-        Nouméa Résidences est un projet immobilier de prestige en première ligne de la rivière Nerang à Surfers Paradise. <strong>12 niveaux. 12 résidences. Une seule par étage.</strong>
-      </p>
-      <p class="body-p" style="margin-top:20px;">
-        Conçu pour une clientèle internationale exigeante, ce projet conjugue architecture contemporaine, finitions de luxe et un positionnement stratégique d'exception — avec les Jeux Olympiques de Brisbane 2032 comme catalyseur de valorisation.
-      </p>
-      <p class="body-p" style="margin-top:20px;">
-        Chaque résidence plein étage offre une intimité absolue, des vues panoramiques sur la rivière et un accès privatif depuis l'ascenseur. Un format boutique introuvable sur le marché de la Gold Coast.
-      </p>
-      <div class="project-stats">
-        <div class="pstat">
-          <div class="pstat-n">12</div>
-          <div class="pstat-l">Résidences Exclusives</div>
-        </div>
-        <div class="pstat">
-          <div class="pstat-n">220<span style="font-size:24px">m²</span></div>
-          <div class="pstat-l">Surface Moyenne par Étage</div>
-        </div>
-        <div class="pstat">
-          <div class="pstat-n">$6M</div>
-          <div class="pstat-l">Foncier Identifié (AUD)</div>
-        </div>
-        <div class="pstat">
-          <div class="pstat-n">2032</div>
-          <div class="pstat-l">JO Brisbane · Catalyseur</div>
-        </div>
+      <h2 class="sh">Une Vision d'Excellence<br><em class="gold" style="font-family:var(--serif)">au Bord du Fleuve</em></h2>
+      <div class="rule"></div>
+      <p class="body-p">Nouméa Résidences est un projet immobilier de prestige en première ligne de la rivière Nerang à Surfers Paradise. <strong>11 niveaux. 11 résidences. Une seule par étage</strong> — exclusivité absolue et intimité totale.</p>
+      <p class="body-p" style="margin-top:18px;">Chaque résidence plein étage de 300 m² dispose de 1.5 places de stationnement dédiées, d'un accès privatif depuis l'ascenseur et de vues panoramiques sur la rivière et la skyline de la Gold Coast.</p>
+      <p class="body-p" style="margin-top:18px;">Conçu pour une clientèle internationale exigeante, ce projet conjugue architecture contemporaine, finitions haut de gamme et positionnement stratégique exceptionnel.</p>
+      <div class="pstats">
+        <div class="pstat"><div class="pstat-n">11</div><div class="pstat-l">Résidences Exclusives</div></div>
+        <div class="pstat"><div class="pstat-n">300<span style="font-size:22px">m²</span></div><div class="pstat-l">Surface par Étage</div></div>
+        <div class="pstat"><div class="pstat-n">1.5</div><div class="pstat-l">Parkings / Appartement</div></div>
+        <div class="pstat"><div class="pstat-n">2032</div><div class="pstat-l">JO Brisbane</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- DIFFERENTIATORS -->
-<section class="diff-section" id="differentiateurs">
+<section class="diff-section">
   <div class="wrap">
-    <div class="section-header text-center fade-in" style="text-align:center;">
+    <div class="fade-in" style="text-align:center;">
       <p class="eyebrow" style="text-align:center;">Pourquoi Nouméa</p>
-      <h2 class="section-h" style="text-align:center;">Ce Qui Rend ce Projet <span class="gold">Unique</span></h2>
+      <h2 class="sh" style="text-align:center;">Ce Qui Rend ce Projet <span class="gold">Unique</span></h2>
     </div>
-    <div class="diff-grid mt-60 fade-in">
-      <div class="diff-card">
-        <div class="diff-icon">🏢</div>
-        <div class="diff-title">1 Résidence par Étage</div>
-        <div class="diff-body">L'exclusivité absolue. Chaque résident possède l'intégralité de son niveau — pas de voisins de palier, une intimité totale, des vues non obstruées à 270°.</div>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">🌊</div>
-        <div class="diff-title">Première Ligne Rivière</div>
-        <div class="diff-body">Une localisation riveraine de premier rang sur la Nerang à Surfers Paradise — l'un des corridors les plus prisés et les plus rares de la Gold Coast premium.</div>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">🏅</div>
-        <div class="diff-title">Brisbane 2032</div>
-        <div class="diff-body">La Gold Coast bénéficiera directement des Jeux Olympiques de Brisbane 2032 — infrastructures, afflux international et valorisation accélérée des actifs premium.</div>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">📈</div>
-        <div class="diff-title">Marché en Croissance</div>
-        <div class="diff-body">7 à 13% de hausse prévue en 2026. Offre en contraction (&lt;1 400 livraisons prévues). Prix au m² premium encore 46% sous Sydney. Une fenêtre d'opportunité rare.</div>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">🌏</div>
-        <div class="diff-title">Demande Internationale</div>
-        <div class="diff-body">Des acheteurs fortunés d'Europe, d'Asie et du Pacifique (dont la Nouvelle-Calédonie) ciblent activement la Gold Coast pour des actifs lifestyle de qualité supérieure.</div>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">💎</div>
-        <div class="diff-title">Format Boutique Rare</div>
-        <div class="diff-body">Les projets plein-étage boutiques sont rarissimes sur la Gold Coast. Cette rareté crée une valeur intrinsèque durable et différencie Nouméa de l'offre standard.</div>
-      </div>
+    <div class="diff-grid fade-in d1">
+      <div class="diff-card"><div class="diff-icon">🏢</div><div class="diff-title">1 Résidence par Étage</div><div class="diff-body">L'exclusivité absolue. Chaque résident possède l'intégralité de son niveau — pas de voisins de palier, une intimité totale, des vues non obstruées à 270°.</div></div>
+      <div class="diff-card"><div class="diff-icon">🌊</div><div class="diff-title">Première Ligne Rivière</div><div class="diff-body">Une localisation riveraine de premier rang sur la Nerang à Surfers Paradise — l'un des corridors les plus prisés et les plus rares de la Gold Coast premium.</div></div>
+      <div class="diff-card"><div class="diff-icon">🏅</div><div class="diff-title">Brisbane 2032</div><div class="diff-body">La Gold Coast bénéficiera directement des Jeux Olympiques de Brisbane 2032 — infrastructures, visibilité mondiale et valorisation accélérée.</div></div>
+      <div class="diff-card"><div class="diff-icon">🌏</div><div class="diff-title">Acheteurs Internationaux</div><div class="diff-body">Des acheteurs fortunés d'Europe, d'Asie et du Pacifique ciblent activement la Gold Coast pour des actifs lifestyle premium. Marché en pleine expansion.</div></div>
+      <div class="diff-card"><div class="diff-icon">📐</div><div class="diff-title">300m² · Rare sur le Marché</div><div class="diff-body">300 m² plein étage est un format quasi introuvable à ce prix sur la Gold Coast. La rareté crée une valeur intrinsèque durable et protège l'investissement.</div></div>
+      <div class="diff-card"><div class="diff-icon">📈</div><div class="diff-title">Sous-Coté vs Marché</div><div class="diff-body">À $3.5M pour 300 m², le projet se positionne à ~$11 700/m² — bien en dessous des comparables plein étage ($17 000–$26 000/m²). Marge de hausse réelle.</div></div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY -->
-<div class="gallery-section" id="galerie">
+<div class="gallery-section">
   <div class="gallery-grid">
-    <div class="gallery-item tall">
-      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80" alt="Surfers Paradise Skyline" loading="lazy" />
-      <div class="gallery-caption">Surfers Paradise · Gold Coast</div>
+    <div class="gitem tall">
+      <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80" alt="Surfers Paradise" loading="lazy" />
+      <div class="gcap">Surfers Paradise · Gold Coast</div>
     </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=700&q=80" alt="Appartement de Luxe" loading="lazy" />
-      <div class="gallery-caption">Intérieur · Standard de Luxe</div>
+    <div class="gitem">
+      <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=700&q=80" alt="Intérieur Luxe" loading="lazy" />
+      <div class="gcap">Intérieur · Finitions de Luxe</div>
     </div>
-    <div class="gallery-item">
+    <div class="gitem">
       <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=700&q=80" alt="Vue Rivière" loading="lazy" />
-      <div class="gallery-caption">Vue Panoramique · Rivière</div>
+      <div class="gcap">Vue Panoramique · Rivière</div>
     </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1551361415-69c87624334f?w=700&q=80" alt="Architecture Moderne" loading="lazy" />
-      <div class="gallery-caption">Architecture Contemporaine</div>
+    <div class="gitem">
+      <img src="https://images.unsplash.com/photo-1551361415-69c87624334f?w=700&q=80" alt="Architecture" loading="lazy" />
+      <div class="gcap">Architecture Contemporaine</div>
     </div>
-    <div class="gallery-item">
-      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80" alt="Terrasse de Luxe" loading="lazy" />
-      <div class="gallery-caption">Terrasse Privative</div>
+    <div class="gitem">
+      <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80" alt="Terrasse" loading="lazy" />
+      <div class="gcap">Terrasse Privative</div>
     </div>
   </div>
 </div>
 
+<!-- HISTORY -->
+<section class="history-section" id="histoire">
+  <div class="wrap history-grid">
+    <div class="history-img fade-in">
+      <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80" alt="Surfers Paradise Skyline" loading="lazy" />
+    </div>
+    <div class="fade-in d1">
+      <p class="eyebrow">Histoire & Contexte</p>
+      <h2 class="sh">Surfers Paradise —<br><span class="gold">Une Icône de la Gold Coast</span></h2>
+      <div class="rule"></div>
+      <p class="body-p">Surfers Paradise est bien plus qu'un code postal premium. C'est l'identité même de la Gold Coast — une histoire de plus d'un siècle de transformation, de vision et de prestige.</p>
+      <div class="timeline">
+        <div class="titem"><div class="tyear">1877</div><div class="tdesc">Premiers colons européens s'installent sur les bords du fleuve Nerang. La zone est alors connue sous le nom d'Elston.</div></div>
+        <div class="titem"><div class="tyear">1925</div><div class="tdesc">Jim Cavill inaugure le Surfers Paradise Hotel — première infrastructure de luxe du secteur. L'accès s'améliore avec le pont Jubilee et la route côtière.</div></div>
+        <div class="titem"><div class="tyear">1933</div><div class="tdesc">Le conseil municipal rebaptise officiellement le quartier « Surfers Paradise » — nom choisi pour son potentiel touristique et son image premium.</div></div>
+        <div class="titem"><div class="tyear">1959</div><div class="tdesc">Construction du Kinkabool — premier immeuble de grande hauteur (10 étages) de Surfers Paradise, marquant le début d'une nouvelle ère urbaine.</div></div>
+        <div class="titem"><div class="tyear">1980s</div><div class="tdesc">Investissements massifs japonais propulsent le développement immobilier haut de gamme. La Gold Coast s'affirme comme destination internationale.</div></div>
+        <div class="titem"><div class="tyear">2026</div><div class="tdesc">Surfers Paradise accueille des projets d'exception dont Nouméa Résidences — au cœur d'un marché premium en pleine croissance avant Brisbane 2032.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FEASIBILITY -->
 <section class="feas-section" id="faisabilite">
   <div class="wrap">
-    <div class="section-header fade-in" style="text-align:center;">
+    <div class="fade-in" style="text-align:center;">
       <p class="eyebrow" style="text-align:center;">Étude de Faisabilité Préliminaire</p>
-      <h2 class="section-h" style="text-align:center;">Analyse Financière · <span class="gold">Deux Scénarios</span></h2>
-      <p class="body-p" style="text-align:center; max-width:700px; margin:20px auto 0; font-size:13px;">Hypothèses basées sur les données de marché de mars 2026. Ces chiffres sont indicatifs et devront être validés par un Quantity Surveyor et un expert-comptable agréé.</p>
+      <h2 class="sh" style="text-align:center;">Analyse Financière · <span class="gold">4 Scénarios</span></h2>
+      <p class="body-p" style="text-align:center; max-width:680px; margin:16px auto 0; font-size:13px;">11 appartements · 300 m² · 1.5 parking/unité · Terrain $6M · 28% frais annexes. Données mars 2026.</p>
     </div>
-
-    <div class="feas-grid fade-in fade-in-delay-1">
+    <div class="feas-grid fade-in d1">
 
       <!-- SCENARIO A -->
       <div class="feas-card">
         <div class="feas-head">
-          <div class="feas-scenario">Scénario A</div>
-          <div class="feas-name">Conservateur</div>
+          <div class="feas-sc">Scénario A</div>
+          <div class="feas-nm">Budget M. Leroux — $4 300/m²</div>
         </div>
         <div class="feas-body">
-          <div class="feas-row"><span class="lbl">Prix de vente moyen / unité</span><span class="val gold">AUD $2 800 000</span></div>
-          <div class="feas-row"><span class="lbl">Valeur de réalisation brute (VRB)</span><span class="val">AUD $33 600 000</span></div>
-          <div class="feas-row"><span class="lbl">Construction (5 200$/m² · 2 640m²)</span><span class="val">AUD $13 728 000</span></div>
-          <div class="feas-row"><span class="lbl">Foncier</span><span class="val">AUD $6 000 000</span></div>
-          <div class="feas-row"><span class="lbl">Frais annexes & imprévus (28%)</span><span class="val">AUD $5 523 840</span></div>
+          <div class="frow"><span class="lbl">Prix de vente moyen / unité</span><span class="val gold">AUD $3 200 000</span></div>
+          <div class="frow"><span class="lbl">VRB (11 × $3.2M)</span><span class="val">AUD $35 200 000</span></div>
+          <div class="frow"><span class="lbl">Construction (3 600m² × $4 300)</span><span class="val">AUD $15 480 000</span></div>
+          <div class="frow"><span class="lbl">Terrain</span><span class="val">AUD $6 000 000</span></div>
+          <div class="frow"><span class="lbl">Frais annexes 28%</span><span class="val">AUD $6 014 400</span></div>
         </div>
-        <div class="feas-total">
-          <span class="feas-total-lbl">Coût Total du Projet</span>
-          <span class="feas-total-val">AUD $25 251 840</span>
-        </div>
+        <div class="feas-tot"><span class="ftlbl">Coût Total</span><span class="ftval">$27 494 400</span></div>
         <div class="feas-margin">
-          <div>
-            <div class="margin-big">33.1%</div>
-            <div class="margin-sub">Marge sur coûts</div>
-          </div>
-          <div>
-            <div class="margin-profit gold">$8.3M</div>
-            <div class="margin-profit-sub">Bénéfice estimé</div>
-          </div>
+          <div><div class="mbig">28%</div><div class="msub">Marge</div></div>
+          <div class="mprofit"><div class="mpn gold">$7.7M</div><div class="mpl">Bénéfice</div></div>
         </div>
       </div>
 
@@ -563,114 +438,160 @@
       <div class="feas-card rec">
         <div class="feas-badge">Recommandé</div>
         <div class="feas-head">
-          <div class="feas-scenario">Scénario B</div>
-          <div class="feas-name">Marché Soutenu</div>
+          <div class="feas-sc">Scénario B</div>
+          <div class="feas-nm">Réaliste Équilibré — $4 800/m²</div>
         </div>
         <div class="feas-body">
-          <div class="feas-row"><span class="lbl">Prix de vente moyen / unité</span><span class="val gold">AUD $3 200 000</span></div>
-          <div class="feas-row"><span class="lbl">Valeur de réalisation brute (VRB)</span><span class="val">AUD $38 400 000</span></div>
-          <div class="feas-row"><span class="lbl">Construction (5 000$/m² · 2 640m²)</span><span class="val">AUD $13 200 000</span></div>
-          <div class="feas-row"><span class="lbl">Foncier</span><span class="val">AUD $6 000 000</span></div>
-          <div class="feas-row"><span class="lbl">Frais annexes & imprévus (28%)</span><span class="val">AUD $5 376 000</span></div>
+          <div class="frow"><span class="lbl">Prix de vente moyen / unité</span><span class="val gold">AUD $3 500 000</span></div>
+          <div class="frow"><span class="lbl">VRB (11 × $3.5M)</span><span class="val">AUD $38 500 000</span></div>
+          <div class="frow"><span class="lbl">Construction (3 600m² × $4 800)</span><span class="val">AUD $17 280 000</span></div>
+          <div class="frow"><span class="lbl">Terrain</span><span class="val">AUD $6 000 000</span></div>
+          <div class="frow"><span class="lbl">Frais annexes 28%</span><span class="val">AUD $6 518 400</span></div>
         </div>
-        <div class="feas-total">
-          <span class="feas-total-lbl">Coût Total du Projet</span>
-          <span class="feas-total-val">AUD $24 576 000</span>
-        </div>
+        <div class="feas-tot"><span class="ftlbl">Coût Total</span><span class="ftval">$29 798 400</span></div>
         <div class="feas-margin">
-          <div>
-            <div class="margin-big">56.3%</div>
-            <div class="margin-sub">Marge sur coûts</div>
-          </div>
-          <div>
-            <div class="margin-profit">$13.8M</div>
-            <div class="margin-profit-sub">Bénéfice estimé</div>
-          </div>
+          <div><div class="mbig">29%</div><div class="msub">Marge</div></div>
+          <div class="mprofit"><div class="mpn">$8.7M</div><div class="mpl">Bénéfice</div></div>
+        </div>
+      </div>
+
+      <!-- SCENARIO C -->
+      <div class="feas-card">
+        <div class="feas-head">
+          <div class="feas-sc">Scénario C</div>
+          <div class="feas-nm">Marché Optimisé — $5 000/m²</div>
+        </div>
+        <div class="feas-body">
+          <div class="frow"><span class="lbl">Prix de vente moyen / unité</span><span class="val gold">AUD $3 800 000</span></div>
+          <div class="frow"><span class="lbl">VRB (11 × $3.8M)</span><span class="val">AUD $41 800 000</span></div>
+          <div class="frow"><span class="lbl">Construction (3 600m² × $5 000)</span><span class="val">AUD $18 000 000</span></div>
+          <div class="frow"><span class="lbl">Terrain</span><span class="val">AUD $6 000 000</span></div>
+          <div class="frow"><span class="lbl">Frais annexes 28%</span><span class="val">AUD $6 720 000</span></div>
+        </div>
+        <div class="feas-tot"><span class="ftlbl">Coût Total</span><span class="ftval">$30 720 000</span></div>
+        <div class="feas-margin">
+          <div><div class="mbig">36%</div><div class="msub">Marge</div></div>
+          <div class="mprofit"><div class="mpn gold">$11.1M</div><div class="mpl">Bénéfice</div></div>
+        </div>
+      </div>
+
+      <!-- SCENARIO D -->
+      <div class="feas-card">
+        <div class="feas-head">
+          <div class="feas-sc">Scénario D</div>
+          <div class="feas-nm">Premium Plein Étage — $5 000/m²</div>
+        </div>
+        <div class="feas-body">
+          <div class="frow"><span class="lbl">Prix de vente moyen / unité</span><span class="val gold">AUD $4 200 000</span></div>
+          <div class="frow"><span class="lbl">VRB (11 × $4.2M)</span><span class="val">AUD $46 200 000</span></div>
+          <div class="frow"><span class="lbl">Construction (3 600m² × $5 000)</span><span class="val">AUD $18 000 000</span></div>
+          <div class="frow"><span class="lbl">Terrain</span><span class="val">AUD $6 000 000</span></div>
+          <div class="frow"><span class="lbl">Frais annexes 28%</span><span class="val">AUD $6 720 000</span></div>
+        </div>
+        <div class="feas-tot"><span class="ftlbl">Coût Total</span><span class="ftval">$30 720 000</span></div>
+        <div class="feas-margin">
+          <div><div class="mbig">50%</div><div class="msub">Marge</div></div>
+          <div class="mprofit"><div class="mpn gold">$15.5M</div><div class="mpl">Bénéfice</div></div>
         </div>
       </div>
 
     </div>
+    <p class="body-p" style="font-size:12px; opacity:.4; text-align:center; margin-top:24px;">Surface totale constructible estimée à 3 600 m² (3 300 m² résidentiel + ~300 m² stationnement). Ces chiffres sont indicatifs — à valider par un Quantity Surveyor agréé.</p>
+  </div>
+</section>
+
+<!-- COMPARABLES / VENTES RECENTES -->
+<section class="comp-section" id="ventes">
+  <div class="wrap">
+    <div class="fade-in" style="text-align:center;">
+      <p class="eyebrow" style="text-align:center;">Ventes Récentes Comparables</p>
+      <h2 class="sh" style="text-align:center;">Le Marché Valide <span class="gold">Notre Positionnement</span></h2>
+      <p class="body-p" style="text-align:center; max-width:680px; margin:16px auto 0;">Surfers Paradise et ses environs immédiats affichent des prix au m² entre $15 000 et $27 000 pour les produits plein étage boutique. Nouméa Résidences se positionne à ~$11 700–$14 000/m² — en dessous du marché.</p>
+    </div>
+    <div class="comp-table fade-in d1">
+      <div class="comp-head">
+        <div class="comp-hcell">Projet / Adresse</div>
+        <div class="comp-hcell">Surface</div>
+        <div class="comp-hcell">Prix</div>
+        <div class="comp-hcell">$/m²</div>
+      </div>
+      <div class="comp-row noumea">
+        <div class="ccell h">🏢 Nouméa Résidences — Cible</div>
+        <div class="ccell g">300 m² · Plein Étage</div>
+        <div class="ccell g">$3.5M–$3.8M</div>
+        <div class="ccell g">~$11 700–$12 700</div>
+      </div>
+      <div class="comp-row">
+        <div class="ccell">Nera Residences — Penthouse Plein Étage<br><span style="opacity:.5;font-size:12px">Chevron Island · Vendu mars 2026</span></div>
+        <div class="ccell">459 m²</div>
+        <div class="ccell">$11 500 000</div>
+        <div class="ccell h">$25 054</div>
+      </div>
+      <div class="comp-row">
+        <div class="ccell">Nera Residences — Sky Homes<br><span style="opacity:.5;font-size:12px">Chevron Island · En vente 2025–2026</span></div>
+        <div class="ccell">179–236 m²</div>
+        <div class="ccell">$3.07M–$4.55M</div>
+        <div class="ccell h">$17 000–$25 000</div>
+      </div>
+      <div class="comp-row">
+        <div class="ccell">South Beach SP — Niv. 22 Triple Aspect<br><span style="opacity:.5;font-size:12px">Surfers Paradise · Listé 2025</span></div>
+        <div class="ccell">160 m²</div>
+        <div class="ccell">$3 300 000</div>
+        <div class="ccell h">$20 625</div>
+      </div>
+      <div class="comp-row">
+        <div class="ccell">South Beach SP — Vue Rivière<br><span style="opacity:.5;font-size:12px">Surfers Paradise · Listé 2025</span></div>
+        <div class="ccell">160 m²</div>
+        <div class="ccell">$2 850 000</div>
+        <div class="ccell">$17 812</div>
+      </div>
+      <div class="comp-row">
+        <div class="ccell">8 Mawarra Street, Chevron Island — Niv. 17<br><span style="opacity:.5;font-size:12px">Vue skyline, rivière & océan</span></div>
+        <div class="ccell">205 m²</div>
+        <div class="ccell">$3 589 000</div>
+        <div class="ccell">$17 507</div>
+      </div>
+      <div class="comp-row">
+        <div class="ccell">La Sabbia Penthouse, Surfers Paradise<br><span style="opacity:.5;font-size:12px">Vendu février 2025</span></div>
+        <div class="ccell">741 m²</div>
+        <div class="ccell">$11 500 000</div>
+        <div class="ccell">$15 519</div>
+      </div>
+      <div class="comp-row">
+        <div class="ccell">Royale Gold Coast — Penthouse Plein Étage<br><span style="opacity:.5;font-size:12px">Beachfront · Vendu juil.–août 2025</span></div>
+        <div class="ccell">660–706 m²</div>
+        <div class="ccell">$19.2M–$19.6M</div>
+        <div class="ccell h">$27 700</div>
+      </div>
+      <div class="comp-row">
+        <div class="ccell">Terrain 4-6 Holborow Close, Surfers Paradise<br><span style="opacity:.5;font-size:12px">1 009 m² riverfront avec DA boutique tower</span></div>
+        <div class="ccell">Terrain seul</div>
+        <div class="ccell">$6 500 000+</div>
+        <div class="ccell">—</div>
+      </div>
+    </div>
+    <p class="comp-note">Sources : realestate.com.au, apartments.com.au, kollosche.com.au, oceanroadmagazine.com.au · Mars 2026</p>
   </div>
 </section>
 
 <!-- MARKET -->
 <section class="market-section" id="marche">
   <div class="wrap">
-    <div class="section-header fade-in">
+    <div class="fade-in">
       <p class="eyebrow">Aperçu du Marché</p>
-      <h2 class="section-h">Gold Coast 2026 —<br><span class="gold">Un Marché en Croissance</span></h2>
-      <div class="gold-rule"></div>
-      <p class="body-p" style="max-width:580px;">La Gold Coast s'impose comme l'un des marchés résidentiels premium les plus robustes d'Australie, porté par des fondamentaux solides et des catalyseurs structurels uniques.</p>
+      <h2 class="sh">Gold Coast 2026 —<br><span class="gold">Un Marché en Croissance</span></h2>
+      <div class="rule"></div>
+      <p class="body-p" style="max-width:580px;">La Gold Coast s'impose comme l'un des marchés résidentiels premium les plus robustes d'Australie — portée par des fondamentaux solides et des catalyseurs structurels uniques.</p>
     </div>
-    <div class="market-layout">
-      <div class="market-image fade-in">
-        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800&q=80" alt="Gold Coast Skyline" loading="lazy" />
+    <div class="market-grid2">
+      <div class="mkt-img fade-in">
+        <img src="https://images.unsplash.com/photo-1522083165195-3424ed129620?w=800&q=80" alt="Gold Coast Aerial" loading="lazy" />
       </div>
-      <div class="market-stats fade-in fade-in-delay-1">
-        <div class="mstat">
-          <div class="mstat-num">7–13%</div>
-          <div><div class="mstat-lbl">Croissance prévue 2026</div><div class="mstat-desc">SQM Research & Bamboo Routes forecast pour la Gold Coast — bien au-dessus de la moyenne nationale.</div></div>
-        </div>
-        <div class="mstat">
-          <div class="mstat-num">$17 750</div>
-          <div><div class="mstat-lbl">Prix moyen/m² · Appts Premium GC</div><div class="mstat-desc">En janvier 2025 — 46% sous Sydney ($32 350). Potentiel de convergence significatif sur 5 ans.</div></div>
-        </div>
-        <div class="mstat">
-          <div class="mstat-num">$11.5M</div>
-          <div><div class="mstat-lbl">Vente Record · Plein Étage 2025</div><div class="mstat-desc">Nera Residences, Chevron Island — $26 000/m². Valide l'appétit pour les produits boutique plein étage.</div></div>
-        </div>
-        <div class="mstat">
-          <div class="mstat-num">&lt;1 400</div>
-          <div><div class="mstat-lbl">Livraisons d'Appartements 2026</div><div class="mstat-desc">En forte contraction vs ~1 900 en 2025. L'offre se restreint alors que la demande reste soutenue.</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARABLES -->
-<section class="comp-section">
-  <div class="wrap">
-    <div class="section-header fade-in" style="text-align:center;">
-      <p class="eyebrow" style="text-align:center;">Ventes Comparables</p>
-      <h2 class="section-h" style="text-align:center;">Références de Marché <span class="gold">Récentes</span></h2>
-    </div>
-    <div class="comp-table fade-in mt-60">
-      <div class="comp-head">
-        <div class="comp-head-cell">Projet / Adresse</div>
-        <div class="comp-head-cell">Type</div>
-        <div class="comp-head-cell">Prix</div>
-        <div class="comp-head-cell">Prix/m²</div>
-      </div>
-      <div class="comp-row">
-        <div class="comp-cell project">Nouméa Résidences · Cible</div>
-        <div class="comp-cell gold">Plein Étage · 220m²</div>
-        <div class="comp-cell gold">$3.2M (Scén. B)</div>
-        <div class="comp-cell gold">~$14 500/m²</div>
-      </div>
-      <div class="comp-row">
-        <div class="comp-cell">Nera Residences, Chevron Island</div>
-        <div class="comp-cell">Penthouse Plein Étage 412m²</div>
-        <div class="comp-cell">$11.5M</div>
-        <div class="comp-cell highlight">$26 000/m²</div>
-      </div>
-      <div class="comp-row">
-        <div class="comp-cell">Nera Residences · Sky Homes</div>
-        <div class="comp-cell">3 chambres · 179–236m²</div>
-        <div class="comp-cell">$3.07M – $4.55M</div>
-        <div class="comp-cell highlight">$17 000–$25 000/m²</div>
-      </div>
-      <div class="comp-row">
-        <div class="comp-cell">Florian Residences, Surfers Paradise</div>
-        <div class="comp-cell">3 chambres (3 par étage)</div>
-        <div class="comp-cell">$1.85M – $2.15M</div>
-        <div class="comp-cell">~$10 000/m²</div>
-      </div>
-      <div class="comp-row">
-        <div class="comp-cell">4-6 Holborow Close, Surfers Paradise</div>
-        <div class="comp-cell">Site riverain · 1 009m²</div>
-        <div class="comp-cell">$6.5M+ (foncier)</div>
-        <div class="comp-cell">—</div>
+      <div class="mstats fade-in d1">
+        <div class="mstat"><div class="mstat-n">7–13%</div><div><div class="mstat-l">Croissance prévue 2026</div><div class="mstat-d">SQM Research & Bamboo Routes. Gold Coast surpasse la moyenne nationale et dépasse Sydney en valeur médiane depuis oct. 2025.</div></div></div>
+        <div class="mstat"><div class="mstat-n">$17 750</div><div><div class="mstat-l">Prix moyen/m² · Appts Premium</div><div class="mstat-d">En janvier 2025 — encore 46% sous Sydney ($32 350). Fort potentiel de convergence sur 5 ans avec les JO 2032.</div></div></div>
+        <div class="mstat"><div class="mstat-n">$956K</div><div><div class="mstat-l">Prix médian unité GC · Oct. 2025</div><div class="mstat-d">La Gold Coast dépasse Sydney pour la première fois. Croissance de +101% sur 10 ans. Signal de maturité du marché.</div></div></div>
+        <div class="mstat"><div class="mstat-n">&lt;1 400</div><div><div class="mstat-l">Livraisons 2026</div><div class="mstat-d">En forte contraction vs ~1 900 en 2025. L'offre se rétrécit alors que la demande internationale s'accélère.</div></div></div>
       </div>
     </div>
   </div>
@@ -678,82 +599,73 @@
 
 <!-- AGENT -->
 <section class="agent-section" id="agent">
-  <div class="wrap agent-layout">
-    <div class="agent-image fade-in">
-      <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=700&q=80" alt="Cyril Texier · NGU Real Estate" loading="lazy" />
-      <div class="agent-brand-tag">
+  <div class="wrap agent-grid">
+    <div class="agent-img-wrap fade-in">
+      <div class="agent-img">
+        <img src="cyril-texier.jpg" alt="Cyril Texier · NGU Real Estate" />
+      </div>
+      <div class="agent-brand">
         <div>
-          <div class="ngu-logo-text">NGU Real Estate</div>
-          <div class="ngu-tagline">Brisbane & Gold Coast, Queensland</div>
+          <div class="ngu-name">NGU Real Estate</div>
+          <div class="ngu-sub">Brisbane & Gold Coast, Queensland</div>
         </div>
       </div>
     </div>
-    <div class="fade-in fade-in-delay-1">
+    <div class="fade-in d1">
       <p class="eyebrow">Votre Partenaire Immobilier</p>
       <h2 class="agent-name">Cyril<br>Texier</h2>
-      <p class="agent-title">Agent Immobilier Résidentiel · NGU Real Estate</p>
-      <div class="gold-rule"></div>
-      <p class="agent-bio">
-        Spécialiste de l'immobilier résidentiel haut de gamme à Brisbane et sur la Gold Coast, Cyril Texier accompagne une clientèle d'investisseurs locaux et internationaux dans leurs acquisitions les plus stratégiques.
-      </p>
-      <p class="agent-bio">
-        Expert en négociation, deals off-market et développements de prestige, Cyril comprend les nuances du marché australien et les attentes d'une clientèle francophone exigeante. Un partenaire de confiance pour vous accompagner de la due diligence à la commercialisation de Nouméa Résidences.
-      </p>
-      <div class="agent-credentials">
-        <div class="agent-cred">
-          <div class="agent-cred-n">GC</div>
-          <div class="agent-cred-l">Gold Coast</div>
-        </div>
-        <div class="agent-cred">
-          <div class="agent-cred-n">BNE</div>
-          <div class="agent-cred-l">Brisbane</div>
-        </div>
-        <div class="agent-cred">
-          <div class="agent-cred-n">QLD</div>
-          <div class="agent-cred-l">Queensland</div>
-        </div>
+      <p class="agent-title">Agent Immobilier Résidentiel · NGU Real Estate · Gold Coast</p>
+      <div class="rule"></div>
+      <p class="agent-bio">Spécialiste de l'immobilier résidentiel haut de gamme sur la Gold Coast et Brisbane, Cyril Texier accompagne une clientèle locale et internationale dans leurs acquisitions les plus stratégiques. Originaire de Nouvelle-Calédonie, parfaitement bilingue français-anglais, il est l'interlocuteur idéal pour les investisseurs francophones.</p>
+      <p class="agent-bio">Avec un background en ingénierie et gestion de projets de construction, Cyril apporte une compréhension technique unique des projets de développement — un atout décisif pour des opérations de la complexité de Nouméa Résidences.</p>
+      <div class="agent-stats">
+        <div><div class="astat-n">$170M+</div><div class="astat-l">Ventes réalisées</div></div>
+        <div><div class="astat-n">GC + BNE</div><div class="astat-l">Marchés couverts</div></div>
+        <div><div class="astat-n">FR/EN</div><div class="astat-l">Bilingue</div></div>
       </div>
-      <div class="agent-contact-row">
-        <a href="tel:+61400000000" class="agent-contact-btn filled">📞 Appeler</a>
-        <a href="mailto:teamcyril@ngurealestate.com.au" class="agent-contact-btn">✉ Écrire</a>
+      <div class="agent-btns">
+        <a href="tel:+61402293358" class="abtn solid">📞 0402 293 358</a>
+        <a href="mailto:teamcyril@ngurealestate.com.au" class="abtn">✉ Écrire</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTS -->
-<section class="contacts-section" id="contacts">
+<!-- PROFESSIONAL CONTACTS -->
+<section class="contacts-section">
   <div class="wrap">
-    <div class="section-header fade-in" style="text-align:center;">
+    <div class="fade-in" style="text-align:center;">
       <p class="eyebrow" style="text-align:center;">Réseau Professionnel</p>
-      <h2 class="section-h" style="text-align:center;">Experts Sélectionnés <span class="gold">pour ce Projet</span></h2>
-      <p class="body-p" style="text-align:center; max-width:620px; margin:20px auto 0;">Une équipe bilingue français-anglais, spécialisée dans l'accompagnement d'investisseurs francophones en Australie.</p>
+      <h2 class="sh" style="text-align:center;">Experts Sélectionnés <span class="gold">pour ce Projet</span></h2>
+      <p class="body-p" style="text-align:center; max-width:600px; margin:16px auto 0;">Une équipe bilingue français-anglais spécialisée dans l'accompagnement d'investisseurs francophones en Australie.</p>
     </div>
-    <div class="contacts-grid fade-in">
-      <div class="contact-card">
-        <div class="contact-role">Agent Immobilier</div>
-        <div class="contact-name">Cyril Texier</div>
-        <div class="contact-firm">NGU Real Estate · Brisbane & Gold Coast</div>
-        <div class="contact-details">
-          Résidentiel Haut de Gamme<br>Acquisitions & Développements<br><br>
+    <div class="contacts-grid fade-in d1">
+      <div class="ccard">
+        <div class="crole">Agent Immobilier</div>
+        <div class="cname">Cyril Texier</div>
+        <div class="cfirm">NGU Real Estate · Brisbane & Gold Coast</div>
+        <div class="cdetails">
+          Résidentiel Haut de Gamme<br>Bilingue Français-Anglais<br><br>
+          <a href="tel:+61402293358">0402 293 358</a><br>
           <a href="mailto:teamcyril@ngurealestate.com.au">teamcyril@ngurealestate.com.au</a>
         </div>
       </div>
-      <div class="contact-card">
-        <div class="contact-role">Expert-Comptable Franco-Australien</div>
-        <div class="contact-name">Fiducia Pacific</div>
-        <div class="contact-firm">Cabinet Agréé · Brisbane</div>
-        <div class="contact-details">
+      <div class="ccard">
+        <div class="crole">Expert-Comptable Franco-Australien</div>
+        <div class="cname">Fiducia Pacific</div>
+        <div class="cfirm">Cabinet Agréé · Brisbane</div>
+        <div class="cdetails">
           Level 7, 10 Felix Street<br>Brisbane QLD 4000<br><br>
-          <a href="mailto:admin@fidpac.com">admin@fidpac.com</a><br>
-          Rémi de Cambiaire : <a href="tel:+61402189754">+61 402 189 754</a>
+          Rémi de Cambiaire<br>
+          <a href="tel:+61402189754">+61 402 189 754</a><br>
+          <a href="mailto:admin@fidpac.com">admin@fidpac.com</a>
         </div>
       </div>
-      <div class="contact-card">
-        <div class="contact-role">Solicitor · Holding Redlich</div>
-        <div class="contact-name">Jeanne Vallade</div>
-        <div class="contact-firm">Partner · Brisbane</div>
-        <div class="contact-details">
+      <div class="ccard">
+        <div class="crole">Solicitor · Holding Redlich</div>
+        <div class="cname">Jeanne Vallade</div>
+        <div class="cfirm">Partner · Brisbane</div>
+        <div class="cdetails">
           Level 1, 300 Queen Street<br>Brisbane QLD 4000<br><br>
           <a href="tel:+61731350508">+61 7 3135 0508</a><br>
           <a href="mailto:inquiries@holdingredlich.com">inquiries@holdingredlich.com</a>
@@ -763,56 +675,93 @@
   </div>
 </section>
 
+<!-- CONTACT FORM -->
+<section class="form-section" id="contact">
+  <div class="wrap">
+    <div class="form-wrap">
+      <div class="form-intro fade-in">
+        <p class="eyebrow" style="text-align:center;">Nous Contacter</p>
+        <h2 class="sh" style="text-align:center;">Discutons de <span class="gold">Votre Projet</span></h2>
+        <p class="body-p" style="text-align:center; margin-top:16px;">Remplissez le formulaire ci-dessous et Cyril Texier vous répondra dans les 24 heures.</p>
+      </div>
+      <form class="fade-in d1" action="https://formsubmit.co/teamcyril@ngurealestate.com.au" method="POST">
+        <input type="hidden" name="_subject" value="Nouméa Résidences — Nouvelle Demande de Contact" />
+        <input type="hidden" name="_next" value="https://cyriltexier1-bot.github.io/ngu-client-sites/azure-vue/merci.html" />
+        <input type="hidden" name="_captcha" value="false" />
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" name="prenom" required placeholder="Jean" />
+          </div>
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" name="nom" required placeholder="Leroux" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="j.leroux@email.com" />
+          </div>
+          <div class="form-group">
+            <label>Téléphone</label>
+            <input type="tel" name="telephone" placeholder="+687 ..." />
+          </div>
+          <div class="form-group form-full">
+            <label>Sujet</label>
+            <select name="sujet">
+              <option value="Faisabilité du projet">Faisabilité du projet</option>
+              <option value="Acquisition du terrain">Acquisition du terrain</option>
+              <option value="Partenariat investissement">Partenariat investissement</option>
+              <option value="Commercialisation">Commercialisation des appartements</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group form-full">
+            <label>Message</label>
+            <textarea name="message" placeholder="Décrivez votre demande ou vos questions concernant le projet Nouméa Résidences..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Envoyer le Message</button>
+        <p class="form-note">Votre message sera transmis directement à Cyril Texier · NGU Real Estate. Réponse sous 24h.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <div class="cta-section">
   <div class="cta-bg"></div>
   <div class="cta-content">
-    <p class="cta-eyebrow">Prochaines Étapes</p>
+    <p class="eyebrow">Prochaines Étapes</p>
     <h2 class="cta-title">Construisons Ensemble<br><span class="gold">Votre Vision</span></h2>
     <p class="cta-body">Ce document est une présentation préliminaire confidentielle. Nous sommes prêts à approfondir chaque aspect du projet Nouméa Résidences avec vous et votre équipe.</p>
-    <a href="mailto:teamcyril@ngurealestate.com.au" class="cta-btn">Prendre Contact</a>
-    <p class="cta-disclaimer">Les chiffres présentés sont indicatifs. Ce document ne constitue pas un conseil d'investissement. · NGU Real Estate · Mars 2026</p>
+    <a href="#contact" class="cta-btn">Prendre Contact</a>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
   <div>
-    <div class="footer-brand">Nouméa Résidences</div>
-    <div class="footer-by">Préparé par Team Cyril Texier · NGU Real Estate</div>
+    <div class="fbrand">Nouméa Résidences</div>
+    <div class="fby">Préparé par Team Cyril Texier · NGU Real Estate</div>
   </div>
-  <div class="footer-note">
+  <div class="fnote">
     Document Confidentiel · Destiné exclusivement à M. Leroux<br>
     Surfers Paradise · Gold Coast QLD · Mars 2026
   </div>
 </footer>
 
 <script>
-  // Nav scroll effect
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) nav.classList.add('solid');
-    else nav.classList.remove('solid');
+    nav.classList.toggle('solid', window.scrollY > 60);
   });
-
-  // Hero bg zoom on load
   const heroBg = document.getElementById('heroBg');
-  window.addEventListener('load', () => {
-    setTimeout(() => heroBg.classList.add('loaded'), 100);
-  });
-
-  // Fade in on scroll
+  window.addEventListener('load', () => setTimeout(() => heroBg.classList.add('loaded'), 100));
   const fadeEls = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  fadeEls.forEach(el => observer.observe(el));
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => obs.observe(el));
 </script>
-
 </body>
 </html>
