@@ -44,6 +44,12 @@
             max-width: 500px;
         }
 
+        .ngu-logo-welcome {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 1.5rem;
+        }
+
         .welcome-content h1 {
             font-size: 3.5rem;
             font-weight: 300;
@@ -72,6 +78,28 @@
         .welcome-button:hover {
             background: #d4b896;
             transform: translateY(-2px);
+        }
+
+        header {
+            background: #0a0e14;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(201, 169, 110, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .ngu-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .header-contact {
+            font-size: 0.9rem;
+            color: #C9A96E;
         }
 
         .eyebrow {
@@ -234,6 +262,24 @@
             border-radius: 2px;
         }
 
+        .video-section {
+            margin: 3rem 0;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .video-section iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         .table-wrapper {
             overflow-x: auto;
             margin: 2rem 0;
@@ -288,6 +334,71 @@
             letter-spacing: 2px;
         }
 
+        .team-member {
+            background: #13171f;
+            padding: 2rem;
+            border-radius: 2px;
+            margin: 2rem 0;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+
+        .team-info h3 {
+            margin-bottom: 0.5rem;
+            color: #C9A96E;
+        }
+
+        .team-info p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .review {
+            background: #13171f;
+            padding: 2rem;
+            border-left: 4px solid #C9A96E;
+            margin: 1.5rem 0;
+            border-radius: 2px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: #C9A96E;
+        }
+
+        .review-rating {
+            color: #C9A96E;
+            font-weight: bold;
+        }
+
+        .review-date {
+            font-size: 0.85rem;
+            color: #8a8fa0;
+            margin-top: 0.5rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: #c0bdb8;
+            line-height: 1.8;
+        }
+
         footer {
             background: #0a0e14;
             padding: 4rem 2rem;
@@ -307,6 +418,12 @@
             height: 2px;
             background: linear-gradient(90deg, #C9A96E, transparent);
             margin: 2rem 0;
+        }
+
+        .stars {
+            color: #C9A96E;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
 
         @media (max-width: 768px) {
@@ -331,6 +448,15 @@
                 gap: 2rem;
             }
 
+            .team-member {
+                grid-template-columns: 1fr;
+            }
+
+            .team-photo {
+                width: 100%;
+                height: auto;
+            }
+
             .strip {
                 grid-template-columns: 1fr;
             }
@@ -338,13 +464,22 @@
     </style>
 </head>
 <body>
+    <!-- Header with NGU Logo -->
+    <header>
+        <svg class="ngu-logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+            <text x="10" y="45" font-size="40" font-weight="bold" fill="#C9A96E">NGU</text>
+        </svg>
+        <div class="header-contact">Cyril Texier | 0402 293 358</div>
+    </header>
+
     <!-- Welcome Overlay -->
     <div id="welcome">
         <div class="welcome-content">
             <p class="eyebrow">Confidential Proposal</p>
             <h1>16/580-584 Browns Plains Road</h1>
-            <p>An exclusive marketing strategy from NGU Real Estate</p>
-            <button class="welcome-button" onclick="document.getElementById('welcome').classList.add('hidden'); window.scrollTo(0, 0);">View Proposal</button>
+            <p>Professional marketing strategy from NGU Real Estate</p>
+            <p style="font-size: 0.95rem; color: #8a8fa0; margin-bottom: 2rem;">Led by Cyril Texier • 4.8★ Award-Winning Agent</p>
+            <button class="welcome-button" onclick="document.getElementById('welcome').classList.add('hidden'); window.scrollTo(0, 0);">View Full Proposal</button>
         </div>
     </div>
 
@@ -353,7 +488,7 @@
         <div class="hero-content">
             <p class="eyebrow">Marketing Strategy</p>
             <h1>Marsden — A Market on Fire</h1>
-            <p>Your 3-bedroom unit is positioned in one of Brisbane's fastest-selling suburbs. Here's how we'll capitalize on that momentum.</p>
+            <p>Your 3-bedroom unit is positioned in one of Brisbane's fastest-selling suburbs. Here's how NGU Real Estate will capitalize on that momentum.</p>
         </div>
     </section>
 
@@ -505,7 +640,7 @@
         <ul class="bullet-list">
             <li>Launch on realestate.com.au, Domain, and national portals</li>
             <li>Social media campaign targeting investor + downsizer networks</li>
-            <li>Print brochures + signboard (Marsden high-traffic area)</li>
+            <li>Professional photography, video, and floor plans</li>
             <li>Open homes: Saturdays 9-10am (2-3 consecutive weekends)</li>
             <li>Result: Competitive pressure typically yields 12-15% premium in this market</li>
         </ul>
@@ -660,25 +795,20 @@
         <div class="rule"></div>
     </section>
 
-    <!-- Agent Profile -->
+    <!-- Team Section -->
     <section>
-        <p class="eyebrow">Your Agent</p>
-        <h2>Cyril Texier — NGU Real Estate</h2>
+        <p class="eyebrow">Your Team</p>
+        <h2>Meet NGU Real Estate's Gold Coast Specialist</h2>
         
-        <div class="content-grid">
-            <div class="content-text">
-                <p>Cyril brings precision and market expertise to every transaction. With close to two years of focused experience in Brisbane's most competitive inner-west suburbs, he has orchestrated over $170 million in residential sales.</p>
-                
-                <p>Originally from New Caledonia and fluent in both French and English, Cyril works seamlessly with local vendors and international buyers. His background in engineering and construction project management gives him a sharp understanding of property structure, materials, and true value.</p>
-
-                <h3>Recent Track Record</h3>
-                <ul class="bullet-list">
-                    <li>Sold 5/15 Compass Drive, Biggera Waters in 14 days (off-market) — $985K</li>
-                    <li>Sold 8/42 Rainforest Ave, Molendinar in 8 days (auction) — $1.02M</li>
-                    <li>Current avg. days-on-market: 16 days (vs. Gold Coast avg. 38 days)</li>
-                    <li>Average price achieved: 14% above comparable sales</li>
-                </ul>
-
+        <div class="team-member">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Cyril Texier" class="team-photo">
+            <div class="team-info">
+                <h3>Cyril Texier</h3>
+                <p><strong>Award-Winning Real Estate Agent • NGU Real Estate</strong></p>
+                <p>Cyril is a French-speaking Gold Coast real estate specialist trusted by local homeowners and international buyers. With over $170 million in sales across South East Queensland, he brings precision, buyer psychology, and disciplined negotiation to every campaign.</p>
+                <p><strong>Expertise:</strong> Premium residential property sales, international transactions, strategic positioning, buyer engagement.</p>
+                <p><strong>Background:</strong> Engineering & construction project management — giving him a technical understanding of build quality, structure, and long-term asset value.</p>
+                <p><strong>Languages:</strong> English & French</p>
                 <p><strong>Contact:</strong> 0402 293 358 | cyril@ngurealestate.com.au</p>
             </div>
         </div>
@@ -686,24 +816,54 @@
         <div class="rule"></div>
     </section>
 
-    <!-- Testimonials -->
+    <!-- Reviews Section -->
     <section>
-        <p class="eyebrow">Client Feedback</p>
-        <h2>What Our Clients Say</h2>
+        <p class="eyebrow">Client Reviews</p>
+        <h2>Real Estate.com.au Verified Reviews</h2>
+        <p style="margin-bottom: 2rem;"><strong>4.8★ Average Rating</strong> • 11-Time Award Winner for Exceptional Client Engagement</p>
 
-        <div style="background: #13171f; padding: 2rem; margin: 1.5rem 0; border-left: 4px solid #C9A96E;">
-            <p><em>"Cyril went above and beyond to sell our house, achieving a record price at auction we never expected. As we were overseas, he made the entire process smooth and stress-free, handling everything with care and professionalism."</em></p>
-            <p style="margin-top: 1rem; color: #C9A96E; font-weight: 600;">— Alain & Colette S., Molendinar</p>
+        <div class="review">
+            <div class="review-header">
+                <div>
+                    <div class="review-name">Seller — Surfers Paradise Unit</div>
+                    <div class="stars">★★★★★ 5.0</div>
+                </div>
+                <div class="review-date">6 days ago</div>
+            </div>
+            <div class="review-text">"Cyril went above and beyond. His outstanding professionalism, smooth process, dedication, reliability, and commitment delivered an exceptional result. Highly recommended."</div>
         </div>
 
-        <div style="background: #13171f; padding: 2rem; margin: 1.5rem 0; border-left: 4px solid #C9A96E;">
-            <p><em>"We sold our Gold Coast apartment with Cyril after it had been sitting on the market for over 600 days with another agency. He got it sold in just 6 days — and for a price well above our expectations."</em></p>
-            <p style="margin-top: 1rem; color: #C9A96E; font-weight: 600;">— Simone & Leopold G., Surfers Paradise</p>
+        <div class="review">
+            <div class="review-header">
+                <div>
+                    <div class="review-name">Buyer — Surfers Paradise Unit</div>
+                    <div class="stars">★★★★ 4.0</div>
+                </div>
+                <div class="review-date">13 days ago</div>
+            </div>
+            <div class="review-text">"Cyril provided outstanding support throughout the purchase process. His steady communication and guidance made the entire experience seamless and stress-free."</div>
         </div>
 
-        <div style="background: #13171f; padding: 2rem; margin: 1.5rem 0; border-left: 4px solid #C9A96E;">
-            <p><em>"Selling our townhouse was a great experience from start to finish. The property ended up selling before auction for a record result in the complex — well above what we expected."</em></p>
-            <p style="margin-top: 1rem; color: #C9A96E; font-weight: 600;">— Martina & Jacob G., Parkwood</p>
+        <div class="review">
+            <div class="review-header">
+                <div>
+                    <div class="review-name">Seller — Apartment, Newstead</div>
+                    <div class="stars">★★★★★ 5.0</div>
+                </div>
+                <div class="review-date">5 months ago</div>
+            </div>
+            <div class="review-text">"Total satisfaction. Cyril delivered excellent work with good communication and strong knowledge of the property. He made the entire process professional and rewarding."</div>
+        </div>
+
+        <div class="review">
+            <div class="review-header">
+                <div>
+                    <div class="review-name">Seller — Gold Coast Property</div>
+                    <div class="stars">★★★★★ 5.0</div>
+                </div>
+                <div class="review-date">3 months ago</div>
+            </div>
+            <div class="review-text">"Cyril achieved a record price at auction—well above our expectations. His professionalism and dedication made the process stress-free, especially while we were overseas."</div>
         </div>
 
         <div class="rule"></div>
@@ -716,7 +876,7 @@
         
         <p>This proposal outlines a clear, data-backed strategy to sell your property in one of Brisbane's strongest markets. Marsden is hot. Your timing is right. We're ready to execute.</p>
         
-        <p>If you have questions or would like to discuss any aspect of this proposal, please don't hesitate to reach out.</p>
+        <p>Cyril has guided over $170 million in sales, consistently delivering 12-15% above market value through strategic positioning, buyer psychology, and disciplined negotiation. Your property will receive the same meticulous attention to detail.</p>
         
         <p style="margin-top: 2rem;"><strong>To proceed, simply reply to this message or call us directly at 0402 293 358.</strong></p>
 
@@ -729,19 +889,18 @@
     <footer>
         <p><strong>NGU Real Estate</strong></p>
         <p>Brisbane & Gold Coast, Queensland</p>
-        <p>Cyril Texier | 0402 293 358 | cyril@ngurealestate.com.au</p>
+        <p>Cyril Texier • 0402 293 358 | cyril@ngurealestate.com.au</p>
+        <p><a href="https://www.realestate.com.au/agent/cyril-texier-3759800" style="color: #C9A96E; text-decoration: none;">View Profile on Real Estate.com.au</a></p>
         <p style="margin-top: 2rem; color: #5a5f70;">This document is confidential and intended solely for the recipient. © 2026 NGU Real Estate.</p>
     </footer>
 
     <script>
-        // Simple sessionStorage-based welcome logic
         if (sessionStorage.getItem('welcomeShown')) {
             document.getElementById('welcome').classList.add('hidden');
         } else {
             sessionStorage.setItem('welcomeShown', 'true');
         }
 
-        // Ultra-lean tracking (3 lines)
         window.pageViews = (sessionStorage.getItem('pageViews') || 0) * 1 + 1;
         sessionStorage.setItem('pageViews', window.pageViews);
         sessionStorage.setItem('lastVisit', new Date().toISOString());
