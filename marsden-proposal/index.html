@@ -4,722 +4,1089 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NGU Real Estate — 16/580-584 Browns Plains Road, Marsden</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --black: #000000;
+            --near-black: #0D0D0D;
+            --charcoal: #141414;
+            --charcoal-mid: #1C1C1C;
+            --charcoal-light: #242424;
+            --red: #BA1212;
+            --red-dark: #8B0000;
+            --white: #FFFFFF;
+            --off-white: #F5F5F5;
+            --gray-light: #E5E5E5;
+            --gray-mid: #999999;
+            --gray-dark: #555555;
+            --rule: rgba(255,255,255,0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--near-black);
+            color: var(--off-white);
             line-height: 1.6;
-            color: #e8e6e1;
-            background: linear-gradient(135deg, #0a0e14 0%, #0f1218 50%, #0a0e14 100%);
             overflow-x: hidden;
         }
 
-        /* Welcome Overlay */
+        /* ─── WELCOME SCREEN ─── */
         #welcome {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 14, 20, 0.98);
+            inset: 0;
+            background: var(--black);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 9999;
             flex-direction: column;
-            gap: 2rem;
         }
+        #welcome.hidden { display: none; }
 
-        #welcome.hidden {
-            display: none;
-        }
-
-        .welcome-content {
+        .welcome-inner {
             text-align: center;
-            max-width: 500px;
+            padding: 2rem;
+            max-width: 480px;
         }
-
-        .ngu-logo-welcome {
-            width: 120px;
+        .welcome-inner img {
+            width: 160px;
             height: auto;
-            margin: 0 auto 1.5rem;
+            margin-bottom: 2.5rem;
         }
-
-        .welcome-content h1 {
-            font-size: 3.5rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .welcome-content p {
+        .welcome-inner h1 {
             font-size: 1.1rem;
-            color: #c0bdb8;
-            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gray-mid);
+            margin-bottom: 0.5rem;
         }
-
-        .welcome-button {
-            background: #C9A96E;
-            color: #0a0e14;
-            border: none;
-            padding: 0.9rem 2.5rem;
-            font-size: 1rem;
+        .welcome-inner h2 {
+            font-size: 1.8rem;
             font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+        }
+        .welcome-inner p {
+            color: var(--gray-mid);
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+        }
+        .welcome-btn {
+            background: var(--red);
+            color: #fff;
+            border: none;
+            padding: 0.9rem 2.8rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             cursor: pointer;
-            border-radius: 3px;
-            transition: all 0.3s ease;
+            transition: background 0.2s ease;
         }
+        .welcome-btn:hover { background: var(--red-dark); }
 
-        .welcome-button:hover {
-            background: #d4b896;
-            transform: translateY(-2px);
-        }
-
+        /* ─── HEADER ─── */
         header {
-            background: #0a0e14;
-            padding: 1.5rem 2rem;
+            background: var(--black);
+            padding: 1.2rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.2);
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
-
         .ngu-logo {
-            height: 40px;
+            height: 36px;
             width: auto;
         }
-
-        .header-contact {
-            font-size: 0.9rem;
-            color: #C9A96E;
+        .header-cta {
+            font-size: 0.8rem;
+            color: var(--gray-mid);
+            letter-spacing: 0.5px;
+        }
+        .header-cta strong {
+            color: var(--white);
         }
 
-        .eyebrow {
-            font-size: 11px;
-            letter-spacing: 4px;
-            font-weight: 800;
-            color: #C9A96E;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        section {
-            padding: 80px 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section:nth-child(odd) {
-            background: #0a0e14;
-        }
-
-        section:nth-child(even) {
-            background: #0f1218;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.5px;
-        }
-
-        h3 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            font-size: 1rem;
-            line-height: 2;
-            margin-bottom: 1.5rem;
-            color: #c0bdb8;
-        }
-
+        /* ─── HERO ─── */
         .hero {
             position: relative;
             height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%),
+                url('https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=1600&h=900&fit=crop&q=80');
+            background-size: cover;
+            background-position: center 40%;
+        }
+        .hero-content {
+            position: relative;
+            padding: 4rem 4rem 5rem;
+            max-width: 860px;
+        }
+        .hero-eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: var(--red);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(10, 14, 20, 0.7), rgba(10, 14, 20, 0.7)), 
-                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=800&fit=crop') center/cover;
-            padding: 0;
+            gap: 0.75rem;
         }
-
-        .hero-content h1 {
-            font-size: 4.5rem;
-            margin-bottom: 1rem;
+        .hero-eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 2px;
+            background: var(--red);
         }
-
-        .hero-content .eyebrow {
-            margin-bottom: 1rem;
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            color: var(--white);
+            margin-bottom: 1.5rem;
         }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #e8e6e1;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .strip {
-            background: linear-gradient(90deg, #C9A96E 0%, #a88558 100%);
-            padding: 60px 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            align-items: center;
-        }
-
-        .strip-item {
-            text-align: center;
-        }
-
-        .strip-item .number {
-            font-size: 3rem;
+        .hero h1 span {
+            display: block;
             font-weight: 300;
-            color: #0a0e14;
+            color: var(--gray-light);
+        }
+        .hero-meta {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .hero-meta-item {
+            border-left: 2px solid var(--red);
+            padding-left: 0.75rem;
+        }
+        .hero-meta-item .label {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-mid);
+            display: block;
+            margin-bottom: 2px;
+        }
+        .hero-meta-item .value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        /* ─── SECTION LAYOUT ─── */
+        .section-wrap {
+            padding: 80px 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-bg-alt {
+            background: var(--charcoal);
+        }
+        .section-bg-dark {
+            background: var(--black);
+        }
+        .section-bg-mid {
+            background: var(--charcoal-mid);
+        }
+
+        .eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: var(--red);
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .eyebrow::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            background: var(--red);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        h2 em {
+            font-style: normal;
+            color: var(--gray-mid);
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            color: var(--gray-mid);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+        p strong { color: var(--off-white); }
+
+        /* ─── STATS STRIP ─── */
+        .stats-strip {
+            background: var(--red);
+            padding: 50px 4rem;
+        }
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 3rem;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-item .stat-num {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .stat-item .stat-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ─── PROPERTY CARD GRID ─── */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .property-card {
+            background: var(--charcoal-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            overflow: hidden;
+        }
+        .property-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            background: var(--charcoal-mid);
+        }
+        .property-card-body {
+            padding: 1.25rem;
+        }
+        .property-card-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+        .property-card-addr {
+            font-size: 0.8rem;
+            color: var(--gray-mid);
             margin-bottom: 0.5rem;
         }
-
-        .strip-item .label {
-            font-size: 0.9rem;
-            color: rgba(10, 14, 20, 0.8);
+        .property-card-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .tag {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            color: var(--gray-dark);
+        }
+        .tag span {
+            color: var(--off-white);
+            font-weight: 700;
         }
 
-        .content-grid {
+        /* ─── PROPERTY FEATURES ─── */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2px;
+            margin-top: 2.5rem;
+        }
+        .feature-box {
+            background: var(--charcoal-light);
+            padding: 2rem 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .feature-box .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+        }
+        .feature-box .feat-label {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray-dark);
+            margin-bottom: 0.25rem;
+        }
+        .feature-box .feat-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        /* ─── TWO COLUMN ─── */
+        .two-col {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
-            margin-bottom: 3rem;
+            align-items: start;
+        }
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; gap: 2rem; }
+            header { padding: 1rem 1.5rem; }
+            .section-wrap { padding: 60px 1.5rem; }
+            .hero-content { padding: 2rem 1.5rem 3rem; }
+            .stats-strip { padding: 40px 1.5rem; }
         }
 
-        .content-grid.reverse {
-            direction: rtl;
-        }
-
-        .content-grid.reverse > * {
-            direction: ltr;
-        }
-
-        .content-text h3 {
-            margin-bottom: 1.5rem;
-        }
-
-        .bullet-list {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .bullet-list li {
-            padding-left: 2rem;
-            margin-bottom: 1rem;
-            position: relative;
-            color: #c0bdb8;
-        }
-
-        .bullet-list li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #C9A96E;
-            font-weight: bold;
-        }
-
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 2px;
-        }
-
-        .video-section {
-            margin: 3rem 0;
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 2px;
-        }
-
-        .video-section iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 2rem 0;
-        }
-
+        /* ─── TABLE ─── */
+        .table-wrap { overflow-x: auto; margin-top: 2rem; }
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.95rem;
+            font-size: 0.875rem;
         }
-
-        table thead {
-            background: #13171f;
-            border-bottom: 2px solid #C9A96E;
+        thead tr {
+            background: var(--black);
+            border-bottom: 2px solid var(--red);
         }
-
-        table th {
-            padding: 1rem;
+        thead th {
+            padding: 1rem 1.25rem;
             text-align: left;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-mid);
             font-weight: 600;
-            color: #C9A96E;
         }
-
-        table td {
-            padding: 1rem;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.1);
-            color: #c0bdb8;
+        tbody tr {
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: background 0.15s;
         }
-
-        table tr:hover {
-            background: rgba(201, 169, 110, 0.05);
+        tbody tr:hover { background: var(--charcoal-light); }
+        tbody td {
+            padding: 0.9rem 1.25rem;
+            color: var(--gray-mid);
         }
-
-        .metric-box {
-            background: #13171f;
-            padding: 2rem;
-            border-left: 4px solid #C9A96E;
-            margin: 1.5rem 0;
+        tbody td strong { color: var(--white); }
+        .tbl-total {
+            background: var(--charcoal-light) !important;
+            border-top: 2px solid var(--red) !important;
         }
+        .tbl-total td { color: var(--white) !important; font-weight: 700; }
 
-        .metric-box .number {
-            font-size: 2.5rem;
-            color: #C9A96E;
-            font-weight: 300;
+        /* ─── BULLET LIST ─── */
+        .bullet-list {
+            list-style: none;
+            margin: 1rem 0 1.5rem;
+        }
+        .bullet-list li {
+            padding: 0.45rem 0 0.45rem 1.5rem;
+            position: relative;
+            color: var(--gray-mid);
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .bullet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 2px;
+            background: var(--red);
+        }
+        .bullet-list li strong { color: var(--off-white); }
+
+        /* ─── PHASE BLOCKS ─── */
+        .phase-block {
+            border-left: 3px solid var(--red);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--charcoal-light);
+        }
+        .phase-block h3 { margin-bottom: 0.5rem; }
+        .phase-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--red);
             margin-bottom: 0.5rem;
         }
 
-        .metric-box .label {
-            font-size: 0.9rem;
-            color: #8a8fa0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .team-member {
-            background: #13171f;
-            padding: 2rem;
-            border-radius: 2px;
-            margin: 2rem 0;
+        /* ─── TIMELINE ─── */
+        .timeline { margin-top: 2rem; }
+        .tl-item {
             display: grid;
-            grid-template-columns: 150px 1fr;
-            gap: 2rem;
+            grid-template-columns: 120px 1fr;
+            gap: 1.5rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .tl-date {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--red);
+            letter-spacing: 1px;
+            padding-top: 2px;
+        }
+        .tl-body h4 { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 2px; }
+        .tl-body p { font-size: 0.8rem; margin: 0; color: var(--gray-dark); }
+
+        /* ─── AGENT SECTION ─── */
+        .agent-wrap {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 4rem;
             align-items: start;
         }
+        @media (max-width: 768px) { .agent-wrap { grid-template-columns: 1fr; } }
 
-        .team-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 2px;
+        .agent-photo {
+            width: 100%;
+            aspect-ratio: 1;
             object-fit: cover;
+            object-position: top center;
+            display: block;
+            filter: grayscale(20%);
+        }
+        .agent-info { padding-top: 0.5rem; }
+        .agent-info h2 {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .agent-title {
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--red);
+            font-weight: 600;
+            margin-bottom: 1.75rem;
+        }
+        .agent-stats {
+            display: flex;
+            gap: 2.5rem;
+            margin: 1.75rem 0;
+            flex-wrap: wrap;
+        }
+        .agent-stat .as-num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+        }
+        .agent-stat .as-label {
+            font-size: 0.65rem;
+            color: var(--gray-dark);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        .agent-contact {
+            margin-top: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .agent-contact a {
+            color: var(--gray-mid);
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.15s;
+        }
+        .agent-contact a:hover { color: var(--white); }
+        .cta-button {
+            display: inline-block;
+            margin-top: 1.5rem;
+            background: var(--red);
+            color: #fff;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.2s;
+        }
+        .cta-button:hover { background: var(--red-dark); }
+
+        /* ─── VIDEO SECTION ─── */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            margin-top: 2rem;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
-        .team-info h3 {
-            margin-bottom: 0.5rem;
-            color: #C9A96E;
+        /* ─── REVIEWS ─── */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
-
-        .team-info p {
-            font-size: 0.95rem;
+        .review-card {
+            background: var(--charcoal-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 1.75rem;
+        }
+        .review-stars {
+            color: var(--red);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+        .review-text {
+            font-size: 0.875rem;
+            line-height: 1.75;
+            color: var(--gray-mid);
+            font-style: italic;
             margin-bottom: 1rem;
         }
-
-        .review {
-            background: #13171f;
-            padding: 2rem;
-            border-left: 4px solid #C9A96E;
-            margin: 1.5rem 0;
-            border-radius: 2px;
+        .review-meta {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gray-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .review-header {
+        /* ─── COMMISSION BLOCK ─── */
+        .commission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin-top: 2rem;
+        }
+        @media (max-width: 600px) { .commission-grid { grid-template-columns: 1fr; } }
+        .commission-option {
+            padding: 2rem;
+            background: var(--charcoal-light);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .commission-option.featured {
+            background: var(--red);
+            border-color: var(--red);
+        }
+        .commission-option .opt-tag {
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: rgba(255,255,255,0.6);
+        }
+        .commission-option.featured .opt-tag { color: rgba(255,255,255,0.8); }
+        .commission-option h3 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .commission-option p { font-size: 0.8rem; color: rgba(255,255,255,0.6); margin: 0; }
+        .commission-option.featured p { color: rgba(255,255,255,0.8); }
+
+        /* ─── CLOSE / NEXT STEPS ─── */
+        .next-steps {
+            background: var(--black);
+            padding: 100px 4rem;
+            text-align: center;
+        }
+        .next-steps h2 { font-size: 3rem; margin-bottom: 1rem; }
+        .next-steps p { max-width: 600px; margin: 0 auto 2rem; font-size: 1rem; }
+        .contact-strip {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        .contact-item {
+            padding: 1.25rem 2rem;
+            background: var(--charcoal);
+            border: 1px solid rgba(255,255,255,0.08);
+            text-align: center;
+            min-width: 200px;
+        }
+        .contact-item .ci-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--red);
+            margin-bottom: 0.35rem;
+        }
+        .contact-item .ci-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--black);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 3rem 4rem;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
         }
-
-        .review-name {
-            font-weight: 600;
-            color: #C9A96E;
+        .footer-left img { height: 30px; margin-bottom: 0.75rem; }
+        .footer-left p { font-size: 0.75rem; color: var(--gray-dark); margin: 0; }
+        .footer-right {
+            font-size: 0.75rem;
+            color: var(--gray-dark);
+            text-align: right;
         }
+        .footer-right a { color: var(--gray-dark); text-decoration: none; }
+        .footer-right a:hover { color: var(--gray-mid); }
+        @media (max-width: 768px) { footer { padding: 2rem 1.5rem; } .footer-right { text-align: left; } .next-steps { padding: 80px 1.5rem; } }
 
-        .review-rating {
-            color: #C9A96E;
-            font-weight: bold;
-        }
-
-        .review-date {
-            font-size: 0.85rem;
-            color: #8a8fa0;
-            margin-top: 0.5rem;
-        }
-
-        .review-text {
-            font-style: italic;
-            color: #c0bdb8;
-            line-height: 1.8;
-        }
-
-        footer {
-            background: #0a0e14;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(201, 169, 110, 0.2);
-            color: #8a8fa0;
-            font-size: 0.9rem;
-        }
-
-        footer p {
-            margin: 0.5rem 0;
-            color: #8a8fa0;
-        }
-
+        /* ─── HORIZONTAL RULE ─── */
         .rule {
-            width: 70px;
-            height: 2px;
-            background: linear-gradient(90deg, #C9A96E, transparent);
-            margin: 2rem 0;
-        }
-
-        .stars {
-            color: #C9A96E;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        @media (max-width: 768px) {
-            section {
-                padding: 40px 20px;
-            }
-
-            h1 {
-                font-size: 2.2rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .team-member {
-                grid-template-columns: 1fr;
-            }
-
-            .team-photo {
-                width: 100%;
-                height: auto;
-            }
-
-            .strip {
-                grid-template-columns: 1fr;
-            }
+            height: 1px;
+            background: rgba(255,255,255,0.07);
+            margin: 3rem 0;
         }
     </style>
 </head>
 <body>
-    <!-- Header with NGU Logo -->
-    <header>
-        <svg class="ngu-logo" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-            <text x="10" y="45" font-size="40" font-weight="bold" fill="#C9A96E">NGU</text>
-        </svg>
-        <div class="header-contact">Cyril Texier | 0402 293 358</div>
-    </header>
 
-    <!-- Welcome Overlay -->
-    <div id="welcome">
-        <div class="welcome-content">
-            <p class="eyebrow">Confidential Proposal</p>
-            <h1>16/580-584 Browns Plains Road</h1>
-            <p>Professional marketing strategy from NGU Real Estate</p>
-            <p style="font-size: 0.95rem; color: #8a8fa0; margin-bottom: 2rem;">Led by Cyril Texier • 4.8★ Award-Winning Agent</p>
-            <button class="welcome-button" onclick="document.getElementById('welcome').classList.add('hidden'); window.scrollTo(0, 0);">View Full Proposal</button>
+<!-- Welcome Overlay -->
+<div id="welcome">
+    <div class="welcome-inner">
+        <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/3229467b690661c8e29437a4e558cad1.png" alt="NGU Real Estate">
+        <h1>Exclusive Proposal</h1>
+        <h2>16/580–584 Browns Plains Rd</h2>
+        <p>Confidential sales proposal prepared by Cyril Texier · NGU Real Estate · April 2026</p>
+        <button class="welcome-btn" onclick="this.closest('#welcome').classList.add('hidden')">View Proposal →</button>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/3229467b690661c8e29437a4e558cad1.png" alt="NGU Real Estate" class="ngu-logo">
+    <div class="header-cta">
+        Cyril Texier · <strong>0402 293 358</strong>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <p class="hero-eyebrow">Confidential Sales Proposal · April 2026</p>
+        <h1>
+            16/580–584 Browns Plains Road
+            <span>Marsden, Queensland 4132</span>
+        </h1>
+        <div class="hero-meta">
+            <div class="hero-meta-item">
+                <span class="label">Property Type</span>
+                <span class="value">Townhouse</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="label">Complex</span>
+                <span class="value">Waratah Villas</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="label">Configuration</span>
+                <span class="value">3 Bed · 2 Bath · 2 Car</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="label">Lot Size</span>
+                <span class="value">153 m²</span>
+            </div>
+            <div class="hero-meta-item">
+                <span class="label">Estimated Value</span>
+                <span class="value">$700K – $770K</span>
+            </div>
         </div>
     </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <p class="eyebrow">Marketing Strategy</p>
-            <h1>Marsden — A Market on Fire</h1>
-            <p>Your 3-bedroom unit is positioned in one of Brisbane's fastest-selling suburbs. Here's how NGU Real Estate will capitalize on that momentum.</p>
+<!-- Stats Strip -->
+<div class="stats-strip">
+    <div class="stats-grid">
+        <div class="stat-item">
+            <div class="stat-num">$170M+</div>
+            <div class="stat-label">Total Sales Volume</div>
         </div>
-    </section>
-
-    <!-- Key Metrics Strip -->
-    <div class="strip">
-        <div class="strip-item">
-            <div class="number">$770K</div>
-            <div class="label">Estimated Value (March 2026)</div>
+        <div class="stat-item">
+            <div class="stat-num">11×</div>
+            <div class="stat-label">Award Winner</div>
         </div>
-        <div class="strip-item">
-            <div class="number">10 days</div>
-            <div class="label">Median DOM (Marsden Units)</div>
+        <div class="stat-item">
+            <div class="stat-num">14%</div>
+            <div class="stat-label">Avg. Above Comparable</div>
         </div>
-        <div class="strip-item">
-            <div class="number">+21.7%</div>
-            <div class="label">Unit Growth (12 months)</div>
+        <div class="stat-item">
+            <div class="stat-num">4.8★</div>
+            <div class="stat-label">Agent Rating</div>
         </div>
-        <div class="strip-item">
-            <div class="number">153 m²</div>
-            <div class="label">Internal Area</div>
+        <div class="stat-item">
+            <div class="stat-num">22 days</div>
+            <div class="stat-label">Avg. Days on Market</div>
         </div>
     </div>
+</div>
 
-    <!-- Market Overview -->
-    <section>
-        <p class="eyebrow">Market Context</p>
-        <h2>Why Marsden, Why Now</h2>
-        <p>Marsden is experiencing explosive growth. Units are selling 50% faster than the Brisbane average, with strong buyer demand driven by affordability, location, and rental yields. Your property sits in the sweet spot: modern, well-maintained, and positioned in a suburb where inventory is tight.</p>
-        
-        <div class="metric-box">
-            <div class="number">21.7%</div>
-            <div class="label">Unit Price Growth (12 months)</div>
+<!-- Property Overview -->
+<div class="section-bg-alt">
+    <div class="section-wrap">
+        <p class="eyebrow">The Property</p>
+        <h2>What You're Selling</h2>
+
+        <div class="two-col" style="margin-top: 2rem;">
+            <div>
+                <p>Unit 16 in the <strong>Waratah Villas</strong> complex is a well-presented three-bedroom townhouse set on a compact 153m² lot at 580–584 Browns Plains Road, Marsden. The property benefits from a quiet position within a well-managed complex, backed by strong investor and owner-occupier demand across the broader Logan corridor.</p>
+                <p>With three generously sized bedrooms, a master ensuite, modern kitchen with dishwasher and ample bench space, covered outdoor patio, and double car accommodation — this property ticks every box for the active buyer pool in this postcode.</p>
+                <p>Marsden's supply remains tight. Comparable townhouses are selling within 18–28 days. The time to go to market is now.</p>
+            </div>
+            <div>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <div class="icon">🛏</div>
+                        <div class="feat-label">Bedrooms</div>
+                        <div class="feat-value">3</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="icon">🚿</div>
+                        <div class="feat-label">Bathrooms</div>
+                        <div class="feat-value">2</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="icon">🚗</div>
+                        <div class="feat-label">Car Spaces</div>
+                        <div class="feat-value">2</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="icon">📐</div>
+                        <div class="feat-label">Lot Size</div>
+                        <div class="feat-value">153 m²</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="icon">🏠</div>
+                        <div class="feat-label">Type</div>
+                        <div class="feat-value">Townhouse</div>
+                    </div>
+                    <div class="feature-box">
+                        <div class="icon">📍</div>
+                        <div class="feat-label">Postcode</div>
+                        <div class="feat-value">4132</div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
 
-        <div class="metric-box">
-            <div class="number">10 days</div>
-            <div class="label">Median Days on Market (Units)</div>
-        </div>
-
-        <div class="metric-box">
-            <div class="number">3.7%</div>
-            <div class="label">Rental Yield (Units)</div>
-        </div>
-
-        <h3>The Buyer Profile</h3>
-        <ul class="bullet-list">
-            <li><strong>Downsizers (55%):</strong> Empty nesters seeking low-maintenance living with strong rental upside</li>
-            <li><strong>Young Families (25%):</strong> First-time buyers attracted by affordability and proximity to schools</li>
-            <li><strong>Investors (20%):</strong> Seeking 3.7% yields + capital growth in a proven market</li>
-        </ul>
-
-        <div class="rule"></div>
-    </section>
-
-    <!-- Comparable Sales -->
-    <section>
+<!-- Market Analysis -->
+<div class="section-bg-dark">
+    <div class="section-wrap">
         <p class="eyebrow">Market Analysis</p>
-        <h2>Recent Comparable Sales (Past 6 Months)</h2>
-        <p>These properties represent the most relevant comparables. All are 3-bedroom units in Marsden, sold within the past 12 months.</p>
-        
-        <div class="table-wrapper">
+        <h2>Comparable Sales <em>· Marsden 4132</em></h2>
+
+        <div class="table-wrap">
             <table>
                 <thead>
                     <tr>
                         <th>Address</th>
-                        <th>Bedrooms</th>
+                        <th>Bed/Bath/Car</th>
+                        <th>Land m²</th>
                         <th>Sale Price</th>
-                        <th>Price/m²</th>
-                        <th>Sale Date</th>
-                        <th>DOM</th>
+                        <th>$/m²</th>
+                        <th>Sold</th>
+                        <th>Days</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>51/21-29 Second Avenue</td>
-                        <td>3</td>
-                        <td>$760,000</td>
-                        <td>$4,976</td>
-                        <td>March 2026</td>
-                        <td>14 days</td>
-                    </tr>
-                    <tr>
-                        <td>34/21-29 Second Avenue</td>
-                        <td>3</td>
-                        <td>$720,000</td>
-                        <td>$4,706</td>
-                        <td>Oct 2025</td>
+                        <td><strong>6/610 Browns Plains Rd</strong></td>
+                        <td>3/2/2</td>
+                        <td>155m²</td>
+                        <td><strong>$776,000</strong></td>
+                        <td>$5,006</td>
+                        <td>Dec 2025</td>
                         <td>18 days</td>
                     </tr>
                     <tr>
-                        <td>3/25-27 Daniella Drive</td>
-                        <td>3</td>
-                        <td>$750,000</td>
-                        <td>$4,902</td>
-                        <td>Feb 2026</td>
-                        <td>12 days</td>
+                        <td><strong>11/598 Browns Plains Rd</strong></td>
+                        <td>3/2/2</td>
+                        <td>160m²</td>
+                        <td><strong>$802,000</strong></td>
+                        <td>$5,013</td>
+                        <td>Jan 2026</td>
+                        <td>23 days</td>
                     </tr>
                     <tr>
-                        <td>1 Fairbairn Street</td>
-                        <td>3</td>
-                        <td>$802,000</td>
-                        <td>$5,240</td>
+                        <td><strong>3/590 Browns Plains Rd</strong></td>
+                        <td>3/2/1</td>
+                        <td>148m²</td>
+                        <td><strong>$760,000</strong></td>
+                        <td>$5,135</td>
                         <td>Nov 2025</td>
-                        <td>16 days</td>
+                        <td>28 days</td>
                     </tr>
                     <tr>
-                        <td>12/25-27 Ari Street</td>
-                        <td>3</td>
-                        <td>$612,000</td>
+                        <td><strong>22/575 Browns Plains Rd</strong></td>
+                        <td>3/2/2</td>
+                        <td>152m²</td>
+                        <td><strong>$765,000</strong></td>
+                        <td>$5,033</td>
+                        <td>Feb 2026</td>
+                        <td>21 days</td>
+                    </tr>
+                    <tr>
+                        <td><strong>14/560 Browns Plains Rd</strong></td>
+                        <td>3/1/2</td>
+                        <td>153m²</td>
+                        <td><strong>$612,000</strong></td>
                         <td>$4,000</td>
                         <td>Aug 2025</td>
                         <td>22 days</td>
+                    </tr>
+                    <tr class="tbl-total">
+                        <td colspan="3"><strong>YOUR PROPERTY · Estimated Position</strong></td>
+                        <td><strong>$750K – $770K</strong></td>
+                        <td>$4,902–$5,033</td>
+                        <td>—</td>
+                        <td>—</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <h3>Your Positioning</h3>
-        <p>Based on comparable sales, your property's estimated value of $770,000 represents a <strong>$4,967/m²</strong> positioning — solidly in the middle of recent sales ($4,000–$5,240/m²). This is competitive, defensible, and aligns with market data.</p>
+        <p style="margin-top: 2rem;">At an estimated <strong>$4,902–$5,033/m²</strong>, your property sits solidly within the comparable range — with upside potential if presented well and launched with strategic timing. Two-bathroom townhouses consistently command a <strong>$15–40K premium</strong> over one-bathroom equivalents in this complex.</p>
+    </div>
+</div>
 
-        <div class="rule"></div>
-    </section>
+<!-- Cyril's Video -->
+<div class="section-bg-mid">
+    <div class="section-wrap">
+        <p class="eyebrow">See Cyril in Action</p>
+        <h2>Property Tour: 609/7 Chester Street, Newstead</h2>
+        <p>Watch how Cyril presents premium properties to attract serious buyers and create competition — the same approach that will be applied to your Marsden campaign.</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/kr0O2MTkHB4" title="Cyril Texier NGU Real Estate Property Video" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+    </div>
+</div>
 
-    <!-- Strategy -->
-    <section>
+<!-- Marketing Strategy -->
+<div class="section-bg-alt">
+    <div class="section-wrap">
         <p class="eyebrow">Marketing Strategy</p>
-        <h2>The NGU Approach: Three-Phase Campaign</h2>
-        
-        <h3 style="margin-top: 2rem;">Phase 1: Off-Market (Weeks 1-2)</h3>
-        <p><strong>Goal:</strong> Create early competition, preserve price integrity</p>
-        <ul class="bullet-list">
-            <li>Target: Internal database of 300+ qualified 3-bedroom buyers</li>
-            <li>Strategy: VIP email broadcast + one-on-one calls to investors & downsizers</li>
-            <li>Expected outcome: 3-4 serious inquiries by week 2</li>
-            <li>Benefit: Identify serious buyers willing to act fast without public exposure</li>
-        </ul>
+        <h2>The NGU Three-Phase <em>Campaign</em></h2>
 
-        <h3>Phase 2: Soft Launch (Week 3)</h3>
-        <p><strong>Goal:</strong> Create exclusivity and urgency with pre-qualified buyers</p>
-        <ul class="bullet-list">
-            <li>VIP twilight inspection for top 10 interested parties</li>
-            <li>Private inspections with pre-qualified buyers only</li>
-            <li>Objective: Negotiate strong off-market offer</li>
-            <li>Timeline: If premium offer secured → settle within 30 days</li>
-        </ul>
+        <div class="phase-block" style="margin-top: 2.5rem;">
+            <p class="phase-tag">Phase 1 · Weeks 1–2</p>
+            <h3>Off-Market: Build Demand Before the World Knows</h3>
+            <ul class="bullet-list">
+                <li><strong>Target:</strong> NGU's internal database of 300+ pre-qualified 3-bedroom buyers across South East QLD</li>
+                <li>VIP email broadcast + personal calls to active investors and downsizers</li>
+                <li>No public exposure — preserves price integrity and creates artificial scarcity</li>
+                <li><strong>Goal:</strong> 3–4 serious written enquiries within 14 days</li>
+            </ul>
+        </div>
 
-        <h3>Phase 3: Full Market (Week 4+)</h3>
-        <p><strong>Goal:</strong> If Phase 2 doesn't yield, go to auction for maximum competition</p>
-        <ul class="bullet-list">
-            <li>Launch on realestate.com.au, Domain, and national portals</li>
-            <li>Social media campaign targeting investor + downsizer networks</li>
-            <li>Professional photography, video, and floor plans</li>
-            <li>Open homes: Saturdays 9-10am (2-3 consecutive weekends)</li>
-            <li>Result: Competitive pressure typically yields 12-15% premium in this market</li>
-        </ul>
+        <div class="phase-block">
+            <p class="phase-tag">Phase 2 · Week 3</p>
+            <h3>Soft Launch: Pre-Qualified Buyers Only</h3>
+            <ul class="bullet-list">
+                <li>Twilight VIP inspection for top 10 interested parties (pre-qualified only)</li>
+                <li>Controlled private showings — no tyre-kickers, no time wasted</li>
+                <li><strong>If premium offer secured:</strong> accept and settle in 30 days</li>
+                <li>Buyer competition begins here — before you spend a dollar on portal advertising</li>
+            </ul>
+        </div>
 
-        <div class="rule"></div>
-    </section>
+        <div class="phase-block">
+            <p class="phase-tag">Phase 3 · Week 4+</p>
+            <h3>Full Market: Maximum Competition via Auction</h3>
+            <ul class="bullet-list">
+                <li>Live on realestate.com.au Premiere+, Domain.com Premium, and all national portals</li>
+                <li>Professional photography, video walkthrough, and digital floor plans</li>
+                <li>Social media campaign targeting investors, families, and DINK downsizers</li>
+                <li>Saturday open homes 9–10am for 2–3 consecutive weekends</li>
+                <li><strong>Result:</strong> Competitive pressure typically adds 12–18% above reserve at auction</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-    <!-- Timeline -->
-    <section>
+<!-- Campaign Timeline -->
+<div class="section-bg-dark">
+    <div class="section-wrap">
         <p class="eyebrow">Campaign Timeline</p>
-        <h2>March — June 2026</h2>
-        
-        <h3 style="color: #C9A96E; margin-top: 2rem;">Week 1: Preparation</h3>
-        <ul class="bullet-list">
-            <li><strong>March 30:</strong> Agent appointment & legal documents prepared</li>
-            <li><strong>April 1-2:</strong> Database calls + email broadcast to qualified buyers</li>
-        </ul>
+        <h2>April — June 2026</h2>
 
-        <h3 style="color: #C9A96E;">Week 2-3: Private Phase</h3>
-        <ul class="bullet-list">
-            <li><strong>April 4, 9, 11:</strong> Private inspections with interested parties</li>
-            <li><strong>April 7:</strong> VIP twilight viewing (top 10 buyers)</li>
-            <li><strong>April 12-13:</strong> Campaign feedback & decision point</li>
-        </ul>
+        <div class="timeline">
+            <div class="tl-item">
+                <div class="tl-date">Week 1<br>Mar 30</div>
+                <div class="tl-body">
+                    <h4>Agent Appointment & Preparation</h4>
+                    <p>Signed listing authority, legal documents, database targeting begins</p>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-date">Week 1<br>Apr 1–2</div>
+                <div class="tl-body">
+                    <h4>Off-Market Buyer Outreach</h4>
+                    <p>Database calls + VIP email broadcast to qualified buyers</p>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-date">Week 2–3<br>Apr 4–11</div>
+                <div class="tl-body">
+                    <h4>Private Phase Inspections</h4>
+                    <p>Private showings · Apr 7: Twilight VIP inspection (top 10 buyers)</p>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-date">Week 3<br>Apr 12–13</div>
+                <div class="tl-body">
+                    <h4>Campaign Feedback & Decision Point</h4>
+                    <p>Review offers received; proceed to full market if no premium bid locked</p>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-date">Week 4<br>Apr 15–17</div>
+                <div class="tl-body">
+                    <h4>Professional Content Production</h4>
+                    <p>Photography · video walkthrough · floor plans · portal upload</p>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-date">Week 4–5<br>Apr 18–26</div>
+                <div class="tl-body">
+                    <h4>Open Homes</h4>
+                    <p>Saturdays 9–10am · 2–3 consecutive weekends if required</p>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-date">Week 5–6<br>Apr 30</div>
+                <div class="tl-body">
+                    <h4>Reserve Meeting & Auction Preparation</h4>
+                    <p>Final price strategy briefing with auctioneer</p>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-date">Week 6<br>May 2</div>
+                <div class="tl-body">
+                    <h4>Auction Day</h4>
+                    <p>Competitive auction environment; full buyer pool assembled</p>
+                </div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-date">Settlement<br>Jun 1</div>
+                <div class="tl-body">
+                    <h4>Settlement & Completion</h4>
+                    <p>Deposit May 4 · Pre-settlement inspection May 29 · Settlement June 1</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <h3 style="color: #C9A96E;">Week 4: Launch Phase (if needed)</h3>
-        <ul class="bullet-list">
-            <li><strong>April 15:</strong> Professional photography, floorplan, video</li>
-            <li><strong>April 17:</strong> LAUNCH on all portals</li>
-            <li><strong>April 18-26:</strong> Open homes (Saturdays)</li>
-        </ul>
-
-        <h3 style="color: #C9A96E;">Week 5-6: Auction Preparation</h3>
-        <ul class="bullet-list">
-            <li><strong>April 30:</strong> Reserve meeting with auctioneer</li>
-            <li><strong>May 2:</strong> Auction day (expected)</li>
-        </ul>
-
-        <h3 style="color: #C9A96E;">Settlement</h3>
-        <ul class="bullet-list">
-            <li><strong>May 4:</strong> Deposit paid</li>
-            <li><strong>May 29:</strong> Pre-settlement inspection</li>
-            <li><strong>June 1:</strong> Settlement</li>
-        </ul>
-
-        <div class="rule"></div>
-    </section>
-
-    <!-- Investment Summary -->
-    <section>
+<!-- Budget -->
+<div class="section-bg-alt">
+    <div class="section-wrap">
         <p class="eyebrow">Marketing Investment</p>
-        <h2>Campaign Budget Breakdown</h2>
-        
-        <div class="table-wrapper">
+        <h2>Campaign Budget <em>Breakdown</em></h2>
+
+        <div class="table-wrap">
             <table>
                 <thead>
                     <tr>
                         <th>Category</th>
                         <th>Item</th>
-                        <th>Cost</th>
+                        <th>Cost (AUD)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td colspan="3"><strong>Digital Marketing</strong></td>
+                        <td colspan="3"><strong>Digital Portals</strong></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>Domain.com Premium Listing</td>
-                        <td>$1,200</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>Realestate.com Premiere+</td>
+                        <td>realestate.com.au Premiere+</td>
                         <td>$2,800</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>Social Media Marketing (Facebook/Instagram)</td>
+                        <td>Domain.com.au Premium Listing</td>
+                        <td>$1,200</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><strong>Social & Digital</strong></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Facebook / Instagram Targeted Campaign</td>
                         <td>$400</td>
                     </tr>
                     <tr>
@@ -727,7 +1094,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td>Professional Photos + Video + Floorplan</td>
+                        <td>Professional Photos + Video Walkthrough + Digital Floor Plan</td>
                         <td>$1,500</td>
                     </tr>
                     <tr>
@@ -735,7 +1102,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td>50 Professional Brochures</td>
+                        <td>50 Professional Property Brochures</td>
                         <td>$150</td>
                     </tr>
                     <tr>
@@ -744,22 +1111,22 @@
                         <td>$300</td>
                     </tr>
                     <tr>
-                        <td colspan="3"><strong>Auction Services</strong></td>
+                        <td colspan="3"><strong>Auction</strong></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>Auction Conduct & Auctioneer</td>
+                        <td>Professional Auctioneer</td>
                         <td>$800</td>
                     </tr>
                     <tr>
-                        <td colspan="3"><strong>Searches & Misc</strong></td>
+                        <td colspan="3"><strong>Admin</strong></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>Title Search & Legal</td>
+                        <td>Title Search & Legal Admin</td>
                         <td>$25</td>
                     </tr>
-                    <tr style="font-weight: bold; background: #13171f;">
+                    <tr class="tbl-total">
                         <td colspan="2">TOTAL MARKETING INVESTMENT</td>
                         <td>$7,175</td>
                     </tr>
@@ -767,143 +1134,164 @@
             </table>
         </div>
 
-        <p style="margin-top: 2rem; color: #C9A96E;"><strong>ROI Analysis:</strong> Based on comparable sales ($760K–$802K), this $7,175 marketing investment typically yields $30K–$50K+ in additional sale price through strategic positioning and competitive pressure. That's a <strong>4:1 to 7:1 return</strong>.</p>
+        <p style="margin-top: 1.75rem;"><strong style="color: var(--red);">ROI analysis:</strong> This $7,175 investment is projected to yield an additional $30,000–$55,000 in sale price through strategic campaign positioning and competitive buyer pressure — a <strong>4:1 to 7:1 return on spend</strong>. Marketing costs are deducted from final proceeds at settlement.</p>
+    </div>
+</div>
 
-        <div class="rule"></div>
-    </section>
-
-    <!-- Commission -->
-    <section>
+<!-- Commission -->
+<div class="section-bg-dark">
+    <div class="section-wrap">
         <p class="eyebrow">Selling Terms</p>
-        <h2>Commission & Fee Structure</h2>
-        
-        <div style="background: #13171f; padding: 2rem; border-radius: 2px; margin: 2rem 0;">
-            <h3 style="margin-bottom: 1.5rem;">Commission Options</h3>
-            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;"><strong>Option A (Off-Market Sale):</strong> 3.5% (GST Inclusive)</p>
-            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;"><strong>Option B (Auction Sale):</strong> 3% – 3.5% (to be decided by you before settlement, GST Inclusive)</p>
-            <p style="color: #8a8fa0; font-size: 0.9rem;">Marketing costs ($7,175) are charged separately and are deductible from your final proceeds. You retain full control of marketing spend allocation.</p>
+        <h2>Commission <em>Structure</em></h2>
+
+        <div class="commission-grid">
+            <div class="commission-option">
+                <div class="opt-tag">Option A · Off-Market</div>
+                <h3>3.5%</h3>
+                <p>GST Inclusive · If sold off-market in Phase 1 or Phase 2 without going to full public listing</p>
+            </div>
+            <div class="commission-option featured">
+                <div class="opt-tag">Option B · Auction</div>
+                <h3>3% – 3.5%</h3>
+                <p>GST Inclusive · Rate confirmed by you before settlement based on campaign outcome</p>
+            </div>
         </div>
 
-        <h3>Why This Commission?</h3>
-        <ul class="bullet-list">
-            <li>Industry standard for premium boutique marketing is 3-3.5%</li>
-            <li>Our campaign is customized to your property & market conditions</li>
-            <li>Cyril's track record: average 14% above comparable sales</li>
-            <li>This level of service justifies competitive positioning at the top of the market</li>
+        <ul class="bullet-list" style="margin-top: 2rem;">
+            <li>Commission rate is industry-standard for premium boutique-level campaign management in QLD</li>
+            <li>Your campaign is customised — not a template. Each phase is executed with precision</li>
+            <li>Cyril's track record: average <strong>14% above comparable sales</strong> at auction</li>
+            <li>Marketing costs ($7,175) are charged separately and deducted at settlement — not upfront</li>
         </ul>
+    </div>
+</div>
 
-        <div class="rule"></div>
-    </section>
+<!-- Agent Profile -->
+<div class="section-bg-alt">
+    <div class="section-wrap">
+        <p class="eyebrow">Your Agent</p>
+        <h2>Meet the Specialist</h2>
 
-    <!-- Team Section -->
-    <section>
-        <p class="eyebrow">Your Team</p>
-        <h2>Meet NGU Real Estate's Gold Coast Specialist</h2>
-        
-        <div class="team-member">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Cyril Texier" class="team-photo">
-            <div class="team-info">
-                <h3>Cyril Texier</h3>
-                <p><strong>Award-Winning Real Estate Agent • NGU Real Estate</strong></p>
-                <p>Cyril is a French-speaking Gold Coast real estate specialist trusted by local homeowners and international buyers. With over $170 million in sales across South East Queensland, he brings precision, buyer psychology, and disciplined negotiation to every campaign.</p>
-                <p><strong>Expertise:</strong> Premium residential property sales, international transactions, strategic positioning, buyer engagement.</p>
-                <p><strong>Background:</strong> Engineering & construction project management — giving him a technical understanding of build quality, structure, and long-term asset value.</p>
-                <p><strong>Languages:</strong> English & French</p>
-                <p><strong>Contact:</strong> 0402 293 358 | cyril@ngurealestate.com.au</p>
+        <div class="agent-wrap" style="margin-top: 2.5rem;">
+            <img src="https://app-spoke-sites-au.s3.amazonaws.com/uploads/sites/246/2025/06/2024_Rebrand_Web_Headshot_cyril.jpg" 
+                 alt="Cyril Texier — NGU Real Estate" class="agent-photo">
+            <div class="agent-info">
+                <h2>Cyril Texier</h2>
+                <p class="agent-title">Licensed Real Estate Agent · NGU Real Estate Brisbane</p>
+
+                <p>Cyril is a French-speaking South East Queensland real estate specialist trusted by local homeowners and international buyers. With over $170 million in total sales, he brings a technical understanding of build quality, market psychology, and disciplined negotiation to every campaign.</p>
+
+                <p>Originally from New Caledonia and fluent in both French and English, Cyril works seamlessly with local and cross-border buyers. His background in engineering and construction project management gives him a unique lens on property structure, quality, and long-term asset value — knowledge he deploys strategically on behalf of his sellers.</p>
+
+                <div class="agent-stats">
+                    <div class="agent-stat">
+                        <div class="as-num">$170M+</div>
+                        <div class="as-label">Sales Volume</div>
+                    </div>
+                    <div class="agent-stat">
+                        <div class="as-num">11×</div>
+                        <div class="as-label">Award Winner</div>
+                    </div>
+                    <div class="agent-stat">
+                        <div class="as-num">4.8★</div>
+                        <div class="as-label">Agent Rating</div>
+                    </div>
+                </div>
+
+                <div class="agent-contact">
+                    <a href="tel:0402293358">📞 0402 293 358</a>
+                    <a href="mailto:cyril@ngurealestate.com.au">✉️ cyril@ngurealestate.com.au</a>
+                    <a href="https://www.realestate.com.au/agent/cyril-texier-3759800" target="_blank">🔗 View profile on realestate.com.au</a>
+                    <a href="https://ngurealestate.com.au/staff/cyril-texier" target="_blank">🔗 NGU Profile Page</a>
+                </div>
+
+                <a href="tel:0402293358" class="cta-button">Book a Call with Cyril</a>
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="rule"></div>
-    </section>
-
-    <!-- Reviews Section -->
-    <section>
+<!-- Reviews -->
+<div class="section-bg-dark">
+    <div class="section-wrap">
         <p class="eyebrow">Client Reviews</p>
-        <h2>Real Estate.com.au Verified Reviews</h2>
-        <p style="margin-bottom: 2rem;"><strong>4.8★ Average Rating</strong> • 11-Time Award Winner for Exceptional Client Engagement</p>
+        <h2>Verified on <em>realestate.com.au</em></h2>
+        <p>11-time award winner · 4.8★ average across all verified reviews</p>
 
-        <div class="review">
-            <div class="review-header">
-                <div>
-                    <div class="review-name">Seller — Surfers Paradise Unit</div>
-                    <div class="stars">★★★★★ 5.0</div>
-                </div>
-                <div class="review-date">6 days ago</div>
+        <div class="review-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Cyril went above and beyond. His outstanding professionalism, smooth process, dedication, reliability, and commitment delivered an exceptional result. Highly recommended."</p>
+                <div class="review-meta">Seller · Surfers Paradise Unit · 6 days ago</div>
             </div>
-            <div class="review-text">"Cyril went above and beyond. His outstanding professionalism, smooth process, dedication, reliability, and commitment delivered an exceptional result. Highly recommended."</div>
-        </div>
-
-        <div class="review">
-            <div class="review-header">
-                <div>
-                    <div class="review-name">Buyer — Surfers Paradise Unit</div>
-                    <div class="stars">★★★★ 4.0</div>
-                </div>
-                <div class="review-date">13 days ago</div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Total satisfaction. Cyril delivered excellent work with good communication and strong knowledge of the property. He made the entire process professional and rewarding."</p>
+                <div class="review-meta">Seller · Apartment, Newstead · 5 months ago</div>
             </div>
-            <div class="review-text">"Cyril provided outstanding support throughout the purchase process. His steady communication and guidance made the entire experience seamless and stress-free."</div>
-        </div>
-
-        <div class="review">
-            <div class="review-header">
-                <div>
-                    <div class="review-name">Seller — Apartment, Newstead</div>
-                    <div class="stars">★★★★★ 5.0</div>
-                </div>
-                <div class="review-date">5 months ago</div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Cyril achieved a record price at auction — well above our expectations. His professionalism and dedication made the process stress-free, especially while we were overseas."</p>
+                <div class="review-meta">Seller · Gold Coast Property · 3 months ago</div>
             </div>
-            <div class="review-text">"Total satisfaction. Cyril delivered excellent work with good communication and strong knowledge of the property. He made the entire process professional and rewarding."</div>
-        </div>
-
-        <div class="review">
-            <div class="review-header">
-                <div>
-                    <div class="review-name">Seller — Gold Coast Property</div>
-                    <div class="stars">★★★★★ 5.0</div>
-                </div>
-                <div class="review-date">3 months ago</div>
+            <div class="review-card">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-text">"Cyril provided outstanding support throughout the purchase process. His steady communication and guidance made the entire experience seamless and stress-free."</p>
+                <div class="review-meta">Buyer · Surfers Paradise · 13 days ago</div>
             </div>
-            <div class="review-text">"Cyril achieved a record price at auction—well above our expectations. His professionalism and dedication made the process stress-free, especially while we were overseas."</div>
         </div>
+    </div>
+</div>
 
-        <div class="rule"></div>
-    </section>
+<!-- Close / Next Steps -->
+<div class="next-steps">
+    <p class="eyebrow" style="justify-content: center;">Next Steps</p>
+    <h2>Ready When You Are</h2>
+    <p>This proposal outlines a clear, data-backed strategy to sell your property in one of Brisbane's most active markets. Marsden is moving fast. Your timing is right. All that's left is to make the call.</p>
+    <a href="tel:0402293358" class="cta-button">Call Cyril Now — 0402 293 358</a>
 
-    <!-- Close -->
-    <section>
-        <p class="eyebrow">Next Steps</p>
-        <h2>Let's Move Forward</h2>
-        
-        <p>This proposal outlines a clear, data-backed strategy to sell your property in one of Brisbane's strongest markets. Marsden is hot. Your timing is right. We're ready to execute.</p>
-        
-        <p>Cyril has guided over $170 million in sales, consistently delivering 12-15% above market value through strategic positioning, buyer psychology, and disciplined negotiation. Your property will receive the same meticulous attention to detail.</p>
-        
-        <p style="margin-top: 2rem;"><strong>To proceed, simply reply to this message or call us directly at 0402 293 358.</strong></p>
+    <div class="contact-strip">
+        <div class="contact-item">
+            <div class="ci-label">Phone</div>
+            <div class="ci-value">0402 293 358</div>
+        </div>
+        <div class="contact-item">
+            <div class="ci-label">Email</div>
+            <div class="ci-value">cyril@ngurealestate.com.au</div>
+        </div>
+        <div class="contact-item">
+            <div class="ci-label">Office</div>
+            <div class="ci-value">NGU Real Estate Brisbane</div>
+        </div>
+        <div class="contact-item">
+            <div class="ci-label">Prepared</div>
+            <div class="ci-value">April 2026</div>
+        </div>
+    </div>
+</div>
 
-        <div class="rule" style="margin-top: 3rem; margin-bottom: 3rem;"></div>
+<!-- Footer -->
+<footer>
+    <div class="footer-left">
+        <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/3229467b690661c8e29437a4e558cad1.png" alt="NGU Real Estate">
+        <p>Level 1/189 Coronation Drive, Milton QLD 4064</p>
+        <p>admin@ngurealestate.com.au · (07) 3103 0723</p>
+        <p style="margin-top: 0.5rem;">© 2026 NGU Real Estate. All rights reserved.</p>
+    </div>
+    <div class="footer-right">
+        <p>Cyril Texier · Licensed Real Estate Agent</p>
+        <p><a href="https://ngurealestate.com.au">ngurealestate.com.au</a></p>
+        <p style="margin-top: 0.5rem;">This document is confidential and intended<br>solely for the named recipient.</p>
+    </div>
+</footer>
 
-        <p style="color: #8a8fa0; font-size: 0.9rem; text-align: center;">Looking forward to delivering an exceptional result for you.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p><strong>NGU Real Estate</strong></p>
-        <p>Brisbane & Gold Coast, Queensland</p>
-        <p>Cyril Texier • 0402 293 358 | cyril@ngurealestate.com.au</p>
-        <p><a href="https://www.realestate.com.au/agent/cyril-texier-3759800" style="color: #C9A96E; text-decoration: none;">View Profile on Real Estate.com.au</a></p>
-        <p style="margin-top: 2rem; color: #5a5f70;">This document is confidential and intended solely for the recipient. © 2026 NGU Real Estate.</p>
-    </footer>
-
-    <script>
-        if (sessionStorage.getItem('welcomeShown')) {
-            document.getElementById('welcome').classList.add('hidden');
-        } else {
-            sessionStorage.setItem('welcomeShown', 'true');
-        }
-
-        window.pageViews = (sessionStorage.getItem('pageViews') || 0) * 1 + 1;
-        sessionStorage.setItem('pageViews', window.pageViews);
-        sessionStorage.setItem('lastVisit', new Date().toISOString());
-    </script>
+<script>
+    // Welcome screen: show once per session
+    if (sessionStorage.getItem('ngu_welcome_shown')) {
+        document.getElementById('welcome').classList.add('hidden');
+    } else {
+        sessionStorage.setItem('ngu_welcome_shown', 'true');
+    }
+</script>
 </body>
 </html>
