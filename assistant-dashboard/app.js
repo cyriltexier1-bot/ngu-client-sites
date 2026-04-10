@@ -49,22 +49,55 @@ const defaultData = {
   tasks: [
     {
       id: crypto.randomUUID(),
-      title: "Luxury landing page for Mr & Ms Pauleau",
-      details: "Built and delivered with all extracted property listings.",
+      title: "Architecture: Sentinel POC — Proposal System Redesign",
+      details: "Built config-driven, template-based system. Delivered working POC with EJS templates, JSON configs, build script.",
       status: "done",
       priority: "high",
-      owner: "Assistant",
+      owner: "Sentinel Subagent",
       dueDate: "",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     },
     {
       id: crypto.randomUUID(),
-      title: "Upgrade assistant dashboard",
-      details: "Improve UX, filtering, metrics, and reliability checks.",
+      title: "Architecture: Auditor — Repository & Code Audit",
+      details: "Analyzing ngu-client-sites repo structure, identifying technical debt, recommending improvements.",
       status: "doing",
       priority: "high",
-      owner: "Assistant",
+      owner: "Auditor Subagent",
+      dueDate: "",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    },
+    {
+      id: crypto.randomUUID(),
+      title: "Architecture: Builder — Implement Improvements",
+      details: "Standing by to implement Auditor findings. Will refactor code, improve structure, test thoroughly.",
+      status: "todo",
+      priority: "high",
+      owner: "Builder Subagent",
+      dueDate: "",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    },
+    {
+      id: crypto.randomUUID(),
+      title: "QA: Verify Quality Gates on All Deliverables",
+      details: "Real photos, real data, real branding, responsive, no broken links. Standing by for verification.",
+      status: "todo",
+      priority: "high",
+      owner: "QA/Verifier Subagent",
+      dueDate: "",
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    },
+    {
+      id: crypto.randomUUID(),
+      title: "Marsden Proposal — Complete Rebuild",
+      details: "Real REA pricing, real property photos, real NGU logo, calendar/timeline, professional layout.",
+      status: "todo",
+      priority: "high",
+      owner: "Assistant (Bernard)",
       dueDate: "",
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
@@ -73,7 +106,22 @@ const defaultData = {
   updates: [
     {
       id: crypto.randomUUID(),
-      text: "Dashboard initialized and ready for live tracking.",
+      text: "<strong>04-10 06:00 UTC:</strong> Sentinel delivered POC — config-driven proposal system with templates & build script.",
+      at: new Date().toISOString()
+    },
+    {
+      id: crypto.randomUUID(),
+      text: "<strong>04-10 06:00 UTC:</strong> Builder analyzed ngu-client-sites repo — clean structure, ready for improvements.",
+      at: new Date().toISOString()
+    },
+    {
+      id: crypto.randomUUID(),
+      text: "<strong>04-10 06:00 UTC:</strong> QA/Verifier standing by. Will enforce quality checklist before any shipping.",
+      at: new Date().toISOString()
+    },
+    {
+      id: crypto.randomUUID(),
+      text: "<strong>04-10 06:00 UTC:</strong> Auditor analyzing repo structure & code quality. Report pending.",
       at: new Date().toISOString()
     }
   ],

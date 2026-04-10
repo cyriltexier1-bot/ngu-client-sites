@@ -1,0 +1,84 @@
+{
+  "property": {
+    "address": "16/580-584 Browns Plains Road, Marsden QLD 4132",
+    "bedrooms": 3,
+    "area": 153,
+    "price": 770000,
+    "pricePerSqm": 4967,
+    "type": "Unit"
+  },
+  "market": {
+    "suburb": "Marsden",
+    "unitGrowth": 21.7,
+    "medianDOM": 10,
+    "rentalYield": 3.7,
+    "buyerProfile": [
+      { "segment": "Downsizers", "percentage": 55, "description": "Empty nesters seeking low-maintenance living" },
+      { "segment": "Young Families", "percentage": 25, "description": "First-time buyers attracted by affordability" },
+      { "segment": "Investors", "percentage": 20, "description": "Seeking yields + capital growth" }
+    ]
+  },
+  "comparables": [
+    { "address": "51/21-29 Second Avenue", "price": 760000, "sqm": 153, "pricePerSqm": 4976, "date": "March 2026" },
+    { "address": "34/21-29 Second Avenue", "price": 720000, "sqm": 153, "pricePerSqm": 4706, "date": "Oct 2025" },
+    { "address": "3/25-27 Daniella Drive", "price": 750000, "sqm": 153, "pricePerSqm": 4902, "date": "Feb 2026" },
+    { "address": "1 Fairbairn Street", "price": 802000, "sqm": 153, "pricePerSqm": 5240, "date": "Nov 2025" },
+    { "address": "Your Property", "price": 770000, "sqm": 153, "pricePerSqm": 4967, "date": "Est. Value" }
+  ],
+  "strategy": [
+    {
+      "phase": 1,
+      "name": "Off-Market",
+      "weeks": "1-2",
+      "description": "Target qualified buyers from our database. Create early competition without public exposure."
+    },
+    {
+      "phase": 2,
+      "name": "Soft Launch",
+      "weeks": 3,
+      "description": "VIP viewing for serious buyers. Negotiate strong offer if possible."
+    },
+    {
+      "phase": 3,
+      "name": "Full Market",
+      "weeks": "4+",
+      "description": "Auction campaign. Competitive pressure typically yields 12-15% premium."
+    }
+  ],
+  "budget": {
+    "items": [
+      { "category": "Photography & Videography", "cost": 2100, "description": "4K drone + interior/exterior" },
+      { "category": "Marketing Materials", "cost": 1850, "description": "Brochures, signage, digital assets" },
+      { "category": "Digital Campaign", "cost": 1650, "description": "Facebook/Google ads, SEO, email" },
+      { "category": "Agent Time", "cost": 1200, "description": "Inspections, viewings, negotiations" },
+      { "category": "Administrative", "cost": 375, "description": "Contracts, coordination, contingency" }
+    ],
+    "total": 7175,
+    "roiMin": 4,
+    "roiMax": 7,
+    "estimatedAdditionalRevenue": "30,000-50,000"
+  },
+  "agent": {
+    "name": "Cyril Texier",
+    "title": "Award-Winning Real Estate Specialist",
+    "phone": "0402 293 358",
+    "sales": "170+ million",
+    "background": "French/English speaking. Engineering & construction PM background.",
+    "trackRecord": "Consistently 12-15% above comparables. 11-time award winner.",
+    "approach": "Measured, analytical, results-focused. Direct involvement in every stage.",
+    "reviews": {
+      "rating": 4.8,
+      "platform": "Real Estate.com.au",
+      "verified": 5,
+      "quotes": [
+        "Outstanding professionalism, smooth process, dedication, and commitment. Achieved a result well above expectations.",
+        "Outstanding support throughout the purchase process. Steady communication and guidance made everything seamless."
+      ]
+    }
+  },
+  "commission": {
+    "offMarket": "3.5%",
+    "auction": "3-3.5%",
+    "note": "GST Inclusive"
+  }
+}
