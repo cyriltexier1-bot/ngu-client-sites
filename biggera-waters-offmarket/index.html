@@ -369,6 +369,7 @@
       position: relative; overflow: hidden; min-height: 680px;
     }
     .split-img img {
+      position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover; object-position: center;
       display: block;
@@ -377,7 +378,7 @@
     }
     .split:hover .split-img img { transform: scale(1); }
     .split-img-overlay {
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: 1;
       background: rgba(7,9,12,0.15);
       transition: background 0.5s;
     }
