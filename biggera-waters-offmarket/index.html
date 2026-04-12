@@ -101,6 +101,77 @@
     .loc-cell:hover { background: #1a1a1a; }
     .review:hover { background: #282828; }
 
+    /* ─── EXCLUSIVE BAND ─── */
+    .exclusive-band {
+      background: rgba(159,121,101,0.08);
+      border-top: 1px solid rgba(159,121,101,0.2);
+      border-bottom: 1px solid rgba(159,121,101,0.2);
+      padding: 22px 64px;
+    }
+    .exclusive-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; align-items: center; gap: 24px; justify-content: center;
+      text-align: center;
+    }
+    .exclusive-icon {
+      color: var(--gold); font-size: 10px; opacity: 0.6; flex-shrink: 0;
+    }
+    .exclusive-inner p {
+      font-size: 12px; letter-spacing: 0.5px; line-height: 1.7;
+      color: var(--sub); font-style: italic;
+    }
+
+    /* ─── PROPERTY SPEC PILLS ─── */
+    .property-specs {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 56px;
+    }
+    .spec-pill {
+      font-size: 11px; font-weight: 500; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold);
+      border: 1px solid rgba(159,121,101,0.3);
+      padding: 8px 18px;
+      transition: all 0.3s;
+    }
+    .spec-pill:hover {
+      background: rgba(159,121,101,0.1);
+      border-color: var(--gold);
+    }
+
+    /* ─── OFF-MARKET SECTION ─── */
+    .off-market-section {
+      background: var(--mid);
+      border-top: 1px solid rgba(159,121,101,0.08);
+      border-bottom: 1px solid rgba(159,121,101,0.08);
+    }
+    .offmarket-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
+      background: rgba(159,121,101,0.08);
+      border: 1px solid rgba(159,121,101,0.08);
+    }
+    .om-card {
+      background: var(--dark); padding: 44px 40px;
+      transition: background 0.3s;
+      position: relative;
+    }
+    .om-card::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: var(--gold); transform: scaleX(0); transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .om-card:hover { background: #1a1a1a; }
+    .om-card:hover::after { transform: scaleX(1); }
+    .om-icon {
+      font-family: var(--serif); font-size: 52px; font-weight: 300;
+      color: var(--gold); opacity: 0.2; line-height: 1; margin-bottom: 20px;
+    }
+    .om-card h4 {
+      font-size: 14px; font-weight: 600; letter-spacing: 0.8px;
+      color: var(--white); margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .om-card p { font-size: 14px; line-height: 1.75; color: var(--sub); }
+
     /* ─── UTILITY ─── */
     .gold-line {
       display: inline-flex; align-items: center; gap: 14px;
@@ -562,6 +633,7 @@
 <body>
 
 <!-- ═══ NAV ═══ -->
+<!-- ═══ NAV ═══ -->
 <nav id="nav">
   <div class="nav-brand-group">
     <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/7a832f0e73511fa28e678ead5a7514f1.png" alt="NGU Real Estate" class="nav-logo-img">
@@ -582,12 +654,12 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Off-Market · Biggera Waters · Gold Coast</div>
-    <h1>Waterside Living<br><em>Redefined</em><br>at Harbour Quays</h1>
+    <div class="hero-eyebrow">Exclusive Off-Market Access · Biggera Waters · Gold Coast</div>
+    <h1>Before It Hits<br><em>the Market</em></h1>
     <p class="hero-location">409/15 Compass Drive · Harbour Quays, Zephyr Building · QLD 4216</p>
     <div class="hero-actions">
-      <button class="btn-hero" onclick="scrollTo('#residence')">Explore the Residence</button>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire Privately</button>
+      <button class="btn-hero" onclick="scrollTo('#residence')">View the Property</button>
+      <button class="btn-ghost" onclick="scrollTo('#contact')">Register Interest Privately</button>
     </div>
   </div>
   <div class="hero-scroll-hint">
@@ -595,6 +667,15 @@
     <span class="scroll-text">Scroll</span>
   </div>
 </section>
+
+<!-- ═══ EXCLUSIVE BAND ═══ -->
+<div class="exclusive-band">
+  <div class="exclusive-inner">
+    <div class="exclusive-icon">◆</div>
+    <p>This property has not been listed publicly. It is available exclusively through Team Cyril Texier to a select group of pre-qualified buyers. Enquiries are handled with complete confidentiality.</p>
+    <div class="exclusive-icon">◆</div>
+  </div>
+</div>
 
 <!-- ═══ INTRO BAND ═══ -->
 <div class="intro-band">
@@ -624,37 +705,49 @@
   <div class="wrap">
     <div class="s-tag"><span class="gold-line">The Residence</span></div>
     <h2 class="s-title">Harbour Quays<br><em>Zephyr Building</em></h2>
-    <p class="s-lead">409/15 Compass Drive sits within Harbour Quays Apartments (Zephyr Building) — one of Biggera Waters' most sought-after waterside complexes. A premium 3-bedroom apartment available exclusively off-market to qualified buyers.</p>
+    <p class="s-lead">A premium 3-bedroom apartment in one of Biggera Waters' most desirable gated complexes. High ceilings, resort amenities, secure parking — and available before anyone else sees it.</p>
+
+    <div class="property-specs">
+      <div class="spec-pill">3 Bedrooms</div>
+      <div class="spec-pill">2 Bathrooms</div>
+      <div class="spec-pill">1 Car Space</div>
+      <div class="spec-pill">Ducted A/C</div>
+      <div class="spec-pill">High Ceilings</div>
+      <div class="spec-pill">Undercover Balcony</div>
+      <div class="spec-pill">Gas Cooktop</div>
+      <div class="spec-pill">Secure Fob Parking</div>
+    </div>
+
     <div class="feat-row">
       <div class="feat">
         <div class="feat-num">01</div>
-        <h4>Modern Kitchen</h4>
-        <p>Modern galley-style kitchen with quality stainless steel appliances, gas cooktop, and ample bench space for entertaining.</p>
+        <h4>Chef's Kitchen</h4>
+        <p>Galley-style kitchen with gas cooktop, quality stainless steel appliances, and generous bench space built for entertaining.</p>
       </div>
       <div class="feat">
         <div class="feat-num">02</div>
         <h4>Master Retreat</h4>
-        <p>Spacious master bedroom with walk-in wardrobe and private ensuite. Generous additional bedrooms with mirrored built-ins.</p>
+        <p>Oversized master bedroom with walk-in wardrobe and private ensuite. Two further bedrooms, both with mirrored built-ins.</p>
       </div>
       <div class="feat">
         <div class="feat-num">03</div>
-        <h4>Climate Control</h4>
-        <p>Ducted reverse-cycle air conditioning throughout delivers perfect climate control year-round.</p>
+        <h4>Year-Round Comfort</h4>
+        <p>Ducted reverse-cycle air conditioning throughout delivers effortless comfort in every season.</p>
       </div>
       <div class="feat">
         <div class="feat-num">04</div>
-        <h4>Storage & Parking</h4>
-        <p>Secure basement parking with fob access, plus generous storage solutions throughout the apartment.</p>
+        <h4>Open-Plan Living</h4>
+        <p>High ceilings and a seamless flow from living to a large undercover balcony — indoor-outdoor living done right.</p>
       </div>
       <div class="feat">
         <div class="feat-num">05</div>
-        <h4>Twin Resort Pools</h4>
-        <p>Lap pool, fully equipped gymnasium, BBQ areas, and residents' lounge for an elevated lifestyle.</p>
+        <h4>Resort Amenities</h4>
+        <p>Lap pool, fully equipped gym, BBQ areas, and residents' lounge — the feel of a five-star hotel, every day.</p>
       </div>
       <div class="feat">
         <div class="feat-num">06</div>
-        <h4>Gated Community</h4>
-        <p>High ceilings and open-plan living extending to a large undercover balcony — perfect for outdoor entertaining.</p>
+        <h4>Secure & Private</h4>
+        <p>Gated complex with secure basement parking via fob access. Peace of mind built into the building.</p>
       </div>
     </div>
   </div>
@@ -663,48 +756,74 @@
 <!-- ═══ SPLIT 1: INTERIOR ═══ -->
 <div class="split">
   <div class="split-img">
-    <img
-      src="https://www.harbourquaysapartments.com.au/data/deposit/media/images/001_Open2view_ID926619-208_3_Compass_Drive.jpg"
-      alt="Harbour Quays living area"
-      loading="lazy"
-    >
+    <img src="https://www.harbourquaysapartments.com.au/data/deposit/media/images/001_Open2view_ID926619-208_3_Compass_Drive.jpg" alt="Harbour Quays living area" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
   <div class="split-body">
-    <div class="s-tag"><span class="gold-line">Premium Finishes</span></div>
-    <h2 class="s-title" style="font-size:clamp(36px,5vw,58px);">Premium Finishes,<br><em>Every Detail</em></h2>
+    <div class="s-tag"><span class="gold-line">Inside the Apartment</span></div>
+    <h2 class="s-title" style="font-size:clamp(34px,4.5vw,54px);">Thoughtfully<br><em>Designed</em> for Life</h2>
     <div class="split-list">
       <div class="sl-item">
         <div class="sl-n">—</div>
         <div class="sl-body">
-          <h4>Stone & European Appliances</h4>
-          <p>Galley-style kitchen with gas cooktop, stainless steel appliances, and considered workspace for everyday living.</p>
+          <h4>Gas Kitchen with Premium Appliances</h4>
+          <p>Galley layout with stainless steel appliances, gas cooktop, and stone-look benchtops. Perfect for hosting.</p>
         </div>
       </div>
       <div class="sl-item">
         <div class="sl-n">—</div>
         <div class="sl-body">
-          <h4>Spa Ensuite</h4>
-          <p>Master bedroom with walk-in wardrobe and private ensuite. Two additional bedrooms, both with mirrored built-ins.</p>
+          <h4>Master Ensuite & Walk-In Robe</h4>
+          <p>A genuine master retreat — private ensuite, generous walk-in wardrobe, and quiet separation from living spaces.</p>
         </div>
       </div>
       <div class="sl-item">
         <div class="sl-n">—</div>
         <div class="sl-body">
-          <h4>Year-Round Comfort</h4>
-          <p>Ducted reverse-cycle A/C throughout — effortless comfort every day of the year.</p>
+          <h4>Undercover Balcony</h4>
+          <p>A large covered outdoor area that extends your living space — ideal for morning coffee or evening entertaining.</p>
         </div>
       </div>
       <div class="sl-item">
         <div class="sl-n">—</div>
         <div class="sl-body">
-          <h4>Smart Storage</h4>
-          <p>High ceilings, open-plan living, and an undercover balcony that extends your living space outdoors.</p>
+          <h4>NBN Connected & Move-In Ready</h4>
+          <p>Fibre to the Building (FTTB) NBN plus 5G coverage — ready from day one, whether owner-occupier or investor.</p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- ═══ WHY OFF-MARKET SECTION ═══ -->
+<section class="section off-market-section">
+  <div class="wrap">
+    <div class="s-tag"><span class="gold-line">Why Off-Market</span></div>
+    <h2 class="s-title">The Advantage of<br><em>First Access</em></h2>
+    <div class="offmarket-grid">
+      <div class="om-card">
+        <div class="om-icon">01</div>
+        <h4>No Public Competition</h4>
+        <p>You negotiate directly — without being outbid by crowds at open homes or pressured by multiple offers.</p>
+      </div>
+      <div class="om-card">
+        <div class="om-icon">02</div>
+        <h4>Negotiate on Your Terms</h4>
+        <p>Off-market transactions give buyers genuine leverage. More time, less pressure, better conditions.</p>
+      </div>
+      <div class="om-card">
+        <div class="om-icon">03</div>
+        <h4>Access Before the Public</h4>
+        <p>By the time this hits realestate.com.au, it may already be under contract. First access is everything in this market.</p>
+      </div>
+      <div class="om-card">
+        <div class="om-icon">04</div>
+        <h4>Complete Confidentiality</h4>
+        <p>Your enquiry, your identity, your financial position — all handled with complete discretion.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ═══ STATS BAND ═══ -->
 <div class="stats-band" id="market">
@@ -717,16 +836,16 @@
     <div class="stat-item">
       <div class="stat-v" data-target="5.0" data-suffix="%">0%</div>
       <div class="stat-l">Gross Rental Yield</div>
-      <div class="stat-sub">Est. $885/week rent</div>
+      <div class="stat-sub">$900–$950 pw est. rental</div>
     </div>
     <div class="stat-item">
       <div class="stat-v" data-target="107" data-suffix="%">0%</div>
       <div class="stat-l">Capital Growth Since 2015</div>
-      <div class="stat-sub">$445K → $922K est. value</div>
+      <div class="stat-sub">Purchased $445K in 2015</div>
     </div>
     <div class="stat-item">
       <div class="stat-v">$798K</div>
-      <div class="stat-l">Median Unit Price</div>
+      <div class="stat-l">Suburb Median Unit Price</div>
       <div class="stat-sub">Up 14.8% this year</div>
     </div>
   </div>
@@ -735,44 +854,40 @@
 <!-- ═══ SPLIT 2: MARKET ═══ -->
 <div class="split rev">
   <div class="split-img">
-    <img
-      src="https://www.harbourquaysapartments.com.au/data/deposit/media/images/004_Open2view_ID926619-208_3_Compass_Drive.jpg"
-      alt="Harbour Quays balcony view"
-      loading="lazy"
-    >
+    <img src="https://www.harbourquaysapartments.com.au/data/deposit/media/images/004_Open2view_ID926619-208_3_Compass_Drive.jpg" alt="Harbour Quays balcony view" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
   <div class="split-body dk">
     <div class="s-tag"><span class="gold-line">Market Intelligence</span></div>
-    <h2 class="s-title" style="font-size:clamp(36px,5vw,58px);">Why <em>Now</em> Is<br>the Moment</h2>
-    <p style="font-size:14px;line-height:1.9;color:var(--sub);margin-bottom:36px;">Biggera Waters is a powerhouse for Gold Coast investors and owner-occupiers alike. With rental yields consistently above 5% and 107% capital growth since 2015, this suburb delivers on every metric.</p>
+    <h2 class="s-title" style="font-size:clamp(34px,4.5vw,54px);">Biggera Waters:<br><em>Built to Perform</em></h2>
+    <p style="font-size:14px;line-height:1.9;color:var(--sub);margin-bottom:36px;">107% capital growth since 2015. Yields above 5%. Vacancy rates below 1%. Biggera Waters isn't just a good suburb — it's one of the Gold Coast's most consistent performers for both investors and owner-occupiers.</p>
     <div class="split-list">
       <div class="sl-item">
         <div class="sl-n">↑</div>
         <div class="sl-body">
-          <h4>Critically Low Inventory</h4>
-          <p>Biggera Waters median up 14.8% annually. Consistent outperformer in northern Gold Coast.</p>
+          <h4>Comparable Sales on Compass Drive</h4>
+          <p>709/15 Compass Dr sold $790K (Jul '25) · 116/3 Compass Dr sold $900K (Sep '25) · 504/11 Compass Dr sold $780K.</p>
         </div>
       </div>
       <div class="sl-item">
         <div class="sl-n">↑</div>
         <div class="sl-body">
-          <h4>Interstate Buyer Surge</h4>
-          <p>Biggera Waters units renting for $885/week with vacancy below 1% — landlords rarely wait.</p>
+          <h4>Sub-1% Vacancy Rate</h4>
+          <p>Rental demand far outpaces supply. Investors at Harbour Quays rarely wait between tenants.</p>
         </div>
       </div>
       <div class="sl-item">
         <div class="sl-n">↑</div>
         <div class="sl-body">
-          <h4>2032 Olympics Catalyst</h4>
-          <p>Brisbane 2032 infrastructure and Gold Coast's record median of $956K create a powerful tailwind.</p>
+          <h4>Gold Coast Record Median</h4>
+          <p>Gold Coast surpassed Sydney's median unit price for the first time in 2025 — now at $956K and rising.</p>
         </div>
       </div>
       <div class="sl-item">
         <div class="sl-n">↑</div>
         <div class="sl-body">
-          <h4>4–6% Growth Forecast</h4>
-          <p>SQM Research and Propertyology both forecast 7–13% Gold Coast growth in 2026 alone.</p>
+          <h4>7–13% Growth Forecast for 2026</h4>
+          <p>SQM Research and Propertyology both forecast strong Gold Coast growth — Biggera Waters historically outperforms.</p>
         </div>
       </div>
     </div>
@@ -785,8 +900,8 @@
   <div class="fb-overlay"></div>
   <div class="fb-content">
     <div class="s-tag" style="justify-content:center;margin-bottom:20px;"><span class="gold-line" style="padding-left:50px;">Location</span></div>
-    <h2>Biggera Waters —<br><em>Where Life Flows</em></h2>
-    <p>The best of the Gold Coast — Harbour Town, beaches, motorway — all within reach.</p>
+    <h2>Harbour Town<br><em>at Your Doorstep</em></h2>
+    <p>Two minutes from premium shopping, dining and entertainment — and everything the Gold Coast offers, just beyond.</p>
     <button class="btn-hero" onclick="scrollTo('#contact')">Book a Private Viewing</button>
   </div>
 </div>
@@ -797,8 +912,8 @@
     <div class="loc-grid">
       <div class="loc-cell">
         <div class="loc-dist">2 min</div>
-        <div class="loc-name">Harbour Town</div>
-        <div class="loc-desc">Premium shopping, dining, and entertainment</div>
+        <div class="loc-name">Harbour Town Shopping Centre</div>
+        <div class="loc-desc">Premium retail, restaurants, and entertainment</div>
       </div>
       <div class="loc-cell">
         <div class="loc-dist">5 min</div>
@@ -808,11 +923,11 @@
       <div class="loc-cell">
         <div class="loc-dist">8 min</div>
         <div class="loc-name">M1 Motorway</div>
-        <div class="loc-desc">Direct link to Gold Coast CBD and Brisbane</div>
+        <div class="loc-desc">Direct to Gold Coast CBD and Brisbane</div>
       </div>
       <div class="loc-cell">
         <div class="loc-dist">15 min</div>
-        <div class="loc-name">Surfers Paradise</div>
+        <div class="loc-name">Surfers Paradise Beach</div>
         <div class="loc-desc">World-class beach and lifestyle precinct</div>
       </div>
       <div class="loc-cell">
@@ -832,43 +947,40 @@
 <!-- ═══ SPLIT 3: AMENITIES ═══ -->
 <div class="split">
   <div class="split-img">
-    <img
-      src="https://www.harbourquaysapartments.com.au/data/deposit/media/images/003_Open2view_ID926619-208_3_Compass_Drive.jpg"
-      alt="Harbour Quays amenities"
-      loading="lazy"
-    >
+    <img src="https://www.harbourquaysapartments.com.au/data/deposit/media/images/003_Open2view_ID926619-208_3_Compass_Drive.jpg" alt="Harbour Quays amenities" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
   <div class="split-body">
-    <div class="s-tag"><span class="gold-line">Harbour Quays Amenities</span></div>
-    <h2 class="s-title" style="font-size:clamp(36px,5vw,58px);">Resort Living<br><em>Every Day</em></h2>
+    <div class="s-tag"><span class="gold-line">Harbour Quays</span></div>
+    <h2 class="s-title" style="font-size:clamp(34px,4.5vw,54px);">Resort Living<br><em>Every Day</em></h2>
+    <p style="font-size:14px;line-height:1.85;color:var(--sub);margin-bottom:36px;">Harbour Quays is more than an address — it's a lifestyle. Resort-grade amenities, a well-managed complex, and a community that retains tenants and attracts premium owner-occupiers.</p>
     <div class="split-list">
       <div class="sl-item">
         <div class="sl-n">01</div>
         <div class="sl-body">
-          <h4>Twin Resort Pools</h4>
-          <p>Resort-style lap pool with sun loungers in beautifully landscaped surrounds.</p>
+          <h4>Lap Pool & Sun Loungers</h4>
+          <p>Resort-style lap pool in beautifully landscaped surrounds — your daily escape without leaving home.</p>
         </div>
       </div>
       <div class="sl-item">
         <div class="sl-n">02</div>
         <div class="sl-body">
-          <h4>Spa & Wellness</h4>
-          <p>Fully equipped gymnasium with modern equipment for residents.</p>
+          <h4>Fully Equipped Gymnasium</h4>
+          <p>Modern gym with everything you need — no membership required.</p>
         </div>
       </div>
       <div class="sl-item">
         <div class="sl-n">03</div>
         <div class="sl-body">
-          <h4>Alfresco Entertaining</h4>
-          <p>Multiple BBQ areas and alfresco entertaining spaces for residents.</p>
+          <h4>BBQ & Residents' Lounge</h4>
+          <p>Multiple alfresco BBQ areas and a private residents' lounge for entertaining and community.</p>
         </div>
       </div>
       <div class="sl-item">
         <div class="sl-n">04</div>
         <div class="sl-body">
-          <h4>Gated Security</h4>
-          <p>Residents' lounge and secure basement parking with fob access throughout.</p>
+          <h4>Secure Basement Parking</h4>
+          <p>Fob-access basement parking. Assigned space, fully secure, never an afterthought.</p>
         </div>
       </div>
     </div>
@@ -880,9 +992,10 @@
   <div class="agent-grid">
     <div>
       <div class="s-tag" style="margin-bottom:22px;"><span class="gold-line">Your Agent</span></div>
-      <img src="https://app-spoke-sites-au.s3.amazonaws.com/uploads/sites/246/2025/06/2024_Rebrand_Web_Headshot_cyril.jpg" alt="Cyril Texier" class="agent-photo"><div class="agent-name">Cyril<br>Texier</div>
-      <div class="agent-title">Team Team Cyril Texier · NGU Real Estate Gold Coast</div>
-      <p class="agent-bio">A specialist in luxury residential and off-market transactions, Cyril brings an engineering background, 170M+ in career sales volume, and fluency in French and English to every transaction. His detail-focused, analytical approach delivers consistently superior outcomes for buyers and sellers alike.</p>
+      <img src="https://app-spoke-sites-au.s3.amazonaws.com/uploads/sites/246/2025/06/2024_Rebrand_Web_Headshot_cyril.jpg" alt="Cyril Texier" class="agent-photo">
+      <div class="agent-name">Cyril<br>Texier</div>
+      <div class="agent-title">Team Cyril Texier · NGU Real Estate Gold Coast</div>
+      <p class="agent-bio">Cyril specialises in off-market transactions and luxury residential across the Gold Coast and Brisbane. With an engineering background, bilingual French-English capability, and $170M+ in career sales, he brings analytical precision and genuine market depth to every buyer he represents.</p>
       <div class="agent-nums">
         <div class="a-num">
           <div class="a-num-val">4.8★</div>
@@ -890,7 +1003,7 @@
         </div>
         <div class="a-num">
           <div class="a-num-val">$170M+</div>
-          <div class="a-num-lbl">Sales Volume</div>
+          <div class="a-num-lbl">Career Sales</div>
         </div>
         <div class="a-num">
           <div class="a-num-val">11×</div>
@@ -904,17 +1017,17 @@
       <div class="reviews">
         <div class="review">
           <div class="review-stars">★ ★ ★ ★ ★</div>
-          <p class="review-text">"One of the finest sales agents I have had the pleasure of working with. Outstanding professionalism, dedication, and commitment. Achieved a result well above expectations."</p>
+          <p class="review-text">"One of the finest agents I have worked with. Outstanding professionalism and commitment. Achieved a result well above expectations."</p>
           <div class="review-attr">Verified Seller · Surfers Paradise · Real Estate.com.au</div>
         </div>
         <div class="review">
           <div class="review-stars">★ ★ ★ ★ ★</div>
-          <p class="review-text">"Professional, responsive, and genuinely easy to work with. Clear communication and deep market knowledge throughout the entire process. Would recommend without hesitation."</p>
+          <p class="review-text">"Professional, responsive, and genuinely easy to work with. Clear communication and deep market knowledge from start to finish."</p>
           <div class="review-attr">Verified Seller · Hope Island · Real Estate.com.au</div>
         </div>
         <div class="review">
           <div class="review-stars">★ ★ ★ ★</div>
-          <p class="review-text">"Outstanding support throughout the purchase process. Steady communication and expert guidance made everything seamless, from first viewing through to settlement."</p>
+          <p class="review-text">"Outstanding support throughout the purchase. Expert guidance and steady communication made everything seamless, from viewing to settlement."</p>
           <div class="review-attr">Verified Buyer · Surfers Paradise · Real Estate.com.au</div>
         </div>
       </div>
@@ -925,12 +1038,12 @@
 <!-- ═══ CTA ═══ -->
 <div class="cta-section" id="contact">
   <div class="cta-inner">
-    <div class="s-tag" style="justify-content:center;margin-bottom:24px;"><span class="gold-line" style="padding-left:50px;">Private Access</span></div>
-    <h2>Enquire About<br><em>This Opportunity</em></h2>
-    <p>This is a confidential off-market listing. Available exclusively to serious, pre-qualified buyers. Contact Cyril today for a private viewing and full property details.</p>
+    <div class="s-tag" style="justify-content:center;margin-bottom:24px;"><span class="gold-line" style="padding-left:50px;">Register Your Interest</span></div>
+    <h2>This Won't Be<br><em>Available Long</em></h2>
+    <p>Off-market properties move fast — and this one is only available to buyers who act now. Contact Cyril today for a confidential conversation and private viewing.</p>
     <div class="cta-btns">
       <a class="btn-hero" href="tel:0402293358">Call 0402 293 358</a>
-      <a class="btn-ghost" href="mailto:cyril.t@ngurealestate.com.au">cyril.t@ngurealestate.com.au</a>
+      <a class="btn-ghost" href="mailto:cyril.t@ngurealestate.com.au">Send a Private Enquiry</a>
     </div>
   </div>
 </div>
@@ -942,7 +1055,7 @@
     <div class="footer-team-logo">Team Cyril Texier</div>
   </div>
   <div class="f-center">
-    <p style="font-size:11px;margin-top:6px;opacity:0.4;">Market data accurate as of April 2026. Subject to change and availability.</p>
+    <p style="font-size:11px;margin-top:6px;opacity:0.4;">Market data accurate as of April 2026. Subject to change and availability. Off-market listing — not for public distribution.</p>
   </div>
   <div class="f-right">
     <p>Team Cyril Texier · NGU Real Estate Gold Coast</p>
@@ -953,7 +1066,7 @@
 <!-- ═══ STICKY BAR ═══ -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-left">
-    <strong>409/15 Compass Drive, Biggera Waters</strong> &nbsp;·&nbsp; Off-Market Opportunity &nbsp;·&nbsp; Exclusive Access Only
+    <strong>409/15 Compass Drive, Biggera Waters</strong> &nbsp;·&nbsp; Off-Market · Exclusive Access Only
   </div>
   <div class="sticky-right">
     <a class="btn-ghost" href="tel:0402293358" style="padding:10px 24px;font-size:10px;">0402 293 358</a>
@@ -962,12 +1075,9 @@
 </div>
 
 <script>
-  // Helpers
   function scrollTo(id) {
     document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
   }
-
-  // Nav solidify + sticky bar
   const nav = document.getElementById('nav');
   const stickyBar = document.getElementById('stickyBar');
   window.addEventListener('scroll', () => {
@@ -975,8 +1085,6 @@
     nav.classList.toggle('solid', y > 80);
     stickyBar.classList.toggle('show', y > window.innerHeight * 0.6);
   });
-
-  // Parallax on full bleed bg
   const fbBg = document.getElementById('fbBg');
   window.addEventListener('scroll', () => {
     if (!fbBg) return;
@@ -984,8 +1092,6 @@
     const offset = (window.innerHeight / 2 - rect.top) * 0.12;
     fbBg.style.transform = `translateY(${offset}px)`;
   }, { passive: true });
-
-  // Animated counters
   function animateCounter(el) {
     const target = parseFloat(el.dataset.target);
     const suffix = el.dataset.suffix || '';
@@ -1001,19 +1107,12 @@
     }
     requestAnimationFrame(step);
   }
-
-  const counters = document.querySelectorAll('[data-target]');
   const counterObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        animateCounter(e.target);
-        counterObs.unobserve(e.target);
-      }
+      if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }
     });
   }, { threshold: 0.5 });
-  counters.forEach(c => counterObs.observe(c));
-
-  // Fade-in on scroll
+  document.querySelectorAll('[data-target]').forEach(c => counterObs.observe(c));
   const fadeObs = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1023,8 +1122,7 @@
       }
     });
   }, { threshold: 0.08 });
-
-  document.querySelectorAll('.feat, .loc-cell, .review, .sl-item').forEach(el => {
+  document.querySelectorAll('.feat, .loc-cell, .review, .sl-item, .om-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';
     el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
