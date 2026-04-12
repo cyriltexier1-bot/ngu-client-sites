@@ -634,128 +634,162 @@
 
     /* ─── PHONE ─── */
     @media (max-width: 480px) {
-      /* Nav */
-      nav { padding: 16px 20px; }
-      nav.solid { padding: 12px 20px; }
-      .nav-logo-img { height: 26px; }
-      .nav-brand-divider { height: 20px; }
-      .nav-team-logo { font-size: 11px; letter-spacing: 1px; }
+      /* Nav — compact, legible */
+      nav { padding: 14px 20px; }
+      nav.solid { padding: 12px 20px; background: rgba(14,14,14,0.98); }
+      .nav-logo-img { height: 28px; }
+      .nav-brand-divider { height: 22px; }
+      .nav-team-logo { font-size: 11px; letter-spacing: 1.5px; font-weight: 600; }
       .nav-btn { display: none; }
 
-      /* Hero */
-      .hero { height: 100svh; min-height: 600px; }
-      .hero-content { padding: 0 20px 70px; }
-      .hero-eyebrow { font-size: 9px; letter-spacing: 3px; margin-bottom: 18px; }
-      .hero h1 { font-size: 38px; line-height: 1.0; letter-spacing: -1px; margin-bottom: 18px; }
-      .hero-location { font-size: 10px; letter-spacing: 1.5px; margin-bottom: 32px; }
-      .hero-actions { flex-direction: column; gap: 12px; align-items: flex-start; }
-      .btn-hero { font-size: 10px; padding: 14px 28px; width: 100%; text-align: center; }
-      .btn-ghost { font-size: 10px; padding: 14px 28px; width: 100%; text-align: center; }
+      /* Hero — full screen, big type, readable */
+      .hero { height: 100svh; min-height: 620px; }
+      .hero-bg {
+        background-position: center 30%;
+      }
+      .hero-overlay {
+        background:
+          linear-gradient(to bottom, rgba(14,14,14,0.5) 0%, rgba(14,14,14,0.5) 40%, rgba(14,14,14,0.96) 100%);
+      }
+      .hero-content { padding: 0 24px 80px; }
+      .hero-eyebrow { font-size: 10px; letter-spacing: 3px; margin-bottom: 20px; }
+      .hero h1 { font-size: 42px; line-height: 1.0; letter-spacing: -1px; margin-bottom: 16px; }
+      .hero-location { font-size: 11px; letter-spacing: 1.5px; margin-bottom: 36px; }
+      .hero-actions { flex-direction: column; gap: 12px; }
+      .btn-hero { font-size: 11px; padding: 16px 0; width: 100%; text-align: center; display: block; }
+      .btn-ghost { font-size: 11px; padding: 16px 0; width: 100%; text-align: center; display: block; }
       .hero-scroll-hint { display: none; }
 
       /* Exclusive band */
-      .exclusive-band { padding: 18px 20px; }
-      .exclusive-inner { gap: 12px; }
-      .exclusive-inner p { font-size: 11px; }
+      .exclusive-band { padding: 16px 24px; }
+      .exclusive-inner { gap: 0; flex-direction: column; }
+      .exclusive-inner p { font-size: 12px; line-height: 1.6; }
       .exclusive-icon { display: none; }
 
-      /* Intro stats */
-      .intro-band { grid-template-columns: 1fr 1px 1fr; }
-      .intro-stat { padding: 28px 16px; }
-      .intro-val { font-size: 32px; }
-      .intro-lbl { font-size: 9px; letter-spacing: 1px; }
+      /* Intro stats — 2x2 grid */
+      .intro-band {
+        grid-template-columns: 1fr 1px 1fr;
+        grid-template-rows: auto 1px auto;
+      }
+      .intro-divider:nth-child(4) { display: none; }
+      .intro-divider:nth-child(6) {
+        display: block;
+        grid-column: 1 / -1;
+        width: 100%; height: 1px;
+        background: rgba(159,121,101,0.15);
+      }
+      .intro-stat { padding: 30px 20px; }
+      .intro-val { font-size: 34px; letter-spacing: -1px; }
+      .intro-lbl { font-size: 10px; letter-spacing: 1px; }
 
       /* Sections */
-      .section { padding: 60px 20px; }
-      .wrap { padding: 0; }
-      .s-tag { margin-bottom: 14px; }
-      .gold-line { font-size: 9px; letter-spacing: 2.5px; }
-      .gold-line::before { width: 22px; }
-      .s-title { font-size: 34px; margin-bottom: 20px; letter-spacing: -0.5px; }
-      .s-lead { font-size: 14px; margin-bottom: 40px; }
+      .section { padding: 64px 24px; }
+      .off-market-section { padding: 64px 24px; }
+      .s-tag { margin-bottom: 16px; }
+      .gold-line { font-size: 10px; letter-spacing: 3px; }
+      .gold-line::before { width: 24px; }
+      .s-title { font-size: 36px; margin-bottom: 20px; letter-spacing: -0.5px; line-height: 1.0; }
+      .s-lead { font-size: 15px; line-height: 1.75; margin-bottom: 40px; }
 
-      /* Spec pills */
-      .property-specs { gap: 8px; margin-bottom: 36px; }
-      .spec-pill { font-size: 10px; padding: 7px 14px; letter-spacing: 1px; }
+      /* Spec pills — wrap naturally */
+      .property-specs { gap: 8px; margin-bottom: 40px; }
+      .spec-pill { font-size: 10px; padding: 8px 14px; letter-spacing: 1px; }
 
-      /* Feature grid */
+      /* Feature grid — single column */
       .feat-row { grid-template-columns: 1fr; gap: 1px; }
-      .feat { padding: 28px 24px; }
-      .feat-num { font-size: 42px; margin-bottom: 14px; }
-      .feat h4 { font-size: 12px; }
-      .feat p { font-size: 13px; }
+      .feat { padding: 30px 24px; }
+      .feat-num { font-size: 44px; margin-bottom: 12px; }
+      .feat h4 { font-size: 13px; margin-bottom: 10px; }
+      .feat p { font-size: 14px; line-height: 1.7; }
 
-      /* Splits */
-      .split { grid-template-columns: 1fr; }
-      .split.rev { direction: ltr; }
-      .split-img { min-height: 70vw; }
-      .split-img img { object-position: center; }
-      .split-body { padding: 44px 20px; }
-      .sl-item { gap: 18px; padding: 22px 0; }
-      .sl-n { font-size: 28px; min-width: 32px; }
-      .sl-body h4 { font-size: 12px; }
-      .sl-body p { font-size: 13px; }
+      /* Splits — image first, full width, then content */
+      .split { grid-template-columns: 1fr; direction: ltr !important; }
+      .split-img { min-height: 75vw; order: 1; }
+      .split-img img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: center;
+        display: block;
+      }
+      .split-body { padding: 48px 24px; order: 2; }
+      .split-body.dk { background: var(--panel); }
+      .sl-item { gap: 20px; padding: 22px 0; }
+      .sl-n { font-size: 30px; min-width: 34px; opacity: 0.5; }
+      .sl-body h4 { font-size: 13px; margin-bottom: 8px; }
+      .sl-body p { font-size: 14px; line-height: 1.7; }
 
-      /* Stats */
-      .stats-band { padding: 48px 20px; }
-      .stats-inner { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
-      .stat-item { padding: 0; border-right: none; }
-      .stat-v { font-size: 44px; margin-bottom: 8px; }
-      .stat-l { font-size: 9px; letter-spacing: 1.5px; }
-      .stat-sub { font-size: 11px; }
+      /* Stats band */
+      .stats-band { padding: 52px 24px; }
+      .stats-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px 16px;
+      }
+      .stat-item { padding: 0; border-right: none; text-align: center; }
+      .stat-v { font-size: 46px; margin-bottom: 10px; letter-spacing: -2px; }
+      .stat-l { font-size: 10px; letter-spacing: 1.5px; }
+      .stat-sub { font-size: 12px; margin-top: 5px; }
 
       /* Off-market grid */
-      .offmarket-grid { grid-template-columns: 1fr; }
-      .om-card { padding: 32px 24px; }
-      .om-icon { font-size: 38px; margin-bottom: 14px; }
-      .om-card h4 { font-size: 12px; letter-spacing: 0.5px; }
-      .om-card p { font-size: 13px; }
+      .offmarket-grid { grid-template-columns: 1fr; gap: 1px; }
+      .om-card { padding: 36px 24px; }
+      .om-icon { font-size: 40px; margin-bottom: 16px; }
+      .om-card h4 { font-size: 13px; margin-bottom: 10px; }
+      .om-card p { font-size: 14px; line-height: 1.7; }
 
-      /* Full bleed */
-      .full-bleed { height: 60vw; min-height: 320px; }
-      .fb-content h2 { font-size: 36px; }
-      .fb-content p { font-size: 13px; margin-bottom: 28px; }
-      .fb-content { padding: 0 20px; }
+      /* Full bleed — taller on phone so text breathes */
+      .full-bleed { height: auto; min-height: 420px; padding: 80px 0; }
+      .fb-content { padding: 0 24px; }
+      .fb-content h2 { font-size: 38px; line-height: 1.0; margin-bottom: 20px; }
+      .fb-content p { font-size: 14px; line-height: 1.75; margin-bottom: 32px; }
+      .fb-content .btn-hero { width: auto; padding: 15px 36px; display: inline-block; }
 
-      /* Location grid */
-      .loc-grid { grid-template-columns: 1fr; }
-      .loc-cell { padding: 24px 20px; }
-      .loc-dist { font-size: 34px; }
-      .loc-name { font-size: 13px; }
+      /* Location grid — single column */
+      .loc-grid { grid-template-columns: 1fr; gap: 1px; }
+      .loc-cell { padding: 28px 24px; }
+      .loc-dist { font-size: 36px; margin-bottom: 10px; }
+      .loc-name { font-size: 14px; margin-bottom: 4px; }
+      .loc-desc { font-size: 13px; }
 
-      /* Agent */
-      .agent-section { padding: 60px 20px; }
-      .agent-grid { grid-template-columns: 1fr; gap: 48px; }
-      .agent-photo { width: 90px; height: 90px; }
-      .agent-name { font-size: 48px; }
-      .agent-title { font-size: 9px; letter-spacing: 1.5px; }
-      .agent-bio { font-size: 13px; }
+      /* Agent section */
+      .agent-section { padding: 64px 24px; }
+      .agent-grid { grid-template-columns: 1fr; gap: 52px; }
+      .agent-photo { width: 100px; height: 100px; margin-bottom: 20px; }
+      .agent-name { font-size: 52px; letter-spacing: -2px; margin-bottom: 10px; }
+      .agent-title { font-size: 10px; letter-spacing: 2px; margin-bottom: 24px; }
+      .agent-bio { font-size: 14px; line-height: 1.8; margin-bottom: 32px; }
       .agent-nums { grid-template-columns: repeat(3, 1fr); }
-      .a-num { padding: 18px 12px; }
+      .a-num { padding: 20px 10px; }
       .a-num-val { font-size: 22px; }
       .a-num-lbl { font-size: 9px; letter-spacing: 1px; }
+      .reviews { gap: 16px; }
       .review { padding: 24px 20px; }
-      .review-text { font-size: 14px; }
-      .review-stars { font-size: 11px; }
+      .review-text { font-size: 15px; line-height: 1.65; }
+      .review-stars { font-size: 12px; letter-spacing: 3px; margin-bottom: 10px; }
+      .review-attr { font-size: 10px; }
 
       /* CTA */
-      .cta-section { padding: 60px 20px; }
-      .cta-inner h2 { font-size: 38px; }
-      .cta-inner p { font-size: 14px; margin-bottom: 36px; }
-      .cta-btns { flex-direction: column; gap: 12px; }
-      .btn-hero, .btn-ghost { width: 100%; text-align: center; padding: 16px; }
+      .cta-section { padding: 72px 24px; }
+      .cta-inner h2 { font-size: 40px; line-height: 1.0; margin-bottom: 20px; }
+      .cta-inner p { font-size: 15px; line-height: 1.75; margin-bottom: 40px; }
+      .cta-btns { flex-direction: column; gap: 12px; align-items: stretch; }
+      .cta-btns .btn-hero,
+      .cta-btns .btn-ghost { width: 100%; text-align: center; padding: 18px; font-size: 11px; }
 
       /* Footer */
-      footer { grid-template-columns: 1fr; text-align: center; padding: 36px 20px; gap: 20px; }
+      footer { grid-template-columns: 1fr; text-align: center; padding: 40px 24px; gap: 24px; }
+      .footer-brand-group { align-items: center; }
+      .footer-logo-img { height: 28px; }
+      .footer-team-logo { font-size: 11px; letter-spacing: 2px; }
       .f-right { text-align: center; }
-      .footer-logo-img { height: 26px; }
+      .f-right p { font-size: 13px; margin-bottom: 8px; }
+      .f-right a { font-size: 18px; }
+      .f-center p { font-size: 12px; }
 
-      /* Sticky bar */
-      .sticky-bar { padding: 12px 20px; flex-direction: column; gap: 10px; align-items: stretch; }
-      .sticky-left { font-size: 10px; text-align: center; }
-      .sticky-right { justify-content: center; gap: 8px; }
-      .sticky-right .btn-ghost,
-      .sticky-right .btn-hero { padding: 10px 18px; font-size: 10px; }
+      /* Sticky bar — compact row on phone */
+      .sticky-bar { padding: 12px 20px; gap: 10px; }
+      .sticky-left { font-size: 11px; }
+      .sticky-right { gap: 8px; }
+      .sticky-right .btn-ghost { padding: 10px 16px; font-size: 10px; }
+      .sticky-right .btn-hero { padding: 10px 16px; font-size: 10px; }
     }
   </style>
 </head>
