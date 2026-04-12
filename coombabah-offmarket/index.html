@@ -4,750 +4,1129 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-  <meta name="pragma" content="no-cache">
-  <meta name="expires" content="0">
-  <title>63/181 Lae Drive, Coombabah — Off-Market Luxury Living | NGU Real Estate</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>63/181 Lae Drive — Off-Market | NGU Real Estate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
     :root {
-      --primary: #0f1419;
-      --secondary: #1a1f2e;
-      --tertiary: #2d3748;
-      --accent: #c9a86e;
-      --accent-light: #e8d4a8;
-      --text-primary: #f5f1ed;
-      --text-secondary: #c9bfb5;
-      --text-muted: #8a8680;
-      --border: rgba(201, 168, 110, 0.15);
+      --black: #080a0d;
+      --dark: #0d1017;
+      --mid: #151b24;
+      --panel: #1c2432;
+      --gold: #C9A96E;
+      --gold-light: #e2c99a;
+      --cream: #f0ebe3;
+      --warm-white: #faf8f5;
+      --text: #e8e4de;
+      --muted: #9a9590;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Montserrat', sans-serif;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: var(--text-primary);
-      line-height: 1.6;
-      min-height: 100vh;
+      font-family: var(--sans);
+      background: var(--black);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* ===== NAVIGATION ===== */
+    /* ═══ NAV ═══ */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 24px 60px;
-      background: rgba(15, 20, 25, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      transition: all 0.3s ease;
+      padding: 32px 60px;
+      transition: all 0.5s ease;
     }
 
-    nav.scrolled {
-      padding: 16px 60px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    nav.solid {
+      background: rgba(8, 10, 13, 0.97);
+      padding: 18px 60px;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+      backdrop-filter: blur(12px);
     }
 
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 28px;
       font-weight: 600;
-      letter-spacing: 3px;
-      color: var(--accent);
+      letter-spacing: 8px;
+      color: var(--gold);
       text-transform: uppercase;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 48px;
     }
 
     .nav-links {
       display: flex;
-      gap: 40px;
+      gap: 36px;
       list-style: none;
     }
 
     .nav-links a {
-      font-size: 13px;
-      letter-spacing: 1px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.3s ease;
-      text-transform: uppercase;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    .nav-cta {
-      padding: 10px 24px;
-      border: 1px solid var(--accent);
-      background: transparent;
-      color: var(--accent);
       font-size: 11px;
-      letter-spacing: 1.5px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
+      font-weight: 400;
+      color: rgba(232, 228, 222, 0.6);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-enquire {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--gold);
+      border: 1px solid rgba(201, 169, 110, 0.5);
+      padding: 12px 28px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      background: transparent;
+      transition: all 0.3s;
+      text-decoration: none;
     }
 
-    .nav-cta:hover {
-      background: var(--accent);
-      color: var(--primary);
+    .nav-enquire:hover {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
     }
 
-    /* ===== HERO ===== */
+    /* ═══ HERO ═══ */
     .hero {
       height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(8,10,13,0.85) 0%, rgba(8,10,13,0.2) 60%),
+        linear-gradient(to top, rgba(8,10,13,0.9) 0%, rgba(8,10,13,0.1) 40%),
+        url('https://images.unsplash.com/photo-1512917774080-9a485d007ce5?w=1920&q=85&fit=crop') center/cover no-repeat;
+      transform: scale(1.05);
+      animation: heroZoom 12s ease-out forwards;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.05); }
+      to { transform: scale(1); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 60px 100px;
+      max-width: 800px;
+      animation: fadeUp 1.2s ease-out 0.3s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(56px, 9vw, 108px);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -1px;
+      color: var(--warm-white);
+      margin-bottom: 28px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--warm-white);
+      border: 1px solid rgba(232, 228, 222, 0.4);
+      padding: 14px 36px;
+      text-decoration: none;
+      transition: all 0.4s;
+    }
+
+    .hero-cta:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--black);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      right: 60px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.5;
+    }
+
+    .hero-scroll span {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0%, 100% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+    }
+
+    /* ═══ SECTION BASE ═══ */
+    .section {
+      padding: 140px 60px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-headline {
+      font-family: var(--serif);
+      font-size: clamp(42px, 7vw, 80px);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.5px;
+      color: var(--warm-white);
+      margin-bottom: 60px;
+    }
+
+    .section-headline em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .lead {
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 720px;
+      margin-bottom: 60px;
+    }
+
+    /* ═══ SPECS ROW ═══ */
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(201, 169, 110, 0.15);
+      border-left: 1px solid rgba(201, 169, 110, 0.15);
+      margin-bottom: 100px;
+    }
+
+    .spec {
+      padding: 40px 36px;
+      border-right: 1px solid rgba(201, 169, 110, 0.15);
+      border-bottom: 1px solid rgba(201, 169, 110, 0.15);
+    }
+
+    .spec-value {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .spec-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ═══ FEATURE IMAGE SPLIT ═══ */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 70vh;
+    }
+
+    .split-img {
+      position: relative;
+      overflow: hidden;
+      background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=900&q=80&fit=crop') center/cover no-repeat;
+    }
+
+    .split-img-2 {
+      background: url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=900&q=80&fit=crop') center/cover no-repeat;
+    }
+
+    .split-img-3 {
+      background: url('https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900&q=80&fit=crop') center/cover no-repeat;
+    }
+
+    .split-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 10, 13, 0.25);
+    }
+
+    .split-content {
+      background: var(--mid);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px;
+    }
+
+    .split-content.dark {
+      background: var(--panel);
+    }
+
+    /* ═══ FEATURE LIST ═══ */
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+    }
+
+    .feature-item:last-child { border-bottom: none; }
+
+    .feature-num {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.4;
+      min-width: 48px;
+      line-height: 1;
+    }
+
+    .feature-body h4 {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--warm-white);
+      margin-bottom: 6px;
+    }
+
+    .feature-body p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* ═══ STATS BAND ═══ */
+    .stats-band {
+      background: var(--mid);
+      padding: 80px 60px;
+      border-top: 1px solid rgba(201, 169, 110, 0.1);
+      border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+    }
+
+    .stats-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+
+    .stat {
+      padding: 0 40px;
+      border-right: 1px solid rgba(201, 169, 110, 0.12);
+      text-align: center;
+    }
+
+    .stat:first-child { padding-left: 0; }
+    .stat:last-child { border-right: none; padding-right: 0; }
+
+    .stat-value {
+      font-family: var(--serif);
+      font-size: 60px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ═══ LOCATION GRID ═══ */
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(201, 169, 110, 0.1);
+      border: 1px solid rgba(201, 169, 110, 0.1);
+      margin-bottom: 80px;
+    }
+
+    .loc-item {
+      background: var(--dark);
+      padding: 36px 32px;
+      transition: background 0.3s;
+    }
+
+    .loc-item:hover { background: var(--mid); }
+
+    .loc-distance {
+      font-family: var(--serif);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .loc-name {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      color: var(--warm-white);
+      margin-bottom: 6px;
+    }
+
+    .loc-desc {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ═══ FULL-BLEED ═══ */
+    .full-bleed {
+      height: 70vh;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       overflow: hidden;
-      margin-top: 0;
     }
 
-    .hero::before {
+    .full-bleed-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80&fit=crop') center/cover no-repeat;
+      transform: scale(1.02);
+      transition: transform 8s ease-out;
+    }
+
+    .full-bleed-bg.parallax { transform: scale(1); }
+
+    .full-bleed::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(201, 168, 110, 0.08) 0%, rgba(201, 168, 110, 0.02) 100%);
-      z-index: 0;
+      background: rgba(8, 10, 13, 0.65);
     }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 300px;
-      background: linear-gradient(to top, var(--primary) 0%, transparent 100%);
-      z-index: 1;
-    }
-
-    .hero-content {
+    .full-bleed-content {
       position: relative;
       z-index: 2;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .hero-label {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-      opacity: 0.9;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(48px, 8vw, 92px);
-      line-height: 1.1;
-      font-weight: 700;
-      margin-bottom: 16px;
-      color: var(--text-primary);
-    }
-
-    .hero .subtitle {
-      font-size: 24px;
-      font-weight: 300;
-      color: var(--text-secondary);
-      margin-bottom: 12px;
-      letter-spacing: 0.5px;
-    }
-
-    .hero .location {
-      font-size: 13px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      padding: 14px 36px;
-      border: 1.5px solid var(--accent);
-      background: transparent;
-      color: var(--accent);
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.4s ease;
-      text-decoration: none;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent);
-      color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    /* ===== SECTIONS ===== */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
       padding: 0 60px;
     }
 
-    section {
-      padding: 120px 0;
-      border-bottom: 1px solid var(--border);
+    .full-bleed-content .section-tag {
+      justify-content: center;
     }
 
-    section:last-child {
-      border-bottom: none;
+    .full-bleed-content .section-tag::before { display: none; }
+
+    .full-bleed-content h2 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 300;
+      line-height: 0.95;
+      color: var(--warm-white);
+      margin-bottom: 32px;
     }
 
-    .section-label {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
+    .full-bleed-content h2 em {
+      font-style: italic;
+      color: var(--gold-light);
     }
 
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 6vw, 56px);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 48px;
-      color: var(--text-primary);
-    }
-
-    h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 28px;
-      font-weight: 600;
-      margin-bottom: 16px;
-      color: var(--text-primary);
-    }
-
-    p {
+    .full-bleed-content p {
       font-size: 16px;
-      line-height: 1.8;
-      color: var(--text-secondary);
-      margin-bottom: 24px;
-    }
-
-    /* ===== GRID LAYOUTS ===== */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-
-    .card {
-      background: var(--secondary);
-      padding: 40px;
-      border: 1px solid var(--border);
-      transition: all 0.4s ease;
-      position: relative;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--accent), transparent);
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 20px 60px rgba(201, 168, 110, 0.1);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .card-label {
-      font-size: 12px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-
-    .card-text {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--text-secondary);
-    }
-
-    /* ===== FEATURES ===== */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
-    }
-
-    .feature {
-      padding: 30px;
-      background: rgba(45, 55, 72, 0.4);
-      border-left: 3px solid var(--accent);
-      transition: all 0.3s ease;
-    }
-
-    .feature:hover {
-      background: var(--secondary);
-      transform: translateX(8px);
-    }
-
-    .feature h4 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--text-primary);
-    }
-
-    .feature p {
-      font-size: 14px;
-      margin-bottom: 0;
-    }
-
-    /* ===== TABLE ===== */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 40px 0;
-    }
-
-    table th {
-      padding: 16px 0;
-      border-bottom: 2px solid var(--accent);
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-align: left;
-      font-weight: 600;
-      background: transparent;
-    }
-
-    table td {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    table tbody tr:hover {
-      background: rgba(201, 168, 110, 0.05);
-    }
-
-    /* ===== CTA SECTION ===== */
-    .cta {
-      background: linear-gradient(135deg, rgba(201, 168, 110, 0.1) 0%, rgba(45, 55, 72, 0.5) 100%);
-      border: 1px solid var(--border);
-      padding: 80px 60px;
-      text-align: center;
-      margin: 120px 0;
-    }
-
-    .cta h2 {
-      margin-bottom: 24px;
-    }
-
-    .cta p {
-      max-width: 700px;
+      color: var(--muted);
+      max-width: 600px;
       margin: 0 auto 40px;
-      font-size: 16px;
+      line-height: 1.8;
     }
 
-    /* ===== FOOTER ===== */
-    footer {
-      padding: 60px 0;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      background: var(--secondary);
+    /* ═══ AGENT ═══ */
+    .agent-section {
+      padding: 120px 60px;
+      background: var(--mid);
+      border-top: 1px solid rgba(201, 169, 110, 0.1);
     }
 
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      letter-spacing: 2px;
-      color: var(--accent);
-      margin-bottom: 12px;
-      text-transform: uppercase;
+    .agent-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
     }
 
-    footer p {
-      font-size: 13px;
-      color: var(--text-muted);
+    .agent-left {}
+
+    .agent-right {}
+
+    .agent-name {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--warm-white);
       margin-bottom: 6px;
     }
 
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .agent-title {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
     }
 
-    .fade-in {
-      animation: fadeInUp 0.8s ease-out forwards;
-      opacity: 0;
+    .agent-bio {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--muted);
+      margin-bottom: 40px;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      nav {
-        padding: 16px 30px;
-      }
+    .agent-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(201, 169, 110, 0.1);
+      border: 1px solid rgba(201, 169, 110, 0.1);
+    }
 
-      nav.scrolled {
-        padding: 12px 30px;
-      }
+    .agent-stat {
+      background: var(--dark);
+      padding: 24px 20px;
+      text-align: center;
+    }
 
-      .container {
-        padding: 0 30px;
-      }
+    .agent-stat-value {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
 
-      .nav-links {
-        gap: 20px;
-      }
+    .agent-stat-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
 
-      .hero h1 {
-        font-size: 42px;
-      }
+    .reviews {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
 
-      section {
-        padding: 60px 0;
-      }
+    .review {
+      padding: 28px 32px;
+      background: var(--panel);
+      border-left: 2px solid var(--gold);
+    }
 
-      h2 {
-        font-size: 32px;
-        margin-bottom: 30px;
-      }
+    .review p {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
 
-      .grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
+    .review-source {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
 
-      .features {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
+    .stars {
+      color: var(--gold);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
 
-      .cta {
-        padding: 50px 30px;
-        margin: 60px 0;
-      }
+    /* ═══ FINAL CTA ═══ */
+    .final-cta {
+      padding: 140px 60px;
+      text-align: center;
+      border-top: 1px solid rgba(201, 169, 110, 0.1);
+    }
 
-      table {
-        font-size: 12px;
-      }
+    .final-cta-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
 
-      table th,
-      table td {
-        padding: 12px 0;
-      }
+    .final-cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 7vw, 80px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--warm-white);
+      margin-bottom: 24px;
+    }
+
+    .final-cta h2 em { font-style: italic; color: var(--gold-light); }
+
+    .final-cta p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 16px 40px;
+      text-decoration: none;
+      transition: all 0.3s;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(232, 228, 222, 0.3);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      background: var(--black);
+      padding: 48px 60px;
+      border-top: 1px solid rgba(201, 169, 110, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 20px;
+      letter-spacing: 6px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .footer-center {
+      text-align: center;
+    }
+
+    .footer-center p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-right p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .footer-right a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 900px) {
+      nav { padding: 20px 30px; }
+      nav.solid { padding: 14px 30px; }
+      .nav-links { display: none; }
+      .section { padding: 80px 30px; }
+      .hero-content { padding: 0 30px 80px; }
+      .hero h1 { font-size: 52px; }
+      .specs { grid-template-columns: repeat(2, 1fr); }
+      .split { grid-template-columns: 1fr; }
+      .split-img { height: 50vw; }
+      .split-content { padding: 50px 40px; }
+      .stats-band { padding: 60px 30px; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+      .stat { border-right: none; padding: 0; }
+      .location-grid { grid-template-columns: repeat(2, 1fr); }
+      .agent-section { padding: 80px 30px; }
+      .agent-inner { grid-template-columns: 1fr; gap: 60px; }
+      .final-cta { padding: 80px 30px; }
+      footer { flex-direction: column; gap: 30px; text-align: center; padding: 40px 30px; }
+      .footer-right { text-align: center; }
     }
   </style>
 </head>
 <body>
-  <!-- NAVIGATION -->
-  <nav id="navbar">
-    <div class="nav-logo">NGU</div>
-    <ul class="nav-links">
-      <li><a href="#about">Property</a></li>
-      <li><a href="#market">Market</a></li>
-      <li><a href="#location">Location</a></li>
-    </ul>
-    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Inquire</button>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-brand">NGU</div>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#property">Residence</a></li>
+        <li><a href="#market">Market</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#agent">Agent</a></li>
+      </ul>
+      <a class="nav-enquire" href="#contact">Enquire</a>
+    </div>
   </nav>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-img" id="heroImg"></div>
     <div class="hero-content">
-      <p class="hero-label">Off-Market Opportunity</p>
-      <h1>63/181 Lae Drive</h1>
-      <p class="subtitle">Montego Residences</p>
-      <p class="location">Coombabah, Gold Coast · Queensland</p>
-      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Schedule Viewing</button>
+      <div class="hero-tag">Off-Market Opportunity</div>
+      <h1>A New Era<br><em>of Coastal</em><br>Living</h1>
+      <p class="hero-sub">Montego Residences · Coombabah · Gold Coast</p>
+      <a class="hero-cta" href="#property">Explore the Residence</a>
     </div>
-  </section>
-
-  <div class="container">
-    <!-- ABOUT PROPERTY -->
-    <section id="about">
-      <p class="section-label">Premium Living</p>
-      <h2>A Private Sanctuary</h2>
-      
-      <div class="grid">
-        <div class="card fade-in">
-          <div class="card-value">115 m²</div>
-          <div class="card-label">Living Space</div>
-          <div class="card-text">Contemporary layout with premium finishes, stone benchtops, European appliances, and full air-conditioning.</div>
-        </div>
-        <div class="card fade-in" style="animation-delay: 0.1s;">
-          <div class="card-value">Secured</div>
-          <div class="card-label">Gated Community</div>
-          <div class="card-text">24/7 security, assigned parking, and exclusive gated access throughout the Montego Residences complex.</div>
-        </div>
-        <div class="card fade-in" style="animation-delay: 0.2s;">
-          <div class="card-value">Resort</div>
-          <div class="card-label">Premium Amenities</div>
-          <div class="card-text">Two heated pools, spa facilities, alfresco BBQ, and landscaped grounds for community entertaining.</div>
-        </div>
-      </div>
-
-      <h3 style="margin-top: 60px;">Property Highlights</h3>
-      <div class="features">
-        <div class="feature">
-          <h4>Modern Finishes</h4>
-          <p>Contemporary kitchen with stone benchtops and quality European appliances throughout the space.</p>
-        </div>
-        <div class="feature">
-          <h4>Master Bedroom</h4>
-          <p>Ensuite with spa bath and premium fittings for ultimate relaxation and comfort.</p>
-        </div>
-        <div class="feature">
-          <h4>Climate Control</h4>
-          <p>Full air-conditioning system ensures year-round comfort in any weather.</p>
-        </div>
-        <div class="feature">
-          <h4>Smart Storage</h4>
-          <p>Built-in wardrobes and ample storage solutions throughout the apartment.</p>
-        </div>
-        <div class="feature">
-          <h4>Secure Parking</h4>
-          <p>Assigned parking spaces within the secure gated complex for peace of mind.</p>
-        </div>
-        <div class="feature">
-          <h4>Community Living</h4>
-          <p>Access to resort-style pools, spa, BBQ areas, and beautifully maintained grounds.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- MARKET ANALYSIS -->
-    <section id="market">
-      <p class="section-label">Market Insight</p>
-      <h2>Why Coombabah</h2>
-      <p>Coombabah has emerged as one of the Gold Coast's strongest residential markets. Driven by limited supply, strong interstate demand, and exceptional lifestyle appeal, the suburb is experiencing significant capital growth with stable rental yields.</p>
-
-      <div class="grid">
-        <div class="card">
-          <div class="card-value">15.79%</div>
-          <div class="card-label">Annual Unit Growth</div>
-          <div class="card-text">Strong capital appreciation over the past 12 months, significantly outpacing Brisbane and Gold Coast averages.</div>
-        </div>
-        <div class="card">
-          <div class="card-value">4.9%</div>
-          <div class="card-label">Gross Rental Yield</div>
-          <div class="card-text">Consistent rental returns attractive to investors seeking both growth and steady income.</div>
-        </div>
-        <div class="card">
-          <div class="card-value">16–17 days</div>
-          <div class="card-label">Average Market Time</div>
-          <div class="card-text">Quick sales indicating strong buyer demand and robust market momentum.</div>
-        </div>
-      </div>
-
-      <h3 style="margin-top: 60px;">Market Dynamics</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Market Factor</th>
-            <th>Coombabah Impact</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Limited Supply</strong></td>
-            <td>1.15 months inventory with below-average building approvals maintain upward price pressure</td>
-          </tr>
-          <tr>
-            <td><strong>Strong Demand</strong></td>
-            <td>Population growth, interstate migration from NSW/Victoria, lifestyle-focused buyers</td>
-          </tr>
-          <tr>
-            <td><strong>Tight Rentals</strong></td>
-            <td>0.85% vacancy rate, consistent 4.7–5.1% gross yields for units</td>
-          </tr>
-          <tr>
-            <td><strong>Gold Coast Growth</strong></td>
-            <td>2032 Olympics infrastructure investment, strong economic growth, international appeal</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- LOCATION -->
-    <section id="location">
-      <p class="section-label">Lifestyle</p>
-      <h2>Strategic Location</h2>
-      <p>Montego Residences offers the ideal balance of tranquility and accessibility. Close to premium shopping, schools, transport, and leisure, while maintaining a peaceful, low-profile lifestyle away from urban congestion.</p>
-
-      <div class="features">
-        <div class="feature">
-          <h4>5 Minutes</h4>
-          <p><strong>Harbour Town Shopping Centre</strong> — Premium restaurants, retail, and entertainment destinations.</p>
-        </div>
-        <div class="feature">
-          <h4>5 Minutes</h4>
-          <p><strong>Runaway Bay Shopping Centre</strong> — Everyday shopping, dining, and convenience services.</p>
-        </div>
-        <div class="feature">
-          <h4>10 Minutes</h4>
-          <p><strong>M1 Motorway</strong> — Direct access to greater Gold Coast and Brisbane.</p>
-        </div>
-        <div class="feature">
-          <h4>30 Minutes</h4>
-          <p><strong>Surfers Paradise Beach</strong> — World-renowned beach lifestyle and premium entertainment.</p>
-        </div>
-        <div class="feature">
-          <h4>45 Minutes</h4>
-          <p><strong>Gold Coast Airport</strong> — Domestic and international flight access.</p>
-        </div>
-        <div class="feature">
-          <h4>Immediate</h4>
-          <p><strong>Coombabah Lakelands Reserve</strong> — Nature walks, wildlife, and outdoor recreation.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- OFF-MARKET ADVANTAGES -->
-    <section>
-      <p class="section-label">Exclusive Access</p>
-      <h2>Off-Market Benefits</h2>
-      <p>Off-market opportunities provide exclusive advantages unavailable through public listings. Access this property before it reaches the broader market.</p>
-
-      <div class="features">
-        <div class="feature">
-          <h4>Exclusive Access</h4>
-          <p>Discover this opportunity before public listing. First-mover advantage in a competitive market.</p>
-        </div>
-        <div class="feature">
-          <h4>Less Competition</h4>
-          <p>Avoid competitive bidding wars and intense public pressure from multiple offers.</p>
-        </div>
-        <div class="feature">
-          <h4>Negotiation Power</h4>
-          <p>Better leverage and favorable terms without public market competition.</p>
-        </div>
-        <div class="feature">
-          <h4>Discretion & Privacy</h4>
-          <p>Confidential transactions perfect for serious, pre-qualified buyers.</p>
-        </div>
-        <div class="feature">
-          <h4>Faster Process</h4>
-          <p>Streamlined negotiation and transaction with motivated parties.</p>
-        </div>
-        <div class="feature">
-          <h4>Expert Guidance</h4>
-          <p>Direct support from an experienced agent through the entire purchase journey.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <div class="cta" id="contact">
-      <h2>Ready to Explore This Exclusive Opportunity?</h2>
-      <p>This is a private off-market listing available only to qualified buyers. Contact Cyril Texier for a confidential viewing and comprehensive property information.</p>
-      <a href="tel:0402293358" class="btn-primary">Call 0402 293 358</a>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
     </div>
+  </div>
 
-    <!-- ABOUT COOMBABAH -->
-    <section>
-      <p class="section-label">Community</p>
-      <h2>Living in Coombabah</h2>
+  <!-- INTRO SPECS -->
+  <div class="section" id="property">
+    <div class="section-inner">
+      <div class="section-tag">63/181 Lae Drive</div>
+      <h2 class="section-headline">The Pinnacle of<br><em>Secure Living</em></h2>
+      <p class="lead">An exclusive off-market apartment within Montego Residences — Coombabah's premier gated community. 115m² of considered design, premium finishes, and resort-style amenity, in one of the Gold Coast's fastest-growing suburbs.</p>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Lifestyle Appeal</h3>
-          <p>Coombabah combines natural beauty with modern convenience. Close to the Coombabah Lakelands Conservation Area with abundant recreational opportunities and strong community culture.</p>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec-value">115</div>
+          <div class="spec-label">m² Living Area</div>
         </div>
-        <div class="card">
-          <h3>Established Community</h3>
-          <p>Median age 51 with high rates of outright home ownership. A mature demographic of established families and retirees seeking peaceful, secure living.</p>
+        <div class="spec">
+          <div class="spec-value">2</div>
+          <div class="spec-label">Resort Pools</div>
         </div>
-        <div class="card">
-          <h3>Growth Trajectory</h3>
-          <p>Strong interstate migration from NSW and Victoria. Gold Coast projected to welcome 100,000+ new residents by 2026, driving both growth and demand.</p>
+        <div class="spec">
+          <div class="spec-value">24/7</div>
+          <div class="spec-label">Gated Security</div>
+        </div>
+        <div class="spec">
+          <div class="spec-value">Off</div>
+          <div class="spec-label">Market Listing</div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+
+  <!-- SPLIT: PROPERTY FEATURES -->
+  <div class="split">
+    <div class="split-img"></div>
+    <div class="split-content">
+      <div class="section-tag">Residence</div>
+      <h2 class="section-headline" style="font-size: clamp(32px, 4vw, 52px); margin-bottom: 40px;">Designed for<br><em>Discerning</em> Buyers</h2>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-num">01</div>
+          <div class="feature-body">
+            <h4>Modern Kitchen</h4>
+            <p>Stone benchtops with premium European appliances and considered storage throughout.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">02</div>
+          <div class="feature-body">
+            <h4>Master Suite</h4>
+            <p>Ensuite bathroom with spa bath and high-quality fittings for complete relaxation.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">03</div>
+          <div class="feature-body">
+            <h4>Climate Comfort</h4>
+            <p>Full air-conditioning throughout ensures year-round comfort in all conditions.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">04</div>
+          <div class="feature-body">
+            <h4>Secure Parking</h4>
+            <p>Assigned secure parking within the gated complex for complete peace of mind.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS BAND -->
+  <div class="stats-band" id="market">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-value">15.8%</div>
+        <div class="stat-label">Annual Unit Growth</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">4.9%</div>
+        <div class="stat-label">Gross Rental Yield</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">16</div>
+        <div class="stat-label">Days on Market (Avg)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">$783K</div>
+        <div class="stat-label">Median Unit Price</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPLIT: MARKET -->
+  <div class="split">
+    <div class="split-content dark">
+      <div class="section-tag">Market Intelligence</div>
+      <h2 class="section-headline" style="font-size: clamp(32px, 4vw, 52px); margin-bottom: 40px;">Why <em>Now</em> is the<br>Right Moment</h2>
+      <p style="font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 32px;">Coombabah is experiencing explosive capital growth, driven by severely constrained supply, surging interstate demand, and Gold Coast's structural momentum ahead of the 2032 Olympics. With just 16 days average time on market, hesitation has a cost.</p>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-num">↑</div>
+          <div class="feature-body">
+            <h4>Limited Inventory</h4>
+            <p>Only 1.15 months of supply. Far below sustainable market levels.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">↑</div>
+          <div class="feature-body">
+            <h4>Interstate Demand</h4>
+            <p>Significant buyer influx from NSW and Victoria seeking lifestyle and value.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">↑</div>
+          <div class="feature-body">
+            <h4>Olympics Tailwind</h4>
+            <p>Brisbane 2032 infrastructure investment driving long-term Gold Coast growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="split-img split-img-2"></div>
+  </div>
+
+  <!-- FULL BLEED: LIFESTYLE -->
+  <div class="full-bleed" id="location">
+    <div class="full-bleed-bg" id="fullBg"></div>
+    <div class="full-bleed-content">
+      <div class="section-tag">Location</div>
+      <h2>The <em>Gold Coast</em><br>at Your Doorstep</h2>
+      <p>Everything you need — within reach. Everything you want — minutes away.</p>
+      <a class="hero-cta" href="#contact">Book a Viewing</a>
+    </div>
+  </div>
+
+  <!-- LOCATION GRID -->
+  <div class="section">
+    <div class="section-inner">
+      <div class="location-grid">
+        <div class="loc-item">
+          <div class="loc-distance">5 min</div>
+          <div class="loc-name">Harbour Town</div>
+          <div class="loc-desc">Premium shopping, restaurants, entertainment</div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-distance">5 min</div>
+          <div class="loc-name">Runaway Bay Centre</div>
+          <div class="loc-desc">Everyday convenience and dining</div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-distance">10 min</div>
+          <div class="loc-name">M1 Motorway</div>
+          <div class="loc-desc">Direct link to Gold Coast and Brisbane</div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-distance">30 min</div>
+          <div class="loc-name">Surfers Paradise</div>
+          <div class="loc-desc">World-class beach and lifestyle precinct</div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-distance">45 min</div>
+          <div class="loc-name">Gold Coast Airport</div>
+          <div class="loc-desc">Domestic and international connections</div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-distance">Walking</div>
+          <div class="loc-name">Lakelands Reserve</div>
+          <div class="loc-desc">Nature trails, wildlife and open space</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPLIT: AMENITIES -->
+  <div class="split">
+    <div class="split-img split-img-3"></div>
+    <div class="split-content">
+      <div class="section-tag">Montego Residences</div>
+      <h2 class="section-headline" style="font-size: clamp(32px, 4vw, 52px); margin-bottom: 40px;">Your <em>Private</em><br>Resort</h2>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-num">01</div>
+          <div class="feature-body">
+            <h4>Twin Resort Pools</h4>
+            <p>Two resort-style heated pools with sun loungers in manicured surrounds.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">02</div>
+          <div class="feature-body">
+            <h4>Spa Facilities</h4>
+            <p>Dedicated spa for relaxation within the complex.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">03</div>
+          <div class="feature-body">
+            <h4>Alfresco BBQ</h4>
+            <p>Landscaped outdoor entertaining with BBQ facilities for residents.</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-num">04</div>
+          <div class="feature-body">
+            <h4>24/7 Gated Access</h4>
+            <p>Complete security and exclusivity within the Montego community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AGENT -->
+  <div class="agent-section" id="agent">
+    <div class="agent-inner">
+      <div class="agent-left">
+        <div class="section-tag">Your Agent</div>
+        <div class="agent-name">Cyril<br>Texier</div>
+        <div class="agent-title">NGU Real Estate · Gold Coast</div>
+        <p class="agent-bio">Specialist in luxury residential and off-market transactions across the Gold Coast and Brisbane. Bilingual French-English with an engineering and construction background — providing technical depth and precision at every stage of your purchase. 11-time award winner for Exceptional Client Engagement.</p>
+        <div class="agent-stats">
+          <div class="agent-stat">
+            <div class="agent-stat-value">4.8★</div>
+            <div class="agent-stat-label">REA Rating</div>
+          </div>
+          <div class="agent-stat">
+            <div class="agent-stat-value">$170M+</div>
+            <div class="agent-stat-label">Sales Volume</div>
+          </div>
+          <div class="agent-stat">
+            <div class="agent-stat-value">11×</div>
+            <div class="agent-stat-label">Award Winner</div>
+          </div>
+        </div>
+      </div>
+      <div class="agent-right">
+        <div class="section-tag">Client Reviews</div>
+        <div class="reviews">
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"One of the finest sales agents I have had the pleasure of working with. Outstanding professionalism, dedication, and commitment. Achieved a result well above expectations."</p>
+            <div class="review-source">Verified Seller · Surfers Paradise · Real Estate.com.au</div>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Professional, responsive, and easy to work with. Clear communication and deep market knowledge throughout the entire process."</p>
+            <div class="review-source">Verified Seller · Hope Island · Real Estate.com.au</div>
+          </div>
+          <div class="review">
+            <div class="stars">★★★★★</div>
+            <p>"Outstanding support throughout the purchase process. Steady communication and expert guidance made everything seamless."</p>
+            <div class="review-source">Verified Buyer · Surfers Paradise · Real Estate.com.au</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta" id="contact">
+    <div class="final-cta-inner">
+      <div class="section-tag" style="justify-content: center; margin-bottom: 24px;">
+        <span>Enquire</span>
+      </div>
+      <h2>Ready to <em>Discover</em><br>This Opportunity?</h2>
+      <p>This is a confidential off-market listing available exclusively to qualified buyers. Contact Cyril for a private viewing and full property details.</p>
+      <div class="cta-buttons">
+        <a class="btn btn-gold" href="tel:0402293358">Call 0402 293 358</a>
+        <a class="btn btn-outline" href="mailto:cyril.t@ngurealestate.com.au">Email Cyril</a>
+      </div>
+    </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <div class="footer-brand">NGU Real Estate</div>
-      <p><strong>Cyril Texier</strong> — Real Estate Specialist</p>
-      <p>Phone: 0402 293 358 | Email: cyril.t@ngurealestate.com.au</p>
-      <p style="margin-top: 20px; opacity: 0.7;">Agency ID: OYXDIM | Real Estate Services License</p>
-      <p style="font-size: 12px; margin-top: 16px; opacity: 0.5;">Off-market listing accurate as of April 12, 2026. Subject to availability and conditions.</p>
+    <div class="footer-brand">NGU</div>
+    <div class="footer-center">
+      <p>Agency ID: OYXDIM</p>
+      <p style="font-size: 11px; margin-top: 6px; opacity: 0.5;">Market data as of April 2026. Subject to availability.</p>
+    </div>
+    <div class="footer-right">
+      <p>Cyril Texier · NGU Real Estate</p>
+      <a href="tel:0402293358">0402 293 358</a>
     </div>
   </footer>
 
   <script>
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
+    // Navbar
+    const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      nav.classList.toggle('solid', window.scrollY > 80);
     });
 
-    // Fade-in animation on scroll
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -100px 0px'
-    };
+    // Hero parallax on load
+    window.addEventListener('load', () => {
+      document.getElementById('heroImg').style.animationPlayState = 'running';
+    });
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
-          entry.target.style.opacity = '1';
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Subtle scroll-based parallax for full bleed
+    const fullBg = document.getElementById('fullBg');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      if (fullBg) {
+        fullBg.style.transform = `translateY(${scrolled * 0.08}px)`;
+      }
+    });
   </script>
 </body>
 </html>
