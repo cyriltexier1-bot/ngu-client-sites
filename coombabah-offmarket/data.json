@@ -1,0 +1,155 @@
+{
+  "version": "1.0",
+  "type": "off-market",
+  "listingType": "buyer-focused",
+  "createdDate": "2026-04-12",
+  "dataSource": "Real Estate.com.au + market analytics + property database",
+  "property": {
+    "address": "63/181 Lae Drive, Coombabah QLD 4216",
+    "unit": "63",
+    "complex": "Montego Residences",
+    "area": 115,
+    "areaUnit": "m²",
+    "type": "Apartment",
+    "legal": "Lot 357, Plan SP186321",
+    "features": {
+      "bedrooms": "Modern layout",
+      "kitchen": "Stone benchtops, European appliances",
+      "bedrooms_detail": "Master with ensuite and spa bath",
+      "airconditioning": "Full air-conditioning",
+      "parking": "Secure assigned spaces",
+      "storage": "Built-in wardrobes, ample storage",
+      "amenities": "Complex pool (x2), spa, BBQ area"
+    }
+  },
+  "complex": {
+    "name": "Montego Residences",
+    "type": "Gated Community",
+    "security": "24/7 gated access",
+    "facilities": [
+      "Two resort-style swimming pools",
+      "Spa facilities",
+      "Alfresco BBQ entertaining area",
+      "Secure parking",
+      "Manicured grounds"
+    ],
+    "appeal": "Exclusive, secure, lifestyle-focused community"
+  },
+  "location": {
+    "suburb": "Coombabah",
+    "postcode": 4216,
+    "state": "QLD",
+    "region": "Gold Coast",
+    "proximities": {
+      "harbour_town": "5 min drive",
+      "runaway_bay": "5 min drive",
+      "motorway": "10 min drive",
+      "surfers_paradise": "30 min drive",
+      "airport": "45 min drive",
+      "lakelands_reserve": "Nearby walking trails"
+    }
+  },
+  "market": {
+    "medianUnitPrice": 776500,
+    "medianRange": [770000, 783000],
+    "annualGrowth": 15.23,
+    "growthRange": [14.83, 15.79],
+    "rentalYield": 4.9,
+    "yieldRange": [4.7, 5.11],
+    "vacancyRate": 0.85,
+    "averageDOM": 16.5,
+    "unitssoldsince": 53,
+    "inventory": "1.15 months",
+    "forecast2026": "4–6% growth expected",
+    "marketSentiment": "Strong demand, limited supply, buyer appetite remains high"
+  },
+  "marketDrivers": [
+    {
+      "factor": "Limited Supply",
+      "description": "1.15 months inventory, below-average building approvals maintain upward price pressure"
+    },
+    {
+      "factor": "Strong Demand",
+      "description": "Population growth, interstate migration from NSW/Victoria, lifestyle appeal"
+    },
+    {
+      "factor": "Tight Rental Market",
+      "description": "Low vacancy (0.85%), consistent 4.7–5.1% gross yields attract investors"
+    },
+    {
+      "factor": "Gold Coast Momentum",
+      "description": "2032 Olympics infrastructure, economic growth, international investment interest"
+    },
+    {
+      "factor": "Family Appeal",
+      "description": "Natural reserves, quiet lifestyle, proximity to schools and amenities"
+    }
+  ],
+  "buyerProfile": [
+    {
+      "segment": "Families",
+      "percentage": 35,
+      "description": "Seeking tranquil lifestyle, safe community, quality schools, and proximity to amenities"
+    },
+    {
+      "segment": "Retirees",
+      "percentage": 30,
+      "description": "Low-maintenance living, peaceful environment, strong ownership culture, relaxed pace"
+    },
+    {
+      "segment": "Investors",
+      "percentage": 20,
+      "description": "Capital growth focus (15%+ YoY), consistent yields (4.7–5.1%), 2026+ appreciation potential"
+    },
+    {
+      "segment": "Interstate/International",
+      "percentage": 15,
+      "description": "Relocators from NSW/Vic seeking premium lifestyle, build quality, and discretionary process"
+    }
+  ],
+  "demographics": {
+    "medianAge": 51,
+    "homeOwnership": "High outright ownership rate",
+    "populationGrowth": "Strong influx from southern states",
+    "communityProfile": "Mix of families and retirees, lifestyle-focused, nature-aware"
+  },
+  "offMarketAdvantages": [
+    {
+      "title": "Exclusivity",
+      "description": "Avoid public competition and intense bidding wars"
+    },
+    {
+      "title": "Speed",
+      "description": "Fast-tracked negotiation with motivated sellers"
+    },
+    {
+      "title": "Discretion",
+      "description": "Privacy for serious buyers who prefer quiet transactions"
+    },
+    {
+      "title": "Opportunity",
+      "description": "Access to properties before they reach open market"
+    },
+    {
+      "title": "Expert Guidance",
+      "description": "Direct support through entire purchase process"
+    },
+    {
+      "title": "Better Terms",
+      "description": "Negotiate favorable conditions without public pressure"
+    }
+  ],
+  "agent": {
+    "name": "Cyril Texier",
+    "title": "Real Estate Specialist",
+    "phone": "0402 293 358",
+    "email": "cyril.t@ngurealestate.com.au",
+    "specialty": "Off-market listings, international buyers, discretionary transactions",
+    "languages": "French, English"
+  },
+  "ngu": {
+    "agency": "NGU Real Estate",
+    "region": "Gold Coast",
+    "agencyId": "OYXDIM"
+  }
+}

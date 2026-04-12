@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>63/181 Lae Drive, Coombabah — Off-Market Opportunity</title>
+  <style>
+    :root {
+      --dark-bg: #0a0e27;
+      --dark-panel: #11152d;
+      --accent-gold: #d4af37;
+      --accent-teal: #0f9699;
+      --text-light: #f0f4f8;
+      --text-muted: #a0aac0;
+      --border-color: #1e2a47;
+      --success: #10b981;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: var(--dark-bg);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, #0a0e27 0%, #11152d 40%, #0f9699 100%);
+      padding: 100px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(15, 150, 153, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero .label {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.2);
+      color: var(--accent-gold);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .hero h1 {
+      font-size: 56px;
+      margin-bottom: 15px;
+      color: var(--text-light);
+      font-weight: 700;
+    }
+    .hero .subtitle {
+      font-size: 22px;
+      color: var(--accent-teal);
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+    .hero .location {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+    }
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 0 20px;
+      border-bottom: 2px solid var(--accent-teal);
+      margin-top: 40px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .header-brand h2 {
+      font-size: 26px;
+      color: var(--accent-teal);
+      font-weight: 700;
+    }
+    .header-brand p {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .header-contact {
+      text-align: right;
+    }
+    .header-contact p {
+      margin: 5px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .header-contact .phone {
+      color: var(--accent-teal);
+      font-weight: 700;
+      font-size: 16px;
+      display: block;
+      margin-top: 5px;
+    }
+    /* SECTIONS */
+    .section {
+      padding: 60px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .section:last-of-type {
+      border-bottom: none;
+    }
+    .section h2 {
+      font-size: 32px;
+      color: var(--accent-teal);
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    .section h3 {
+      font-size: 18px;
+      color: var(--accent-gold);
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    /* KPI GRID */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .kpi-card {
+      background: var(--dark-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .kpi-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-teal);
+      box-shadow: 0 10px 30px rgba(15, 150, 153, 0.1);
+    }
+    .kpi-card .value {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent-teal);
+      margin-bottom: 8px;
+    }
+    .kpi-card .label {
+      color: var(--text-muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    /* CONTENT BOX */
+    .content-box {
+      background: var(--dark-panel);
+      border-left: 5px solid var(--accent-teal);
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    /* FEATURE GRID */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .feature {
+      background: var(--dark-panel);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .feature:hover {
+      border-color: var(--accent-teal);
+      box-shadow: 0 5px 15px rgba(15, 150, 153, 0.1);
+    }
+    .feature .icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .feature h4 {
+      color: var(--accent-teal);
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .feature p {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    /* TABLES */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    table th {
+      background: var(--dark-panel);
+      border-bottom: 2px solid var(--accent-teal);
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--accent-teal);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    table td {
+      border-bottom: 1px solid var(--border-color);
+      padding: 15px;
+      font-size: 14px;
+    }
+    table tbody tr:hover {
+      background: var(--dark-panel);
+    }
+    /* BUYER PROFILE */
+    .buyer-profiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .profile-card {
+      background: var(--dark-panel);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    .profile-card:hover {
+      border-color: var(--accent-teal);
+      box-shadow: 0 5px 15px rgba(15, 150, 153, 0.1);
+    }
+    .profile-card .segment {
+      color: var(--accent-teal);
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .profile-card .percentage {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-bottom: 10px;
+    }
+    .profile-card .description {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    /* LOCATION HIGHLIGHTS */
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .location-item {
+      background: var(--dark-panel);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .location-item .distance {
+      color: var(--accent-teal);
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .location-item .name {
+      color: var(--text-light);
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+    .location-item .description {
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+    /* MARKET INSIGHTS */
+    .market-box {
+      background: linear-gradient(135deg, rgba(15, 150, 153, 0.1), rgba(212, 175, 55, 0.05));
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+    .market-box h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    /* CTA SECTION */
+    .cta-section {
+      background: linear-gradient(135deg, var(--accent-teal) 0%, #0d7a7d 100%);
+      padding: 60px 40px;
+      border-radius: 12px;
+      text-align: center;
+      margin: 60px 0;
+    }
+    .cta-section h2 {
+      color: var(--text-light);
+      font-size: 32px;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    .cta-section p {
+      color: rgba(240, 244, 248, 0.9);
+      font-size: 16px;
+      margin-bottom: 25px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-button {
+      display: inline-block;
+      background: var(--dark-bg);
+      color: var(--accent-teal);
+      padding: 15px 40px;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+      font-size: 16px;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+    }
+    /* FOOTER */
+    footer {
+      background: var(--dark-panel);
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 36px; }
+      .hero .subtitle { font-size: 18px; }
+      header { flex-direction: column; gap: 20px; text-align: left; }
+      .header-contact { text-align: left; }
+      .section h2 { font-size: 24px; }
+      .kpi-grid, .feature-grid, .buyer-profiles, .location-grid { grid-template-columns: 1fr; }
+      table { font-size: 12px; }
+      table th, table td { padding: 10px; }
+      .cta-section { padding: 40px 25px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-content">
+      <span class="label">Off-Market Opportunity</span>
+      <h1>63/181 Lae Drive</h1>
+      <p class="subtitle">Montego Residences, Coombabah</p>
+      <p class="location">Gold Coast, Queensland 4216</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <header>
+      <div class="header-brand">
+        <h2>NGU</h2>
+        <div>
+          <p>NGU Real Estate</p>
+          <p style="font-size: 12px; color: var(--accent-teal);">Gold Coast</p>
+        </div>
+      </div>
+      <div class="header-contact">
+        <p style="font-size: 12px;">AGENT</p>
+        <p style="font-weight: 700; color: var(--text-light); margin-top: 3px;">Cyril Texier</p>
+        <span class="phone">0402 293 358</span>
+      </div>
+    </header>
+
+    <!-- PROPERTY OVERVIEW -->
+    <section class="section">
+      <h2>About This Property</h2>
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="value">115 m²</div>
+          <div class="label">Living Area</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">Gated</div>
+          <div class="label">Secure Community</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">Modern</div>
+          <div class="label">Build Quality</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">$770K–$783K</div>
+          <div class="label">Market Range (Units)</div>
+        </div>
+      </div>
+
+      <div class="content-box">
+        <strong>63/181 Lae Drive</strong> is a premium apartment within Montego Residences, one of Coombabah's most sought-after gated communities. This off-market opportunity offers exclusive access to a property in a high-demand location before it reaches the public market.
+      </div>
+
+      <h3>Property Features</h3>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="icon">🏠</div>
+          <h4>Modern Finishes</h4>
+          <p>Contemporary kitchen with stone benchtops and European appliances</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🛏️</div>
+          <h4>Master Bedroom</h4>
+          <p>Ensuite with spa bath and premium fittings</p>
+        </div>
+        <div class="feature">
+          <div class="icon">❄️</div>
+          <h4>Air-Conditioning</h4>
+          <p>Full air-conditioning throughout for year-round comfort</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔒</div>
+          <h4>Security Parking</h4>
+          <p>Secure assigned parking spaces within gated complex</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🏊</div>
+          <h4>Resort Amenities</h4>
+          <p>Access to two pools, spa, and BBQ entertainment area</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🛄</div>
+          <h4>Built-In Storage</h4>
+          <p>Built-in wardrobes and ample storage throughout</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION ADVANTAGE -->
+    <section class="section">
+      <h2>Location & Convenience</h2>
+      <div class="content-box">
+        Coombabah is a lifestyle suburb offering the perfect balance of tranquility and accessibility. Montego Residences sits close to shopping, schools, transport, and the best of the Gold Coast, without the hustle of busier areas.
+      </div>
+
+      <h3>Key Distances</h3>
+      <div class="location-grid">
+        <div class="location-item">
+          <div class="distance">5 min</div>
+          <div class="name">Harbour Town Shopping Centre</div>
+          <div class="description">Restaurants, retail, and entertainment</div>
+        </div>
+        <div class="location-item">
+          <div class="distance">5 min</div>
+          <div class="name">Runaway Bay Shopping Centre</div>
+          <div class="description">Everyday shopping and dining</div>
+        </div>
+        <div class="location-item">
+          <div class="distance">10 min</div>
+          <div class="name">M1 Motorway</div>
+          <div class="description">Easy access to Gold Coast and Brisbane</div>
+        </div>
+        <div class="location-item">
+          <div class="distance">30 min</div>
+          <div class="name">Surfers Paradise Beach</div>
+          <div class="description">Premium beach lifestyle destination</div>
+        </div>
+        <div class="location-item">
+          <div class="distance">45 min</div>
+          <div class="name">Gold Coast Airport</div>
+          <div class="description">Direct access to domestic and international flights</div>
+        </div>
+        <div class="location-item">
+          <div class="distance">Nearby</div>
+          <div class="name">Coombabah Lakelands Reserve</div>
+          <div class="description">Nature reserve with walking trails and wildlife</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARKET ANALYSIS -->
+    <section class="section">
+      <h2>Why Coombabah? Market Analysis</h2>
+      <div class="market-box">
+        <h3 style="margin-top: 0;">Strong Growth & Stability</h3>
+        <p>Coombabah has experienced robust capital growth, with units appreciating 14.83%–15.79% annually. The suburb is forecasted for 4–6% growth in 2026, supported by strong demand, limited new supply, and Gold Coast's broader 100,000+ population influx.</p>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="value">$770K–$783K</div>
+          <div class="label">Unit Market Range</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">15.79%</div>
+          <div class="label">Annual Growth (Units)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">4.7–5.1%</div>
+          <div class="label">Gross Rental Yield</div>
+        </div>
+        <div class="kpi-card">
+          <div class="value">16–17 days</div>
+          <div class="label">Avg. Time on Market</div>
+        </div>
+      </div>
+
+      <h3>Key Market Drivers</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Factor</th>
+            <th>Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Limited Supply</strong></td>
+            <td>1.15 months inventory, below-average building approvals maintain upward pressure</td>
+          </tr>
+          <tr>
+            <td><strong>Strong Demand</strong></td>
+            <td>Population growth, interstate migration (NSW/Vic), lifestyle appeal</td>
+          </tr>
+          <tr>
+            <td><strong>Tight Rental Market</strong></td>
+            <td>0.85% vacancy rate for houses, 4.7–5.1% yields for units</td>
+          </tr>
+          <tr>
+            <td><strong>Gold Coast Momentum</strong></td>
+            <td>2032 Olympics infrastructure, economic growth, international appeal</td>
+          </tr>
+          <tr>
+            <td><strong>Family Appeal</strong></td>
+            <td>Natural reserves, quiet lifestyle, proximity to amenities and schools</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- BUYER PROFILE -->
+    <section class="section">
+      <h2>This Property Suits</h2>
+      <div class="content-box">
+        Off-market properties attract serious, pre-qualified buyers seeking exclusivity and quality. Coombabah's appeal spans families, retirees, investors, and interstate/international relocators.
+      </div>
+
+      <div class="buyer-profiles">
+        <div class="profile-card">
+          <div class="segment">Families</div>
+          <div class="percentage">35%</div>
+          <div class="description">Seeking tranquil lifestyle, safe community, quality schools, and proximity to amenities without city chaos.</div>
+        </div>
+        <div class="profile-card">
+          <div class="segment">Retirees</div>
+          <div class="percentage">30%</div>
+          <div class="description">Appreciating low-maintenance living, peaceful environment, strong home ownership demographics, and relaxed pace.</div>
+        </div>
+        <div class="profile-card">
+          <div class="segment">Investors</div>
+          <div class="percentage">20%</div>
+          <div class="description">Focused on capital growth (15%+ YoY) and consistent rental yields (4.7–5.1%), with appreciation potential 2026+.</div>
+        </div>
+        <div class="profile-card">
+          <div class="segment">Relocators</div>
+          <div class="percentage">15%</div>
+          <div class="description">Interstate/international buyers seeking premium lifestyle, build quality, and discretionary purchasing process.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFF-MARKET ADVANTAGE -->
+    <section class="section">
+      <h2>The Off-Market Advantage</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="icon">🤝</div>
+          <h4>Exclusivity</h4>
+          <p>Avoid public competition and intense bidding wars</p>
+        </div>
+        <div class="feature">
+          <div class="icon">⚡</div>
+          <h4>Speed</h4>
+          <p>Fast-tracked negotiation with motivated sellers</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🔐</div>
+          <h4>Discretion</h4>
+          <p>Privacy for serious buyers who prefer quiet transactions</p>
+        </div>
+        <div class="feature">
+          <div class="icon">💡</div>
+          <h4>Opportunity</h4>
+          <p>Access to properties before they reach the open market</p>
+        </div>
+        <div class="feature">
+          <div class="icon">📊</div>
+          <h4>Expert Guidance</h4>
+          <p>Direct support through entire purchase process</p>
+        </div>
+        <div class="feature">
+          <div class="icon">💰</div>
+          <h4>Better Terms</h4>
+          <p>Negotiate favorable conditions without public pressure</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <div class="cta-section">
+      <h2>Interested in This Opportunity?</h2>
+      <p>This is an exclusive off-market listing. Contact Cyril today to schedule a private viewing and learn more about what makes this property special.</p>
+      <a href="tel:0402293358" class="cta-button">Contact Cyril Directly</a>
+    </div>
+
+    <!-- ADDITIONAL INFO -->
+    <section class="section">
+      <h2>About the Property Location</h2>
+      <div class="content-box">
+        <strong>Montego Residences</strong> is a premier gated community designed for those seeking security, lifestyle, and community. The complex features world-class amenities including two resort-style swimming pools, a spa, and dedicated alfresco entertaining areas perfect for family gatherings and entertaining guests.
+      </div>
+
+      <h3>Coombabah Demographics</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Demographic</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Median Age</strong></td>
+            <td>51 years — mix of established families and retirees</td>
+          </tr>
+          <tr>
+            <td><strong>Home Ownership</strong></td>
+            <td>High rate of outright ownership, stable community</td>
+          </tr>
+          <tr>
+            <td><strong>Population Growth</strong></td>
+            <td>Strong influx from NSW/Vic seeking affordability and lifestyle</td>
+          </tr>
+          <tr>
+            <td><strong>Community Appeal</strong></td>
+            <td>Family-friendly, nature reserves, retail proximity, school access</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <footer>
+    <p><strong>NGU Real Estate | Gold Coast</strong></p>
+    <p>Cyril Texier | Phone: 0402 293 358 | cyril.t@ngurealestate.com.au</p>
+    <p>Agency ID: OYXDIM | Real Estate Services License</p>
+    <p style="margin-top: 15px; border-top: 1px solid var(--border-color); padding-top: 15px; color: var(--text-muted); font-size: 12px;">
+      This property listing is an off-market exclusive opportunity. Market data accurate as of April 12, 2026. Subject to availability.
+    </p>
+  </footer>
+</body>
+</html>
