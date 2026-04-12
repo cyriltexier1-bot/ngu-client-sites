@@ -637,6 +637,13 @@
 
     /* ─── PHONE ─── */
     @media (max-width: 480px) {
+      /* Override dark variables — lighten panels for phone readability */
+      :root {
+        --mid:   #1e1e1e;
+        --panel: #252525;
+        --lift:  #2e2e2e;
+        --dark:  #161616;
+      }
       /* Nav — compact, legible */
       nav { padding: 14px 20px; }
       nav.solid { padding: 12px 20px; background: rgba(14,14,14,0.98); }
@@ -698,12 +705,13 @@
       .property-specs { gap: 8px; margin-bottom: 40px; }
       .spec-pill { font-size: 10px; padding: 8px 14px; letter-spacing: 1px; }
 
-      /* Feature grid — single column */
-      .feat-row { grid-template-columns: 1fr; gap: 1px; }
-      .feat { padding: 30px 24px; }
-      .feat-num { font-size: 44px; margin-bottom: 12px; }
-      .feat h4 { font-size: 13px; margin-bottom: 10px; }
-      .feat p { font-size: 14px; line-height: 1.7; }
+      /* Feature grid — single column, visible */
+      .feat-row { grid-template-columns: 1fr; gap: 2px; background: #333; border: none; }
+      .feat { padding: 30px 24px; background: #1e1e1e; }
+      .feat:hover { background: #242424; }
+      .feat-num { font-size: 44px; margin-bottom: 12px; opacity: 0.35; }
+      .feat h4 { font-size: 13px; margin-bottom: 10px; color: #faf8f4; }
+      .feat p { font-size: 14px; line-height: 1.7; color: #b5ada5; }
 
       /* Splits — image first, full width, then content */
       .split { grid-template-columns: 1fr; direction: ltr !important; }
@@ -720,30 +728,30 @@
         display: block; position: relative; z-index: 1;
       }
       .split-img-overlay { z-index: 2; }
-      .split-body { padding: 48px 24px; order: 2; background: #1a1a1a; }
-      .split-body.dk { background: #212121; }
-      .sl-item { gap: 20px; padding: 22px 0; }
-      .sl-n { font-size: 30px; min-width: 34px; opacity: 0.5; }
-      .sl-body h4 { font-size: 13px; margin-bottom: 8px; }
-      .sl-body p { font-size: 14px; line-height: 1.7; }
+      .split-body { padding: 48px 24px; order: 2; background: #1d1d1d; }
+      .split-body.dk { background: #222; }
+      .sl-item { gap: 20px; padding: 22px 0; border-bottom-color: rgba(159,121,101,0.12); }
+      .sl-n { font-size: 30px; min-width: 34px; opacity: 0.4; color: #c4a090; }
+      .sl-body h4 { font-size: 13px; margin-bottom: 8px; color: #faf8f4; }
+      .sl-body p { font-size: 14px; line-height: 1.7; color: #b5ada5; }
 
       /* Stats band */
-      .stats-band { padding: 52px 24px; }
-      .stats-inner {
-        grid-template-columns: 1fr 1fr;
-        gap: 36px 16px;
-      }
+      .stats-band { padding: 52px 24px; background: #1c1c1c; }
+      .stats-inner { grid-template-columns: 1fr 1fr; gap: 36px 16px; }
       .stat-item { padding: 0; border-right: none; text-align: center; }
-      .stat-v { font-size: 46px; margin-bottom: 10px; letter-spacing: -2px; }
-      .stat-l { font-size: 10px; letter-spacing: 1.5px; }
-      .stat-sub { font-size: 12px; margin-top: 5px; }
+      .stat-v { font-size: 46px; margin-bottom: 10px; letter-spacing: -2px; color: #c4a090; }
+      .stat-l { font-size: 10px; letter-spacing: 1.5px; color: #787068; }
+      .stat-sub { font-size: 12px; margin-top: 5px; color: #b5ada5; }
 
-      /* Off-market grid */
-      .offmarket-grid { grid-template-columns: 1fr; gap: 1px; }
-      .om-card { padding: 36px 24px; }
-      .om-icon { font-size: 40px; margin-bottom: 16px; }
-      .om-card h4 { font-size: 13px; margin-bottom: 10px; }
-      .om-card p { font-size: 14px; line-height: 1.7; }
+      /* Off-market grid — force visible */
+      .off-market-section { background: #1a1a1a; }
+      .offmarket-grid { grid-template-columns: 1fr; gap: 2px; background: #333; }
+      .om-card { padding: 36px 24px; background: #1e1e1e; }
+      .om-card:hover { background: #242424; }
+      .om-card::after { display: none; }
+      .om-icon { font-size: 40px; margin-bottom: 16px; opacity: 0.3; }
+      .om-card h4 { font-size: 13px; margin-bottom: 10px; color: #faf8f4; }
+      .om-card p { font-size: 14px; line-height: 1.7; color: #b5ada5; }
 
       /* Full bleed — taller on phone so text breathes */
       .full-bleed { height: auto; min-height: 420px; padding: 80px 0; }
@@ -753,31 +761,32 @@
       .fb-content .btn-hero { width: auto; padding: 15px 36px; display: inline-block; }
 
       /* Location grid — single column */
-      .loc-grid { grid-template-columns: 1fr; gap: 1px; }
-      .loc-cell { padding: 28px 24px; }
-      .loc-dist { font-size: 36px; margin-bottom: 10px; }
-      .loc-name { font-size: 14px; margin-bottom: 4px; }
-      .loc-desc { font-size: 13px; }
+      .loc-grid { grid-template-columns: 1fr; gap: 2px; background: #333; border: none; }
+      .loc-cell { padding: 28px 24px; background: #1e1e1e; }
+      .loc-cell:hover { background: #242424; }
+      .loc-dist { font-size: 36px; margin-bottom: 10px; color: #c4a090; }
+      .loc-name { font-size: 14px; margin-bottom: 4px; color: #faf8f4; font-weight: 600; }
+      .loc-desc { font-size: 13px; color: #787068; }
 
       /* Agent section */
-      .agent-section { padding: 64px 24px; }
+      .agent-section { padding: 64px 24px; background: #181818; }
       .agent-grid { grid-template-columns: 1fr; gap: 52px; }
       .agent-photo { width: 100px; height: 100px; margin-bottom: 20px; }
       .agent-name { font-size: 52px; letter-spacing: -2px; margin-bottom: 10px; }
       .agent-title { font-size: 10px; letter-spacing: 2px; margin-bottom: 24px; }
       .agent-bio { font-size: 14px; line-height: 1.8; margin-bottom: 32px; }
-      .agent-nums { grid-template-columns: repeat(3, 1fr); }
-      .a-num { padding: 20px 10px; }
-      .a-num-val { font-size: 22px; }
-      .a-num-lbl { font-size: 9px; letter-spacing: 1px; }
+      .agent-nums { grid-template-columns: repeat(3, 1fr); gap: 2px; background: #333; border: none; }
+      .a-num { padding: 20px 10px; background: #222; }
+      .a-num-val { font-size: 22px; color: #c4a090; }
+      .a-num-lbl { font-size: 9px; letter-spacing: 1px; color: #787068; }
       .reviews { gap: 16px; }
-      .review { padding: 24px 20px; }
-      .review-text { font-size: 15px; line-height: 1.65; }
-      .review-stars { font-size: 12px; letter-spacing: 3px; margin-bottom: 10px; }
-      .review-attr { font-size: 10px; }
+      .review { padding: 24px 20px; background: #252525; border-left-color: #9f7965; }
+      .review-text { font-size: 15px; line-height: 1.65; color: #ede8e2; }
+      .review-stars { font-size: 12px; letter-spacing: 3px; margin-bottom: 10px; color: #c4a090; }
+      .review-attr { font-size: 10px; color: #787068; }
 
       /* CTA */
-      .cta-section { padding: 72px 24px; }
+      .cta-section { padding: 72px 24px; background: #111; }
       .cta-inner h2 { font-size: 40px; line-height: 1.0; margin-bottom: 20px; }
       .cta-inner p { font-size: 15px; line-height: 1.75; margin-bottom: 40px; }
       .cta-btns { flex-direction: column; gap: 12px; align-items: stretch; }
