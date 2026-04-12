@@ -10,18 +10,18 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --black:      #07090c;
-      --dark:       #0c1018;
-      --mid:        #131921;
-      --panel:      #1a2230;
-      --lift:       #202c3e;
-      --gold:       #c9a86e;
-      --gold-lt:    #e4ceaa;
-      --gold-dk:    #9b7e4f;
-      --white:      #faf8f4;
-      --text:       #e6e2db;
-      --sub:        #b0aa9f;
-      --muted:      #70706a;
+      --black:      #0e0e0e;
+      --dark:       #141414;
+      --mid:        #1a1a1a;
+      --panel:      #212121;
+      --lift:       #2a2a2a;
+      --gold:       #9F7965;
+      --gold-lt:    #c4a090;
+      --gold-dk:    #7a5c4a;
+      --white:      #f7f4f0;
+      --text:       #ede8e2;
+      --sub:        #b5ada5;
+      --muted:      #787068;
       --serif: 'Cormorant Garamond', Georgia, serif;
       --sans:  'Montserrat', sans-serif;
     }
@@ -40,22 +40,66 @@
 
     .agent-photo {
       width: 120px; height: 120px;
-      border-radius: 4px;
+      border-radius: 2px;
       object-fit: cover; object-position: top center;
-      border: 1px solid rgba(201,168,110,0.25);
+      border: 1px solid rgba(159,121,101,0.3);
       margin-bottom: 24px;
     }
 
     .nav-logo-img {
-      height: 38px; width: auto; object-fit: contain;
+      height: 34px; width: auto; object-fit: contain;
       filter: brightness(0) invert(1);
     }
 
     .footer-logo-img {
-      height: 34px; width: auto; object-fit: contain;
+      height: 30px; width: auto; object-fit: contain;
       filter: brightness(0) invert(1);
-      margin: 0 auto 16px;
     }
+
+    /* Dual brand lockup — nav */
+    .nav-brand-group {
+      display: flex; align-items: center; gap: 18px;
+    }
+    .nav-brand-divider {
+      width: 1px; height: 26px;
+      background: rgba(255,255,255,0.18);
+      flex-shrink: 0;
+    }
+    .nav-team-logo {
+      font-family: var(--sans);
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: rgba(237,232,226,0.55);
+      white-space: nowrap;
+    }
+
+    /* Dual brand lockup — footer */
+    .footer-brand-group {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-team-logo {
+      font-family: var(--sans);
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Typography refinements */
+    .hero h1 {
+      font-weight: 300;
+      text-shadow: 0 2px 40px rgba(0,0,0,0.4);
+    }
+    .s-title { letter-spacing: -1px; }
+    .intro-val { letter-spacing: -1px; }
+    .stat-v { letter-spacing: -2px; }
+    .agent-name { letter-spacing: -2px; }
+    .review-text { letter-spacing: 0.2px; }
+
+    /* Refined card borders — use NGU terracotta tone */
+    .feat:hover { background: #1f1f1f; }
+    .loc-cell:hover { background: #1a1a1a; }
+    .review:hover { background: #282828; }
 
     /* ─── UTILITY ─── */
     .gold-line {
@@ -519,7 +563,11 @@
 
 <!-- ═══ NAV ═══ -->
 <nav id="nav">
-  <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/7a832f0e73511fa28e678ead5a7514f1.png" alt="NGU Real Estate" class="nav-logo-img" style="height:40px;width:auto;object-fit:contain;">
+  <div class="nav-brand-group">
+    <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/7a832f0e73511fa28e678ead5a7514f1.png" alt="NGU Real Estate" class="nav-logo-img">
+    <div class="nav-brand-divider"></div>
+    <div class="nav-team-logo">Team Cyril Texier</div>
+  </div>
   <ul class="nav-links">
     <li><a href="#residence">Residence</a></li>
     <li><a href="#market">Market</a></li>
@@ -556,18 +604,18 @@
   </div>
   <div class="intro-divider"></div>
   <div class="intro-stat">
-    <div class="intro-val">$922K</div>
-    <div class="intro-lbl">Estimated Value</div>
+    <div class="intro-val">$900–$950</div>
+    <div class="intro-lbl">Weekly Rent Range</div>
   </div>
   <div class="intro-divider"></div>
   <div class="intro-stat">
     <div class="intro-val">5.0%</div>
-    <div class="intro-lbl">Rental Yield</div>
+    <div class="intro-lbl">Gross Rental Yield</div>
   </div>
   <div class="intro-divider"></div>
   <div class="intro-stat">
-    <div class="intro-val">$885</div>
-    <div class="intro-lbl">Est. Weekly Rent</div>
+    <div class="intro-val">14.8%</div>
+    <div class="intro-lbl">Annual Unit Growth</div>
   </div>
 </div>
 
@@ -889,7 +937,10 @@
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
-  <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/7a832f0e73511fa28e678ead5a7514f1.png" alt="NGU Real Estate" class="footer-logo-img" style="height:36px;width:auto;object-fit:contain;margin:0 auto 16px;">
+  <div class="footer-brand-group">
+    <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/7a832f0e73511fa28e678ead5a7514f1.png" alt="NGU Real Estate" class="footer-logo-img">
+    <div class="footer-team-logo">Team Cyril Texier</div>
+  </div>
   <div class="f-center">
     <p style="font-size:11px;margin-top:6px;opacity:0.4;">Market data accurate as of April 2026. Subject to change and availability.</p>
   </div>
