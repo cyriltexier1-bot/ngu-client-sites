@@ -369,17 +369,19 @@
       position: relative; overflow: hidden; min-height: 680px;
     }
     .split-img img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
       transform: scale(1.04);
       transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
     }
     .split:hover .split-img img { transform: scale(1); }
     .split-img-overlay {
       position: absolute; inset: 0;
-      background: rgba(7,9,12,0.2);
+      background: rgba(7,9,12,0.15);
       transition: background 0.5s;
     }
-    .split:hover .split-img-overlay { background: rgba(7,9,12,0.1); }
+    .split:hover .split-img-overlay { background: rgba(7,9,12,0.05); }
 
     .split-body {
       background: var(--mid);
@@ -704,14 +706,21 @@
 
       /* Splits — image first, full width, then content */
       .split { grid-template-columns: 1fr; direction: ltr !important; }
-      .split-img { min-height: 75vw; order: 1; }
+      .split-img {
+        min-height: 280px;
+        height: 72vw;
+        max-height: 380px;
+        order: 1;
+        display: block;
+      }
       .split-img img {
         width: 100%; height: 100%;
         object-fit: cover; object-position: center;
-        display: block;
+        display: block; position: relative; z-index: 1;
       }
-      .split-body { padding: 48px 24px; order: 2; }
-      .split-body.dk { background: var(--panel); }
+      .split-img-overlay { z-index: 2; }
+      .split-body { padding: 48px 24px; order: 2; background: #1a1a1a; }
+      .split-body.dk { background: #212121; }
       .sl-item { gap: 20px; padding: 22px 0; }
       .sl-n { font-size: 30px; min-width: 34px; opacity: 0.5; }
       .sl-body h4 { font-size: 13px; margin-bottom: 8px; }
