@@ -9,168 +9,141 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --gold: #9F7965; --gold-lt: #c4a090;
-      --black: #0e0e0e; --panel: #1e1e1e; --mid: #171717;
+      --black: #0e0e0e; --panel: #1c1c1c;
       --white: #f7f4f0; --text: #ede8e2; --sub: #b5ada5; --muted: #787068;
       --serif: 'Cormorant Garamond', Georgia, serif;
       --sans: 'Montserrat', sans-serif;
     }
-    html { font-size: 16px; }
-    body {
+
+    html, body {
+      height: 100%; width: 100%;
+      overflow: hidden;
       font-family: var(--sans);
       background: var(--black);
       color: var(--text);
-      min-height: 100vh;
-      padding: 80px 24px 80px;
       -webkit-font-smoothing: antialiased;
-      position: relative;
-      overflow-x: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
-    /* Background */
+    /* Full-page background */
     .bg {
       position: fixed; inset: 0; z-index: 0;
       background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Brisbane_CBD_seen_from_Kangaroo_Point%2C_2024%2C_01_%282%29.jpg/1920px-Brisbane_CBD_seen_from_Kangaroo_Point%2C_2024%2C_01_%282%29.jpg') center/cover no-repeat;
     }
     .bg-overlay {
       position: fixed; inset: 0; z-index: 1;
-      background: linear-gradient(to bottom, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.88) 60%, rgba(10,10,10,0.97) 100%);
+      background: linear-gradient(to bottom, rgba(8,8,8,0.93) 0%, rgba(8,8,8,0.85) 50%, rgba(8,8,8,0.96) 100%);
     }
 
-    /* Content */
-    .wrap {
-      position: relative; z-index: 2;
-      max-width: 700px; width: 100%;
+    /* Full-screen layout */
+    .page {
+      position: fixed; inset: 0; z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 40px 40px 36px;
+    }
+
+    /* TOP */
+    .top {
+      display: flex; flex-direction: column; align-items: center;
+      animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.1s both;
+    }
+    .logo { height: 32px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; margin-bottom: 8px; }
+    .logo-sub { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
+
+    /* MIDDLE */
+    .middle {
       text-align: center;
-      animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) both;
+      animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.2s both;
+      flex: 1;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0;
     }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Logo */
-    .logo {
-      height: 38px; width: auto;
-      filter: brightness(0) invert(1);
-      display: block; margin: 0 auto 20px;
-      opacity: 0.9;
-    }
-    .logo-team {
-      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 56px;
-    }
-
-    /* Eyebrow */
     .eyebrow {
-      display: flex; align-items: center; justify-content: center; gap: 16px;
-      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 32px;
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+      font-size: 9px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
     }
-    .eyebrow::before, .eyebrow::after {
-      content: ''; display: block; width: 32px; height: 1px; background: var(--gold);
-    }
+    .eyebrow::before, .eyebrow::after { content: ''; width: 28px; height: 1px; background: var(--gold); }
 
-    /* Heading */
     h1 {
       font-family: var(--serif);
-      font-size: clamp(56px, 10vw, 96px);
+      font-size: clamp(52px, 8vw, 90px);
       font-weight: 300; line-height: 0.92;
-      color: var(--white); margin-bottom: 20px;
-      letter-spacing: -2px;
+      color: var(--white); letter-spacing: -2px;
+      margin-bottom: 14px;
     }
     h1 em { font-style: italic; color: var(--gold-lt); }
 
     .subtitle {
-      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 56px;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 36px;
     }
 
-    /* Stats */
+    /* Stats row */
     .stats {
-      display: grid; grid-template-columns: repeat(4, 1fr);
+      display: flex; gap: 0;
       border: 1px solid rgba(159,121,101,0.2);
-      margin-bottom: 48px;
+      margin-bottom: 36px;
     }
     .stat {
-      padding: 24px 16px; text-align: center;
+      padding: 18px 28px; text-align: center;
       border-right: 1px solid rgba(159,121,101,0.15);
-      transition: background 0.3s;
     }
     .stat:last-child { border-right: none; }
-    .stat:hover { background: rgba(159,121,101,0.06); }
-    .stat-v {
-      font-family: var(--serif); font-size: 1.7rem;
-      font-weight: 300; color: var(--gold);
-      line-height: 1; margin-bottom: 6px;
-    }
+    .stat-v { font-family: var(--serif); font-size: 1.5rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 4px; }
     .stat-l { font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
 
-    /* Message card */
-    .card {
-      background: rgba(30,30,30,0.9);
-      border: 1px solid rgba(159,121,101,0.2);
-      border-left: 3px solid var(--gold);
-      padding: 40px 44px;
-      margin-bottom: 40px;
+    /* Message */
+    .msg {
+      max-width: 580px;
+      background: rgba(28,28,28,0.85);
+      border-left: 2px solid var(--gold);
+      padding: 24px 28px;
       text-align: left;
-      position: relative; overflow: hidden;
+      margin-bottom: 32px;
     }
-    .card::before {
-      content: '"'; position: absolute; top: -16px; left: 20px;
-      font-family: var(--serif); font-size: 100px; font-weight: 300;
-      color: var(--gold); opacity: 0.07; line-height: 1; pointer-events: none;
-    }
-    .card-label {
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 18px;
-    }
-    .card-text {
-      font-family: var(--serif); font-size: 1.2rem;
-      line-height: 1.85; color: var(--sub); font-style: italic;
-    }
-    .card-sig {
-      margin-top: 24px; font-size: 10px; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--muted);
-    }
+    .msg-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .msg-text { font-family: var(--serif); font-size: 1.05rem; line-height: 1.75; color: var(--sub); font-style: italic; }
+    .msg-sig { margin-top: 12px; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
 
     /* CTA */
     .cta {
       display: inline-block;
       background: var(--gold); color: var(--black);
-      padding: 18px 60px;
-      font-size: 11px; letter-spacing: 2.5px;
+      padding: 15px 52px;
+      font-size: 10px; letter-spacing: 2.5px;
       text-transform: uppercase; font-weight: 700;
       text-decoration: none;
       transition: all 0.35s;
-      margin-bottom: 48px;
     }
-    .cta:hover {
-      background: var(--gold-lt);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(159,121,101,0.3);
+    .cta:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(159,121,101,0.3); }
+
+    /* BOTTOM */
+    .bottom {
+      text-align: center;
+      animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) 0.3s both;
+    }
+    .contact { font-size: 11px; color: var(--muted); }
+    .contact a { color: var(--gold); text-decoration: none; }
+    .contact span { margin: 0 12px; opacity: 0.3; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Divider */
-    .divider { width: 40px; height: 1px; background: rgba(159,121,101,0.3); margin: 0 auto 32px; }
-
-    /* Footer note */
-    .note { font-size: 11px; color: var(--muted); line-height: 1.8; }
-    .note strong { color: var(--sub); }
-
-    /* Responsive */
+    /* Mobile */
     @media (max-width: 600px) {
-      body { padding: 48px 20px; }
-      h1 { font-size: 52px; }
-      .stats { grid-template-columns: 1fr 1fr; }
+      .page { padding: 28px 20px 24px; }
+      h1 { font-size: 44px; }
+      .stats { flex-wrap: wrap; }
+      .stat { flex: 1 1 50%; border-bottom: 1px solid rgba(159,121,101,0.15); }
       .stat:nth-child(2) { border-right: none; }
-      .stat:nth-child(3) { border-right: 1px solid rgba(159,121,101,0.15); border-top: 1px solid rgba(159,121,101,0.15); }
-      .stat:nth-child(4) { border-top: 1px solid rgba(159,121,101,0.15); border-right: none; }
-      .card { padding: 28px 28px; }
-      .card-text { font-size: 1.05rem; }
-      .cta { width: 100%; text-align: center; padding: 18px 0; }
+      .msg { padding: 18px 20px; }
+      .msg-text { font-size: 0.95rem; }
+      .cta { padding: 14px 36px; }
     }
   </style>
 </head>
@@ -178,57 +151,55 @@
   <div class="bg"></div>
   <div class="bg-overlay"></div>
 
-  <div class="wrap">
-    <!-- Logo -->
-    <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/7a832f0e73511fa28e678ead5a7514f1.png" alt="NGU Real Estate" class="logo">
-    <div class="logo-team">Team Cyril Texier · NGU Real Estate</div>
-
-    <!-- Eyebrow -->
-    <div class="eyebrow">Accès Privé · Brisbane 2026</div>
-
-    <!-- Names -->
-    <h1>Jean-Jacques<br>&amp; <em>Ilan</em></h1>
-    <p class="subtitle">Sélection Exclusive · Préparée par Cyril Texier</p>
-
-    <!-- Stats -->
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-v">10</div>
-        <div class="stat-l">Biens</div>
-      </div>
-      <div class="stat">
-        <div class="stat-v">$808K+</div>
-        <div class="stat-l">À partir de</div>
-      </div>
-      <div class="stat">
-        <div class="stat-v">~4.3%</div>
-        <div class="stat-l">Rendement</div>
-      </div>
-      <div class="stat">
-        <div class="stat-v">8–29%</div>
-        <div class="stat-l">Croissance / an</div>
-      </div>
+  <div class="page">
+    <!-- TOP: Logo -->
+    <div class="top">
+      <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/7a832f0e73511fa28e678ead5a7514f1.png" alt="NGU Real Estate" class="logo">
+      <div class="logo-sub">Team Cyril Texier · NGU Real Estate</div>
     </div>
 
-    <!-- Message -->
-    <div class="card">
-      <div class="card-label">Un Message de Cyril</div>
-      <p class="card-text">« J'ai présélectionné pour vous 10 biens à Brisbane parmi les meilleures opportunités actuelles du marché — en tenant compte de votre profil, de vos objectifs de rendement, et de votre horizon d'investissement. À vous de choisir celui qui vous parle. Je suis disponible pour vous guider vers la meilleure décision. »</p>
-      <div class="card-sig">Cyril Texier · Team Cyril · NGU Real Estate</div>
+    <!-- MIDDLE: Content -->
+    <div class="middle">
+      <div class="eyebrow">Accès Privé · Brisbane 2026</div>
+      <h1>Jean-Jacques<br>&amp; <em>Ilan</em></h1>
+      <p class="subtitle">Sélection Exclusive · Préparée par Cyril Texier</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-v">10</div>
+          <div class="stat-l">Biens</div>
+        </div>
+        <div class="stat">
+          <div class="stat-v">$808K+</div>
+          <div class="stat-l">À partir de</div>
+        </div>
+        <div class="stat">
+          <div class="stat-v">~4.3%</div>
+          <div class="stat-l">Rendement</div>
+        </div>
+        <div class="stat">
+          <div class="stat-v">8–29%</div>
+          <div class="stat-l">Croissance / an</div>
+        </div>
+      </div>
+
+      <div class="msg">
+        <div class="msg-label">Un Message de Cyril</div>
+        <p class="msg-text">« J'ai présélectionné pour vous 10 biens à Brisbane parmi les meilleures opportunités du marché — selon votre profil et vos objectifs. À vous de choisir celui qui vous correspond. »</p>
+        <div class="msg-sig">Cyril Texier · Team Cyril · NGU Real Estate</div>
+      </div>
+
+      <a href="index.html" class="cta">Voir les 10 Biens →</a>
     </div>
 
-    <!-- CTA -->
-    <a href="index.html" class="cta">Voir les 10 Biens →</a>
-
-    <!-- Divider + note -->
-    <div class="divider"></div>
-    <p class="note">
-      Cette sélection a été préparée exclusivement pour Jean-Jacques &amp; Ilan Hayoun.<br>
-      Données à jour avril 2026. Contactez Cyril pour toute question.<br><br>
-      <strong>0402 293 358 &nbsp;·&nbsp; teamcyril@ngurealestate.com.au</strong>
-    </p>
+    <!-- BOTTOM: Contact -->
+    <div class="bottom">
+      <p class="contact">
+        <a href="tel:0402293358">0402 293 358</a>
+        <span>·</span>
+        <a href="mailto:teamcyril@ngurealestate.com.au">teamcyril@ngurealestate.com.au</a>
+      </p>
+    </div>
   </div>
 </body>
 </html>
-
-<!-- cache-bust: 1776245590 -->
