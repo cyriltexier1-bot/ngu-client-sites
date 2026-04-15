@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brisbane Investment Portfolio | Private Access</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --black: #0e0e0e; --dark: #141414; --mid: #1a1a1a; --panel: #212121;
+      --gold: #9F7965; --gold-lt: #c4a090; --white: #f7f4f0; --text: #ede8e2;
+      --sub: #b5ada5; --muted: #787068;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Montserrat', sans-serif;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: var(--sans);
+      background: var(--black);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .welcome-bg {
+      position: fixed; inset: 0;
+      background: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&h=900&fit=crop') center/cover no-repeat;
+      opacity: 0.08;
+      z-index: 0;
+    }
+    .welcome-wrap {
+      position: relative; z-index: 1;
+      max-width: 640px; width: 100%;
+      text-align: center;
+    }
+    .ngu-logo {
+      height: 36px; width: auto;
+      filter: brightness(0) invert(1);
+      margin: 0 auto 48px;
+      display: block;
+      opacity: 0.85;
+    }
+    .eyebrow {
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+      display: flex; align-items: center; justify-content: center; gap: 14px;
+    }
+    .eyebrow::before, .eyebrow::after { content: ''; width: 28px; height: 1px; background: var(--gold); }
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 8vw, 80px);
+      font-weight: 300; line-height: 0.95;
+      color: var(--white); margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+    h1 em { font-style: italic; color: var(--gold-lt); }
+    .subtitle {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 56px;
+    }
+    .message-card {
+      background: var(--panel);
+      border: 1px solid rgba(159,121,101,0.2);
+      border-left: 3px solid var(--gold);
+      padding: 44px 48px;
+      margin-bottom: 48px;
+      text-align: left;
+    }
+    .message-label {
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .message-text {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      line-height: 1.85;
+      color: var(--sub);
+      font-style: italic;
+    }
+    .message-sig {
+      margin-top: 28px;
+      font-size: 11px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      padding: 18px 52px;
+      font-size: 11px; letter-spacing: 2.5px;
+      text-transform: uppercase; font-weight: 700;
+      text-decoration: none;
+      transition: all 0.35s;
+      border: none; cursor: pointer;
+    }
+    .cta-btn:hover {
+      background: var(--gold-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(159,121,101,0.3);
+    }
+    .footer-note {
+      margin-top: 48px;
+      font-size: 11px; color: var(--muted);
+      letter-spacing: 0.5px; line-height: 1.7;
+    }
+    .divider {
+      width: 48px; height: 1px;
+      background: rgba(159,121,101,0.3);
+      margin: 40px auto;
+    }
+    .stats-row {
+      display: flex; justify-content: center; gap: 48px;
+      margin-bottom: 56px; flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-v {
+      font-family: var(--serif);
+      font-size: 2.2rem; font-weight: 300;
+      color: var(--gold); line-height: 1; margin-bottom: 6px;
+    }
+    .stat-l {
+      font-size: 10px; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-bg"></div>
+  <div class="welcome-wrap">
+    <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/7a832f0e73511fa28e678ead5a7514f1.png" alt="NGU Real Estate" class="ngu-logo">
+
+    <div class="eyebrow">Private Access · Brisbane</div>
+    <h1>Jean-Jacques<br>&amp; <em>Ilan</em> Hayoun</h1>
+    <p class="subtitle">Brisbane Investment Portfolio · Prepared by Team Cyril Texier</p>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-v">10</div>
+        <div class="stat-l">Properties</div>
+      </div>
+      <div class="stat">
+        <div class="stat-v">4.0–5.1%</div>
+        <div class="stat-l">Rental Yield</div>
+      </div>
+      <div class="stat">
+        <div class="stat-v">8–35%</div>
+        <div class="stat-l">Annual Growth</div>
+      </div>
+    </div>
+
+    <div class="message-card">
+      <div class="message-label">A Note from Cyril</div>
+      <p class="message-text">"I've personally selected these 10 properties across Brisbane's strongest growth corridors — each one analysed for yield, capital growth, and long-term investment merit. This portfolio is prepared exclusively for you. I look forward to walking you through each opportunity."</p>
+      <div class="message-sig">Cyril Texier · Team Cyril · NGU Real Estate</div>
+    </div>
+
+    <a href="index.html" class="cta-btn">View Your Portfolio →</a>
+
+    <div class="divider"></div>
+
+    <p class="footer-note">
+      This portfolio has been prepared exclusively for Jean-Jacques &amp; Ilan Hayoun.<br>
+      All data current as of April 2026. For questions, contact Cyril directly.<br><br>
+      <strong style="color: var(--sub);">0402 293 358 &nbsp;·&nbsp; teamcyril@ngurealestate.com.au</strong>
+    </p>
+  </div>
+</body>
+</html>
