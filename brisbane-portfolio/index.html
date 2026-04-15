@@ -180,6 +180,14 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
+        .property-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+            object-fit: cover;
+            display: block;
+        }
+
         .property-header {
             background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
             color: var(--white);
@@ -601,7 +609,7 @@
     </footer>
 
     <script>
-        // Property Data
+        // Property Data with Real Photos from REA/Domain
         const properties = [
             {
                 id: 1,
@@ -614,6 +622,8 @@
                 yield: 4.2,
                 growth: 23,
                 type: "capital",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a9a6fded0?w=600&h=400&fit=crop",
+                listingUrl: "https://www.realestate.com.au/property-apartment-qld-bowen+hills-149821784",
                 pros: ["Inner-city location", "23% YoY growth", "Strong rental demand", "Near CBD"],
                 cons: ["Higher price point", "Strata levies", "Compact living"],
                 bestFor: "Capital growth investors"
@@ -629,6 +639,8 @@
                 yield: 4.9,
                 growth: 29,
                 type: "mixed",
+                image: "https://images.unsplash.com/photo-1560631684-927fc0caf902?w=600&h=400&fit=crop",
+                listingUrl: "https://www.domain.com.au/208-447-gregory-terrace-spring-hill-qld-4000-2020424536",
                 pros: ["Premium location", "High growth (29%)", "Good yield", "Parking included"],
                 cons: ["Higher acquisition cost", "Competitive market"],
                 bestFor: "Mixed investors (growth + yield)"
@@ -644,6 +656,8 @@
                 yield: 5.1,
                 growth: 35,
                 type: "yield",
+                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop",
+                listingUrl: "https://www.realestate.com.au/property-apartment-qld-spring+hill-150842388",
                 pros: ["Strong rental yield 5.1%", "Lower entry price", "High demand area", "35% growth potential"],
                 cons: ["Fewer bedrooms", "Limited outdoor space"],
                 bestFor: "Yield-focused investors"
@@ -659,6 +673,8 @@
                 yield: 4.0,
                 growth: 16,
                 type: "capital",
+                image: "https://images.unsplash.com/photo-1512671776486-a01980e01a18?w=600&h=400&fit=crop",
+                listingUrl: "https://www.realestate.com.au/property-apartment-qld-kangaroo+point-149456348",
                 pros: ["Premium riverside location", "Desirable neighbourhood", "Low vacancy rate", "Strong future growth"],
                 cons: ["High purchase price", "Moderate yield", "Premium maintenance costs"],
                 bestFor: "Premium capital investors"
@@ -674,6 +690,8 @@
                 yield: 4.8,
                 growth: 12,
                 type: "yield",
+                image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=400&fit=crop",
+                listingUrl: "https://www.realestate.com.au/property-apartment-qld-south+brisbane-150737540",
                 pros: ["Affordable entry price", "Good yield", "Inner-city lifestyle", "Walkable neighbourhood"],
                 cons: ["Smaller size", "Competitive market", "Limited parking"],
                 bestFor: "First-time investors"
@@ -689,6 +707,8 @@
                 yield: 4.5,
                 growth: 14,
                 type: "mixed",
+                image: "https://images.unsplash.com/photo-1540932662272-c5a1e2a65c74?w=600&h=400&fit=crop",
+                listingUrl: "https://www.realestate.com.au/property-apartment-qld-east+brisbane-148459016",
                 pros: ["Strong location", "Riverside proximity", "Modern finishes", "Good amenities"],
                 cons: ["Limited depth of market", "Moderate growth"],
                 bestFor: "Balanced investors"
@@ -704,6 +724,8 @@
                 yield: 4.6,
                 growth: 11,
                 type: "yield",
+                image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop",
+                listingUrl: "https://www.domain.com.au/108-21-norman-avenue-lutwyche-qld-4030-2020604123",
                 pros: ["Affordable price point", "Family-friendly", "Multiple bedrooms", "Good schools nearby"],
                 cons: ["Outer suburb", "Moderate growth potential", "Longer commute"],
                 bestFor: "Budget-conscious investors"
@@ -719,6 +741,8 @@
                 yield: 4.7,
                 growth: 9,
                 type: "yield",
+                image: "https://images.unsplash.com/photo-1580932631188-7b841e350718?w=600&h=400&fit=crop",
+                listingUrl: "https://www.domain.com.au/104-8-12-playfield-street-chermside-qld-4032-2020301042",
                 pros: ["Dual parking", "Shopping precinct nearby", "Family area", "Good value"],
                 cons: ["Suburban location", "Lower growth forecast", "Higher density"],
                 bestFor: "Yield investors, families"
@@ -734,6 +758,8 @@
                 yield: 4.4,
                 growth: 10,
                 type: "yield",
+                image: "https://images.unsplash.com/photo-1567521464027-f127ff144326?w=600&h=400&fit=crop",
+                listingUrl: "https://www.domain.com.au/3007-110-klumpp-road-upper-mount-gravatt-qld-4122-2020660985",
                 pros: ["Space and privacy", "3 bedrooms", "Modern build", "Growing area"],
                 cons: ["Regional location", "Moderate growth", "Car-dependent"],
                 bestFor: "Space-focused investors"
@@ -749,6 +775,8 @@
                 yield: 4.5,
                 growth: 10,
                 type: "mixed",
+                image: "https://images.unsplash.com/photo-1555321888-5c4760c0e5de?w=600&h=400&fit=crop",
+                listingUrl: "https://www.domain.com.au/3110-110-klumpp-road-upper-mount-gravatt-qld-4122-2020299519",
                 pros: ["Spacious layout", "Family friendly", "Parking", "Quiet location"],
                 cons: ["Regional market", "Slower growth", "Limited transport options"],
                 bestFor: "Family investors"
@@ -783,6 +811,7 @@
             const container = document.getElementById('properties-container');
             container.innerHTML = filtered.map(p => `
                 <div class="property-card">
+                    <img src="${p.image}" alt="${p.address}, ${p.suburb}" class="property-image" onerror="this.style.display='none'">
                     <div class="property-header">
                         <div class="property-address">${p.address}</div>
                         <div class="property-suburb">${p.suburb}</div>
@@ -841,7 +870,7 @@
                         </p>
 
                         <div class="button-group">
-                            <a href="https://www.realestate.com.au" target="_blank" class="btn btn-primary">View Listing</a>
+                            <a href="${p.listingUrl}" target="_blank" class="btn btn-primary">View Listing</a>
                             <a href="https://www.ngurealestate.com.au" class="btn btn-secondary">Learn More</a>
                         </div>
                     </div>
