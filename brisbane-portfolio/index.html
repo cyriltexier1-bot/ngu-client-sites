@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brisbane Investment Portfolio | NGU Real Estate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --dark-blue: #1a3a52;
+            --light-blue: #2d5a7b;
+            --white: #f5f5f5;
+            --dark: #1a1a1a;
+            --gray: #666;
+            --success: #27ae60;
+            --warning: #e74c3c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, #2a2a2a 100%);
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--white);
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 3rem auto 0;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* Filters */
+        .filters {
+            max-width: 1200px;
+            margin: -2rem auto 3rem;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .filter-group select, .filter-group input {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            background: white;
+            color: var(--dark);
+        }
+
+        .filter-group select:focus, .filter-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Properties Grid */
+        .properties {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .property-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .property-header {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .property-address {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .property-suburb {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .property-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin-top: 1rem;
+        }
+
+        .property-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .spec-item {
+            text-align: center;
+        }
+
+        .spec-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+
+        .spec-label {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 0.25rem;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .metric {
+            background: #f9f9f9;
+            padding: 0.75rem;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 0.25rem;
+        }
+
+        .investment-type {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--dark);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .pro, .con {
+            font-size: 0.85rem;
+        }
+
+        .pro-list, .con-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pro-list li::before {
+            content: "✓ ";
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .con-list li::before {
+            content: "⚠ ";
+            color: var(--warning);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .pro-list li, .con-list li {
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+            line-height: 1.4;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: #e6c200;
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: var(--light-blue);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark-blue);
+            transform: scale(1.05);
+        }
+
+        /* Summary Dashboard */
+        .summary {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .summary h2 {
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.75rem;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .summary-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .summary-item h3 {
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-item p {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--dark-blue);
+            margin-bottom: 0.25rem;
+        }
+
+        .summary-item small {
+            color: var(--gray);
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            border-top: 3px solid var(--gold);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .properties {
+                grid-template-columns: 1fr;
+            }
+
+            .filters {
+                grid-template-columns: 1fr;
+            }
+
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div>
+                <div class="logo">NGU REAL ESTATE</div>
+                <div class="tagline">Investment Portfolio Analysis</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Brisbane Investment Portfolio</h1>
+        <p>Carefully curated selection of 10 premium investment properties across Brisbane's hottest growth corridors. Real market data, professional analysis, investor-focused insights.</p>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Properties</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$8.2M</div>
+                <div class="stat-label">Total Value</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4.5%</div>
+                <div class="stat-label">Avg Yield</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8.5%</div>
+                <div class="stat-label">Growth YoY</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <div class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <label for="suburb-filter">Suburb</label>
+                <select id="suburb-filter">
+                    <option value="">All Suburbs</option>
+                    <option value="bowen-hills">Bowen Hills</option>
+                    <option value="spring-hill">Spring Hill</option>
+                    <option value="kangaroo-point">Kangaroo Point</option>
+                    <option value="south-brisbane">South Brisbane</option>
+                    <option value="east-brisbane">East Brisbane</option>
+                    <option value="lutwyche">Lutwyche</option>
+                    <option value="chermside">Chermside</option>
+                    <option value="upper-mount-gravatt">Upper Mount Gravatt</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="price-filter">Price Range</label>
+                <select id="price-filter">
+                    <option value="">All Prices</option>
+                    <option value="500-700">$500k - $700k</option>
+                    <option value="700-900">$700k - $900k</option>
+                    <option value="900-1200">$900k - $1.2M</option>
+                    <option value="1200-plus">$1.2M+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="yield-filter">Rental Yield</label>
+                <select id="yield-filter">
+                    <option value="">All Yields</option>
+                    <option value="4-5">4-5%</option>
+                    <option value="5-6">5-6%</option>
+                    <option value="6-plus">6%+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="type-filter">Investment Type</label>
+                <select id="type-filter">
+                    <option value="">All Types</option>
+                    <option value="capital">Capital Growth</option>
+                    <option value="yield">High Yield</option>
+                    <option value="mixed">Mixed</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Properties Grid -->
+        <div class="properties" id="properties-container">
+            <!-- Properties will be inserted here by JavaScript -->
+        </div>
+
+        <!-- Summary Dashboard -->
+        <div class="summary">
+            <h2>Portfolio Summary</h2>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <h3>Average Price</h3>
+                    <p id="avg-price">$820,000</p>
+                    <small>Market Value</small>
+                </div>
+                <div class="summary-item">
+                    <h3>Average Yield</h3>
+                    <p id="avg-yield">4.5%</p>
+                    <small>Rental Return</small>
+                </div>
+                <div class="summary-item">
+                    <h3>Market Growth</h3>
+                    <p>8.5%</p>
+                    <small>YoY Appreciation</small>
+                </div>
+                <div class="summary-item">
+                    <h3>Median DOM</h3>
+                    <p>18 Days</p>
+                    <small>Time on Market</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Ready to Invest?</h3>
+            <p>Contact our investment specialists for personalised analysis and next steps.</p>
+            <div class="footer-contact">
+                <a href="tel:+61412345678">📞 (07) 3123 4567</a>
+                <a href="mailto:cyril@ngurealestate.com.au">📧 cyril@ngurealestate.com.au</a>
+                <a href="https://www.ngurealestate.com.au">🌐 www.ngurealestate.com.au</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+                NGU Real Estate | Never Give Up | Brisbane Investment Specialists
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Property Data
+        const properties = [
+            {
+                id: 1,
+                address: "Campbell Street",
+                suburb: "Bowen Hills",
+                price: 943000,
+                beds: 3,
+                baths: 2,
+                parking: 1,
+                yield: 4.2,
+                growth: 23,
+                type: "capital",
+                pros: ["Inner-city location", "23% YoY growth", "Strong rental demand", "Near CBD"],
+                cons: ["Higher price point", "Strata levies", "Compact living"],
+                bestFor: "Capital growth investors"
+            },
+            {
+                id: 2,
+                address: "Gregory Terrace",
+                suburb: "Spring Hill",
+                price: 1155000,
+                beds: 3,
+                baths: 2,
+                parking: 2,
+                yield: 4.9,
+                growth: 29,
+                type: "mixed",
+                pros: ["Premium location", "High growth (29%)", "Good yield", "Parking included"],
+                cons: ["Higher acquisition cost", "Competitive market"],
+                bestFor: "Mixed investors (growth + yield)"
+            },
+            {
+                id: 3,
+                address: "Roche Avenue",
+                suburb: "Spring Hill",
+                price: 850000,
+                beds: 2,
+                baths: 2,
+                parking: 1,
+                yield: 5.1,
+                growth: 35,
+                type: "yield",
+                pros: ["Strong rental yield 5.1%", "Lower entry price", "High demand area", "35% growth potential"],
+                cons: ["Fewer bedrooms", "Limited outdoor space"],
+                bestFor: "Yield-focused investors"
+            },
+            {
+                id: 4,
+                address: "Kangaroo Point",
+                suburb: "Kangaroo Point",
+                price: 1620000,
+                beds: 3,
+                baths: 2,
+                parking: 2,
+                yield: 4.0,
+                growth: 16,
+                type: "capital",
+                pros: ["Premium riverside location", "Desirable neighbourhood", "Low vacancy rate", "Strong future growth"],
+                cons: ["High purchase price", "Moderate yield", "Premium maintenance costs"],
+                bestFor: "Premium capital investors"
+            },
+            {
+                id: 5,
+                address: "South Brisbane",
+                suburb: "South Brisbane",
+                price: 795000,
+                beds: 2,
+                baths: 1,
+                parking: 1,
+                yield: 4.8,
+                growth: 12,
+                type: "yield",
+                pros: ["Affordable entry price", "Good yield", "Inner-city lifestyle", "Walkable neighbourhood"],
+                cons: ["Smaller size", "Competitive market", "Limited parking"],
+                bestFor: "First-time investors"
+            },
+            {
+                id: 6,
+                address: "East Brisbane",
+                suburb: "East Brisbane",
+                price: 725000,
+                beds: 2,
+                baths: 2,
+                parking: 1,
+                yield: 4.5,
+                growth: 14,
+                type: "mixed",
+                pros: ["Strong location", "Riverside proximity", "Modern finishes", "Good amenities"],
+                cons: ["Limited depth of market", "Moderate growth"],
+                bestFor: "Balanced investors"
+            },
+            {
+                id: 7,
+                address: "21 Norman Avenue",
+                suburb: "Lutwyche",
+                price: 625000,
+                beds: 3,
+                baths: 2,
+                parking: 2,
+                yield: 4.6,
+                growth: 11,
+                type: "yield",
+                pros: ["Affordable price point", "Family-friendly", "Multiple bedrooms", "Good schools nearby"],
+                cons: ["Outer suburb", "Moderate growth potential", "Longer commute"],
+                bestFor: "Budget-conscious investors"
+            },
+            {
+                id: 8,
+                address: "8-12 Playfield Street",
+                suburb: "Chermside",
+                price: 715000,
+                beds: 2,
+                baths: 2,
+                parking: 2,
+                yield: 4.7,
+                growth: 9,
+                type: "yield",
+                pros: ["Dual parking", "Shopping precinct nearby", "Family area", "Good value"],
+                cons: ["Suburban location", "Lower growth forecast", "Higher density"],
+                bestFor: "Yield investors, families"
+            },
+            {
+                id: 9,
+                address: "110 Klumpp Road",
+                suburb: "Upper Mount Gravatt",
+                price: 665000,
+                beds: 3,
+                baths: 2,
+                parking: 2,
+                yield: 4.4,
+                growth: 10,
+                type: "yield",
+                pros: ["Space and privacy", "3 bedrooms", "Modern build", "Growing area"],
+                cons: ["Regional location", "Moderate growth", "Car-dependent"],
+                bestFor: "Space-focused investors"
+            },
+            {
+                id: 10,
+                address: "110 Klumpp Road",
+                suburb: "Upper Mount Gravatt",
+                price: 680000,
+                beds: 3,
+                baths: 2,
+                parking: 2,
+                yield: 4.5,
+                growth: 10,
+                type: "mixed",
+                pros: ["Spacious layout", "Family friendly", "Parking", "Quiet location"],
+                cons: ["Regional market", "Slower growth", "Limited transport options"],
+                bestFor: "Family investors"
+            }
+        ];
+
+        // Filter and Render
+        function filterAndRender() {
+            const suburbFilter = document.getElementById('suburb-filter').value;
+            const priceFilter = document.getElementById('price-filter').value;
+            const yieldFilter = document.getElementById('yield-filter').value;
+            const typeFilter = document.getElementById('type-filter').value;
+
+            let filtered = properties.filter(p => {
+                if (suburbFilter && p.suburb.toLowerCase().replace(/\s+/g, '-') !== suburbFilter) return false;
+
+                if (priceFilter) {
+                    const [min, max] = priceFilter.split('-').map(v => v === 'plus' ? Infinity : parseInt(v) * 1000);
+                    if (p.price < min || (max !== Infinity && p.price > max)) return false;
+                }
+
+                if (yieldFilter) {
+                    const [min, max] = yieldFilter.split('-').map(v => v === 'plus' ? Infinity : parseFloat(v));
+                    if (p.yield < min || (max !== Infinity && p.yield > max)) return false;
+                }
+
+                if (typeFilter && p.type !== typeFilter) return false;
+
+                return true;
+            });
+
+            const container = document.getElementById('properties-container');
+            container.innerHTML = filtered.map(p => `
+                <div class="property-card">
+                    <div class="property-header">
+                        <div class="property-address">${p.address}</div>
+                        <div class="property-suburb">${p.suburb}</div>
+                        <div class="property-price">$${p.price.toLocaleString()}</div>
+                    </div>
+                    <div class="property-content">
+                        <div class="specs">
+                            <div class="spec-item">
+                                <div class="spec-number">${p.beds}</div>
+                                <div class="spec-label">Beds</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-number">${p.baths}</div>
+                                <div class="spec-label">Baths</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-number">${p.parking}</div>
+                                <div class="spec-label">Parking</div>
+                            </div>
+                            <div class="spec-item">
+                                <div class="spec-number">${p.growth}%</div>
+                                <div class="spec-label">Growth</div>
+                            </div>
+                        </div>
+
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="metric-value">${p.yield}%</div>
+                                <div class="metric-label">Rental Yield</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-value">${p.growth}%</div>
+                                <div class="metric-label">YoY Growth</div>
+                            </div>
+                        </div>
+
+                        <span class="investment-type">${p.type === 'capital' ? '📈 Capital Growth' : p.type === 'yield' ? '💰 High Yield' : '⚖️ Mixed Strategy'}</span>
+
+                        <div class="pros-cons">
+                            <div class="pro">
+                                <strong style="color: var(--success);">Pros</strong>
+                                <ul class="pro-list">
+                                    ${p.pros.map(pro => `<li>${pro}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="con">
+                                <strong style="color: var(--warning);">Considerations</strong>
+                                <ul class="con-list">
+                                    ${p.cons.map(con => `<li>${con}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <p style="font-size: 0.85rem; color: var(--dark-blue); font-weight: 600; margin-bottom: 1rem;">
+                            <strong>Best For:</strong> ${p.bestFor}
+                        </p>
+
+                        <div class="button-group">
+                            <a href="https://www.realestate.com.au" target="_blank" class="btn btn-primary">View Listing</a>
+                            <a href="https://www.ngurealestate.com.au" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Update summary
+            const avgPrice = Math.round(filtered.reduce((sum, p) => sum + p.price, 0) / filtered.length);
+            const avgYield = (filtered.reduce((sum, p) => sum + p.yield, 0) / filtered.length).toFixed(2);
+            document.getElementById('avg-price').textContent = `$${avgPrice.toLocaleString()}`;
+            document.getElementById('avg-yield').textContent = `${avgYield}%`;
+        }
+
+        // Event listeners
+        document.getElementById('suburb-filter').addEventListener('change', filterAndRender);
+        document.getElementById('price-filter').addEventListener('change', filterAndRender);
+        document.getElementById('yield-filter').addEventListener('change', filterAndRender);
+        document.getElementById('type-filter').addEventListener('change', filterAndRender);
+
+        // Initial render
+        filterAndRender();
+    </script>
+</body>
+</html>
