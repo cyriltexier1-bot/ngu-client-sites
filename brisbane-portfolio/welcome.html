@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brisbane Investment Portfolio | Private Access</title>
+  <title>Portefeuille Brisbane | Accès Privé — Jean-Jacques & Ilan Hayoun</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,120 +11,41 @@
       --black: #0e0e0e; --dark: #141414; --mid: #1a1a1a; --panel: #212121;
       --gold: #9F7965; --gold-lt: #c4a090; --white: #f7f4f0; --text: #ede8e2;
       --sub: #b5ada5; --muted: #787068;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans: 'Montserrat', sans-serif;
+      --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Montserrat', sans-serif;
     }
     html, body { height: 100%; }
-    body {
-      font-family: var(--sans);
-      background: var(--black);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 40px 20px;
-      -webkit-font-smoothing: antialiased;
-    }
-    .welcome-bg {
-      position: fixed; inset: 0;
+    body { font-family: var(--sans); background: var(--black); color: var(--text); display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px 20px; -webkit-font-smoothing: antialiased; }
+    .welcome-bg { position: fixed; inset: 0;
       background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Brisbane_CBD_seen_from_Kangaroo_Point%2C_2024%2C_01_%282%29.jpg/1920px-Brisbane_CBD_seen_from_Kangaroo_Point%2C_2024%2C_01_%282%29.jpg') center/cover no-repeat;
-      opacity: 0.08;
-      z-index: 0;
-    }
-    .welcome-wrap {
-      position: relative; z-index: 1;
-      max-width: 640px; width: 100%;
-      text-align: center;
-    }
-    .ngu-logo {
-      height: 36px; width: auto;
-      filter: brightness(0) invert(1);
-      margin: 0 auto 48px;
-      display: block;
-      opacity: 0.85;
-    }
-    .eyebrow {
-      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 24px;
-      display: flex; align-items: center; justify-content: center; gap: 14px;
-    }
+      opacity: 0.07; z-index: 0; }
+    .welcome-wrap { position: relative; z-index: 1; max-width: 680px; width: 100%; text-align: center; animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) both; }
+    @keyframes fadeUp { from { opacity:0; transform: translateY(40px); } to { opacity:1; transform: translateY(0); } }
+    .ngu-logo { height: 36px; width: auto; filter: brightness(0) invert(1); margin: 0 auto 52px; display: block; opacity: 0.85; }
+    .eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; justify-content: center; gap: 14px; }
     .eyebrow::before, .eyebrow::after { content: ''; width: 28px; height: 1px; background: var(--gold); }
-    h1 {
-      font-family: var(--serif);
-      font-size: clamp(48px, 8vw, 80px);
-      font-weight: 300; line-height: 0.95;
-      color: var(--white); margin-bottom: 12px;
-      letter-spacing: -1px;
-    }
+    h1 { font-family: var(--serif); font-size: clamp(52px, 9vw, 88px); font-weight: 300; line-height: 0.93; color: var(--white); margin-bottom: 16px; letter-spacing: -2px; }
     h1 em { font-style: italic; color: var(--gold-lt); }
-    .subtitle {
-      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 56px;
-    }
-    .message-card {
-      background: var(--panel);
-      border: 1px solid rgba(159,121,101,0.2);
-      border-left: 3px solid var(--gold);
-      padding: 44px 48px;
-      margin-bottom: 48px;
-      text-align: left;
-    }
-    .message-label {
-      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 20px;
-    }
-    .message-text {
-      font-family: var(--serif);
-      font-size: 1.25rem;
-      line-height: 1.85;
-      color: var(--sub);
-      font-style: italic;
-    }
-    .message-sig {
-      margin-top: 28px;
-      font-size: 11px; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--muted);
-    }
-    .cta-btn {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--black);
-      padding: 18px 52px;
-      font-size: 11px; letter-spacing: 2.5px;
-      text-transform: uppercase; font-weight: 700;
-      text-decoration: none;
-      transition: all 0.35s;
-      border: none; cursor: pointer;
-    }
-    .cta-btn:hover {
-      background: var(--gold-lt);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(159,121,101,0.3);
-    }
-    .footer-note {
-      margin-top: 48px;
-      font-size: 11px; color: var(--muted);
-      letter-spacing: 0.5px; line-height: 1.7;
-    }
-    .divider {
-      width: 48px; height: 1px;
-      background: rgba(159,121,101,0.3);
-      margin: 40px auto;
-    }
-    .stats-row {
-      display: flex; justify-content: center; gap: 48px;
-      margin-bottom: 56px; flex-wrap: wrap;
-    }
-    .stat { text-align: center; }
-    .stat-v {
-      font-family: var(--serif);
-      font-size: 2.2rem; font-weight: 300;
-      color: var(--gold); line-height: 1; margin-bottom: 6px;
-    }
-    .stat-l {
-      font-size: 10px; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--muted);
+    .subtitle { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 60px; }
+    .stats-row { display: flex; justify-content: center; gap: 0; margin-bottom: 56px; border: 1px solid rgba(159,121,101,0.2); }
+    .stat { text-align: center; padding: 28px 32px; flex: 1; border-right: 1px solid rgba(159,121,101,0.15); }
+    .stat:last-child { border-right: none; }
+    .stat:hover { background: rgba(159,121,101,0.05); }
+    .stat-v { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+    .stat-l { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+    .message-card { background: var(--panel); border: 1px solid rgba(159,121,101,0.2); border-left: 3px solid var(--gold); padding: 44px 48px; margin-bottom: 48px; text-align: left; position: relative; overflow: hidden; }
+    .message-card::before { content: '"'; position: absolute; top: -20px; left: 24px; font-family: var(--serif); font-size: 120px; font-weight: 300; color: var(--gold); opacity: 0.06; line-height: 1; pointer-events: none; }
+    .message-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .message-text { font-family: var(--serif); font-size: 1.35rem; line-height: 1.8; color: var(--sub); font-style: italic; }
+    .message-sig { margin-top: 28px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+    .cta-btn { display: inline-block; background: var(--gold); color: var(--black); padding: 18px 64px; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: all 0.35s; }
+    .cta-btn:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(159,121,101,0.3); }
+    .divider { width: 48px; height: 1px; background: rgba(159,121,101,0.3); margin: 48px auto; }
+    .footer-note { font-size: 11px; color: var(--muted); letter-spacing: 0.3px; line-height: 1.8; }
+    @media (max-width: 480px) {
+      h1 { font-size: 48px; }
+      .stats-row { flex-direction: column; } .stat { border-right: none; border-bottom: 1px solid rgba(159,121,101,0.15); }
+      .message-card { padding: 32px 28px; } .message-text { font-size: 1.15rem; }
+      .cta-btn { width: 100%; text-align: center; padding: 18px 0; }
     }
   </style>
 </head>
@@ -132,40 +53,43 @@
   <div class="welcome-bg"></div>
   <div class="welcome-wrap">
     <img src="https://s3.ap-southeast-2.amazonaws.com/app-spoke-sites-au/246/7a832f0e73511fa28e678ead5a7514f1.png" alt="NGU Real Estate" class="ngu-logo">
-
-    <div class="eyebrow">Private Access · Brisbane</div>
-    <h1>Jean-Jacques<br>&amp; <em>Ilan</em> Hayoun</h1>
-    <p class="subtitle">Brisbane Investment Portfolio · Prepared by Team Cyril Texier</p>
+    <div class="eyebrow">Accès Privé · Brisbane 2026</div>
+    <h1>Jean-Jacques<br>&amp; <em>Ilan</em></h1>
+    <p class="subtitle">Portefeuille d'Investissement · Préparé par Cyril Texier</p>
 
     <div class="stats-row">
       <div class="stat">
         <div class="stat-v">10</div>
-        <div class="stat-l">Properties</div>
+        <div class="stat-l">Biens</div>
       </div>
       <div class="stat">
-        <div class="stat-v">4.0–5.1%</div>
-        <div class="stat-l">Rental Yield</div>
+        <div class="stat-v">$808K+</div>
+        <div class="stat-l">À partir de</div>
       </div>
       <div class="stat">
-        <div class="stat-v">8–35%</div>
-        <div class="stat-l">Annual Growth</div>
+        <div class="stat-v">~4.3 %</div>
+        <div class="stat-l">Rendement moy.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-v">8–29 %</div>
+        <div class="stat-l">Croissance / an</div>
       </div>
     </div>
 
     <div class="message-card">
-      <div class="message-label">A Note from Cyril</div>
-      <p class="message-text">"I've personally selected these 10 properties across Brisbane's strongest growth corridors — each one analysed for yield, capital growth, and long-term investment merit. This portfolio is prepared exclusively for you. I look forward to walking you through each opportunity."</p>
+      <div class="message-label">Un Message de Cyril</div>
+      <p class="message-text">« J'ai sélectionné personnellement ces 10 biens pour vous — parmi les corridors de croissance les plus solides de Brisbane. Chaque propriété a été analysée pour son rendement locatif, sa croissance en capital, et sa pertinence pour votre profil d'investisseur. Ce dossier est préparé exclusivement pour vous. Je suis disponible pour en discuter dès que vous êtes prêts. »</p>
       <div class="message-sig">Cyril Texier · Team Cyril · NGU Real Estate</div>
     </div>
 
-    <a href="index.html" class="cta-btn">View Your Portfolio →</a>
+    <a href="index.html" class="cta-btn">Accéder au Portefeuille →</a>
 
     <div class="divider"></div>
 
     <p class="footer-note">
-      This portfolio has been prepared exclusively for Jean-Jacques &amp; Ilan Hayoun.<br>
-      All data current as of April 2026. For questions, contact Cyril directly.<br><br>
-      <strong style="color: var(--sub);">0402 293 358 &nbsp;·&nbsp; teamcyril@ngurealestate.com.au</strong>
+      Ce portefeuille a été préparé exclusivement pour Jean-Jacques &amp; Ilan Hayoun.<br>
+      Données à jour avril 2026. Pour toute question, contactez Cyril directement.<br><br>
+      <strong style="color:var(--sub);">0402 293 358 &nbsp;·&nbsp; teamcyril@ngurealestate.com.au</strong>
     </p>
   </div>
 </body>

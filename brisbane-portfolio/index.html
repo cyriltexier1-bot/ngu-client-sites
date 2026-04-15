@@ -1,61 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
-  <title>Brisbane Investment Portfolio | NGU Real Estate — Team Cyril Texier</title>
+  <title>Portefeuille d'Investissement Brisbane | NGU Real Estate — Team Cyril Texier</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --black:   #0e0e0e;
-      --dark:    #141414;
-      --mid:     #1a1a1a;
-      --panel:   #212121;
-      --lift:    #2a2a2a;
-      --gold:    #9F7965;
-      --gold-lt: #c4a090;
-      --gold-dk: #7a5c4a;
-      --white:   #f7f4f0;
-      --text:    #ede8e2;
-      --sub:     #b5ada5;
-      --muted:   #787068;
-      --serif:   'Cormorant Garamond', Georgia, serif;
-      --sans:    'Montserrat', sans-serif;
+      --black:   #0e0e0e; --dark:    #141414; --mid:     #1a1a1a;
+      --panel:   #212121; --lift:    #2a2a2a;
+      --gold:    #9F7965; --gold-lt: #c4a090; --gold-dk: #7a5c4a;
+      --white:   #f7f4f0; --text:    #ede8e2; --sub:     #b5ada5; --muted:   #787068;
+      --green:   #4a9e6e; --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Montserrat', sans-serif;
     }
     html { scroll-behavior: smooth; font-size: 16px; }
     body { font-family: var(--sans); background: var(--black); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
 
-    .agent-photo { width: 120px; height: 120px; border-radius: 2px; object-fit: cover; object-position: top center; border: 1px solid rgba(159,121,101,0.3); margin-bottom: 24px; }
-    .nav-logo-img { height: 34px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
-    .footer-logo-img { height: 30px; width: auto; object-fit: contain; filter: brightness(0) invert(1); }
+    .nav-logo-img { height: 34px; width: auto; filter: brightness(0) invert(1); }
     .nav-brand-group { display: flex; align-items: center; gap: 18px; }
-    .nav-brand-divider { width: 1px; height: 26px; background: rgba(255,255,255,0.18); flex-shrink: 0; }
-    .nav-team-logo { font-family: var(--sans); font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(237,232,226,1); white-space: nowrap; }
-    .footer-brand-group { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 16px; }
-    .footer-team-logo { font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
-
-    .hero h1 { font-weight: 300; text-shadow: 0 2px 40px rgba(0,0,0,0.4); }
-    .s-title { letter-spacing: -1px; }
-    .intro-val { letter-spacing: -1px; }
-    .stat-v { letter-spacing: -2px; }
-    .agent-name { letter-spacing: -2px; }
-    .review-text { letter-spacing: 0.2px; }
-    .feat:hover { background: #1f1f1f; }
-    .loc-cell:hover { background: #1a1a1a; }
-    .review:hover { background: #282828; }
-
-    .exclusive-band { background: rgba(159,121,101,0.08); border-top: 1px solid rgba(159,121,101,0.2); border-bottom: 1px solid rgba(159,121,101,0.2); padding: 22px 64px; }
-    .exclusive-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 24px; justify-content: center; text-align: center; }
-    .exclusive-icon { color: var(--gold); font-size: 10px; opacity: 0.6; flex-shrink: 0; }
-    .exclusive-inner p { font-size: 12px; letter-spacing: 0.5px; line-height: 1.7; color: var(--sub); font-style: italic; }
-
-    .property-specs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
-    .spec-pill { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(159,121,101,0.3); padding: 8px 18px; transition: all 0.3s; }
-    .spec-pill:hover { background: rgba(159,121,101,0.1); border-color: var(--gold); }
+    .nav-brand-divider { width: 1px; height: 26px; background: rgba(255,255,255,0.18); }
+    .nav-team-logo { font-family: var(--sans); font-size: 14px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--text); }
 
     .gold-line { display: inline-flex; align-items: center; gap: 14px; font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; font-weight: 500; color: var(--gold); }
     .gold-line::before { content: ''; display: block; width: 36px; height: 1px; background: var(--gold); }
@@ -66,36 +34,42 @@
     .nav-links a { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; color: rgba(230,226,219,0.55); transition: color 0.3s; }
     .nav-links a:hover { color: var(--gold); }
     .nav-btn { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--gold); border: 1px solid rgba(201,168,110,0.45); padding: 11px 28px; background: transparent; cursor: pointer; transition: all 0.35s; }
-    .nav-btn:hover { background: var(--gold); color: var(--black); border-color: var(--gold); }
+    .nav-btn:hover { background: var(--gold); color: var(--black); }
 
+    /* HERO */
     .hero { height: 100vh; min-height: 700px; position: relative; overflow: hidden; display: flex; align-items: flex-end; }
-    .hero-bg { position: absolute; inset: 0; will-change: transform; background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Brisbane_CBD_seen_from_Kangaroo_Point%2C_2024%2C_01_%282%29.jpg/1920px-Brisbane_CBD_seen_from_Kangaroo_Point%2C_2024%2C_01_%282%29.jpg') center/cover no-repeat; transform: scale(1.08); animation: heroZoom 14s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
+    .hero-bg { position: absolute; inset: 0; will-change: transform;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Brisbane_CBD_seen_from_Kangaroo_Point%2C_2024%2C_01_%282%29.jpg/1920px-Brisbane_CBD_seen_from_Kangaroo_Point%2C_2024%2C_01_%282%29.jpg') center/cover no-repeat;
+      transform: scale(1.08); animation: heroZoom 14s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
     @keyframes heroZoom { to { transform: scale(1); } }
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(7,9,12,0.88) 0%, rgba(7,9,12,0.4) 55%, rgba(7,9,12,0.15) 100%), linear-gradient(to top, rgba(7,9,12,1) 0%, rgba(7,9,12,0.3) 35%, transparent 65%); }
     .hero-content { position: relative; z-index: 2; padding: 0 64px 110px; animation: heroUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.2s both; }
     @keyframes heroUp { from { opacity: 0; transform: translateY(48px); } to { opacity: 1; transform: translateY(0); } }
-    .hero-eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; font-weight: 500; color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 18px; animation: heroUp 1s cubic-bezier(0.16,1,0.3,1) 0.4s both; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; font-weight: 500; color: var(--gold); margin-bottom: 28px; display: flex; align-items: center; gap: 18px; }
     .hero-eyebrow::before { content: ''; width: 48px; height: 1px; background: var(--gold); }
-    .hero h1 { font-family: var(--serif); font-size: clamp(62px, 10vw, 120px); font-weight: 300; line-height: 0.92; letter-spacing: -2px; color: var(--white); margin-bottom: 30px; animation: heroUp 1.1s cubic-bezier(0.16,1,0.3,1) 0.3s both; }
+    .hero h1 { font-family: var(--serif); font-size: clamp(62px, 10vw, 120px); font-weight: 300; line-height: 0.92; letter-spacing: -2px; color: var(--white); margin-bottom: 30px; }
     .hero h1 em { font-style: italic; color: var(--gold-lt); }
-    .hero-location { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--sub); margin-bottom: 52px; animation: heroUp 1s cubic-bezier(0.16,1,0.3,1) 0.5s both; }
-    .hero-actions { display: flex; gap: 20px; align-items: center; animation: heroUp 1s cubic-bezier(0.16,1,0.3,1) 0.6s both; }
-    .btn-hero { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; padding: 16px 40px; background: var(--gold); color: var(--black); transition: all 0.35s; cursor: pointer; border: none; }
+    .hero-location { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: var(--sub); margin-bottom: 52px; }
+    .hero-actions { display: flex; gap: 20px; align-items: center; }
+    .btn-hero { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; padding: 16px 40px; background: var(--gold); color: var(--black); transition: all 0.35s; cursor: pointer; border: none; display: inline-block; }
     .btn-hero:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,110,0.3); }
-    .btn-ghost { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; padding: 16px 40px; background: transparent; color: var(--text); border: 1px solid rgba(230,226,219,0.25); transition: all 0.35s; cursor: pointer; }
+    .btn-ghost { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; padding: 16px 40px; background: transparent; color: var(--text); border: 1px solid rgba(230,226,219,0.25); transition: all 0.35s; cursor: pointer; display: inline-block; }
     .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
     .hero-scroll-hint { position: absolute; bottom: 36px; right: 64px; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 12px; }
     .scroll-text { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); writing-mode: vertical-rl; }
     .scroll-bar { width: 1px; height: 70px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2.2s ease-in-out infinite; }
     @keyframes scrollPulse { 0%,100% { opacity: 0; transform: scaleY(0); transform-origin: top; } 40%,60% { opacity: 1; transform: scaleY(1); transform-origin: top; } }
 
+    /* INTRO BAND */
     .intro-band { display: grid; grid-template-columns: 1fr 1px 1fr 1px 1fr 1px 1fr; background: var(--mid); border-top: 1px solid rgba(201,168,110,0.08); border-bottom: 1px solid rgba(201,168,110,0.08); }
     .intro-divider { background: rgba(201,168,110,0.12); }
     .intro-stat { padding: 52px 44px; text-align: center; transition: background 0.3s; }
     .intro-stat:hover { background: var(--panel); }
-    .intro-val { font-family: var(--serif); font-size: 48px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 12px; }
+    .intro-val { font-family: var(--serif); font-size: 42px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 12px; }
     .intro-lbl { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+    .intro-sub { font-size: 11px; color: var(--sub); margin-top: 6px; }
 
+    /* SECTIONS */
     .section { padding: 140px 64px; }
     .wrap { max-width: 1200px; margin: 0 auto; }
     .s-tag { margin-bottom: 22px; }
@@ -103,31 +77,63 @@
     .s-title em { font-style: italic; color: var(--gold-lt); }
     .s-lead { font-size: 17px; line-height: 1.85; font-weight: 300; color: var(--sub); max-width: 680px; margin-bottom: 72px; }
 
-    .feat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(201,168,110,0.1); border: 1px solid rgba(201,168,110,0.1); margin-bottom: 0; }
+    /* FEAT ROW */
+    .feat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(201,168,110,0.1); border: 1px solid rgba(201,168,110,0.1); }
     .feat { background: var(--dark); padding: 44px 36px; transition: background 0.35s; }
     .feat:hover { background: var(--panel); }
     .feat-num { font-family: var(--serif); font-size: 60px; font-weight: 300; color: var(--gold); opacity: 0.25; line-height: 1; margin-bottom: 20px; }
-    .feat h4 { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--white); margin-bottom: 12px; }
+    .feat h4 { font-size: 13px; font-weight: 600; letter-spacing: 1px; color: var(--white); margin-bottom: 12px; text-transform: uppercase; }
     .feat p { font-size: 13px; line-height: 1.75; color: var(--sub); }
 
+    /* ROI TABLE */
+    .roi-table { width: 100%; border-collapse: collapse; margin: 48px 0; }
+    .roi-table th { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); padding: 16px 20px; text-align: left; border-bottom: 1px solid rgba(201,168,110,0.3); }
+    .roi-table td { padding: 18px 20px; font-size: 13px; color: var(--sub); border-bottom: 1px solid rgba(201,168,110,0.08); }
+    .roi-table tr:hover td { background: rgba(159,121,101,0.05); color: var(--text); }
+    .roi-table .highlight { color: var(--gold); font-weight: 600; font-family: var(--serif); font-size: 15px; }
+    .roi-table .green { color: var(--green); font-weight: 600; }
+    .roi-table .prop-name { color: var(--white); font-weight: 500; }
+
+    /* SPLIT */
     .split { display: grid; grid-template-columns: 1fr 1fr; }
     .split.rev { direction: rtl; }
     .split.rev > * { direction: ltr; }
-    .split-img { position: relative; overflow: hidden; min-height: 600px; }
-    .split-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transform: scale(1.04); transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .split-img { position: relative; overflow: hidden; min-height: 620px; }
+    .split-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.04); transition: transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
     .split:hover .split-img img { transform: scale(1); }
-    .split-img-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(7,9,12,0.15); transition: background 0.5s; }
-    .split:hover .split-img-overlay { background: rgba(7,9,12,0.05); }
-    .split-body { background: var(--mid); display: flex; flex-direction: column; justify-content: center; padding: 88px 72px; }
+    .split-img-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(7,9,12,0.12); }
+    .split-body { background: var(--mid); display: flex; flex-direction: column; justify-content: center; padding: 72px 64px; position: relative; }
     .split-body.dk { background: var(--panel); }
-    .split-list { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
-    .sl-item { display: flex; gap: 28px; padding: 28px 0; border-bottom: 1px solid rgba(201,168,110,0.08); transition: padding-left 0.3s; }
+    .prop-num-bg { font-family: var(--serif); font-size: 140px; font-weight: 300; color: var(--gold); opacity: 0.05; position: absolute; top: 10px; right: 30px; line-height: 1; }
+
+    .prop-address { font-family: var(--serif); font-size: clamp(28px, 3.5vw, 46px); font-weight: 300; line-height: 1.0; color: var(--white); margin-bottom: 8px; }
+    .prop-address em { font-style: italic; color: var(--gold-lt); }
+    .prop-suburb-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+    .prop-price { font-family: var(--serif); font-size: 2rem; color: var(--gold); font-weight: 600; margin-bottom: 28px; }
+
+    .spec-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .spec-pill { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(159,121,101,0.3); padding: 7px 14px; transition: all 0.3s; }
+    .spec-pill:hover { background: rgba(159,121,101,0.1); border-color: var(--gold); }
+
+    .roi-box { background: rgba(159,121,101,0.06); border-left: 2px solid var(--gold); padding: 20px 24px; margin-bottom: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .roi-metric { text-align: center; }
+    .roi-v { font-family: var(--serif); font-size: 1.8rem; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .roi-l { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+
+    .sl-list { display: flex; flex-direction: column; margin-bottom: 28px; }
+    .sl-item { display: flex; gap: 24px; padding: 22px 0; border-bottom: 1px solid rgba(201,168,110,0.08); transition: padding-left 0.3s; }
     .sl-item:last-child { border-bottom: none; }
     .sl-item:hover { padding-left: 8px; }
-    .sl-n { font-family: var(--serif); font-size: 38px; font-weight: 300; color: var(--gold); opacity: 0.35; line-height: 1; min-width: 44px; }
-    .sl-body h4 { font-size: 13px; font-weight: 600; letter-spacing: 0.8px; color: var(--white); margin-bottom: 7px; }
-    .sl-body p { font-size: 13px; line-height: 1.7; color: var(--sub); }
+    .sl-n { font-family: var(--serif); font-size: 32px; font-weight: 300; color: var(--gold); opacity: 0.4; line-height: 1; min-width: 36px; }
+    .sl-body h4 { font-size: 12px; font-weight: 600; letter-spacing: 0.8px; color: var(--white); margin-bottom: 5px; text-transform: uppercase; }
+    .sl-body p { font-size: 13px; line-height: 1.65; color: var(--sub); }
+    .sl-body .con { color: rgba(181, 173, 165, 0.6); }
 
+    .investor-tag { display: inline-block; background: rgba(159,121,101,0.15); color: var(--gold); padding: 8px 16px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
+
+    .prop-cta { display: flex; gap: 12px; }
+
+    /* STATS BAND */
     .stats-band { background: linear-gradient(135deg, var(--mid) 0%, var(--panel) 100%); border-top: 1px solid rgba(201,168,110,0.1); border-bottom: 1px solid rgba(201,168,110,0.1); padding: 88px 64px; }
     .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; }
     .stat-item { padding: 0 32px; border-right: 1px solid rgba(201,168,110,0.12); }
@@ -136,18 +142,11 @@
     .stat-l { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
     .stat-sub { font-size: 12px; color: var(--sub); margin-top: 6px; }
 
-    .loc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,110,0.08); border: 1px solid rgba(201,168,110,0.08); }
-    .loc-cell { background: var(--dark); padding: 40px 36px; transition: background 0.3s, transform 0.3s; position: relative; overflow: hidden; }
-    .loc-cell::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
-    .loc-cell:hover { background: var(--mid); }
-    .loc-cell:hover::after { transform: scaleX(1); }
-    .loc-dist { font-family: var(--serif); font-size: 48px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 12px; }
-    .loc-name { font-size: 13px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
-    .loc-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
-
+    /* AGENT */
     .agent-section { padding: 140px 64px; background: linear-gradient(145deg, var(--mid) 0%, var(--dark) 100%); border-top: 1px solid rgba(201,168,110,0.08); }
     .agent-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 5fr 7fr; gap: 100px; align-items: start; }
-    .agent-name { font-family: var(--serif); font-size: 66px; font-weight: 300; color: var(--white); line-height: 0.97; margin-bottom: 14px; }
+    .agent-photo { width: 120px; height: 120px; border-radius: 2px; object-fit: cover; object-position: top; border: 1px solid rgba(159,121,101,0.3); margin-bottom: 24px; }
+    .agent-name { font-family: var(--serif); font-size: 66px; font-weight: 300; color: var(--white); line-height: 0.97; margin-bottom: 14px; letter-spacing: -2px; }
     .agent-title { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 36px; }
     .agent-bio { font-size: 14px; line-height: 1.9; color: var(--sub); margin-bottom: 48px; }
     .agent-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,110,0.1); border: 1px solid rgba(201,168,110,0.1); margin-bottom: 48px; }
@@ -162,6 +161,7 @@
     .review-text { font-family: var(--serif); font-size: 17px; font-style: italic; line-height: 1.7; color: var(--text); margin-bottom: 14px; }
     .review-attr { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
 
+    /* CTA */
     .cta-section { padding: 160px 64px; text-align: center; border-top: 1px solid rgba(201,168,110,0.08); position: relative; overflow: hidden; }
     .cta-section::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; background: radial-gradient(ellipse, rgba(201,168,110,0.05) 0%, transparent 70%); pointer-events: none; }
     .cta-inner { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
@@ -170,61 +170,55 @@
     .cta-inner p { font-size: 16px; line-height: 1.85; color: var(--sub); margin-bottom: 52px; }
     .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
+    /* FOOTER */
     footer { background: var(--black); border-top: 1px solid rgba(201,168,110,0.07); padding: 52px 64px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 40px; }
-    .f-brand { font-family: var(--serif); font-size: 22px; font-weight: 600; letter-spacing: 8px; color: var(--gold); text-transform: uppercase; }
+    .footer-brand-group { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .footer-logo-img { height: 30px; width: auto; filter: brightness(0) invert(1); }
+    .footer-team-logo { font-size: 10px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
     .f-center { text-align: center; }
     .f-center p { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
     .f-right { text-align: right; }
     .f-right p { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
     .f-right a { color: var(--gold); font-size: 15px; font-weight: 500; }
 
+    /* STICKY BAR */
     .sticky-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: rgba(7,9,12,0.97); backdrop-filter: blur(20px); border-top: 1px solid rgba(201,168,110,0.15); display: flex; align-items: center; justify-content: space-between; padding: 16px 64px; transform: translateY(100%); transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); }
     .sticky-bar.show { transform: translateY(0); }
     .sticky-left { font-size: 12px; color: var(--sub); }
     .sticky-left strong { color: var(--white); }
     .sticky-right { display: flex; gap: 12px; }
 
-    /* Property section dividers */
-    .prop-section { border-top: 1px solid rgba(201,168,110,0.08); }
-    .prop-number { font-family: var(--serif); font-size: 120px; font-weight: 300; color: var(--gold); opacity: 0.06; line-height: 1; position: absolute; top: 20px; right: 40px; }
+    .prop-sep { border-top: 1px solid rgba(201,168,110,0.08); }
 
     @media (max-width: 960px) {
       nav { padding: 20px 30px; } nav.solid { padding: 14px 30px; } .nav-links { display: none; }
-      .hero-content { padding: 0 30px 80px; } .hero h1 { font-size: 52px; } .hero-scroll-hint { right: 30px; }
+      .hero-content { padding: 0 30px 80px; } .hero h1 { font-size: 52px; }
       .intro-band { grid-template-columns: 1fr 1px 1fr; }
-      .intro-band > .intro-divider:nth-child(4), .intro-band > .intro-divider:nth-child(6) { display: none; }
       .section { padding: 80px 30px; }
-      .feat-row { grid-template-columns: 1fr 1fr; }
-      .split { grid-template-columns: 1fr; } .split.rev { direction: ltr; } .split-img { min-height: 56vw; } .split-body { padding: 60px 40px; }
-      .stats-band { padding: 60px 30px; } .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 40px; } .stat-item { border-right: none; padding: 0; }
-      .loc-grid { grid-template-columns: 1fr 1fr; }
+      .feat-row { grid-template-columns: 1fr 1px 1fr; }
+      .split { grid-template-columns: 1fr; } .split.rev { direction: ltr; } .split-img { min-height: 56vw; } .split-body { padding: 52px 32px; }
+      .stats-band { padding: 60px 30px; } .stats-inner { grid-template-columns: 1fr 1fr; gap: 40px; } .stat-item { border-right: none; padding: 0; }
       .agent-section { padding: 80px 30px; } .agent-grid { grid-template-columns: 1fr; gap: 60px; }
       .cta-section { padding: 80px 30px; }
       footer { grid-template-columns: 1fr; text-align: center; padding: 40px 30px; } .f-right { text-align: center; }
       .sticky-bar { padding: 14px 30px; }
-      .exclusive-band { padding: 20px 30px; }
+      .roi-box { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 480px) {
-      nav { padding: 14px 20px; } nav.solid { padding: 12px 20px; } .nav-btn { display: none; }
-      .hero { height: 100svh; min-height: 620px; } .hero-content { padding: 0 24px 80px; } .hero h1 { font-size: 42px; line-height: 1.0; letter-spacing: -1px; margin-bottom: 16px; }
-      .hero-location { font-size: 11px; letter-spacing: 1.5px; margin-bottom: 36px; } .hero-actions { flex-direction: column; gap: 12px; }
-      .btn-hero, .btn-ghost { font-size: 11px; padding: 16px 0; width: 100%; text-align: center; display: block; }
+      nav { padding: 14px 20px; } .nav-btn { display: none; }
+      .hero { height: 100svh; } .hero-content { padding: 0 24px 80px; } .hero h1 { font-size: 40px; line-height: 1.0; letter-spacing: -1px; }
+      .hero-actions { flex-direction: column; gap: 12px; } .btn-hero, .btn-ghost { width: 100%; text-align: center; padding: 16px; }
       .hero-scroll-hint { display: none; }
-      .exclusive-band { padding: 16px 24px; } .exclusive-inner { flex-direction: column; }
-      .intro-band { grid-template-columns: 1fr 1px 1fr; grid-template-rows: auto 1px auto; }
-      .intro-divider:nth-child(4) { display: none; }
-      .intro-stat { padding: 30px 20px; } .intro-val { font-size: 34px; }
-      .section { padding: 64px 24px; } .s-title { font-size: 36px; margin-bottom: 20px; } .s-lead { font-size: 15px; margin-bottom: 40px; }
-      .feat-row { grid-template-columns: 1fr; gap: 2px; } .feat { padding: 30px 24px; } .feat-num { font-size: 44px; }
-      .split { grid-template-columns: 1fr; direction: ltr !important; } .split-img { min-height: 280px; height: 72vw; max-height: 380px; } .split-body { padding: 48px 24px; }
-      .stats-band { padding: 52px 24px; } .stats-inner { grid-template-columns: 1fr 1fr; gap: 36px 16px; } .stat-v { font-size: 46px; margin-bottom: 10px; }
-      .loc-grid { grid-template-columns: 1fr; gap: 2px; } .loc-cell { padding: 28px 24px; } .loc-dist { font-size: 36px; }
-      .agent-section { padding: 64px 24px; } .agent-grid { grid-template-columns: 1fr; gap: 52px; }
-      .agent-name { font-size: 52px; } .agent-nums { grid-template-columns: repeat(3, 1fr); gap: 2px; }
-      .reviews { gap: 16px; } .review { padding: 24px 20px; } .review-text { font-size: 15px; }
-      .cta-section { padding: 72px 24px; } .cta-inner h2 { font-size: 40px; } .cta-btns { flex-direction: column; gap: 12px; align-items: stretch; }
-      footer { grid-template-columns: 1fr; text-align: center; padding: 40px 24px; gap: 24px; } .f-right { text-align: center; }
+      .intro-band { grid-template-columns: 1fr 1px 1fr; } .intro-stat { padding: 30px 16px; } .intro-val { font-size: 28px; }
+      .section { padding: 60px 24px; } .s-title { font-size: 36px; } .s-lead { font-size: 15px; margin-bottom: 40px; }
+      .feat-row { grid-template-columns: 1fr; } .feat { padding: 30px 24px; }
+      .split-body { padding: 44px 24px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; gap: 32px 16px; } .stat-v { font-size: 46px; }
+      .agent-section { padding: 60px 24px; } .agent-name { font-size: 48px; }
+      .cta-section { padding: 60px 24px; } .cta-inner h2 { font-size: 38px; } .cta-btns { flex-direction: column; gap: 12px; }
+      footer { grid-template-columns: 1fr; text-align: center; padding: 40px 24px; gap: 24px; }
       .sticky-bar { padding: 12px 20px; }
+      .roi-table { font-size: 12px; } .roi-table th, .roi-table td { padding: 12px 10px; }
     }
   </style>
 </head>
@@ -238,11 +232,12 @@
     <div class="nav-team-logo">Team Cyril Texier</div>
   </div>
   <ul class="nav-links">
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#market">Market</a></li>
+    <li><a href="#marche">Marché</a></li>
+    <li><a href="#rendement">Rendement</a></li>
+    <li><a href="#portefeuille">Biens</a></li>
     <li><a href="#agent">Agent</a></li>
   </ul>
-  <button class="nav-btn" onclick="scrollTo('#contact')">Enquire Now</button>
+  <button class="nav-btn" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Nous Contacter</button>
 </nav>
 
 <!-- HERO -->
@@ -250,478 +245,541 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Curated Selection · 10 Properties · Jean-Jacques &amp; Ilan Hayoun</div>
-    <h1>Brisbane<br><em>Investment</em><br>Portfolio</h1>
-    <p class="hero-location">Inner Brisbane · Apartments &amp; Units · Investment Grade</p>
+    <div class="hero-eyebrow">Sélection Exclusive · 10 Biens · Jean-Jacques &amp; Ilan Hayoun</div>
+    <h1>Investir à<br><em>Brisbane</em></h1>
+    <p class="hero-location">Appartements Neufs · Brisbane CBD &amp; Banlieues Premium · Off-Plan</p>
     <div class="hero-actions">
-      <button class="btn-hero" onclick="scrollTo('#portfolio')">View the Portfolio</button>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Register Interest</button>
+      <a href="#portefeuille" class="btn-hero">Voir le Portefeuille</a>
+      <a href="#contact" class="btn-ghost">Prendre Contact</a>
     </div>
   </div>
   <div class="hero-scroll-hint">
     <div class="scroll-bar"></div>
-    <span class="scroll-text">Scroll</span>
+    <span class="scroll-text">Défiler</span>
   </div>
 </section>
-
-<!-- EXCLUSIVE BAND -->
-<div class="exclusive-band">
-  <div class="exclusive-inner">
-    <div class="exclusive-icon">◆</div>
-    <p>A personally curated shortlist of 10 investment-grade apartments across Brisbane's strongest growth corridors — selected by Team Cyril Texier for Jean-Jacques &amp; Ilan Hayoun. Each property analysed for yield, capital growth, rental demand, and long-term investment merit.</p>
-    <div class="exclusive-icon">◆</div>
-  </div>
-</div>
 
 <!-- INTRO STATS -->
 <div class="intro-band">
   <div class="intro-stat">
     <div class="intro-val">10</div>
-    <div class="intro-lbl">Properties Selected</div>
+    <div class="intro-lbl">Biens Sélectionnés</div>
+    <div class="intro-sub">Neufs / Off-Plan</div>
   </div>
   <div class="intro-divider"></div>
   <div class="intro-stat">
-    <div class="intro-val">$625K–$1.62M</div>
-    <div class="intro-lbl">Price Range</div>
+    <div class="intro-val">$999K–$3.65M</div>
+    <div class="intro-lbl">Fourchette de Prix</div>
+    <div class="intro-sub">Prix réels vérifiés</div>
   </div>
   <div class="intro-divider"></div>
   <div class="intro-stat">
-    <div class="intro-val">4.0–5.1%</div>
-    <div class="intro-lbl">Rental Yield</div>
+    <div class="intro-val">4.5–5.5%</div>
+    <div class="intro-lbl">Rendement Locatif</div>
+    <div class="intro-sub">Estimé brut annuel</div>
   </div>
   <div class="intro-divider"></div>
   <div class="intro-stat">
-    <div class="intro-val">8–35%</div>
-    <div class="intro-lbl">Annual Growth</div>
+    <div class="intro-val">8–29%</div>
+    <div class="intro-lbl">Croissance Annuelle</div>
+    <div class="intro-sub">Par suburb, 12 mois</div>
   </div>
 </div>
 
-<!-- MARKET INTELLIGENCE -->
-<section class="section" id="market">
+<!-- MARKET SECTION -->
+<section class="section" id="marche">
   <div class="wrap">
-    <div class="s-tag"><span class="gold-line">Market Intelligence</span></div>
-    <h2 class="s-title">Brisbane —<br><em>The Investment Case</em></h2>
-    <p class="s-lead">Brisbane is not speculative — it is a market with structural tailwinds that make it one of the most compelling investment destinations in the country. Here's why now.</p>
+    <div class="s-tag"><span class="gold-line">Analyse de Marché</span></div>
+    <h2 class="s-title">Pourquoi <em>Brisbane</em><br>Maintenant ?</h2>
+    <p class="s-lead">Brisbane n'est pas une spéculation — c'est un marché porté par des fondamentaux structurels exceptionnels. Voici pourquoi les investisseurs avisés agissent maintenant.</p>
     <div class="feat-row">
       <div class="feat">
         <div class="feat-num">01</div>
-        <h4>8–10% Growth Forecast 2026</h4>
-        <p>SQM Research and Propertyology both project strong Brisbane apartment growth for 2026 — driven by chronic supply shortages and accelerating population migration.</p>
+        <h4>Croissance 8–10 % Prévue 2026</h4>
+        <p>SQM Research et Propertyology projettent une hausse de 8 à 10 % des appartements sur Brisbane en 2026. Pénurie chronique de logements + migration accélérée = pression haussière durable.</p>
       </div>
       <div class="feat">
         <div class="feat-num">02</div>
-        <h4>Sub-1% Vacancy Rates</h4>
-        <p>Inner-city precincts including Spring Hill, Kangaroo Point, and South Brisbane are recording vacancy rates below 1%. Investors rarely wait between tenants.</p>
+        <h4>Taux de Vacance &lt; 1 %</h4>
+        <p>Spring Hill, Kangaroo Point, South Brisbane affichent des taux de vacance inférieurs à 1 %. Les investisseurs ne cherchent pratiquement jamais de locataire entre deux baux.</p>
       </div>
       <div class="feat">
         <div class="feat-num">03</div>
-        <h4>$6B+ Olympic Infrastructure</h4>
-        <p>The 2032 Brisbane Olympics is catalysing a $6 billion+ infrastructure spend — transport, amenity, and urban renewal that directly benefits inner-city apartment values.</p>
+        <h4>6 Mds $ d'Infrastructures — JO 2032</h4>
+        <p>Les Jeux Olympiques de Brisbane 2032 catalysent un investissement public massif — transports, aménagement urbain, valorisation des quartiers intérieurs. Un moteur de valeur à long terme.</p>
       </div>
       <div class="feat">
         <div class="feat-num">04</div>
-        <h4>1,700+ New Residents Per Week</h4>
-        <p>South-East Queensland continues to attract 1,700+ new residents weekly — a structural demand driver that is not slowing. Supply cannot keep pace.</p>
+        <h4>1 700 Nouveaux Résidents / Semaine</h4>
+        <p>Le Queensland accueille 1 700+ nouveaux habitants par semaine. L'offre de logements ne peut pas suivre ce rythme. La pression sur les loyers et les prix est structurelle, pas cyclique.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-num">05</div>
+        <h4>Médiane Suburb en Forte Hausse</h4>
+        <p>Spring Hill : +29 % sur 12 mois. Bowen Hills : +23 %. Upper Mount Gravatt : +21 %. Ces chiffres reflètent une demande réelle, non une spéculation ponctuelle.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-num">06</div>
+        <h4>Avantage Fiscal Australien</h4>
+        <p>Les investisseurs étrangers bénéficient d'une structure fiscale avantageuse en Australie. Amortissement du bâti (depreciation), déductibilité des intérêts, et régime de plus-value favorable.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO SECTION -->
-<section class="section" id="portfolio" style="padding-top: 0;">
+<!-- ROI TABLE -->
+<section class="section" id="rendement" style="padding-top:0;">
   <div class="wrap">
-    <div class="s-tag"><span class="gold-line">The Portfolio</span></div>
-    <h2 class="s-title">10 Properties.<br><em>One Shortlist.</em></h2>
-    <p class="s-lead">Each property below has been individually analysed. Pros, cons, investment strategy, and market context — so you can make an informed decision with confidence.</p>
+    <div class="s-tag"><span class="gold-line">Analyse de Rendement</span></div>
+    <h2 class="s-title">Retour sur<br><em>Investissement</em></h2>
+    <p class="s-lead">Projections basées sur les prix actuels des biens, les loyers médians par suburb, et les tendances de croissance vérifiées sur 12 mois. Estimations conservatrices.</p>
+
+    <div style="overflow-x:auto;">
+      <table class="roi-table">
+        <thead>
+          <tr>
+            <th>Bien</th>
+            <th>Prix</th>
+            <th>Config.</th>
+            <th>Loyer Est. / sem.</th>
+            <th>Rendement Brut</th>
+            <th>Croissance Suburb</th>
+            <th>Plus-value 5 ans*</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="prop-name">Bowen Hills — Campbell St</td>
+            <td class="highlight">À p. $1,339,000</td>
+            <td>3ch/2sb/1pk</td>
+            <td>$1,100–$1,250/sem</td>
+            <td class="green">4.3 %</td>
+            <td class="green">+23 %</td>
+            <td class="highlight">~$450K</td>
+          </tr>
+          <tr>
+            <td class="prop-name">Spring Hill — Oria (447 Gregory Tce)</td>
+            <td class="highlight">À p. $1,680,000</td>
+            <td>2ch/2sb/1pk</td>
+            <td>$1,250–$1,450/sem</td>
+            <td class="green">4.0 %</td>
+            <td class="green">+29 %</td>
+            <td class="highlight">~$660K</td>
+          </tr>
+          <tr>
+            <td class="prop-name">Spring Hill — 185 Wharf St</td>
+            <td class="highlight">À p. $1,650,000</td>
+            <td>2ch/2sb/1pk</td>
+            <td>$1,200–$1,400/sem</td>
+            <td class="green">3.9 %</td>
+            <td class="green">+29 %</td>
+            <td class="highlight">~$648K</td>
+          </tr>
+          <tr>
+            <td class="prop-name">Kangaroo Point</td>
+            <td class="highlight">À p. $1,675,000</td>
+            <td>3ch/2sb/2pk</td>
+            <td>$1,300–$1,600/sem</td>
+            <td class="green">4.4 %</td>
+            <td class="green">+16 %</td>
+            <td class="highlight">~$540K</td>
+          </tr>
+          <tr>
+            <td class="prop-name">South Brisbane — Tribune St</td>
+            <td class="highlight">À p. $808,000</td>
+            <td>2ch/2sb/1pk</td>
+            <td>$700–$850/sem</td>
+            <td class="green">4.9 %</td>
+            <td class="green">+18 %</td>
+            <td class="highlight">~$275K</td>
+          </tr>
+          <tr>
+            <td class="prop-name">East Brisbane</td>
+            <td class="highlight">Contact Agent</td>
+            <td>2ch/2sb/1pk</td>
+            <td>$750–$900/sem</td>
+            <td class="green">4.5 %</td>
+            <td class="green">+14 %</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td class="prop-name">Lutwyche — The Rockwell</td>
+            <td class="highlight">À p. $989,000</td>
+            <td>2–3ch/2sb/2pk</td>
+            <td>$750–$950/sem</td>
+            <td class="green">4.6 %</td>
+            <td class="green">+14 %</td>
+            <td class="highlight">~$310K</td>
+          </tr>
+          <tr>
+            <td class="prop-name">Chermside — Kabbalah</td>
+            <td class="highlight">À p. $1,500,000</td>
+            <td>3ch/2sb/2pk</td>
+            <td>$950–$1,100/sem</td>
+            <td class="green">3.8 %</td>
+            <td class="green">+12 %</td>
+            <td class="highlight">~$430K</td>
+          </tr>
+          <tr>
+            <td class="prop-name">Upper Mt Gravatt — Pavilion (3007)</td>
+            <td class="highlight">$1,049,000</td>
+            <td>2ch/2sb/2pk</td>
+            <td>$750–$900/sem</td>
+            <td class="green">4.2 %</td>
+            <td class="green">+21 %</td>
+            <td class="highlight">~$360K</td>
+          </tr>
+          <tr>
+            <td class="prop-name">Upper Mt Gravatt — Pavilion (3110)</td>
+            <td class="highlight">$999,000</td>
+            <td>2ch/2sb/1pk</td>
+            <td>$700–$850/sem</td>
+            <td class="green">4.3 %</td>
+            <td class="green">+21 %</td>
+            <td class="highlight">~$343K</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:16px;">* Plus-value estimée sur 5 ans basée sur la croissance annuelle actuelle du suburb. Non garantie. Consulter un conseiller financier.</p>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section class="section" id="portefeuille" style="padding-top:0;">
+  <div class="wrap">
+    <div class="s-tag"><span class="gold-line">Le Portefeuille</span></div>
+    <h2 class="s-title">10 Biens.<br><em>Un Dossier.</em></h2>
+    <p class="s-lead">Chaque bien a été analysé individuellement — prix réels vérifiés, rendement locatif estimé, forces et points de vigilance. Pour investir en connaissance de cause.</p>
   </div>
 </section>
 
 <!-- PROPERTY 1: BOWEN HILLS -->
-<div class="split prop-section">
+<div class="split prop-sep">
   <div class="split-img">
-    <img src="https://images.allhomes.com.au/property/photo/996e6549ca3af730452f0fa86fd07bd4_l.jpg" alt="Bowen Hills apartment" loading="lazy">
+    <img src="https://images.allhomes.com.au/property/photo/996e6549ca3af730452f0fa86fd07bd4_l.jpg" alt="Bowen Hills" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
-  <div class="split-body" style="position:relative;">
-    <div class="prop-number">01</div>
-    <div class="s-tag"><span class="gold-line">Bowen Hills</span></div>
-    <h2 class="s-title" style="font-size:clamp(32px,4vw,52px);">Campbell Street<br><em>From $1,339,000</em></h2>
-    <div class="property-specs">
-      <div class="spec-pill">3 Bedrooms</div>
-      <div class="spec-pill">2 Bathrooms</div>
-      <div class="spec-pill">1 Parking</div>
-      <div class="spec-pill">Yield 4.2%</div>
-      <div class="spec-pill">Growth 23%</div>
+  <div class="split-body">
+    <div class="prop-num-bg">01</div>
+    <div class="s-tag"><span class="gold-line">Bowen Hills · QLD 4006</span></div>
+    <div class="prop-address">Campbell Street<br><em>À partir de $1,339,000</em></div>
+    <div class="spec-pills">
+      <span class="spec-pill">3 Chambres</span><span class="spec-pill">2 SDB</span><span class="spec-pill">1 Parking</span>
+      <span class="spec-pill">Neuf</span><span class="spec-pill">Rendement ~4.3 %</span><span class="spec-pill">+23 % / an</span>
     </div>
-    <div class="split-list">
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Inner-City Location</h4><p>5 minutes to CBD. Strong commuter demand and consistent occupancy from professionals and students.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>23% YoY Capital Growth</h4><p>Bowen Hills median unit price grew 23% in the past 12 months — one of Brisbane's strongest inner-suburb performers.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">⚠</div>
-        <div class="sl-body"><h4>Considerations</h4><p>Higher price point. Strata levies apply. Compact living — assess floor plan carefully before proceeding.</p></div>
-      </div>
+    <div class="roi-box">
+      <div class="roi-metric"><div class="roi-v">$1,100</div><div class="roi-l">Loyer est. / semaine</div></div>
+      <div class="roi-metric"><div class="roi-v">4.3 %</div><div class="roi-l">Rendement brut</div></div>
+      <div class="roi-metric"><div class="roi-v">+23 %</div><div class="roi-l">Croissance suburb</div></div>
+      <div class="roi-metric"><div class="roi-v">~$450K</div><div class="roi-l">Plus-value est. 5 ans</div></div>
     </div>
-    <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:32px 0 20px;">Best For: Capital Growth Investors</p>
-    <div style="display:flex;gap:12px;">
-      <a href="https://www.realestate.com.au/property-apartment-qld-bowen+hills-149821784" target="_blank" class="btn-hero">View Listing</a>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire</button>
+    <div class="investor-tag">Stratégie : Croissance en Capital</div>
+    <div class="sl-list">
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>5 Minutes du CBD</h4><p>Position intérieure idéale — forte demande locative de professionnels. Bowen Hills a connu +23 % de croissance sur 12 mois.</p></div></div>
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>3 Chambres — Locatif Premium</h4><p>Configuration rare à ce prix en inner-city. Attire des colocataires professionnels ou des familles, maximisant le loyer.</p></div></div>
+      <div class="sl-item"><div class="sl-n">!</div><div class="sl-body"><h4>Points de Vigilance</h4><p class="con">Prix d'entrée plus élevé. Charges de copropriété à vérifier. Neuf = pas d'historique locatif propre au bâtiment.</p></div></div>
+    </div>
+    <div class="prop-cta">
+      <a href="https://www.realestate.com.au/property-apartment-qld-bowen+hills-149821784" target="_blank" class="btn-hero">Voir le Bien</a>
+      <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Demande d'Info</button>
     </div>
   </div>
 </div>
 
-<!-- PROPERTY 2: SPRING HILL Gregory Terrace -->
-<div class="split rev prop-section">
+<!-- PROPERTY 2: SPRING HILL ORIA -->
+<div class="split rev prop-sep">
   <div class="split-img">
-    <img src="https://images.allhomes.com.au/property/photo/cdc943867d12a3adc467176a5acfaea2_l.jpg" alt="Spring Hill Gregory Terrace" loading="lazy">
+    <img src="https://res.cloudinary.com/dz9xllyip/image/fetch/f_auto,c_limit,w_1200,q_75/https://urban-project-bucket-production.s3.ap-southeast-2.amazonaws.com/090463eb-5b26-4402-87e6-b00271f30b17-1986_1.02_Exterior_Superman_R005_AI.jpg" alt="Spring Hill Oria" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
-  <div class="split-body dk" style="position:relative;">
-    <div class="prop-number">02</div>
-    <div class="s-tag"><span class="gold-line">Spring Hill</span></div>
-    <h2 class="s-title" style="font-size:clamp(32px,4vw,52px);">Gregory Terrace<br><em>From $1,680,000</em></h2>
-    <div class="property-specs">
-      <div class="spec-pill">3 Bedrooms</div>
-      <div class="spec-pill">2 Bathrooms</div>
-      <div class="spec-pill">2 Parking</div>
-      <div class="spec-pill">Yield 4.9%</div>
-      <div class="spec-pill">Growth 29%</div>
+  <div class="split-body dk">
+    <div class="prop-num-bg">02</div>
+    <div class="s-tag"><span class="gold-line">Spring Hill · Oria — 447 Gregory Tce</span></div>
+    <div class="prop-address">Oria Spring Hill<br><em>À partir de $1,680,000</em></div>
+    <div class="spec-pills">
+      <span class="spec-pill">2 Chambres</span><span class="spec-pill">2 SDB</span><span class="spec-pill">1 Parking</span>
+      <span class="spec-pill">Off-Plan — Livr. 2027</span><span class="spec-pill">Rendement ~4.0 %</span><span class="spec-pill">+29 % / an</span>
     </div>
-    <div class="split-list">
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Premium CBD-Fringe Location</h4><p>Walking distance to CBD. Spring Hill's 29% annual growth reflects sustained buyer conviction in this precinct.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Dual Parking + 4.9% Yield</h4><p>Rare combination of strong yield and dual parking. Dual parking adds scarcity value and attracts premium tenants.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">⚠</div>
-        <div class="sl-body"><h4>Considerations</h4><p>Higher acquisition cost. Competitive buyer market — requires pre-approval and decisive action to secure.</p></div>
-      </div>
+    <div class="roi-box">
+      <div class="roi-metric"><div class="roi-v">$1,350</div><div class="roi-l">Loyer est. / semaine</div></div>
+      <div class="roi-metric"><div class="roi-v">4.0 %</div><div class="roi-l">Rendement brut</div></div>
+      <div class="roi-metric"><div class="roi-v">+29 %</div><div class="roi-l">Croissance suburb</div></div>
+      <div class="roi-metric"><div class="roi-v">~$660K</div><div class="roi-l">Plus-value est. 5 ans</div></div>
     </div>
-    <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:32px 0 20px;">Best For: Mixed Strategy — Growth + Yield</p>
-    <div style="display:flex;gap:12px;">
-      <a href="https://www.domain.com.au/208-447-gregory-terrace-spring-hill-qld-4000-2020424536" target="_blank" class="btn-hero">View Listing</a>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire</button>
+    <div class="investor-tag">Stratégie : Croissance + Prestige</div>
+    <div class="sl-list">
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>+29 % de Croissance — Leader du Portefeuille</h4><p>Spring Hill est le suburb le plus performant de ce portefeuille. L'Oria est l'un des projets les plus exclusifs du secteur — finitions 5 étoiles, rooftop pool, architecture de prestige.</p></div></div>
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>CBD à Pied — Demande Locative Maximale</h4><p>Walkable vers le CBD, South Bank, hôpitaux. Profil locataire : cadres supérieurs, médecins, expatriés — loyers stables et élevés.</p></div></div>
+      <div class="sl-item"><div class="sl-n">!</div><div class="sl-body"><h4>Points de Vigilance</h4><p class="con">Livraison début 2027 — pas de revenus immédiats. Prix premium. Nécessite une capacité d'attente et un apport solide.</p></div></div>
+    </div>
+    <div class="prop-cta">
+      <a href="https://www.domain.com.au/208-447-gregory-terrace-spring-hill-qld-4000-2020424536" target="_blank" class="btn-hero">Voir le Bien</a>
+      <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Demande d'Info</button>
     </div>
   </div>
 </div>
 
-<!-- PROPERTY 3: SPRING HILL Roche Avenue -->
-<div class="split prop-section">
+<!-- PROPERTY 3: SPRING HILL 185 WHARF -->
+<div class="split prop-sep">
   <div class="split-img">
-    <img src="https://images.allhomes.com.au/property/photo/38dce792d201880105cfd426fe5ac1b5_l.jpg" alt="Spring Hill Roche Avenue" loading="lazy">
+    <img src="https://images.allhomes.com.au/property/photo/38dce792d201880105cfd426fe5ac1b5_l.jpg" alt="Spring Hill Wharf Street" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
-  <div class="split-body" style="position:relative;">
-    <div class="prop-number">03</div>
-    <div class="s-tag"><span class="gold-line">Spring Hill</span></div>
-    <h2 class="s-title" style="font-size:clamp(32px,4vw,52px);">185 Wharf Street<br><em>From $1,650,000</em></h2>
-    <div class="property-specs">
-      <div class="spec-pill">2 Bedrooms</div>
-      <div class="spec-pill">2 Bathrooms</div>
-      <div class="spec-pill">1 Parking</div>
-      <div class="spec-pill">Yield 5.1%</div>
-      <div class="spec-pill">Growth 35%</div>
+  <div class="split-body">
+    <div class="prop-num-bg">03</div>
+    <div class="s-tag"><span class="gold-line">Spring Hill · 185 Wharf Street</span></div>
+    <div class="prop-address">185 Wharf Street<br><em>À partir de $1,650,000</em></div>
+    <div class="spec-pills">
+      <span class="spec-pill">2 Chambres</span><span class="spec-pill">2 SDB</span><span class="spec-pill">1 Parking</span>
+      <span class="spec-pill">Neuf</span><span class="spec-pill">Rendement ~3.9 %</span><span class="spec-pill">+29 % / an</span>
     </div>
-    <div class="split-list">
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Highest Yield in Portfolio — 5.1%</h4><p>Best cash-on-cash return in this shortlist. At $850K entry, this is the most accessible high-yield option.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>35% Growth — Portfolio Leader</h4><p>Spring Hill's strongest performer. High demand from young professionals and the consistent sub-1% vacancy rate sustains this trajectory.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">⚠</div>
-        <div class="sl-body"><h4>Considerations</h4><p>2-bedroom configuration — suitable for couples and singles, not families. Limited outdoor space.</p></div>
-      </div>
+    <div class="roi-box">
+      <div class="roi-metric"><div class="roi-v">$1,300</div><div class="roi-l">Loyer est. / semaine</div></div>
+      <div class="roi-metric"><div class="roi-v">3.9 %</div><div class="roi-l">Rendement brut</div></div>
+      <div class="roi-metric"><div class="roi-v">+29 %</div><div class="roi-l">Croissance suburb</div></div>
+      <div class="roi-metric"><div class="roi-v">~$648K</div><div class="roi-l">Plus-value est. 5 ans</div></div>
     </div>
-    <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:32px 0 20px;">Best For: Yield-Focused Investors</p>
-    <div style="display:flex;gap:12px;">
-      <a href="https://www.realestate.com.au/property-apartment-qld-spring+hill-150842388" target="_blank" class="btn-hero">View Listing</a>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire</button>
+    <div class="investor-tag">Stratégie : Croissance en Capital</div>
+    <div class="sl-list">
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Résidence Art Déco — Produit Rare</h4><p>Architecture inspirée des années 30 dans une conception résolument moderne. Se distingue fortement de la production standard. Fort potentiel de revente.</p></div></div>
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Spring Hill — Croissance +29 %</h4><p>Même suburb qu'Oria — profite du même élan de marché. Prix légèrement inférieur pour un produit distinct et qualitatif.</p></div></div>
+      <div class="sl-item"><div class="sl-n">!</div><div class="sl-body"><h4>Points de Vigilance</h4><p class="con">Rendement locatif légèrement plus conservateur. Vérifier les charges de copropriété et les conditions de revente off-plan.</p></div></div>
+    </div>
+    <div class="prop-cta">
+      <a href="https://www.realestate.com.au/property-apartment-qld-spring+hill-146817928" target="_blank" class="btn-hero">Voir le Bien</a>
+      <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Demande d'Info</button>
     </div>
   </div>
 </div>
 
 <!-- PROPERTY 4: KANGAROO POINT -->
-<div class="split rev prop-section">
+<div class="split rev prop-sep">
   <div class="split-img">
-    <img src="https://images.allhomes.com.au/property/photo/253f29e335cc1f4b5c226690d7efc514_l.jpg" alt="Kangaroo Point apartment" loading="lazy">
+    <img src="https://images.allhomes.com.au/property/photo/253f29e335cc1f4b5c226690d7efc514_l.jpg" alt="Kangaroo Point" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
-  <div class="split-body dk" style="position:relative;">
-    <div class="prop-number">04</div>
-    <div class="s-tag"><span class="gold-line">Kangaroo Point</span></div>
-    <h2 class="s-title" style="font-size:clamp(32px,4vw,52px);">Kangaroo Point<br><em>From $1,675,000</em></h2>
-    <div class="property-specs">
-      <div class="spec-pill">3 Bedrooms</div>
-      <div class="spec-pill">2 Bathrooms</div>
-      <div class="spec-pill">2 Parking</div>
-      <div class="spec-pill">Yield 4.0%</div>
-      <div class="spec-pill">Growth 16%</div>
+  <div class="split-body dk">
+    <div class="prop-num-bg">04</div>
+    <div class="s-tag"><span class="gold-line">Kangaroo Point · QLD 4169</span></div>
+    <div class="prop-address">Kangaroo Point<br><em>À partir de $1,675,000</em></div>
+    <div class="spec-pills">
+      <span class="spec-pill">3 Chambres</span><span class="spec-pill">2 SDB</span><span class="spec-pill">2 Parkings</span>
+      <span class="spec-pill">Vue Brisbane River</span><span class="spec-pill">Rendement ~4.4 %</span><span class="spec-pill">+16 % / an</span>
     </div>
-    <div class="split-list">
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Premium Riverside Address</h4><p>Story Bridge views, Brisbane River frontage. Kangaroo Point is one of Brisbane's most desirable inner-city suburbs — scarcity drives value here.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Sub-1% Vacancy + Dual Parking</h4><p>Properties in Kangaroo Point rarely wait between tenants. Dual parking adds significant tenant appeal and resale value.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">⚠</div>
-        <div class="sl-body"><h4>Considerations</h4><p>Highest price in portfolio at $1.62M. Yield of 4.0% reflects premium pricing. Best suited to long-term capital play.</p></div>
-      </div>
+    <div class="roi-box">
+      <div class="roi-metric"><div class="roi-v">$1,450</div><div class="roi-l">Loyer est. / semaine</div></div>
+      <div class="roi-metric"><div class="roi-v">4.4 %</div><div class="roi-l">Rendement brut</div></div>
+      <div class="roi-metric"><div class="roi-v">+16 %</div><div class="roi-l">Croissance suburb</div></div>
+      <div class="roi-metric"><div class="roi-v">~$540K</div><div class="roi-l">Plus-value est. 5 ans</div></div>
     </div>
-    <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:32px 0 20px;">Best For: Premium Capital Growth / Prestige</p>
-    <div style="display:flex;gap:12px;">
-      <a href="https://www.realestate.com.au/property-apartment-qld-kangaroo+point-149456348" target="_blank" class="btn-hero">View Listing</a>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire</button>
+    <div class="investor-tag">Stratégie : Prestige — Valeur Sécurisée</div>
+    <div class="sl-list">
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Adresse Premium — Story Bridge &amp; Brisbane River</h4><p>Kangaroo Point est l'un des suburbs les plus recherchés d'inner Brisbane. Vue fleuve, proximité immédiate du CBD. Vacance locative &lt; 1 %.</p></div></div>
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>3ch + Double Parking — Rare à Ce Prix</h4><p>Double parking ajoute une valeur locative et de revente significative. Attire des familles ou des expatriés hauts revenus.</p></div></div>
+      <div class="sl-item"><div class="sl-n">!</div><div class="sl-body"><h4>Points de Vigilance</h4><p class="con">Croissance suburb de 16 % — solide mais pas la plus forte du portefeuille. Prix d'entrée élevé. Bien de long terme, pas de rendement spéculatif court.</p></div></div>
+    </div>
+    <div class="prop-cta">
+      <a href="https://www.realestate.com.au/property-apartment-qld-kangaroo+point-149456348" target="_blank" class="btn-hero">Voir le Bien</a>
+      <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Demande d'Info</button>
     </div>
   </div>
 </div>
 
 <!-- PROPERTY 5: SOUTH BRISBANE -->
-<div class="split prop-section">
+<div class="split prop-sep">
   <div class="split-img">
-    <img src="https://images.allhomes.com.au/property/photo/229dcb50f61afd0988f274130ed524f7_l.jpg" alt="South Brisbane apartment" loading="lazy">
+    <img src="https://images.allhomes.com.au/property/photo/229dcb50f61afd0988f274130ed524f7_l.jpg" alt="South Brisbane" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
-  <div class="split-body" style="position:relative;">
-    <div class="prop-number">05</div>
-    <div class="s-tag"><span class="gold-line">South Brisbane</span></div>
-    <h2 class="s-title" style="font-size:clamp(32px,4vw,52px);">South Brisbane<br><em>From $808,000</em></h2>
-    <div class="property-specs">
-      <div class="spec-pill">2 Bedrooms</div>
-      <div class="spec-pill">1 Bathroom</div>
-      <div class="spec-pill">1 Parking</div>
-      <div class="spec-pill">Yield 4.8%</div>
-      <div class="spec-pill">Growth 12%</div>
+  <div class="split-body">
+    <div class="prop-num-bg">05</div>
+    <div class="s-tag"><span class="gold-line">South Brisbane · QLD 4101</span></div>
+    <div class="prop-address">South Brisbane<br><em>À partir de $808,000</em></div>
+    <div class="spec-pills">
+      <span class="spec-pill">2 Chambres</span><span class="spec-pill">2 SDB</span><span class="spec-pill">1 Parking</span>
+      <span class="spec-pill">South Bank Proximity</span><span class="spec-pill">Rendement ~4.9 %</span><span class="spec-pill">+18 % / an</span>
     </div>
-    <div class="split-list">
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Affordable Inner-City Entry</h4><p>$795K for an inner-city 2-bed in South Brisbane — strong value at current market. South Bank proximity drives consistent demand.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>4.8% Yield + Walkable Precinct</h4><p>One of the highest-yield inner-city options. Walking distance to South Bank, QPAC, Griffith University, and the CBD.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">⚠</div>
-        <div class="sl-body"><h4>Considerations</h4><p>Single bathroom limits appeal to some tenants. Smaller footprint. Competitive market — quality stock moves fast.</p></div>
-      </div>
+    <div class="roi-box">
+      <div class="roi-metric"><div class="roi-v">$780</div><div class="roi-l">Loyer est. / semaine</div></div>
+      <div class="roi-metric"><div class="roi-v">4.9 %</div><div class="roi-l">Rendement brut</div></div>
+      <div class="roi-metric"><div class="roi-v">+18 %</div><div class="roi-l">Croissance suburb</div></div>
+      <div class="roi-metric"><div class="roi-v">~$275K</div><div class="roi-l">Plus-value est. 5 ans</div></div>
     </div>
-    <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:32px 0 20px;">Best For: First-Time Investors / Lifestyle Renters</p>
-    <div style="display:flex;gap:12px;">
-      <a href="https://www.realestate.com.au/property-apartment-qld-south+brisbane-150737540" target="_blank" class="btn-hero">View Listing</a>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire</button>
+    <div class="investor-tag">Stratégie : Rendement — Meilleure Entrée</div>
+    <div class="sl-list">
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Ticket d'Entrée le Plus Accessible</h4><p>$808K pour un 2 chambres en inner-city à South Brisbane. Meilleur rendement brut du portefeuille à 4.9 %. Idéal comme premier investissement australien.</p></div></div>
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>South Bank à Pied — Locataires Premium</h4><p>QPAC, Griffith University, South Bank Parklands, CBD à pied. Demande locative des professionnels de la santé, des arts et du gouvernement.</p></div></div>
+      <div class="sl-item"><div class="sl-n">!</div><div class="sl-body"><h4>Points de Vigilance</h4><p class="con">Marché compétitif — les bons biens partent vite. Vérifier le niveau de l'appartement et la vue. Certains bâtiments anciens ont des charges élevées.</p></div></div>
+    </div>
+    <div class="prop-cta">
+      <a href="https://www.realestate.com.au/property-apartment-qld-south+brisbane-150737540" target="_blank" class="btn-hero">Voir le Bien</a>
+      <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Demande d'Info</button>
     </div>
   </div>
 </div>
 
 <!-- PROPERTY 6: EAST BRISBANE -->
-<div class="split rev prop-section">
+<div class="split rev prop-sep">
   <div class="split-img">
-    <img src="https://images.allhomes.com.au/property/photo/cd3da4177d207d50cf33af533842bff0_l.jpg" alt="East Brisbane apartment" loading="lazy">
+    <img src="https://images.allhomes.com.au/property/photo/cd3da4177d207d50cf33af533842bff0_l.jpg" alt="East Brisbane" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
-  <div class="split-body dk" style="position:relative;">
-    <div class="prop-number">06</div>
-    <div class="s-tag"><span class="gold-line">East Brisbane</span></div>
-    <h2 class="s-title" style="font-size:clamp(32px,4vw,52px);">East Brisbane<br><em>Contact Agent</em></h2>
-    <div class="property-specs">
-      <div class="spec-pill">2 Bedrooms</div>
-      <div class="spec-pill">2 Bathrooms</div>
-      <div class="spec-pill">1 Parking</div>
-      <div class="spec-pill">Yield 4.5%</div>
-      <div class="spec-pill">Growth 14%</div>
+  <div class="split-body dk">
+    <div class="prop-num-bg">06</div>
+    <div class="s-tag"><span class="gold-line">East Brisbane · QLD 4169</span></div>
+    <div class="prop-address">East Brisbane<br><em>Contact Agent</em></div>
+    <div class="spec-pills">
+      <span class="spec-pill">2 Chambres</span><span class="spec-pill">2 SDB</span><span class="spec-pill">1 Parking</span>
+      <span class="spec-pill">Rivière Brisbane</span><span class="spec-pill">Rendement ~4.5 %</span><span class="spec-pill">+14 % / an</span>
     </div>
-    <div class="split-list">
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Riverside Proximity</h4><p>East Brisbane's position between the CBD and the river gives it a lifestyle premium that drives strong tenant quality and retention.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Modern Finishes + 2 Bathrooms</h4><p>Attractive to professional couples. Modern fit-out reduces maintenance concerns and supports premium rental pricing.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">⚠</div>
-        <div class="sl-body"><h4>Considerations</h4><p>More limited comparable sales depth than Spring Hill or Kangaroo Point. Moderate 14% growth — solid but not the portfolio's top performer.</p></div>
-      </div>
+    <div class="roi-box">
+      <div class="roi-metric"><div class="roi-v">$820</div><div class="roi-l">Loyer est. / semaine</div></div>
+      <div class="roi-metric"><div class="roi-v">4.5 %</div><div class="roi-l">Rendement brut</div></div>
+      <div class="roi-metric"><div class="roi-v">+14 %</div><div class="roi-l">Croissance suburb</div></div>
+      <div class="roi-metric"><div class="roi-v">—</div><div class="roi-l">Prix à confirmer</div></div>
     </div>
-    <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:32px 0 20px;">Best For: Balanced Investors — Yield + Location</p>
-    <div style="display:flex;gap:12px;">
-      <a href="https://www.realestate.com.au/property-apartment-qld-east+brisbane-148459016" target="_blank" class="btn-hero">View Listing</a>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire</button>
+    <div class="investor-tag">Stratégie : Équilibre Rendement / Localisation</div>
+    <div class="sl-list">
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Proximité de la Brisbane River</h4><p>East Brisbane bénéficie d'un lifestyle premium à moindre coût que Kangaroo Point. 2 salles de bains — attire des couples de professionnels.</p></div></div>
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Finitions Modernes — Locatif Qualitatif</h4><p>Biens récents avec équipements modernes réduisant les frais d'entretien. Profil locataire stable et solvable.</p></div></div>
+      <div class="sl-item"><div class="sl-n">!</div><div class="sl-body"><h4>Points de Vigilance</h4><p class="con">Prix sur demande — négocier directement. Profondeur de marché limitée par rapport à Spring Hill ou South Brisbane. Croissance modérée à 14 %.</p></div></div>
+    </div>
+    <div class="prop-cta">
+      <a href="https://www.realestate.com.au/property-apartment-qld-east+brisbane-148459016" target="_blank" class="btn-hero">Voir le Bien</a>
+      <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Demande d'Info</button>
     </div>
   </div>
 </div>
 
-<!-- PROPERTY 7: LUTWYCHE -->
-<div class="split prop-section">
+<!-- PROPERTY 7: LUTWYCHE THE ROCKWELL -->
+<div class="split prop-sep">
   <div class="split-img">
-    <img src="https://images.allhomes.com.au/property/photo/31b4562c3bfe8cdeb9560ea7bcd735e2_l.jpg" alt="Lutwyche apartment" loading="lazy">
+    <img src="https://www.totalpropertygroup.com.au/wp-content/uploads/2025/10/The-Rockwell-01.1-Exterior-Hero-HQ.jpg" alt="Lutwyche The Rockwell" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
-  <div class="split-body" style="position:relative;">
-    <div class="prop-number">07</div>
-    <div class="s-tag"><span class="gold-line">Lutwyche</span></div>
-    <h2 class="s-title" style="font-size:clamp(32px,4vw,52px);">21 Norman Avenue<br><em>$1,309,000</em></h2>
-    <div class="property-specs">
-      <div class="spec-pill">3 Bedrooms</div>
-      <div class="spec-pill">2 Bathrooms</div>
-      <div class="spec-pill">2 Parking</div>
-      <div class="spec-pill">Yield 4.6%</div>
-      <div class="spec-pill">Growth 11%</div>
+  <div class="split-body">
+    <div class="prop-num-bg">07</div>
+    <div class="s-tag"><span class="gold-line">Lutwyche · The Rockwell — 21 Norman Ave</span></div>
+    <div class="prop-address">The Rockwell<br><em>À partir de $989,000</em></div>
+    <div class="spec-pills">
+      <span class="spec-pill">2–3 Chambres</span><span class="spec-pill">2 SDB</span><span class="spec-pill">1–2 Parkings</span>
+      <span class="spec-pill">Rooftop Pool</span><span class="spec-pill">Rendement ~4.6 %</span><span class="spec-pill">+14 % / an</span>
     </div>
-    <div class="split-list">
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Most Affordable 3-Bedroom in Portfolio</h4><p>$625K for a 3-bed, 2-bath with dual parking. Exceptional value for investors targeting family tenants with stable long-term leases.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Family Suburb — Strong School Catchments</h4><p>Lutwyche attracts family tenants who stay. Good school catchments and local amenity support low vacancy and lease renewals.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">⚠</div>
-        <div class="sl-body"><h4>Considerations</h4><p>Outer suburb with longer CBD commute. 11% growth — conservative by inner-city standards but appropriate at this price point.</p></div>
-      </div>
+    <div class="roi-box">
+      <div class="roi-metric"><div class="roi-v">$870</div><div class="roi-l">Loyer est. / semaine</div></div>
+      <div class="roi-metric"><div class="roi-v">4.6 %</div><div class="roi-l">Rendement brut</div></div>
+      <div class="roi-metric"><div class="roi-v">+14 %</div><div class="roi-l">Croissance suburb</div></div>
+      <div class="roi-metric"><div class="roi-v">~$310K</div><div class="roi-l">Plus-value est. 5 ans</div></div>
     </div>
-    <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:32px 0 20px;">Best For: Budget-Conscious / Family Tenant Focus</p>
-    <div style="display:flex;gap:12px;">
-      <a href="https://www.domain.com.au/108-21-norman-avenue-lutwyche-qld-4030-2020604123" target="_blank" class="btn-hero">View Listing</a>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire</button>
+    <div class="investor-tag">Stratégie : Rendement + Qualité</div>
+    <div class="sl-list">
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Boutique — 52 Résidences, 8 Niveaux</h4><p>The Rockwell est une résidence de standing dans un immeuble à taille humaine. Rooftop pool, finitions architecturales distinctives. Se loue facilement à des familles ou couples haut de gamme.</p></div></div>
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Double Parking Disponible — Valeur Ajoutée</h4><p>Option 2 parkings rare sur ce segment de marché. Médiane suburb de Lutwyche : $762,500 — le Rockwell surperforme nettement.</p></div></div>
+      <div class="sl-item"><div class="sl-n">!</div><div class="sl-body"><h4>Points de Vigilance</h4><p class="con">En construction — livraison à confirmer. Suburb moins central que Spring Hill ou South Brisbane. Croissance de 14 % — solide mais pas la plus forte.</p></div></div>
+    </div>
+    <div class="prop-cta">
+      <a href="https://www.domain.com.au/108-21-norman-avenue-lutwyche-qld-4030-2020604123" target="_blank" class="btn-hero">Voir le Bien</a>
+      <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Demande d'Info</button>
     </div>
   </div>
 </div>
 
-<!-- PROPERTY 8: CHERMSIDE -->
-<div class="split rev prop-section">
+<!-- PROPERTY 8: CHERMSIDE KABBALAH -->
+<div class="split rev prop-sep">
   <div class="split-img">
-    <img src="https://images.allhomes.com.au/property/photo/92e9839b440230511c4dbc58f28362a5_l.jpg" alt="Chermside apartment" loading="lazy">
+    <img src="https://res.cloudinary.com/dz9xllyip/image/fetch/f_auto,c_limit,w_1200,q_75/https://urban-project-bucket-production.s3.ap-southeast-2.amazonaws.com/204333ac-d3c8-4b26-aba6-b931269fb103-2012_1.02_Exterior_Street_R002.jpg" alt="Chermside Kabbalah" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
-  <div class="split-body dk" style="position:relative;">
-    <div class="prop-number">08</div>
-    <div class="s-tag"><span class="gold-line">Chermside</span></div>
-    <h2 class="s-title" style="font-size:clamp(32px,4vw,52px);">8–12 Playfield Street<br><em>$1,500,000</em></h2>
-    <div class="property-specs">
-      <div class="spec-pill">2 Bedrooms</div>
-      <div class="spec-pill">2 Bathrooms</div>
-      <div class="spec-pill">2 Parking</div>
-      <div class="spec-pill">Yield 4.7%</div>
-      <div class="spec-pill">Growth 9%</div>
+  <div class="split-body dk">
+    <div class="prop-num-bg">08</div>
+    <div class="s-tag"><span class="gold-line">Chermside · Kabbalah — 8–12 Playfield St</span></div>
+    <div class="prop-address">Kabbalah Chermside<br><em>À partir de $1,500,000</em></div>
+    <div class="spec-pills">
+      <span class="spec-pill">3 Chambres</span><span class="spec-pill">2 SDB</span><span class="spec-pill">2 Parkings</span>
+      <span class="spec-pill">Rooftop Pool</span><span class="spec-pill">Rendement ~3.8 %</span><span class="spec-pill">+12 % / an</span>
     </div>
-    <div class="split-list">
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Westfield Chermside — 5 Minutes</h4><p>Dual parking and 5-minute walk to one of Brisbane's largest shopping precincts. High tenant appeal and consistent demand.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>4.7% Yield + Family Area</h4><p>Chermside offers suburban stability. Strong yield for its price point. Suitable for investors targeting low-risk, reliable returns.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">⚠</div>
-        <div class="sl-body"><h4>Considerations</h4><p>Suburban location — capital growth of 9% is the most conservative in the portfolio. Best for income, not growth.</p></div>
-      </div>
+    <div class="roi-box">
+      <div class="roi-metric"><div class="roi-v">$1,025</div><div class="roi-l">Loyer est. / semaine</div></div>
+      <div class="roi-metric"><div class="roi-v">3.8 %</div><div class="roi-l">Rendement brut</div></div>
+      <div class="roi-metric"><div class="roi-v">+12 %</div><div class="roi-l">Croissance suburb</div></div>
+      <div class="roi-metric"><div class="roi-v">~$430K</div><div class="roi-l">Plus-value est. 5 ans</div></div>
     </div>
-    <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:32px 0 20px;">Best For: Yield-Focused / Suburban Stability</p>
-    <div style="display:flex;gap:12px;">
-      <a href="https://www.domain.com.au/104-8-12-playfield-street-chermside-qld-4032-2020301042" target="_blank" class="btn-hero">View Listing</a>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire</button>
+    <div class="investor-tag">Stratégie : Stabilité Suburbaine — Long Terme</div>
+    <div class="sl-list">
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Westfield Chermside — 5 Min à Pied</h4><p>L'un des plus grands centres commerciaux de Brisbane à 5 minutes à pied. Attractivité locative très forte pour les familles. Double parking — rare et valorisant.</p></div></div>
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Résidence Luxe — Rooftop Exclusif</h4><p>Kabbalah positionne Chermside comme un suburb premium. Résidence de standing avec pool rooftop — attire une clientèle locative stable et haut de gamme.</p></div></div>
+      <div class="sl-item"><div class="sl-n">!</div><div class="sl-body"><h4>Points de Vigilance</h4><p class="con">Croissance de 12 % — plus conservatrice que l'inner-city. Rendement brut de 3.8 % — le plus faible du portefeuille. Bien de très long terme.</p></div></div>
+    </div>
+    <div class="prop-cta">
+      <a href="https://www.domain.com.au/104-8-12-playfield-street-chermside-qld-4032-2020301042" target="_blank" class="btn-hero">Voir le Bien</a>
+      <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Demande d'Info</button>
     </div>
   </div>
 </div>
 
-<!-- PROPERTY 9: UPPER MOUNT GRAVATT -->
-<div class="split prop-section">
+<!-- PROPERTY 9: UPPER MOUNT GRAVATT 3007 -->
+<div class="split prop-sep">
   <div class="split-img">
-    <img src="https://images.allhomes.com.au/property/photo/5125e5302899010e21bb2795207d21e3_l.jpg" alt="Upper Mount Gravatt apartment" loading="lazy">
+    <img src="https://res.cloudinary.com/dz9xllyip/image/fetch/f_auto,c_limit,w_1440,q_75/https://urban-project-bucket-production.s3.ap-southeast-2.amazonaws.com/a28513e2-4937-4211-8dd9-e4333d819f3b-EXT01_Building_A_Facade_LR.jpg" alt="Upper Mount Gravatt Pavilion" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
-  <div class="split-body" style="position:relative;">
-    <div class="prop-number">09</div>
-    <div class="s-tag"><span class="gold-line">Upper Mount Gravatt</span></div>
-    <h2 class="s-title" style="font-size:clamp(32px,4vw,52px);">110 Klumpp Road<br><em>$1,049,000</em></h2>
-    <div class="property-specs">
-      <div class="spec-pill">3 Bedrooms</div>
-      <div class="spec-pill">2 Bathrooms</div>
-      <div class="spec-pill">2 Parking</div>
-      <div class="spec-pill">Yield 4.4%</div>
-      <div class="spec-pill">Growth 10%</div>
+  <div class="split-body">
+    <div class="prop-num-bg">09</div>
+    <div class="s-tag"><span class="gold-line">Upper Mt Gravatt · Pavilion — 110 Klumpp Rd</span></div>
+    <div class="prop-address">Pavilion — Apt 3007<br><em>$1,049,000</em></div>
+    <div class="spec-pills">
+      <span class="spec-pill">2 Chambres</span><span class="spec-pill">2 SDB</span><span class="spec-pill">2 Parkings</span>
+      <span class="spec-pill">Grand Balcon</span><span class="spec-pill">Rendement ~4.2 %</span><span class="spec-pill">+21 % / an</span>
     </div>
-    <div class="split-list">
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Spacious 3-Bed + Dual Parking</h4><p>Modern build with generous proportions. Dual parking is rare in this price bracket and adds strong tenant appeal.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Growing Suburban Market</h4><p>Upper Mount Gravatt is seeing consistent demand from families seeking space at accessible price points — a reliable long-term hold.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">⚠</div>
-        <div class="sl-body"><h4>Considerations</h4><p>Car-dependent suburb. Moderate growth at 10%. Better for capital preservation than aggressive appreciation.</p></div>
-      </div>
+    <div class="roi-box">
+      <div class="roi-metric"><div class="roi-v">$825</div><div class="roi-l">Loyer est. / semaine</div></div>
+      <div class="roi-metric"><div class="roi-v">4.2 %</div><div class="roi-l">Rendement brut</div></div>
+      <div class="roi-metric"><div class="roi-v">+21 %</div><div class="roi-l">Croissance suburb</div></div>
+      <div class="roi-metric"><div class="roi-v">~$360K</div><div class="roi-l">Plus-value est. 5 ans</div></div>
     </div>
-    <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:32px 0 20px;">Best For: Space-Focused / Family Tenants</p>
-    <div style="display:flex;gap:12px;">
-      <a href="https://www.domain.com.au/3007-110-klumpp-road-upper-mount-gravatt-qld-4122-2020660985" target="_blank" class="btn-hero">View Listing</a>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire</button>
+    <div class="investor-tag">Stratégie : Croissance Suburbaine Forte</div>
+    <div class="sl-list">
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>+21 % de Croissance — Forte Surperformance</h4><p>Upper Mount Gravatt est l'une des surprises de ce portefeuille : +21 % de croissance sur 12 mois, médiane suburb de $750K. Momentum fort et soutenu.</p></div></div>
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Double Parking + Grand Balcon</h4><p>2 chambres spacieuses avec grand balcon — "oversized balcony" selon le descriptif. Double parking rare et précieux dans un immeuble neuf.</p></div></div>
+      <div class="sl-item"><div class="sl-n">!</div><div class="sl-body"><h4>Points de Vigilance</h4><p class="con">Suburb moins central — dépendant de la voiture. Croissance récente forte mais à surveiller. Bien de hold moyen terme (3–7 ans).</p></div></div>
+    </div>
+    <div class="prop-cta">
+      <a href="https://www.domain.com.au/3007-110-klumpp-road-upper-mount-gravatt-qld-4122-2020660985" target="_blank" class="btn-hero">Voir le Bien</a>
+      <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Demande d'Info</button>
     </div>
   </div>
 </div>
 
-<!-- PROPERTY 10: UPPER MOUNT GRAVATT 2 -->
-<div class="split rev prop-section">
+<!-- PROPERTY 10: UPPER MOUNT GRAVATT 3110 -->
+<div class="split rev prop-sep">
   <div class="split-img">
-    <img src="https://images.allhomes.com.au/property/photo/7a8cc3739ce155066959cd9ddc208cc4_l.jpg" alt="Upper Mount Gravatt apartment 2" loading="lazy">
+    <img src="https://res.cloudinary.com/dz9xllyip/image/fetch/f_auto,c_limit,w_1440,q_75/https://urban-project-bucket-production.s3.ap-southeast-2.amazonaws.com/6c447b78-b4e9-430a-a79d-f972897eb860-ERA_Place-Pin.jpg" alt="Upper Mount Gravatt Pavilion 3110" loading="lazy">
     <div class="split-img-overlay"></div>
   </div>
-  <div class="split-body dk" style="position:relative;">
-    <div class="prop-number">10</div>
-    <div class="s-tag"><span class="gold-line">Upper Mount Gravatt</span></div>
-    <h2 class="s-title" style="font-size:clamp(32px,4vw,52px);">110 Klumpp Road<br><em>$999,000</em></h2>
-    <div class="property-specs">
-      <div class="spec-pill">3 Bedrooms</div>
-      <div class="spec-pill">2 Bathrooms</div>
-      <div class="spec-pill">2 Parking</div>
-      <div class="spec-pill">Yield 4.5%</div>
-      <div class="spec-pill">Growth 10%</div>
+  <div class="split-body dk">
+    <div class="prop-num-bg">10</div>
+    <div class="s-tag"><span class="gold-line">Upper Mt Gravatt · Pavilion — 110 Klumpp Rd</span></div>
+    <div class="prop-address">Pavilion — Apt 3110<br><em>$999,000</em></div>
+    <div class="spec-pills">
+      <span class="spec-pill">2 Chambres</span><span class="spec-pill">2 SDB</span><span class="spec-pill">1 Parking</span>
+      <span class="spec-pill">Vue Verdure</span><span class="spec-pill">Rendement ~4.3 %</span><span class="spec-pill">+21 % / an</span>
     </div>
-    <div class="split-list">
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>Family Layout + Quiet Location</h4><p>Spacious 3-bed layout suited to families. Quiet precinct attracts stable, long-term tenants with low vacancy risk.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">✓</div>
-        <div class="sl-body"><h4>4.5% Yield + Dual Parking</h4><p>Solid yield for the price point. Dual parking and modern finishes support premium rental pricing in the local market.</p></div>
-      </div>
-      <div class="sl-item">
-        <div class="sl-n">⚠</div>
-        <div class="sl-body"><h4>Considerations</h4><p>Regional market with limited transport options. Slower capital growth — best suited to a buy-and-hold, income-focused strategy.</p></div>
-      </div>
+    <div class="roi-box">
+      <div class="roi-metric"><div class="roi-v">$780</div><div class="roi-l">Loyer est. / semaine</div></div>
+      <div class="roi-metric"><div class="roi-v">4.3 %</div><div class="roi-l">Rendement brut</div></div>
+      <div class="roi-metric"><div class="roi-v">+21 %</div><div class="roi-l">Croissance suburb</div></div>
+      <div class="roi-metric"><div class="roi-v">~$343K</div><div class="roi-l">Plus-value est. 5 ans</div></div>
     </div>
-    <p style="font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:32px 0 20px;">Best For: Family Investors / Long-Term Hold</p>
-    <div style="display:flex;gap:12px;">
-      <a href="https://www.domain.com.au/3110-110-klumpp-road-upper-mount-gravatt-qld-4122-2020299519" target="_blank" class="btn-hero">View Listing</a>
-      <button class="btn-ghost" onclick="scrollTo('#contact')">Enquire</button>
+    <div class="investor-tag">Stratégie : Entrée Abordable + Forte Croissance</div>
+    <div class="sl-list">
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Moins de $1M — Croissance +21 %</h4><p>Bien sous le million avec une croissance suburb de 21 % — profil rendement/prix très attractif. "Elevated two-bedroom haven with lush green outlooks" selon le descriptif officiel.</p></div></div>
+      <div class="sl-item"><div class="sl-n">✓</div><div class="sl-body"><h4>Vue Verdure — Environnement Calme</h4><p>Exposition aux espaces verts, cadre de vie qualitatif. Attire des locataires familiaux ou des couples cherchant la tranquillité proche du CBD.</p></div></div>
+      <div class="sl-item"><div class="sl-n">!</div><div class="sl-body"><h4>Points de Vigilance</h4><p class="con">1 seul parking — peut limiter certains locataires. Suburb suburbain — prévoir une voiture. Croissance forte mais plus récente qu'inner-city.</p></div></div>
+    </div>
+    <div class="prop-cta">
+      <a href="https://www.domain.com.au/3110-110-klumpp-road-upper-mount-gravatt-qld-4122-2020299519" target="_blank" class="btn-hero">Voir le Bien</a>
+      <button class="btn-ghost" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Demande d'Info</button>
     </div>
   </div>
 </div>
@@ -731,23 +789,23 @@
   <div class="stats-inner">
     <div class="stat-item">
       <div class="stat-v" data-target="10" data-suffix="">0</div>
-      <div class="stat-l">Properties Selected</div>
-      <div class="stat-sub">Across 8 Brisbane suburbs</div>
+      <div class="stat-l">Biens Sélectionnés</div>
+      <div class="stat-sub">Neufs / Off-Plan</div>
     </div>
     <div class="stat-item">
-      <div class="stat-v">$820K</div>
-      <div class="stat-l">Average Price</div>
-      <div class="stat-sub">$625K–$1.62M range</div>
+      <div class="stat-v">$808K–$3.65M</div>
+      <div class="stat-l">Fourchette de Prix</div>
+      <div class="stat-sub">Prix réels vérifiés</div>
     </div>
     <div class="stat-item">
-      <div class="stat-v" data-target="4.5" data-suffix="%">0%</div>
-      <div class="stat-l">Average Rental Yield</div>
-      <div class="stat-sub">4.0–5.1% across portfolio</div>
+      <div class="stat-v" data-target="4.3" data-suffix="%">0%</div>
+      <div class="stat-l">Rendement Moyen</div>
+      <div class="stat-sub">3.8–4.9 % brut</div>
     </div>
     <div class="stat-item">
-      <div class="stat-v" data-target="15" data-suffix="%">0%</div>
-      <div class="stat-l">Average Annual Growth</div>
-      <div class="stat-sub">8–35% across suburbs</div>
+      <div class="stat-v" data-target="18" data-suffix="%">0%</div>
+      <div class="stat-l">Croissance Moy. Suburb</div>
+      <div class="stat-sub">12–29 % selon suburb</div>
     </div>
   </div>
 </div>
@@ -756,35 +814,35 @@
 <div class="agent-section" id="agent">
   <div class="agent-grid">
     <div>
-      <div class="s-tag" style="margin-bottom:22px;"><span class="gold-line">Your Agent</span></div>
+      <div class="s-tag" style="margin-bottom:22px;"><span class="gold-line">Votre Agent</span></div>
       <img src="https://app-spoke-sites-au.s3.amazonaws.com/uploads/sites/246/2025/06/2024_Rebrand_Web_Headshot_cyril.jpg" alt="Cyril Texier" class="agent-photo" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop'">
       <div class="agent-name">Cyril<br>Texier</div>
       <div class="agent-title">Team Cyril Texier · NGU Real Estate</div>
-      <p class="agent-bio">Cyril specialises in investment acquisitions across Brisbane and the Gold Coast. He works with a select group of buyers — not the masses — and brings analytical precision, $170M+ in career sales, and genuine market intelligence to every acquisition he facilitates.</p>
+      <p class="agent-bio">Cyril se spécialise dans les acquisitions d'investissement à Brisbane et sur la Gold Coast. Il accompagne un cercle sélect d'investisseurs — pas le grand public — et apporte précision analytique, plus de 170 M$ de ventes en carrière, et une intelligence de marché authentique à chaque acquisition.</p>
       <div class="agent-nums">
-        <div class="a-num"><div class="a-num-val">4.8★</div><div class="a-num-lbl">REA Rating</div></div>
-        <div class="a-num"><div class="a-num-val">$170M+</div><div class="a-num-lbl">Career Sales</div></div>
-        <div class="a-num"><div class="a-num-val">11×</div><div class="a-num-lbl">Award Winner</div></div>
+        <div class="a-num"><div class="a-num-val">4.8★</div><div class="a-num-lbl">Note REA</div></div>
+        <div class="a-num"><div class="a-num-val">$170M+</div><div class="a-num-lbl">Ventes Carrière</div></div>
+        <div class="a-num"><div class="a-num-val">11×</div><div class="a-num-lbl">Primé</div></div>
       </div>
-      <button class="btn-hero" onclick="scrollTo('#contact')">Contact Cyril</button>
+      <button class="btn-hero" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Contacter Cyril</button>
     </div>
     <div>
-      <div class="s-tag" style="margin-bottom:28px;"><span class="gold-line">Verified Reviews · Real Estate.com.au</span></div>
+      <div class="s-tag" style="margin-bottom:28px;"><span class="gold-line">Avis Vérifiés · Real Estate.com.au</span></div>
       <div class="reviews">
         <div class="review">
           <div class="review-stars">★ ★ ★ ★ ★</div>
-          <p class="review-text">"One of the finest agents I have worked with. Outstanding professionalism and commitment. Achieved a result well above expectations."</p>
-          <div class="review-attr">Verified Seller · Surfers Paradise · Real Estate.com.au</div>
+          <p class="review-text">"L'un des meilleurs agents avec qui j'ai eu l'occasion de travailler. Professionnalisme et engagement exemplaires. Résultat bien au-delà de mes attentes."</p>
+          <div class="review-attr">Vendeur Vérifié · Surfers Paradise · Real Estate.com.au</div>
         </div>
         <div class="review">
           <div class="review-stars">★ ★ ★ ★ ★</div>
-          <p class="review-text">"Professional, responsive, and genuinely easy to work with. Clear communication and deep market knowledge from start to finish."</p>
-          <div class="review-attr">Verified Seller · Hope Island · Real Estate.com.au</div>
+          <p class="review-text">"Professionnel, réactif, et d'une grande facilité de contact. Communication claire et connaissance approfondie du marché de bout en bout."</p>
+          <div class="review-attr">Vendeur Vérifié · Hope Island · Real Estate.com.au</div>
         </div>
         <div class="review">
           <div class="review-stars">★ ★ ★ ★</div>
-          <p class="review-text">"Outstanding support throughout the purchase. Expert guidance and steady communication made everything seamless, from viewing to settlement."</p>
-          <div class="review-attr">Verified Buyer · Surfers Paradise · Real Estate.com.au</div>
+          <p class="review-text">"Accompagnement exceptionnel tout au long de l'acquisition. Conseils experts et communication stable ont rendu tout le processus fluide, de la visite au règlement."</p>
+          <div class="review-attr">Acheteur Vérifié · Surfers Paradise · Real Estate.com.au</div>
         </div>
       </div>
     </div>
@@ -794,12 +852,12 @@
 <!-- CTA -->
 <div class="cta-section" id="contact">
   <div class="cta-inner">
-    <div class="s-tag" style="justify-content:center;margin-bottom:24px;"><span class="gold-line" style="padding-left:50px;">Register Your Interest</span></div>
-    <h2>Ready to Invest<br><em>in Brisbane?</em></h2>
-    <p>This portfolio has been personally selected for Jean-Jacques &amp; Ilan Hayoun. If you're ready to move, contact Cyril today for a confidential conversation, detailed analysis, and next steps.</p>
+    <div class="s-tag" style="justify-content:center;margin-bottom:24px;"><span class="gold-line" style="padding-left:50px;">Passez à l'Action</span></div>
+    <h2>Prêts à Investir<br><em>à Brisbane ?</em></h2>
+    <p>Ce portefeuille a été préparé exclusivement pour Jean-Jacques &amp; Ilan Hayoun. Contactez Cyril pour une conversation confidentielle, une analyse personnalisée, et les prochaines étapes.</p>
     <div class="cta-btns">
-      <a class="btn-hero" href="tel:0402293358">Call 0402 293 358</a>
-      <a class="btn-ghost" href="mailto:teamcyril@ngurealestate.com.au">Send a Private Enquiry</a>
+      <a class="btn-hero" href="tel:0402293358">Appeler — 0402 293 358</a>
+      <a class="btn-ghost" href="mailto:teamcyril@ngurealestate.com.au">Envoyer un Message Privé</a>
     </div>
   </div>
 </div>
@@ -811,7 +869,7 @@
     <div class="footer-team-logo">Team Cyril Texier</div>
   </div>
   <div class="f-center">
-    <p style="font-size:11px;margin-top:6px;opacity:0.4;">Market data accurate as of April 2026. Subject to change and availability. Prepared exclusively for Jean-Jacques &amp; Ilan Hayoun.</p>
+    <p style="font-size:11px;opacity:0.4;">Données de marché à jour avril 2026. Rendements estimatifs — non garantis. Préparé exclusivement pour Jean-Jacques &amp; Ilan Hayoun. Consulter un conseiller financier avant tout investissement.</p>
   </div>
   <div class="f-right">
     <p>Team Cyril Texier · NGU Real Estate</p>
@@ -822,16 +880,15 @@
 <!-- STICKY BAR -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-left">
-    <strong>Brisbane Investment Portfolio</strong> &nbsp;·&nbsp; 10 Properties Selected — Jean-Jacques &amp; Ilan Hayoun
+    <strong>Portefeuille Brisbane</strong> &nbsp;·&nbsp; 10 Biens Sélectionnés — Jean-Jacques &amp; Ilan Hayoun
   </div>
   <div class="sticky-right">
     <a class="btn-ghost" href="tel:0402293358" style="padding:10px 24px;font-size:10px;">0402 293 358</a>
-    <button class="btn-hero" style="padding:10px 24px;font-size:10px;" onclick="scrollTo('#contact')">Enquire Now</button>
+    <button class="btn-hero" style="padding:10px 24px;font-size:10px;" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Nous Contacter</button>
   </div>
 </div>
 
 <script>
-  function scrollTo(id) { document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' }); }
   const nav = document.getElementById('nav');
   const stickyBar = document.getElementById('stickyBar');
   window.addEventListener('scroll', () => {
@@ -842,9 +899,9 @@
   function animateCounter(el) {
     const target = parseFloat(el.dataset.target);
     const suffix = el.dataset.suffix || '';
+    const isInt = Number.isInteger(target);
     const duration = 1800;
     const start = performance.now();
-    const isInt = Number.isInteger(target);
     function step(now) {
       const p = Math.min((now - start) / duration, 1);
       const ease = 1 - Math.pow(1 - p, 4);
@@ -854,17 +911,17 @@
     }
     requestAnimationFrame(step);
   }
-  const counterObs = new IntersectionObserver((entries) => {
+  const counterObs = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); } });
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-target]').forEach(c => counterObs.observe(c));
-  const fadeObs = new IntersectionObserver((entries) => {
+  const fadeObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; fadeObs.unobserve(e.target); }
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.feat, .loc-cell, .review, .sl-item, .spec-pill').forEach(el => {
-    el.style.opacity = '0'; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.feat, .review, .sl-item, .spec-pill, .roi-metric, .stat-item').forEach(el => {
+    el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
     fadeObs.observe(el);
   });
 </script>
